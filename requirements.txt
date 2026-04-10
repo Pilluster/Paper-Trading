@@ -1,0 +1,8 @@
+yfinance>=0.2.40
+pandas>=2.0.0
+numpy>=1.26.0
+requests>=2.31.0
+pyotp>=2.9.0
+smartapi-python>=1.3.9
+ta>=0.11.0
+schedule>=1.2.0

@@ -1,0 +1,141 @@
+name: AlphaAgent — Daily Trading Run
+
+on:
+  schedule:
+    - cron: "15 3 * * 1-5"
+    - cron: "05 10 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Reason for manual run"
+        required: false
+        default: "Manual trigger"
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --quiet yfinance pandas numpy requests pyotp smartapi-python schedule ta
+
+      - name: Run AlphaAgent
+        env:
+          PAPER_MODE:            ${{ secrets.PAPER_MODE }}
+          VIRTUAL_CAPITAL:       ${{ secrets.VIRTUAL_CAPITAL }}
+          ANGELONE_API_KEY:      ${{ secrets.ANGELONE_API_KEY }}
+          ANGELONE_CLIENT_ID:    ${{ secrets.ANGELONE_CLIENT_ID }}
+          ANGELONE_PASSWORD:     ${{ secrets.ANGELONE_PASSWORD }}
+          ANGELONE_TOTP_SECRET:  ${{ secrets.ANGELONE_TOTP_SECRET }}
+          TELEGRAM_TOKEN:        ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID:      ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python alpha_agent.py
+
+      - name: Send email report
+        if: always()
+        env:
+          GMAIL_USER:     ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASS: ${{ secrets.GMAIL_APP_PASS }}
+          NOTIFY_EMAIL:   ${{ secrets.NOTIFY_EMAIL }}
+        run: |
+          python - <<'PYEOF'
+          import os, smtplib
+          from email.mime.multipart import MIMEMultipart
+          from email.mime.text      import MIMEText
+          from email.mime.base      import MIMEBase
+          from email                import encoders
+          from datetime             import datetime
+
+          gmail_user = os.environ.get("GMAIL_USER", "")
+          gmail_pass = os.environ.get("GMAIL_APP_PASS", "")
+          to_email   = os.environ.get("NOTIFY_EMAIL", "")
+
+          if not all([gmail_user, gmail_pass, to_email]):
+              print("Email secrets not set — skipping")
+              exit(0)
+
+          today   = datetime.now().strftime("%Y-%m-%d")
+          today_s = datetime.now().strftime("%Y%m%d")
+          run_time= datetime.now().strftime("%d %b %Y")
+
+          html_path = f"reports/report_{today_s}.html"
+          txt_path  = f"reports/report_{today_s}.txt"
+
+          if os.path.exists(html_path):
+              with open(html_path) as f:
+                  html_body = f.read()
+          elif os.path.exists(txt_path):
+              with open(txt_path) as f:
+                  body = f.read()
+              html_body = f"<pre style='font-family:monospace;font-size:13px;line-height:1.6'>{body}</pre>"
+          else:
+              html_body = "<p>Report not generated — check GitHub Actions logs.</p>"
+
+          msg = MIMEMultipart("mixed")
+          msg["From"]    = f"AlphaAgent <{gmail_user}>"
+          msg["To"]      = to_email
+          msg["Subject"] = f"AlphaAgent Report — {run_time}"
+          msg.attach(MIMEText(html_body, "html"))
+
+          journal = "reports/trade_journal.csv"
+          if os.path.exists(journal):
+              with open(journal, "rb") as f:
+                  part = MIMEBase("application", "octet-stream")
+                  part.set_payload(f.read())
+              encoders.encode_base64(part)
+              part.add_header("Content-Disposition", f"attachment; filename=trade_journal_{today}.csv")
+              msg.attach(part)
+
+          if os.path.exists(txt_path):
+              with open(txt_path, "rb") as f:
+                  part2 = MIMEBase("application", "octet-stream")
+                  part2.set_payload(f.read())
+              encoders.encode_base64(part2)
+              part2.add_header("Content-Disposition", f"attachment; filename=report_{today}.txt")
+              msg.attach(part2)
+
+          try:
+              with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+                  server.login(gmail_user, gmail_pass)
+                  server.sendmail(gmail_user, to_email, msg.as_string())
+              print(f"Email sent to {to_email}")
+          except Exception as e:
+              print(f"Email failed: {e}")
+              exit(1)
+          PYEOF
+
+      - name: Commit reports
+        run: |
+          git config --local user.email "alphaagent-bot@github.com"
+          git config --local user.name  "AlphaAgent Bot"
+          git add reports/
+          git add alpha_agent.log || true
+          git diff --staged --quiet || git commit -m "bot: daily run $(date +'%Y-%m-%d %H:%M UTC') [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: alphaagent-${{ github.run_number }}-${{ github.run_attempt }}
+          path: |
+            alpha_agent.log
+            reports/
+          retention-days: 30

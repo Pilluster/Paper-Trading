@@ -1,0 +1,19 @@
+# Credentials — NEVER commit these
+.env
+*.env
+secrets.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# Logs (large files — stored as GitHub Actions artifacts instead)
+alpha_agent.log
+
+# OS
+.DS_Store
+Thumbs.db
