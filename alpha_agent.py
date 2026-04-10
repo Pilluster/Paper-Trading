@@ -744,62 +744,337 @@ class Journal:
         return pd.DataFrame()
 
 
-# ─── DAILY REPORT ──────────────────────────────────────────────────────────────
+# ─── DAILY REPORT (RICH HTML) ──────────────────────────────────────────────────
 
-def build_report(metrics: dict, signals: list[Signal],
-                 macro: MacroState, portfolio: Portfolio,
-                 prices: dict) -> str:
+def gauge_bar(value, min_val, max_val, low_bad=True, width=120):
+    pct = max(0, min(100, (value - min_val) / (max_val - min_val) * 100))
+    color = ("#e74c3c" if pct < 30 else "#f39c12" if pct < 60 else "#27ae60") if low_bad else             ("#27ae60" if pct < 30 else "#f39c12" if pct < 60 else "#e74c3c")
+    return (f'<span style="display:inline-block;width:{width}px;height:8px;background:#e0e0e0;'
+            f'border-radius:4px;vertical-align:middle;margin:0 6px;">'
+            f'<span style="display:block;width:{pct:.0f}%;height:100%;background:{color};border-radius:4px;"></span></span>')
 
-    buys  = sorted([s for s in signals if s.action=="buy"],
-                   key=lambda x: x.score, reverse=True)[:6]
-    watch = sorted([s for s in signals if s.action=="watch"],
-                   key=lambda x: x.score, reverse=True)[:5]
+def build_html_report(metrics, signals, macro, portfolio, prices):
+    mode_tag  = "PAPER" if PAPER_MODE else "LIVE"
+    data_tag  = "yfinance" if not USE_ANGEL_ONE else "AngelOne"
+    now_str   = datetime.now().strftime("%d %b %Y, %I:%M %p IST")
+    alpha     = metrics["total"] - Config.VIRTUAL_CAPITAL
+    alpha_pct = (metrics["total"] / Config.VIRTUAL_CAPITAL - 1) * 100
+    pnl_color = "#27ae60" if alpha >= 0 else "#e74c3c"
+    dd_color  = "#27ae60" if metrics["drawdown"] <= 3 else "#f39c12" if metrics["drawdown"] <= 7 else "#e74c3c"
 
-    mode_tag = "PAPER" if PAPER_MODE else "LIVE"
-    data_tag = "yfinance" if not USE_ANGEL_ONE else "AngelOne"
-    alpha    = round(metrics["total"] - Config.VIRTUAL_CAPITAL, 2)
-    alpha_pct= round((metrics["total"] / Config.VIRTUAL_CAPITAL - 1) * 100, 2)
+    regime_map = {
+        "A": {"label":"A — Risk On (Bull Market)","color":"#27ae60","bg":"#eafaf1","border":"#27ae60",
+              "meaning":"Nifty is above both its 50-day and 200-day moving averages and trending up. Ideal environment for swing trading — strong institutional support. Bot is fully deployed.",
+              "action":"Full deployment. All modes active. Swing + ETF positions open.","emoji":"🟢"},
+        "B": {"label":"B — Cautious (Choppy Market)","color":"#f39c12","bg":"#fef9e7","border":"#f39c12",
+              "meaning":"Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.",
+              "action":"Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.","emoji":"🟡"},
+        "C": {"label":"C — Risk Off (Bear Market)","color":"#e74c3c","bg":"#fdedec","border":"#e74c3c",
+              "meaning":"Nifty is below its 200-day moving average — a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.",
+              "action":"No new equity entries. Capital fully preserved in cash. Only Gold ETF allowed.","emoji":"🔴"},
+    }
+    r = regime_map.get(macro.regime, regime_map["B"])
 
-    lines = [
-        f"<b>AlphaAgent Daily Report</b> [{mode_tag} | {data_tag}]",
-        f"{datetime.now().strftime('%d %b %Y, %I:%M %p IST')}",
-        "",
-        f"<b>Macro</b>: Regime {macro.regime} | VIX {macro.vix} | FII ₹{macro.fii_flow:+.0f}Cr",
-        f"Nifty vs 50DMA: {macro.nifty_vs_50:+.1f}% | vs 200DMA: {macro.nifty_vs_200:+.1f}%",
-        "",
-        f"<b>Portfolio</b>",
-        f"  Value    : ₹{metrics['total']:>10,.0f}",
-        f"  Cash     : ₹{metrics['cash']:>10,.0f}",
-        f"  P&L      : ₹{alpha:>+10,.0f} ({alpha_pct:+.2f}%)",
-        f"  Drawdown : {metrics['drawdown']:+.2f}%",
-        f"  Positions: {metrics['positions']}/{Config.MAX_POSITIONS}",
-    ]
+    vix = macro.vix
+    if vix < 12:   vix_label, vix_color = "Very low — extreme complacency, watch for reversal", "#f39c12"
+    elif vix < 16: vix_label, vix_color = "Low — calm market, good for momentum trades", "#27ae60"
+    elif vix < 20: vix_label, vix_color = "Moderate — normal healthy volatility", "#27ae60"
+    elif vix < 25: vix_label, vix_color = "Elevated — caution warranted, tighten stops", "#f39c12"
+    elif vix < 30: vix_label, vix_color = "High — fear in market, reduce all exposure", "#e74c3c"
+    else:          vix_label, vix_color = "Extreme fear — stay in cash, wait for calm", "#e74c3c"
 
-    if metrics["paused"]:
-        lines += ["", "⚠️ CIRCUIT BREAKER: Drawdown > 10%. No new entries."]
+    def ma_interp(pct):
+        if pct > 5:    return f"{pct:+.1f}% above — strong uptrend confirmed", "#27ae60"
+        elif pct > 0:  return f"{pct:+.1f}% above — mildly bullish", "#27ae60"
+        elif pct > -3: return f"{pct:+.1f}% below — caution zone", "#f39c12"
+        else:          return f"{pct:+.1f}% below — confirmed downtrend", "#e74c3c"
 
-    if portfolio.positions:
-        lines += ["", "<b>Open Positions</b>"]
+    ma50_label,  ma50_color  = ma_interp(macro.nifty_vs_50)
+    ma200_label, ma200_color = ma_interp(macro.nifty_vs_200)
+
+    fii = macro.fii_flow
+    if fii > 2000:    fii_label, fii_color = "Strong buying — very bullish signal", "#27ae60"
+    elif fii > 500:   fii_label, fii_color = "Net buyers — bullish", "#27ae60"
+    elif fii > 0:     fii_label, fii_color = "Marginal buying — neutral", "#f39c12"
+    elif fii > -500:  fii_label, fii_color = "Marginal selling — mild caution", "#f39c12"
+    elif fii > -2000: fii_label, fii_color = "Net sellers — bearish pressure", "#e74c3c"
+    else:             fii_label, fii_color = "Heavy selling — very bearish", "#e74c3c"
+
+    buys  = sorted([s for s in signals if s.action=="buy"],  key=lambda x: x.score, reverse=True)[:8]
+    watch = sorted([s for s in signals if s.action=="watch"],key=lambda x: x.score, reverse=True)[:8]
+
+    def sig_rows(sigs):
+        if not sigs:
+            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No signals in current regime — bot protecting capital</td></tr>'
+        rows = ""
+        for s in sigs:
+            cost = s.entry * s.qty
+            rr   = round((s.entry*(1+Config.PARTIAL_EXIT_1_PCT)-s.entry)/(s.entry-s.stop),2) if s.stop < s.entry else 0
+            sc   = "#27ae60" if s.score>=72 else "#f39c12" if s.score>=55 else "#e74c3c"
+            rows += f"""<tr style="border-bottom:1px solid #f0f0f0;">
+              <td style="padding:9px 8px;font-weight:700;">{s.symbol}</td>
+              <td style="padding:9px 8px;text-align:center;">
+                <span style="background:{sc};color:#fff;padding:3px 8px;border-radius:12px;font-size:12px;font-weight:700;">{s.score:.0f}</span>
+              </td>
+              <td style="padding:9px 8px;text-align:right;">₹{s.entry:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;color:#e74c3c;">₹{s.stop:,.2f}</td>
+              <td style="padding:9px 8px;text-align:center;">{s.qty}</td>
+              <td style="padding:9px 8px;text-align:right;">₹{cost:,.0f}</td>
+              <td style="padding:9px 8px;text-align:center;color:#7f8c8d;">{rr:.1f}x</td>
+            </tr>"""
+        return rows
+
+    def pos_rows():
+        if not portfolio.positions:
+            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No open positions — fully in cash</td></tr>'
+        rows = ""
         for p in portfolio.positions:
             ltp = prices.get(p.symbol, p.entry)
-            pnl_pct = (ltp - p.entry) / p.entry * 100
-            lines.append(f"  {p.symbol:<14} ₹{ltp:.2f} | Entry ₹{p.entry:.2f} | "
-                         f"{pnl_pct:+.1f}% | Stop ₹{p.live_stop:.2f}")
+            pp  = (ltp - p.entry) / p.entry * 100
+            pv  = (ltp - p.entry) * p.qty
+            pc  = "#27ae60" if pp >= 0 else "#e74c3c"
+            sd  = (ltp - p.live_stop) / ltp * 100
+            tr  = "✓ Trailing" if p.trail_on else "Hard stop"
+            rows += f"""<tr style="border-bottom:1px solid #f0f0f0;">
+              <td style="padding:9px 8px;font-weight:700;">{p.symbol}</td>
+              <td style="padding:9px 8px;text-align:right;">₹{p.entry:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;">₹{ltp:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;color:{pc};font-weight:700;">{pp:+.1f}%<br><span style="font-size:11px;">₹{pv:+,.0f}</span></td>
+              <td style="padding:9px 8px;text-align:right;color:#e74c3c;">₹{p.live_stop:,.2f}<br><span style="font-size:11px;color:#7f8c8d;">{sd:.1f}% away | {tr}</span></td>
+              <td style="padding:9px 8px;text-align:right;">₹{p.target1:,.2f}</td>
+              <td style="padding:9px 8px;text-align:center;font-size:12px;color:#7f8c8d;">{p.entry_date}</td>
+            </tr>"""
+        return rows
 
-    if buys:
-        lines += ["", "<b>New Buy Signals</b>"]
-        for s in buys:
-            cost = s.entry * s.qty
-            lines.append(f"  {s.symbol:<14} Score {s.score:.0f}/100 | "
-                         f"₹{s.entry:.2f} | Qty {s.qty} | "
-                         f"Cost ₹{cost:,.0f} | Stop ₹{s.stop:.2f}")
+    def comp_table():
+        if not buys: return ""
+        top = buys[0]
+        labels = {
+            "stage2":("Stage 2 — Weinstein",20,"Price above rising 30-week MA"),
+            "vcp":("VCP Pattern",15,"Volatility contraction + pivot breakout"),
+            "ma_stack":("MA Stack 50/100/200",10,"Full upward hierarchy"),
+            "macd":("MACD",8,"Bullish crossover + expanding histogram"),
+            "rsi":("Weekly RSI",5,"Sweet spot: 50–70"),
+            "volume":("Volume",2,"Breakout vol ≥ 1.5× average"),
+            "relative_str":("Relative Strength vs Nifty",12,"6-month outperformance"),
+            "sector_rrg":("Sector RRG",10,"Leading quadrant"),
+            "macro":("Macro Score",8,"RBI + FII + VIX + Nifty MAs"),
+            "earnings":("Earnings Momentum",6,"Revenue + EPS trend"),
+            "crude_dxy":("DXY / Crude Oil",4,"Global macro direction"),
+        }
+        rows = ""
+        for key,(label,mx,desc) in labels.items():
+            got = top.comps.get(key,0)
+            pct = got/mx*100 if mx else 0
+            bc  = "#27ae60" if pct>=70 else "#f39c12" if pct>=40 else "#e74c3c"
+            rows += f"""<tr style="border-bottom:1px solid #f8f8f8;">
+              <td style="padding:7px 8px;font-size:13px;font-weight:600;">{label}</td>
+              <td style="padding:7px 8px;font-size:12px;color:#7f8c8d;">{desc}</td>
+              <td style="padding:7px 8px;text-align:right;font-weight:700;color:{bc};">{got:.0f}/{mx}</td>
+              <td style="padding:7px 8px;width:100px;"><div style="background:#e0e0e0;border-radius:3px;height:6px;"><div style="width:{pct:.0f}%;background:{bc};height:6px;border-radius:3px;"></div></div></td>
+            </tr>"""
+        return f"""<h3 style="color:#2c3e50;font-size:15px;margin:24px 0 10px;">Signal breakdown — {top.symbol} (top pick today)</h3>
+        <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;">
+          <thead><tr style="background:#f8f9fa;">
+            <th style="padding:8px;text-align:left;color:#7f8c8d;">Factor</th>
+            <th style="padding:8px;text-align:left;color:#7f8c8d;">What it measures</th>
+            <th style="padding:8px;text-align:right;color:#7f8c8d;">Score</th>
+            <th style="padding:8px;color:#7f8c8d;">Strength</th>
+          </tr></thead><tbody>{rows}</tbody></table>"""
 
-    if watch:
-        lines += ["", "<b>Watchlist</b> (score 55–71)"]
-        for s in watch:
-            lines.append(f"  {s.symbol:<14} Score {s.score:.0f}")
+    circuit = ""
+    if metrics["paused"]:
+        circuit = '<div style="background:#fdedec;border:1px solid #e74c3c;border-radius:8px;padding:14px 18px;margin:16px 0;"><b style="color:#e74c3c;">⚠ Circuit Breaker Active</b><p style="color:#c0392b;margin:6px 0 0;font-size:13px;">Portfolio drawdown exceeded 10%. No new entries until recovery. Bot is protecting your capital.</p></div>'
 
-    return "\n".join(lines)
+    watch_rows = "".join(f"""<tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 8px;font-weight:700;">{s.symbol}</td>
+      <td style="padding:9px 8px;text-align:center;"><span style="background:#fef9e7;color:#f39c12;padding:2px 8px;border-radius:10px;font-size:12px;">{s.score:.0f}</span></td>
+      <td style="padding:9px 8px;text-align:right;">₹{s.entry:,.2f}</td>
+      <td style="padding:9px 8px;font-size:12px;color:#7f8c8d;">{s.reason}</td>
+    </tr>""" for s in watch) or '<tr><td colspan="4" style="text-align:center;color:#999;padding:16px;">Nothing on watchlist today</td></tr>'
+
+    html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;color:#2c3e50;max-width:700px;margin:0 auto;padding:20px;background:#f5f6fa;">
+
+<div style="background:#1a252f;border-radius:10px;padding:24px;margin-bottom:20px;">
+  <table width="100%"><tr>
+    <td><h1 style="color:#fff;margin:0;font-size:22px;">AlphaAgent Daily Report</h1>
+        <p style="color:#95a5a6;margin:4px 0 0;font-size:13px;">{now_str}</p></td>
+    <td align="right">
+      <span style="background:#2ecc71;color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">{mode_tag}</span>
+      <span style="background:#34495e;color:#bdc3c7;padding:4px 12px;border-radius:20px;font-size:12px;margin-left:6px;">{data_tag}</span>
+    </td>
+  </tr></table>
+</div>
+
+{circuit}
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Portfolio</h2>
+  <table width="100%"><tr>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TOTAL VALUE</div>
+      <div style="font-size:22px;font-weight:700;">₹{metrics["total"]:,.0f}</div>
+    </td>
+    <td width="5%"></td>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TOTAL P&L</div>
+      <div style="font-size:22px;font-weight:700;color:{pnl_color};">{alpha_pct:+.2f}%</div>
+      <div style="font-size:12px;color:{pnl_color};">₹{alpha:+,.0f}</div>
+    </td>
+    <td width="5%"></td>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">DRAWDOWN</div>
+      <div style="font-size:22px;font-weight:700;color:{dd_color};">{metrics["drawdown"]:.2f}%</div>
+      <div style="font-size:11px;color:#7f8c8d;">Limit: 10%</div>
+    </td>
+  </tr></table>
+  <table width="100%" style="margin-top:12px;"><tr>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
+      <div style="font-size:11px;color:#7f8c8d;">CASH AVAILABLE</div>
+      <div style="font-size:16px;font-weight:600;">₹{metrics["cash"]:,.0f}</div>
+    </td>
+    <td width="5%"></td>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
+      <div style="font-size:11px;color:#7f8c8d;">OPEN POSITIONS</div>
+      <div style="font-size:16px;font-weight:600;">{metrics["positions"]} / {Config.MAX_POSITIONS}</div>
+    </td>
+    <td width="5%"></td>
+    <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
+      <div style="font-size:11px;color:#7f8c8d;">UNREALIZED P&L</div>
+      <div style="font-size:16px;font-weight:600;color:{pnl_color};">₹{metrics["unrealized"]:+,.0f}</div>
+    </td>
+  </tr></table>
+</div>
+
+<div style="background:{r["bg"]};border:2px solid {r["border"]};border-radius:10px;padding:20px;margin-bottom:16px;">
+  <div style="font-size:24px;margin-bottom:8px;">{r["emoji"]} <span style="font-size:17px;font-weight:700;color:{r["color"]};">{r["label"]}</span></div>
+  <p style="color:#2c3e50;font-size:13px;line-height:1.7;margin:0 0 12px;">{r["meaning"]}</p>
+  <div style="background:rgba(255,255,255,0.7);border-radius:6px;padding:10px 14px;">
+    <b style="font-size:12px;color:{r["color"]};">What the bot is doing today: </b>
+    <span style="font-size:12px;color:#2c3e50;">{r["action"]}</span>
+  </div>
+</div>
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Macro indicators</h2>
+  <table width="100%" style="border-collapse:collapse;">
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;width:170px;">VIX (Fear Index)</td>
+      <td style="padding:10px 0;"><b style="color:{vix_color};">{vix:.1f}</b> {gauge_bar(vix,10,40,low_bad=False)} <span style="font-size:12px;color:{vix_color};">{vix_label}</span></td>
+      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Normal: 12–20</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">Nifty vs 50 DMA</td>
+      <td style="padding:10px 0;"><b style="color:{ma50_color};">{macro.nifty_vs_50:+.1f}%</b> {gauge_bar(macro.nifty_vs_50+10,0,20)} <span style="font-size:12px;color:{ma50_color};">{ma50_label}</span></td>
+      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: above 0%</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">Nifty vs 200 DMA</td>
+      <td style="padding:10px 0;"><b style="color:{ma200_color};">{macro.nifty_vs_200:+.1f}%</b> {gauge_bar(macro.nifty_vs_200+10,0,20)} <span style="font-size:12px;color:{ma200_color};">{ma200_label}</span></td>
+      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: above 0%</td>
+    </tr>
+    <tr>
+      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">FII Net Flow</td>
+      <td style="padding:10px 0;"><b style="color:{fii_color};">₹{fii:+,.0f} Cr</b> {gauge_bar(fii+3000,0,6000)} <span style="font-size:12px;color:{fii_color};">{fii_label}</span></td>
+      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: &gt;₹500Cr</td>
+    </tr>
+  </table>
+</div>
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Open positions ({metrics["positions"]})</h2>
+  <table width="100%" style="border-collapse:collapse;font-size:13px;">
+    <thead><tr style="background:#f8f9fa;">
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">Symbol</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Entry</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">LTP</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">P&L</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Stop</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Target 1</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Entry date</th>
+    </tr></thead>
+    <tbody>{pos_rows()}</tbody>
+  </table>
+</div>
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 4px;">Buy signals ({len(buys)})</h2>
+  <p style="color:#7f8c8d;font-size:12px;margin:0 0 14px;">Stocks scoring ≥72/100. R:R = reward-to-risk ratio (target ≥2x).</p>
+  <table width="100%" style="border-collapse:collapse;font-size:13px;">
+    <thead><tr style="background:#f8f9fa;">
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">Symbol</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Score</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Entry ₹</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Stop ₹</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Qty</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Capital</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">R:R</th>
+    </tr></thead>
+    <tbody>{sig_rows(buys)}</tbody>
+  </table>
+  {comp_table()}
+</div>
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 4px;">Watchlist ({len(watch)})</h2>
+  <p style="color:#7f8c8d;font-size:12px;margin:0 0 14px;">Scoring 55–71. Setting up but not ready yet — monitor daily.</p>
+  <table width="100%" style="border-collapse:collapse;font-size:13px;">
+    <thead><tr style="background:#f8f9fa;">
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">Symbol</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Score</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Price</th>
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">What is missing</th>
+    </tr></thead>
+    <tbody>{watch_rows}</tbody>
+  </table>
+</div>
+
+<div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+  <b style="color:#1a5276;font-size:13px;">Strategy rules — quick reference</b>
+  <table width="100%" style="margin-top:10px;font-size:12px;color:#1a5276;">
+    <tr><td>Risk per trade</td><td><b>1.5% of portfolio (₹{Config.VIRTUAL_CAPITAL*Config.RISK_PER_TRADE_PCT:,.0f})</b></td>
+        <td>Stop loss</td><td><b>7% below entry or VCP base low</b></td></tr>
+    <tr><td style="padding-top:6px;">Partial exit 1</td><td><b>Sell ⅓ at +18%</b></td>
+        <td style="padding-top:6px;">Partial exit 2</td><td><b>Sell ⅓ at +30%</b></td></tr>
+    <tr><td style="padding-top:6px;">Trailing stop</td><td><b>Activates at +20%, trails 8%</b></td>
+        <td style="padding-top:6px;">Circuit breaker</td><td><b>Pause at 10% drawdown</b></td></tr>
+  </table>
+</div>
+
+<div style="text-align:center;color:#bdc3c7;font-size:11px;padding:10px;">
+  AlphaAgent automated paper trading | not SEBI-registered financial advice<br>
+  Attachments: trade_journal.csv (complete history) · report.txt (plain text)
+</div>
+</body></html>"""
+
+    plain = f"""AlphaAgent Daily Report [{mode_tag} | {data_tag}]
+{now_str}
+
+MARKET REGIME: {r["label"]}
+{r["meaning"]}
+Bot action: {r["action"]}
+
+MACRO INDICATORS
+  VIX              : {vix:.1f}  [{vix_label}]  (Normal: 12-20)
+  Nifty vs 50 DMA  : {macro.nifty_vs_50:+.1f}%  [{ma50_label}]
+  Nifty vs 200 DMA : {macro.nifty_vs_200:+.1f}%  [{ma200_label}]
+  FII Net Flow     : Rs{fii:+,.0f} Cr  [{fii_label}]
+
+PORTFOLIO
+  Total Value : Rs{metrics["total"]:,.0f}
+  Cash        : Rs{metrics["cash"]:,.0f}
+  P&L         : Rs{alpha:+,.0f} ({alpha_pct:+.2f}%)
+  Drawdown    : {metrics["drawdown"]:.2f}%  (Limit: 10%)
+  Positions   : {metrics["positions"]}/{Config.MAX_POSITIONS}
+
+BUY SIGNALS ({len(buys)})
+{"  No buy signals — regime C, bot protecting capital in cash." if not buys else chr(10).join(f"  {s.symbol:<14} Score {s.score:.0f}/100 | Entry Rs{s.entry:.2f} | Stop Rs{s.stop:.2f} | Qty {s.qty} | Capital Rs{s.entry*s.qty:,.0f}" for s in buys)}
+
+WATCHLIST ({len(watch)})
+{"  Nothing on watchlist today." if not watch else chr(10).join(f"  {s.symbol:<14} Score {s.score:.0f} | Rs{s.entry:.2f} | {s.reason}" for s in watch)}
+"""
+    return html, plain
 
 
 # ─── MAIN AGENT LOOP ───────────────────────────────────────────────────────────
@@ -811,7 +1086,6 @@ def run():
     portfolio = Portfolio()
     journal   = Journal()
 
-    # ── OBSERVE ──────────────────────────────────────────────────────────────
     log.info("OBSERVE: Fetching macro + prices...")
     macro  = get_macro(client)
     prices = {}
@@ -821,38 +1095,27 @@ def run():
         if ltp: prices[sym] = ltp
         time.sleep(0.05)
 
-    # Update position prices
     for pos in portfolio.positions:
         if pos.symbol not in prices:
             ltp = client.get_ltp(pos.symbol)
             if ltp: prices[pos.symbol] = ltp
 
     metrics = portfolio.metrics(prices)
-    log.info(f"Portfolio: ₹{metrics['total']:,.0f} | "
-             f"DD: {metrics['drawdown']:.2f}% | "
-             f"Positions: {metrics['positions']}")
+    log.info(f"Portfolio: Rs{metrics['total']:,.0f} | DD: {metrics['drawdown']:.2f}% | Positions: {metrics['positions']}")
 
-    # ── MANAGE EXISTING POSITIONS ─────────────────────────────────────────────
     exits = check_exits(portfolio.positions, prices)
     for ex in exits:
         oid = client.place_order(ex["sym"], ex["qty"], ex["price"], "SELL")
         if oid:
             portfolio.remove(ex["sym"], ex["qty"], ex["price"])
-            journal.log({
-                "datetime": datetime.now().isoformat(),
-                "symbol": ex["sym"], "action": "SELL",
-                "qty": ex["qty"], "price": ex["price"],
-                "score": 0, "reason": ex["reason"],
-                "kind": ex["kind"], "regime": macro.regime,
-                "mode": "PAPER" if PAPER_MODE else "LIVE"
-            })
+            journal.log({"datetime":datetime.now().isoformat(),"symbol":ex["sym"],"action":"SELL",
+                         "qty":ex["qty"],"price":ex["price"],"score":0,"reason":ex["reason"],
+                         "kind":ex["kind"],"regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
 
-    # ── REASON: SCORE ALL CANDIDATES ──────────────────────────────────────────
     log.info("REASON: Scoring candidates...")
-    signals: list[Signal] = []
+    signals = []
     if macro.regime != "C":
-        syms_to_score = [s for s in all_syms if not portfolio.has(s)]
-        for sym in syms_to_score:
+        for sym in [s for s in all_syms if not portfolio.has(s)]:
             df = client.get_historical(sym, 265)
             if df.empty: continue
             sig = score_symbol(sym, df, macro, portfolio.cash)
@@ -860,10 +1123,8 @@ def run():
             time.sleep(0.1)
 
     signals.sort(key=lambda x: x.score, reverse=True)
-    buy_count = len([s for s in signals if s.action=="buy"])
-    log.info(f"Scored {len(signals)} symbols | {buy_count} buy signals")
+    log.info(f"Scored {len(signals)} symbols | {len([s for s in signals if s.action=='buy'])} buy signals")
 
-    # ── ACT: PLACE NEW ENTRIES ────────────────────────────────────────────────
     if not metrics["paused"]:
         open_count = len(portfolio.positions)
         for sig in signals:
@@ -872,51 +1133,34 @@ def run():
             if portfolio.has(sig.symbol): continue
             if sig.qty <= 0: continue
             cost = sig.entry * sig.qty
-            if cost > portfolio.cash * 0.95:
-                log.info(f"Skip {sig.symbol}: need ₹{cost:,.0f}, have ₹{portfolio.cash:,.0f}")
-                continue
-
+            if cost > portfolio.cash * 0.95: continue
             oid = client.place_order(sig.symbol, sig.qty, sig.entry, "BUY")
             if oid:
-                pos = Position(
-                    symbol=sig.symbol, entry=sig.entry, qty=sig.qty,
-                    stop=sig.stop,
-                    target1=round(sig.entry * (1 + Config.PARTIAL_EXIT_1_PCT), 2),
-                    target2=round(sig.entry * (1 + Config.PARTIAL_EXIT_2_PCT), 2),
-                    entry_date=datetime.now().strftime("%Y-%m-%d"),
-                    score=sig.score
-                )
+                pos = Position(symbol=sig.symbol, entry=sig.entry, qty=sig.qty, stop=sig.stop,
+                               target1=round(sig.entry*(1+Config.PARTIAL_EXIT_1_PCT),2),
+                               target2=round(sig.entry*(1+Config.PARTIAL_EXIT_2_PCT),2),
+                               entry_date=datetime.now().strftime("%Y-%m-%d"), score=sig.score)
                 portfolio.add(pos)
                 client.place_gtt_stop(sig.symbol, sig.entry, sig.stop, sig.qty)
-                journal.log({
-                    "datetime": datetime.now().isoformat(),
-                    "symbol": sig.symbol, "action": "BUY",
-                    "qty": sig.qty, "price": sig.entry,
-                    "score": sig.score, "reason": sig.reason,
-                    "kind": "entry", "regime": macro.regime,
-                    "mode": "PAPER" if PAPER_MODE else "LIVE"
-                })
-                log.info(f"ENTRY: {sig.symbol} | {sig.qty}x @ ₹{sig.entry:.2f} | "
-                         f"Score {sig.score:.0f} | Stop ₹{sig.stop:.2f}")
+                journal.log({"datetime":datetime.now().isoformat(),"symbol":sig.symbol,"action":"BUY",
+                             "qty":sig.qty,"price":sig.entry,"score":sig.score,"reason":sig.reason,
+                             "kind":"entry","regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
+                log.info(f"ENTRY: {sig.symbol} | {sig.qty}x @ Rs{sig.entry:.2f} | Score {sig.score:.0f}")
                 open_count += 1
     else:
         log.warning("Circuit breaker active — no new entries")
 
-    # ── LEARN: REPORT + NOTIFY ────────────────────────────────────────────────
     metrics = portfolio.metrics(prices)
-    report  = build_report(metrics, signals, macro, portfolio, prices)
+    html_report, plain_report = build_html_report(metrics, signals, macro, portfolio, prices)
 
-    today   = datetime.now().strftime("%Y%m%d")
-    rpath   = f"{Config.REPORT_DIR}/report_{today}.txt"
-    with open(rpath, "w") as f:
-        # Strip HTML tags for plain text file
-        plain = report.replace("<b>","").replace("</b>","")
-        f.write(plain)
-    log.info(f"Report saved: {rpath}")
-
-    send_telegram(report)
+    today = datetime.now().strftime("%Y%m%d")
+    os.makedirs(Config.REPORT_DIR, exist_ok=True)
+    with open(f"{Config.REPORT_DIR}/report_{today}.html", "w") as f: f.write(html_report)
+    with open(f"{Config.REPORT_DIR}/report_{today}.txt",  "w") as f: f.write(plain_report)
+    log.info(f"Reports saved.")
+    send_telegram(plain_report[:4000])
     log.info("Run complete.")
-    return report
+    return html_report, plain_report
 
 
 if __name__ == "__main__":
