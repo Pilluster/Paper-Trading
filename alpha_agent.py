@@ -394,70 +394,312 @@ class Ind:
 
 @dataclass
 class MacroState:
-    regime: str     = "A"
-    vix:    float   = 14.0
+    regime:       str   = "A"
+    vix:          float = 14.0
     nifty_vs_50:  float = 0.0
     nifty_vs_200: float = 0.0
-    fii_flow: float = 0.0
-    score:    float = 6.0
+    nifty_vs_100: float = 0.0
+    fii_flow:     float = 0.0
+    dii_flow:     float = 0.0
+    score:        float = 6.0
+    # Extended macro
+    usd_inr:      float = 83.0
+    crude_usd:    float = 75.0
+    gold_inr:     float = 70000.0
+    us_10y_yield: float = 4.5
+    dxy:          float = 104.0
+    sgx_nifty_chg:float = 0.0
+    rbi_stance:   str   = "neutral"
+    geo_risk:     str   = "low"
+    macro_notes:  str   = ""
 
-def get_macro(client: DataClient) -> MacroState:
-    m = MacroState()
-    # Nifty vs MAs
-    ndf = client._yf_historical("NIFTY50_INDEX", 260)
-    if not ndf.empty:
-        c    = ndf["close"]
-        cur  = c.iloc[-1]
-        ma50 = Ind.sma(c, 50).iloc[-1]
-        ma200= Ind.sma(c,200).iloc[-1]
-        m.nifty_vs_50  = round((cur - ma50)  / ma50  * 100, 2)
-        m.nifty_vs_200 = round((cur - ma200) / ma200 * 100, 2)
 
-    # VIX (India VIX via yfinance approximation)
+def _fetch_fii_dii() -> tuple:
+    """Fetch FII/DII flows — tries multiple sources."""
+    # Source 1: NSE with proper session
     try:
-        import yfinance as yf
-        vix_data = yf.Ticker("^VIX").fast_info
-        m.vix = round(float(vix_data.last_price), 1)
-    except:
-        m.vix = 15.0
-
-    # FII flow (NSE public endpoint)
-    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+            "Accept": "application/json",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://www.nseindia.com/market-data/fii-dii-trading-activity",
+        }
         sess = requests.Session()
-        sess.get("https://www.nseindia.com",
-                 headers={"User-Agent": "Mozilla/5.0",
-                           "Referer": "https://www.nseindia.com/"}, timeout=5)
+        sess.get("https://www.nseindia.com", headers=headers, timeout=8)
+        time.sleep(1)
         r = sess.get("https://www.nseindia.com/api/fiidiiTradeReact",
-                     headers={"User-Agent": "Mozilla/5.0",
-                               "Referer": "https://www.nseindia.com/"}, timeout=5)
+                     headers=headers, timeout=8)
+        fii = dii = 0.0
         for row in r.json():
-            if row.get("category") == "FII/FPI" and "equity" in row.get("type","").lower():
-                m.fii_flow = float(row.get("netPurchasesSales", 0))
-                break
+            cat = row.get("category", "")
+            typ = row.get("type", "").lower()
+            if "fii" in cat.lower() and "equity" in typ:
+                fii = float(row.get("netPurchasesSales", 0))
+            if "dii" in cat.lower() and "equity" in typ:
+                dii = float(row.get("netPurchasesSales", 0))
+        if fii != 0 or dii != 0:
+            return fii, dii
+    except Exception as e:
+        log.warning(f"NSE FII fetch failed: {e}")
+
+    # Source 2: moneycontrol alternative
+    try:
+        r = requests.get(
+            "https://api.moneycontrol.com/mcapi/v1/market/fii-dii",
+            headers={"User-Agent": "Mozilla/5.0"}, timeout=6
+        )
+        d = r.json()
+        fii = float(d.get("fii_net", 0))
+        dii = float(d.get("dii_net", 0))
+        return fii, dii
     except:
         pass
 
-    # Regime
-    if m.nifty_vs_50 > 0 and m.nifty_vs_200 > 0 and m.vix < 18:
+    return 0.0, 0.0
+
+
+def _fetch_india_vix() -> float:
+    """Fetch India VIX — tries NSE first, falls back to yfinance."""
+    # Source 1: NSE India VIX API
+    try:
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Referer": "https://www.nseindia.com/",
+        }
+        sess = requests.Session()
+        sess.get("https://www.nseindia.com", headers=headers, timeout=6)
+        r = sess.get("https://www.nseindia.com/api/allIndices",
+                     headers=headers, timeout=6)
+        for idx in r.json().get("data", []):
+            if idx.get("index") == "INDIA VIX":
+                return round(float(idx["last"]), 2)
+    except:
+        pass
+
+    # Source 2: yfinance India VIX
+    try:
+        import yfinance as yf
+        v = yf.Ticker("^INDIAVIX").fast_info
+        val = float(v.last_price)
+        if 5 < val < 100:
+            return round(val, 2)
+    except:
+        pass
+
+    # Source 3: US VIX as proxy
+    try:
+        import yfinance as yf
+        v = yf.Ticker("^VIX").fast_info
+        return round(float(v.last_price), 2)
+    except:
+        return 15.0
+
+
+def _fetch_global_macro() -> dict:
+    """Fetch USD/INR, Crude, Gold, US 10Y yield, DXY, SGX Nifty."""
+    result = {
+        "usd_inr": 83.0, "crude": 75.0, "gold_inr": 70000.0,
+        "us_10y": 4.5, "dxy": 104.0, "sgx_chg": 0.0
+    }
+    try:
+        import yfinance as yf
+        tickers = {
+            "USDINR=X":  "usd_inr",
+            "CL=F":      "crude",
+            "GC=F":      "gold_usd",
+            "^TNX":      "us_10y",
+            "DX-Y.NYB":  "dxy",
+        }
+        for ticker, key in tickers.items():
+            try:
+                val = float(yf.Ticker(ticker).fast_info.last_price)
+                result[key] = round(val, 2)
+            except:
+                pass
+
+        # Convert gold USD to INR
+        if "gold_usd" in result:
+            result["gold_inr"] = round(result["gold_usd"] * result["usd_inr"], 0)
+
+        # SGX Nifty (approximate via Nifty futures)
+        try:
+            nf = yf.Ticker("^NSEI")
+            hist = nf.history(period="2d")
+            if len(hist) >= 2:
+                result["sgx_chg"] = round(
+                    (hist["Close"].iloc[-1] / hist["Close"].iloc[-2] - 1) * 100, 2
+                )
+        except:
+            pass
+
+    except Exception as e:
+        log.warning(f"Global macro fetch error: {e}")
+    return result
+
+
+def _fetch_geo_risk() -> tuple:
+    """
+    Assess geopolitical risk using news sentiment from RSS feeds.
+    Returns (risk_level, notes) where risk_level in low/medium/high
+    """
+    risk_keywords = {
+        "high": ["war", "sanctions", "nuclear", "invasion", "crisis", "collapse",
+                 "default", "military strike", "trade war", "embargo"],
+        "medium": ["tension", "conflict", "tariff", "inflation surge", "recession",
+                   "rate hike", "fed hawkish", "oil shock", "geopolit"],
+        "low": []
+    }
+    india_keywords = ["india", "rbi", "nifty", "sensex", "rupee", "modi",
+                      "budget", "sebi", "nse", "bse"]
+    notes = []
+
+    try:
+        # Reuters RSS
+        feeds = [
+            "https://feeds.reuters.com/reuters/businessNews",
+            "https://feeds.reuters.com/reuters/INbusinessNews",
+            "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+        ]
+        all_titles = []
+        for feed_url in feeds:
+            try:
+                r = requests.get(feed_url,
+                                 headers={"User-Agent": "Mozilla/5.0"},
+                                 timeout=6)
+                import re
+                titles = re.findall(r"<title><!\[CDATA\[(.*?)\]\]></title>", r.text)
+                if not titles:
+                    titles = re.findall(r"<title>(.*?)</title>", r.text)
+                all_titles.extend(titles[:10])
+            except:
+                pass
+
+        combined = " ".join(all_titles).lower()
+
+        # Check for India-specific news
+        india_news = [t for t in all_titles
+                      if any(k in t.lower() for k in india_keywords)]
+        if india_news:
+            notes.append(f"India news: {india_news[0][:80]}")
+
+        # Assess risk level
+        high_hits = sum(1 for k in risk_keywords["high"] if k in combined)
+        med_hits  = sum(1 for k in risk_keywords["medium"] if k in combined)
+
+        if high_hits >= 2:
+            return "high", " | ".join(notes[:2]) if notes else "Elevated global risk signals"
+        elif high_hits >= 1 or med_hits >= 3:
+            return "medium", " | ".join(notes[:2]) if notes else "Moderate risk environment"
+        else:
+            return "low", " | ".join(notes[:2]) if notes else "Calm macro environment"
+
+    except Exception as e:
+        log.warning(f"Geo risk fetch failed: {e}")
+        return "low", "Unable to fetch news"
+
+
+def _fetch_rbi_stance() -> str:
+    """
+    Determine RBI stance from latest policy.
+    Checks RBI website and ET for recent policy signals.
+    """
+    try:
+        r = requests.get(
+            "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+            headers={"User-Agent": "Mozilla/5.0"}, timeout=6
+        )
+        text = r.text.lower()
+        if any(k in text for k in ["rate cut", "repo cut", "accommodative", "easing"]):
+            return "cutting"
+        elif any(k in text for k in ["rate hike", "hawkish", "tightening", "inflation concern"]):
+            return "hiking"
+        else:
+            return "neutral"
+    except:
+        return "neutral"
+
+
+def get_macro(client: DataClient) -> MacroState:
+    m = MacroState()
+    log.info("Fetching comprehensive macro data...")
+
+    # 1. Nifty vs all MAs (50, 100, 200)
+    ndf = client._yf_historical("NIFTY50_INDEX", 260)
+    if not ndf.empty:
+        c     = ndf["close"]
+        cur   = c.iloc[-1]
+        ma50  = Ind.sma(c,  50).iloc[-1]
+        ma100 = Ind.sma(c, 100).iloc[-1]
+        ma200 = Ind.sma(c, 200).iloc[-1]
+        m.nifty_vs_50  = round((cur - ma50)  / ma50  * 100, 2)
+        m.nifty_vs_100 = round((cur - ma100) / ma100 * 100, 2)
+        m.nifty_vs_200 = round((cur - ma200) / ma200 * 100, 2)
+
+    # 2. India VIX (real)
+    m.vix = _fetch_india_vix()
+    log.info(f"India VIX: {m.vix}")
+
+    # 3. FII/DII flows
+    m.fii_flow, m.dii_flow = _fetch_fii_dii()
+    log.info(f"FII: {m.fii_flow:+.0f}Cr | DII: {m.dii_flow:+.0f}Cr")
+
+    # 4. Global macro — USD/INR, Crude, Gold, DXY, US yields
+    gm = _fetch_global_macro()
+    m.usd_inr      = gm.get("usd_inr", 83.0)
+    m.crude_usd    = gm.get("crude",   75.0)
+    m.gold_inr     = gm.get("gold_inr",70000.0)
+    m.us_10y_yield = gm.get("us_10y",  4.5)
+    m.dxy          = gm.get("dxy",     104.0)
+    m.sgx_nifty_chg= gm.get("sgx_chg",0.0)
+    log.info(f"USD/INR: {m.usd_inr} | Crude: {m.crude_usd} | DXY: {m.dxy}")
+
+    # 5. RBI stance
+    m.rbi_stance = _fetch_rbi_stance()
+    log.info(f"RBI stance: {m.rbi_stance}")
+
+    # 6. Geopolitical risk
+    m.geo_risk, m.macro_notes = _fetch_geo_risk()
+    log.info(f"Geo risk: {m.geo_risk} | Notes: {m.macro_notes}")
+
+    # 7. Regime classification (enhanced)
+    vix_ok    = m.vix < 20
+    nifty_ok  = m.nifty_vs_50 > 0 and m.nifty_vs_200 > 0
+    fii_ok    = m.fii_flow > -500
+    geo_ok    = m.geo_risk != "high"
+    rbi_ok    = m.rbi_stance != "hiking"
+    crude_ok  = m.crude_usd < 90      # crude above 90 = macro headwind
+    dxy_ok    = m.dxy < 108           # strong dollar = EM headwind
+
+    if nifty_ok and vix_ok and fii_ok and geo_ok:
         m.regime = "A"
-    elif m.nifty_vs_200 > -5 and m.vix < 22:
+    elif m.nifty_vs_200 > -5 and m.vix < 24 and geo_ok:
         m.regime = "B"
     else:
         m.regime = "C"
 
-    # Macro score (out of 8)
-    s = 0
-    if m.nifty_vs_200 > 5:   s += 3
-    elif m.nifty_vs_200 > 0: s += 1.5
-    if m.nifty_vs_50  > 0:   s += 2
-    if m.vix < 14:            s += 2
-    elif m.vix < 18:          s += 1
-    if m.fii_flow > 1000:     s += 1
+    # Override to B if any major headwind even in bull market
+    if m.regime == "A" and (not rbi_ok or not crude_ok or not dxy_ok or m.geo_risk == "medium"):
+        m.regime = "B"
+
+    # 8. Macro score (out of 8) — enhanced
+    s = 0.0
+    if m.nifty_vs_200 > 5:    s += 3
+    elif m.nifty_vs_200 > 0:  s += 1.5
+    if m.nifty_vs_50  > 0:    s += 1.5
+    if m.vix < 14:             s += 1.5
+    elif m.vix < 18:           s += 1.0
+    if m.fii_flow > 1000:      s += 1.0
+    elif m.fii_flow > 0:       s += 0.5
+    if m.dii_flow > 500:       s += 0.5
+    if m.rbi_stance == "cutting": s += 0.5
+    if m.geo_risk == "low":    s += 0.5
+    if m.crude_usd < 80:       s += 0.5
     m.score = round(min(s, Config.WEIGHTS["macro"]), 2)
 
     log.info(f"MACRO | Regime={m.regime} | VIX={m.vix} | "
-             f"Nifty/50dma={m.nifty_vs_50:+.1f}% | Nifty/200dma={m.nifty_vs_200:+.1f}% | "
-             f"FII={m.fii_flow:+.0f}Cr | MacroScore={m.score}")
+             f"Nifty/50={m.nifty_vs_50:+.1f}% | Nifty/200={m.nifty_vs_200:+.1f}% | "
+             f"FII={m.fii_flow:+.0f} | DII={m.dii_flow:+.0f} | "
+             f"RBI={m.rbi_stance} | Geo={m.geo_risk} | Score={m.score}")
     return m
 
 
@@ -893,6 +1135,19 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
       <td style="padding:9px 8px;font-size:12px;color:#7f8c8d;">{s.reason}</td>
     </tr>""" for s in watch) or '<tr><td colspan="4" style="text-align:center;color:#999;padding:16px;">Nothing on watchlist today</td></tr>'
 
+
+    # Extended macro interpretations for HTML
+    rbi_color = "#27ae60" if macro.rbi_stance=="cutting" else "#e74c3c" if macro.rbi_stance=="hiking" else "#f39c12"
+    rbi_label = "Cutting rates — bullish for equities" if macro.rbi_stance=="cutting" else "Hiking rates — bearish headwind" if macro.rbi_stance=="hiking" else "Neutral — monitoring inflation"
+    crude_color = "#27ae60" if macro.crude_usd < 75 else "#f39c12" if macro.crude_usd < 90 else "#e74c3c"
+    crude_label = "Low — positive for India economy" if macro.crude_usd < 75 else "Moderate — manageable" if macro.crude_usd < 90 else "High — negative for CAD and inflation"
+    dxy_color = "#27ae60" if macro.dxy < 102 else "#f39c12" if macro.dxy < 107 else "#e74c3c"
+    dxy_label = "Weak dollar — EM equity tailwind" if macro.dxy < 102 else "Moderate dollar — neutral" if macro.dxy < 107 else "Strong dollar — FII outflow risk for India"
+    geo_color = "#27ae60" if macro.geo_risk=="low" else "#f39c12" if macro.geo_risk=="medium" else "#e74c3c"
+    inr_color = "#27ae60" if macro.usd_inr < 83 else "#f39c12" if macro.usd_inr < 85 else "#e74c3c"
+    inr_label = "Strong rupee — FII inflow friendly" if macro.usd_inr < 83 else "Stable range" if macro.usd_inr < 85 else "Weak rupee — FII pressure increasing"
+    sgx_color = "#27ae60" if macro.sgx_nifty_chg > 0.3 else "#e74c3c" if macro.sgx_nifty_chg < -0.3 else "#f39c12"
+
     html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
 <body style="font-family:Arial,sans-serif;color:#2c3e50;max-width:700px;margin:0 auto;padding:20px;background:#f5f6fa;">
 
@@ -958,29 +1213,85 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Macro indicators</h2>
-  <table width="100%" style="border-collapse:collapse;">
+  <table width="100%" style="border-collapse:collapse;font-size:13px;">
+    <tr style="background:#f8f9fa;"><td colspan="3" style="padding:7px 8px;font-weight:700;color:#7f8c8d;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;">Indian Market</td></tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
-      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;width:170px;">VIX (Fear Index)</td>
-      <td style="padding:10px 0;"><b style="color:{vix_color};">{vix:.1f}</b> {gauge_bar(vix,10,40,low_bad=False)} <span style="font-size:12px;color:{vix_color};">{vix_label}</span></td>
-      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Normal: 12–20</td>
+      <td style="padding:9px 0;color:#7f8c8d;width:170px;">India VIX</td>
+      <td><b style="color:{vix_color};">{vix:.1f}</b> {gauge_bar(vix,10,35,low_bad=False)} <span style="font-size:12px;color:{vix_color};">{vix_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Normal: 12–20</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
-      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">Nifty vs 50 DMA</td>
-      <td style="padding:10px 0;"><b style="color:{ma50_color};">{macro.nifty_vs_50:+.1f}%</b> {gauge_bar(macro.nifty_vs_50+10,0,20)} <span style="font-size:12px;color:{ma50_color};">{ma50_label}</span></td>
-      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: above 0%</td>
+      <td style="padding:9px 0;color:#7f8c8d;">Nifty vs 50 DMA</td>
+      <td><b style="color:{ma50_color};">{macro.nifty_vs_50:+.1f}%</b> {gauge_bar(macro.nifty_vs_50+10,0,20)} <span style="font-size:12px;color:{ma50_color};">{ma50_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Bull: above 0%</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
-      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">Nifty vs 200 DMA</td>
-      <td style="padding:10px 0;"><b style="color:{ma200_color};">{macro.nifty_vs_200:+.1f}%</b> {gauge_bar(macro.nifty_vs_200+10,0,20)} <span style="font-size:12px;color:{ma200_color};">{ma200_label}</span></td>
-      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: above 0%</td>
+      <td style="padding:9px 0;color:#7f8c8d;">Nifty vs 200 DMA</td>
+      <td><b style="color:{ma200_color};">{macro.nifty_vs_200:+.1f}%</b> {gauge_bar(macro.nifty_vs_200+10,0,20)} <span style="font-size:12px;color:{ma200_color};">{ma200_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Bull: above 0%</td>
     </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">FII Net Flow</td>
+      <td><b style="color:{fii_color};">&#8377;{fii:+,.0f} Cr</b> {gauge_bar(fii+3000,0,6000)} <span style="font-size:12px;color:{fii_color};">{fii_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Bull: &gt;&#8377;500Cr</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">DII Net Flow</td>
+      <td><b style="color:{"#27ae60" if macro.dii_flow>0 else "#e74c3c"};">&#8377;{macro.dii_flow:+,.0f} Cr</b>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"Domestic support" if macro.dii_flow>500 else "Domestic selling" if macro.dii_flow<-500 else "Neutral"}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Cushions FII exit</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">RBI Stance</td>
+      <td><b style="color:{rbi_color};">{macro.rbi_stance.title()}</b>
+        <span style="font-size:12px;color:{rbi_color};margin-left:8px;">{rbi_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Policy signal</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">USD/INR</td>
+      <td><b style="color:{inr_color};">&#8377;{macro.usd_inr:.2f}</b>
+        <span style="font-size:12px;color:{inr_color};margin-left:8px;">{inr_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">FII sensitivity</td>
+    </tr>
+    <tr style="background:#f8f9fa;"><td colspan="3" style="padding:7px 8px;font-weight:700;color:#7f8c8d;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;">Global Macro</td></tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">Crude Oil (WTI)</td>
+      <td><b style="color:{crude_color};">${macro.crude_usd:.1f}</b> {gauge_bar(macro.crude_usd,50,110,low_bad=False)}
+        <span style="font-size:12px;color:{crude_color};">{crude_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">India: low is good</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">Gold (INR/10g)</td>
+      <td><b style="color:#f39c12;">&#8377;{macro.gold_inr:,.0f}</b>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"Safe haven demand high" if macro.gold_inr>80000 else "Moderate" if macro.gold_inr>70000 else "Low safe haven demand"}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Hedge signal</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">US Dollar Index</td>
+      <td><b style="color:{dxy_color};">{macro.dxy:.1f}</b> {gauge_bar(macro.dxy,95,115,low_bad=False)}
+        <span style="font-size:12px;color:{dxy_color};">{dxy_label}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">EM flows driver</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">US 10Y Yield</td>
+      <td><b style="color:{"#e74c3c" if macro.us_10y_yield>4.5 else "#f39c12" if macro.us_10y_yield>4 else "#27ae60"};">{macro.us_10y_yield:.2f}%</b>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"High — EM outflow risk" if macro.us_10y_yield>4.5 else "Elevated" if macro.us_10y_yield>4 else "Low — EM friendly"}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">FII cost of carry</td>
+    </tr>
+    <tr style="border-bottom:1px solid #f0f0f0;">
+      <td style="padding:9px 0;color:#7f8c8d;">Prev Day Signal</td>
+      <td><b style="color:{sgx_color};">{macro.sgx_nifty_chg:+.2f}%</b>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">Nifty prior session change</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Gap indicator</td>
+    </tr>
+    <tr style="background:#f8f9fa;"><td colspan="3" style="padding:7px 8px;font-weight:700;color:#7f8c8d;font-size:11px;text-transform:uppercase;letter-spacing:0.05em;">Geopolitical</td></tr>
     <tr>
-      <td style="padding:10px 0;font-size:13px;color:#7f8c8d;">FII Net Flow</td>
-      <td style="padding:10px 0;"><b style="color:{fii_color};">₹{fii:+,.0f} Cr</b> {gauge_bar(fii+3000,0,6000)} <span style="font-size:12px;color:{fii_color};">{fii_label}</span></td>
-      <td style="padding:10px 0;font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Bull: &gt;₹500Cr</td>
+      <td style="padding:9px 0;color:#7f8c8d;">Global Risk</td>
+      <td><b style="color:{geo_color};">{macro.geo_risk.title()}</b>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{macro.macro_notes[:100] if macro.macro_notes else "Monitoring global news feeds"}</span></td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Auto-monitored</td>
     </tr>
   </table>
-</div>
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Open positions ({metrics["positions"]})</h2>
