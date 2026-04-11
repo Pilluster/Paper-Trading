@@ -415,46 +415,91 @@ class MacroState:
 
 
 def _fetch_fii_dii() -> tuple:
-    """Fetch FII/DII flows — tries multiple sources."""
-    # Source 1: NSE with proper session
+    """
+    Fetch FII/DII flows from multiple sources.
+    NSE blocks GitHub IPs so we use NSDL + Trendlyne as primary sources.
+    """
+    # Source 1: NSDL FII data (more reliable, doesn't block servers)
     try:
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Referer": "https://www.nseindia.com/market-data/fii-dii-trading-activity",
-        }
+        r = requests.get(
+            "https://www.nsdl.co.in/api-service/nsdl/cms/publicCategoryFII/V1",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+                "Accept": "application/json",
+            }, timeout=8
+        )
+        d = r.json()
+        if d:
+            # NSDL returns cumulative — get latest entry
+            latest = d[0] if isinstance(d, list) else d
+            fii = float(latest.get("net_investment", latest.get("netInvestment", 0)))
+            return fii, 0.0
+    except Exception as e:
+        log.warning(f"NSDL FII failed: {e}")
+
+    # Source 2: Trendlyne API (public)
+    try:
+        r = requests.get(
+            "https://trendlyne.com/api/fii-dii/daily/",
+            headers={"User-Agent": "Mozilla/5.0"}, timeout=8
+        )
+        d = r.json()
+        if isinstance(d, list) and d:
+            latest = d[0]
+            fii = float(latest.get("fii_net", latest.get("fii", 0)))
+            dii = float(latest.get("dii_net", latest.get("dii", 0)))
+            if fii != 0:
+                return fii, dii
+    except Exception as e:
+        log.warning(f"Trendlyne FII failed: {e}")
+
+    # Source 3: NSE with full browser simulation
+    try:
         sess = requests.Session()
-        sess.get("https://www.nseindia.com", headers=headers, timeout=8)
-        time.sleep(1)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Connection": "keep-alive",
+        }
+        sess.get("https://www.nseindia.com", headers=headers, timeout=10)
+        time.sleep(2)
+        headers["Referer"] = "https://www.nseindia.com/market-data/fii-dii-trading-activity"
+        headers["Accept"] = "application/json"
         r = sess.get("https://www.nseindia.com/api/fiidiiTradeReact",
-                     headers=headers, timeout=8)
+                     headers=headers, timeout=10)
         fii = dii = 0.0
         for row in r.json():
-            cat = row.get("category", "")
-            typ = row.get("type", "").lower()
-            if "fii" in cat.lower() and "equity" in typ:
+            cat = str(row.get("category", "")).upper()
+            typ = str(row.get("type", "")).lower()
+            if "FII" in cat and "equity" in typ:
                 fii = float(row.get("netPurchasesSales", 0))
-            if "dii" in cat.lower() and "equity" in typ:
+            if "DII" in cat and "equity" in typ:
                 dii = float(row.get("netPurchasesSales", 0))
         if fii != 0 or dii != 0:
             return fii, dii
     except Exception as e:
-        log.warning(f"NSE FII fetch failed: {e}")
+        log.warning(f"NSE FII failed: {e}")
 
-    # Source 2: moneycontrol alternative
+    # Source 4: Parse from ET Markets page
     try:
         r = requests.get(
-            "https://api.moneycontrol.com/mcapi/v1/market/fii-dii",
-            headers={"User-Agent": "Mozilla/5.0"}, timeout=6
+            "https://economictimes.indiatimes.com/markets/stocks/news/fii-dii-data",
+            headers={"User-Agent": "Mozilla/5.0"}, timeout=8
         )
-        d = r.json()
-        fii = float(d.get("fii_net", 0))
-        dii = float(d.get("dii_net", 0))
-        return fii, dii
-    except:
-        pass
+        import re
+        # Look for FII net value in page
+        fii_match = re.search(r"FII.*?Net.*?([+-]?\d+[\d,]*\.?\d*)", r.text)
+        dii_match = re.search(r"DII.*?Net.*?([+-]?\d+[\d,]*\.?\d*)", r.text)
+        if fii_match:
+            fii = float(fii_match.group(1).replace(",",""))
+            dii = float(dii_match.group(1).replace(",","")) if dii_match else 0.0
+            return fii, dii
+    except Exception as e:
+        log.warning(f"ET FII scrape failed: {e}")
 
+    log.warning("All FII sources failed — using 0")
     return 0.0, 0.0
 
 
@@ -880,11 +925,22 @@ class Portfolio:
             except:
                 pass
 
-    def save(self):
+    def save(self, regime: str = ""):
         os.makedirs(Config.REPORT_DIR, exist_ok=True)
+        data = {"cash": self.cash, "positions": [asdict(p) for p in self.positions]}
+        if regime:
+            data["last_regime"] = regime
         with open(Config.STATE_FILE, "w") as f:
-            json.dump({"cash": self.cash,
-                       "positions": [asdict(p) for p in self.positions]}, f, indent=2)
+            json.dump(data, f, indent=2)
+
+    def get_last_regime(self) -> str:
+        if os.path.exists(Config.STATE_FILE):
+            try:
+                with open(Config.STATE_FILE) as f:
+                    return json.load(f).get("last_regime", "")
+            except:
+                pass
+        return ""
 
     def has(self, sym): return any(p.symbol == sym for p in self.positions)
 
@@ -1124,6 +1180,37 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
             <th style="padding:8px;color:#7f8c8d;">Strength</th>
           </tr></thead><tbody>{rows}</tbody></table>"""
 
+
+    # Regime change detection
+    prev_regime = portfolio.get_last_regime()
+    regime_change_banner = ""
+    if prev_regime and prev_regime != macro.regime:
+        change_styles = {
+            ("C","B"): ("#1a5276","#eaf4fb","#85c1e9","📈 Regime upgraded: C → B (Bear → Cautious)",
+                        "Market has recovered from bear territory. Nifty is now between key moving averages. Bot raising alert — watchlist being monitored. Entry threshold raised to 80/100. Max 8 positions."),
+            ("C","A"): ("#1e8449","#eafaf1","#27ae60","🎉 Regime upgraded: C → A (Bear → Bull Market!)",
+                        "Major recovery! Nifty back above both 50 and 200 DMA. Bot fully deployed — all modes active. Entry threshold 72/100. Up to 14 positions."),
+            ("B","A"): ("#1e8449","#eafaf1","#27ae60","📈 Regime upgraded: B → A (Full Bull Mode)",
+                        "Market strengthened. Nifty clearly above all key MAs. Bot expanding to full deployment — up to 14 positions, intraday and swing both active."),
+            ("A","B"): ("#7d6608","#fef9e7","#f39c12","⚠️ Regime downgraded: A → B (Bull → Cautious)",
+                        "Market weakening. Nifty showing mixed signals. Bot tightening — entry threshold raised to 80, max 8 positions. Existing positions held with tighter stops."),
+            ("B","C"): ("#922b21","#fdedec","#e74c3c","🔴 Regime downgraded: B → C (BEAR MARKET)",
+                        "Market breakdown. Nifty below 200 DMA — confirmed downtrend. Bot moving to full cash protection. No new equity entries until recovery."),
+            ("A","C"): ("#922b21","#fdedec","#e74c3c","🚨 ALERT: Sharp crash detected A → C",
+                        "Major breakdown! Nifty fell below 200 DMA. Bot immediately halting all new entries. Capital preserved in cash. Monitor closely."),
+        }
+        key = (prev_regime, macro.regime)
+        if key in change_styles:
+            tc, bg, bc, title, msg = change_styles[key]
+            regime_change_banner = (
+                f'<div style="background:{bg};border:2px solid {bc};border-radius:10px;' +
+                f'padding:16px 20px;margin-bottom:16px;">' +
+                f'<b style="color:{tc};font-size:15px;">{title}</b>' +
+                f'<p style="color:{tc};font-size:13px;line-height:1.6;margin:8px 0 0;">{msg}</p>' +
+                f'<p style="color:{tc};font-size:12px;margin:6px 0 0;opacity:0.8;">' +
+                f'Previous: <b>{prev_regime}</b> → Now: <b>{macro.regime}</b></p></div>'
+            )
+
     circuit = ""
     if metrics["paused"]:
         circuit = '<div style="background:#fdedec;border:1px solid #e74c3c;border-radius:8px;padding:14px 18px;margin:16px 0;"><b style="color:#e74c3c;">⚠ Circuit Breaker Active</b><p style="color:#c0392b;margin:6px 0 0;font-size:13px;">Portfolio drawdown exceeded 10%. No new entries until recovery. Bot is protecting your capital.</p></div>'
@@ -1162,6 +1249,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
   </tr></table>
 </div>
 
+{regime_change_banner}
 {circuit}
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
@@ -1461,6 +1549,7 @@ def run():
     else:
         log.warning("Circuit breaker active — no new entries")
 
+    portfolio.save(macro.regime)
     metrics = portfolio.metrics(prices)
     html_report, plain_report = build_html_report(metrics, signals, macro, portfolio, prices)
 
