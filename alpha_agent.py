@@ -412,6 +412,10 @@ class MacroState:
     rbi_stance:   str   = "neutral"
     geo_risk:     str   = "low"
     macro_notes:  str   = ""
+    ad_advances:  int   = 0
+    ad_declines:  int   = 0
+    ad_ratio:     float = 1.0
+    ad_label:     str   = "Unavailable"
 
 
 def _fetch_fii_dii() -> tuple:
@@ -571,6 +575,54 @@ def _fetch_global_macro() -> dict:
     return result
 
 
+def _fetch_advance_decline() -> dict:
+    """
+    Fetch Advance/Decline ratio for NSE.
+    Uses a basket of Nifty 500 stocks via yfinance to compute breadth.
+    Returns: {advances, declines, ratio, breadth_label}
+    """
+    try:
+        import yfinance as yf
+        # Sample 50 Nifty 500 stocks for breadth check
+        sample = [
+            "RELIANCE.NS","TCS.NS","HDFCBANK.NS","INFY.NS","ICICIBANK.NS",
+            "HINDUNILVR.NS","ITC.NS","SBIN.NS","BHARTIARTL.NS","KOTAKBANK.NS",
+            "LT.NS","AXISBANK.NS","BAJFINANCE.NS","ASIANPAINT.NS","MARUTI.NS",
+            "SUNPHARMA.NS","TITAN.NS","HCLTECH.NS","WIPRO.NS","ULTRACEMCO.NS",
+            "ONGC.NS","JSWSTEEL.NS","TATAMOTORS.NS","COALINDIA.NS","INDUSINDBK.NS",
+            "GRASIM.NS","CIPLA.NS","DRREDDY.NS","HINDALCO.NS","TATASTEEL.NS",
+            "BRITANNIA.NS","TRENT.NS","PERSISTENT.NS","COFORGE.NS","CHOLAFIN.NS",
+            "MARICO.NS","DABUR.NS","GODREJCP.NS","PIIND.NS","DEEPAKNTR.NS",
+            "MPHASIS.NS","LTTS.NS","CAMS.NS","CDSL.NS","ASTRAL.NS",
+            "TATACONSUM.NS","BAJAJ-AUTO.NS","HEROMOTOCO.NS","EICHERMOT.NS","BPCL.NS"
+        ]
+        data = yf.download(sample, period="2d", progress=False, threads=True)
+        if data.empty or "Close" not in data:
+            return {"advances": 0, "declines": 0, "ratio": 1.0, "label": "Unavailable"}
+
+        closes = data["Close"]
+        if len(closes) < 2:
+            return {"advances": 0, "declines": 0, "ratio": 1.0, "label": "Unavailable"}
+
+        changes = closes.iloc[-1] / closes.iloc[-2] - 1
+        advances = int((changes > 0).sum())
+        declines = int((changes < 0).sum())
+        total    = advances + declines
+        ratio    = round(advances / declines, 2) if declines > 0 else advances
+
+        if ratio >= 3:     label = "Strongly bullish breadth"
+        elif ratio >= 1.5: label = "Bullish — majority rising"
+        elif ratio >= 0.8: label = "Neutral — mixed breadth"
+        elif ratio >= 0.4: label = "Bearish — majority falling"
+        else:              label = "Strongly bearish breadth"
+
+        log.info(f"A/D Ratio: {advances}A / {declines}D = {ratio}")
+        return {"advances": advances, "declines": declines, "ratio": ratio, "label": label}
+    except Exception as e:
+        log.warning(f"A/D ratio fetch failed: {e}")
+        return {"advances": 0, "declines": 0, "ratio": 1.0, "label": "Unavailable"}
+
+
 def _fetch_geo_risk() -> tuple:
     """
     Assess geopolitical risk using news sentiment from RSS feeds.
@@ -691,7 +743,14 @@ def get_macro(client: DataClient) -> MacroState:
     m.rbi_stance = _fetch_rbi_stance()
     log.info(f"RBI stance: {m.rbi_stance}")
 
-    # 6. Geopolitical risk
+    # 6. Advance/Decline ratio
+    ad = _fetch_advance_decline()
+    m.ad_advances = ad["advances"]
+    m.ad_declines = ad["declines"]
+    m.ad_ratio    = ad["ratio"]
+    m.ad_label    = ad["label"]
+
+    # 7. Geopolitical risk
     m.geo_risk, m.macro_notes = _fetch_geo_risk()
     log.info(f"Geo risk: {m.geo_risk} | Notes: {m.macro_notes}")
 
@@ -1313,10 +1372,17 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
       <td style="font-size:11px;color:#bdc3c7;text-align:right;">Bull: &gt;&#8377;500Cr</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
-      <td style="padding:9px 0;color:#7f8c8d;">DII Net Flow</td>
-      <td><b style="color:{"#27ae60" if macro.dii_flow>0 else "#e74c3c"};">&#8377;{macro.dii_flow:+,.0f} Cr</b>
-        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"Domestic support" if macro.dii_flow>500 else "Domestic selling" if macro.dii_flow<-500 else "Neutral"}</span></td>
-      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Cushions FII exit</td>
+      <td style="padding:9px 0;color:#7f8c8d;">Advance / Decline</td>
+      <td>
+        <b style="color:{"#27ae60" if macro.ad_ratio>=1.5 else "#f39c12" if macro.ad_ratio>=0.8 else "#e74c3c"};">
+          {macro.ad_advances}A / {macro.ad_declines}D
+          (ratio {macro.ad_ratio:.1f}x)
+        </b>
+        <span style="font-size:12px;color:{"#27ae60" if macro.ad_ratio>=1.5 else "#f39c12" if macro.ad_ratio>=0.8 else "#e74c3c"};margin-left:6px;">
+          {macro.ad_label}
+        </span>
+      </td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;">Market breadth</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
       <td style="padding:9px 0;color:#7f8c8d;">RBI Stance</td>
