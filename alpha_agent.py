@@ -318,42 +318,80 @@ class DataClient:
 
     # ── yfinance implementation ──────────────────────────────────────────────
 
+    def _yf_sym(self, symbol: str) -> str:
+        """Convert Angel One symbol to yfinance NSE format."""
+        special = {"MM": "M&M.NS", "NIFTY50_INDEX": "^NSEI",
+                   "BAJAJ-AUTO": "BAJAJ-AUTO.NS"}
+        if symbol in special:
+            return special[symbol]
+        return symbol + ".NS"
+
     def _yf_historical(self, symbol: str, days: int) -> pd.DataFrame:
         try:
             import yfinance as yf
-            # Angel One symbols → yfinance NSE format
-            yf_sym = symbol.replace("BAJAJ-AUTO", "BAJAJ-AUTO") + ".NS"
-            # Handle special cases
-            if symbol in ["MM"]: yf_sym = "M&M.NS"
-            if symbol == "NIFTY50_INDEX": yf_sym = "^NSEI"
-
+            yf_sym = self._yf_sym(symbol)
             ticker = yf.Ticker(yf_sym)
-            end    = datetime.now()
-            start  = end - timedelta(days=days + 50)  # buffer
-            df     = ticker.history(start=start.strftime("%Y-%m-%d"),
-                                    end=end.strftime("%Y-%m-%d"))
+            end    = datetime.now() + timedelta(days=1)  # +1 to include today
+            start  = datetime.now() - timedelta(days=days + 60)
+
+            # auto_adjust=False gives raw OHLC — no dividend/split distortion
+            df = ticker.history(
+                start=start.strftime("%Y-%m-%d"),
+                end=end.strftime("%Y-%m-%d"),
+                auto_adjust=False,
+                back_adjust=False,
+            )
             if df.empty:
                 return pd.DataFrame()
+
             df = df.reset_index()
             df.columns = [c.lower() for c in df.columns]
-            df = df.rename(columns={"index": "date"})
+
+            # Handle both 'date' and 'datetime' column names
+            if "datetime" in df.columns:
+                df = df.rename(columns={"datetime": "date"})
+
+            # Strip timezone info
             df["date"] = pd.to_datetime(df["date"]).dt.tz_localize(None)
+
+            # Use raw Close (not Adj Close) for accurate prices
+            if "close" not in df.columns and "adj close" in df.columns:
+                df = df.rename(columns={"adj close": "close"})
+
             df = df[["date","open","high","low","close","volume"]].dropna()
+            df = df.sort_values("date").reset_index(drop=True)
+
+            # Log latest date to catch stale data
+            if not df.empty:
+                latest = df["date"].iloc[-1].strftime("%Y-%m-%d")
+                log.debug(f"{symbol}: latest data {latest} | close {df['close'].iloc[-1]:.2f}")
+
             return df.tail(days).reset_index(drop=True)
         except Exception as e:
             log.warning(f"yfinance fetch failed {symbol}: {e}")
             return pd.DataFrame()
 
     def _yf_ltp(self, symbol: str) -> Optional[float]:
+        """Get latest traded price — uses fast_info for speed."""
         try:
             import yfinance as yf
-            yf_sym = symbol + ".NS"
-            if symbol == "MM": yf_sym = "M&M.NS"
-            t = yf.Ticker(yf_sym)
-            info = t.fast_info
-            return float(info.last_price)
+            yf_sym = self._yf_sym(symbol)
+            t      = yf.Ticker(yf_sym)
+            # fast_info.last_price is the most recent available price
+            price  = float(t.fast_info.last_price)
+            # Sanity check — reject obviously wrong values
+            if price > 0.5:
+                return round(price, 2)
         except:
-            return None
+            pass
+        # Fallback: use last close from historical
+        try:
+            df = self._yf_historical(symbol, 5)
+            if not df.empty:
+                return round(float(df["close"].iloc[-1]), 2)
+        except:
+            pass
+        return None
 
     # ── Angel One implementation ─────────────────────────────────────────────
 
