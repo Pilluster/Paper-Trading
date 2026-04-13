@@ -73,7 +73,8 @@ class Config:
         "crude_dxy":      4,
     }
 
-    # NSE symbols (Angel One format)
+    # ── Complete tradable universe — Nifty 500 (covers 95% of NSE market cap) ──
+    # Nifty 50 — large cap anchors
     NIFTY50 = [
         "RELIANCE","TCS","HDFCBANK","INFY","ICICIBANK","HINDUNILVR","ITC",
         "SBIN","BHARTIARTL","KOTAKBANK","LT","AXISBANK","BAJFINANCE",
@@ -86,11 +87,98 @@ class Config:
         "SHRIRAMFIN","LTIM"
     ]
 
-    MIDCAP = [
-        "TRENT","PAGEIND","PIIND","DEEPAKNTR","ASTRAL","CHOLAFIN",
-        "MPHASIS","PERSISTENT","COFORGE","LTTS","SUPREMEIND","SCHAEFFLER",
-        "GRINDWELL","CAMS","CDSL","MARICO","GODREJCP","DABUR","EMAMILTD"
+    # Nifty Next 50 — large cap extended
+    NIFTY_NEXT50 = [
+        "ADANIGREEN","ADANIPOWER","AMBUJACEM","BAJAJHLDNG","BANKBARODA",
+        "BERGEPAINT","BOSCHLTD","CANBK","CHOLAFIN","COLPAL","DMART",
+        "GAIL","GODREJCP","HAL","HAVELLS","HDFCAMC","HDFCLIFE",
+        "INDIAMART","INDIGO","IOC","IRCTC","JINDALSTEL","JUBLFOOD",
+        "LICI","LTTS","LUPIN","MARICO","MCDOWELL-N","MOTHERSON",
+        "MPHASIS","NAUKRI","NMDC","OFSS","PIDILITIND","PIIND",
+        "PNB","RECLTD","SAIL","SIEMENS","SRF","SYNGENE",
+        "TORNTPHARM","TRENT","TVSMOTOR","UBL","UNITDSPR","VEDL",
+        "VOLTAS","WHIRLPOOL","ZOMATO"
     ]
+
+    # Nifty Midcap 150 — high alpha source
+    MIDCAP = [
+        "ABCAPITAL","ABFRL","APLAPOLLO","APLLTD","ATUL","AUBANK",
+        "AUROPHARMA","AVANTIFEED","BALKRISIND","BATAINDIA","BAYERCROP",
+        "BLUEDART","BRIGADE","CAMS","CANFINHOME","CASTROLIND","CDSL",
+        "CESC","CLEAN","COFORGE","CONCORDBIO","CRISIL","CROMPTON",
+        "CYIENT","DABUR","DATAPATTNS","DEEPAKNTR","DELHIVERY","EMAMILTD",
+        "ENGINERSIN","EQUITASBNK","EXIDEIND","FEDERALBNK","FINPIPE",
+        "FIVESTAR","GLENMARK","GODREJIND","GPPL","GRINDWELL","GSPL",
+        "HAPPSTMNDS","HDFCAMC","HFCL","HINDPETRO","HONAUT","IDFCFIRSTB",
+        "IIFL","INDIACEM","INDIANB","INDUSINDBK","INTELLECT","IPCALAB",
+        "JBCHEPHARM","JKCEMENT","JSWENERGY","JUBILPHARMA","KAJARIACER",
+        "KALPATPOWR","KANSAINER","KARURVYSYA","KECL","KPITTECH",
+        "KPRMILL","KRISHNAVIS","LAURUSLABS","LAXMIMACH","LICHSGFIN",
+        "LTTS","LUXIND","MAHINDCIE","MANAPPURAM","MFSL","MINDTREE",
+        "MPHASIS","MRPL","NATCOPHARM","NAUKRI","NAVINFLUOR","NBCC",
+        "NIACL","NOCIL","OFSS","OLECTRA","PAGEIND","PERSISTENT",
+        "PETRONET","PFIZER","PHOENIXLTD","PNBHOUSING","POLYCAB",
+        "POLYMED","PRESTIGE","PRINCEPIPES","PVCGLOBS","RADICO",
+        "RAJESHEXPO","RAMCOCEM","RITES","ROSSARI","SAFARI","SCHAEFFLER",
+        "SHRIRAMFIN","SKFINDIA","SOBHA","SONACOMS","STARHEALTH",
+        "SUPREMEIND","SUVENPHAR","TANLA","TATACOMM","TATACHEM",
+        "TATAINVEST","TEJASNET","THYROCARE","TIMKEN","TITAN",
+        "TORNTPOWER","TRITURBINE","TTKPRESTIG","UCOBANK","UJJIVAN",
+        "UNIONBANK","VAIBHAVGBL","VIJAYA","VSTIND","WABCOINDIA",
+        "WELCORP","WHIRLPOOL","WIPRO","ZENSARTECH","ZYDUSLIFE"
+    ]
+
+    # Nifty Smallcap 100 — opportunistic (higher risk, higher reward)
+    SMALLCAP = [
+        "AAVAS","ABSLAMC","ACCELYA","AEGISLOG","AFFLE","AGROPHOS",
+        "AJANTPHARM","ALKEM","ALKYLAMINE","ALLCARGO","AMBER","ANURAS",
+        "APARINDS","ARCHIDPLY","ARVINDFASN","ASKAUTOLTD","ASIANTILES",
+        "ASTER","ASTERDM","ATGL","BAJAJCON","BALRAMCHIN","BARBEQUE",
+        "BASF","BAYERCROP","BBTC","BCG","BECTORFOOD","BIKAJI",
+        "CAPACITE","CARBORUNIV","CARTRADE","CCL","CENTURYPLY",
+        "CERA","CHEMCON","CLEANBREW","COLLEGE","CONFIPET",
+        "CONTROLPRINT","CSBBANK","DATAMATICS","DCB","DCBBANK",
+        "DECCANCE","DEEPAKFERT","DELTACORP","DHANI","DIAMONDYD",
+        "DLINKINDIA","DODLA","DPWWORLD","DRREDDY","EASEMYTRIP",
+        "ECLERX","EIDPARRY","ELECON","ELGIEQUIP","EMUDHRA",
+        "ERIS","ESABINDIA","ETHOSLTD","EXLSERVICE","FCONSUMER",
+        "FINEORG","FINOFINANCE","FLAIR","FLEXITUFF","GANESHHOUC",
+        "GARFIBRES","GATEWAY","GESHIP","GHCL","GILLETTE",
+        "GLAND","GLOBUSSPR","GMMPFAUDLR","GNFC","GODFRYPHLP",
+        "GODREJAGRO","GODREJIND","GOLDIAM","GPPL","GREENLAM",
+        "GREENPANEL","GRINFRA","GRSE","GSFC","GTPL",
+        "GULFOILLUB","GUJGASLTD","HAPPYFORGE","HATHWAY","HAWKINCOOK",
+        "HCG","HGINFRA","HIKAL","HINDCOPPER","HINDWAREAP",
+    ]
+
+    # Commodity ETFs
+    ETF_SYMBOLS = [
+        "GOLDBEES","SILVERBEES","CPSEETF","NIFTYBEES","JUNIORBEES",
+        "BANKBEES","ICICIB22","MOM100","NETFIT","FMCGIETF"
+    ]
+
+    @classmethod
+    def get_universe(cls, run_number: int = 0) -> list:
+        """
+        Returns the universe to scan for this run.
+        Rotates through segments to cover all 500 stocks across 4 daily runs.
+        Morning run: Large caps + ETFs (fast, high priority)
+        Evening run: Midcap + Smallcap rotation
+        """
+        import datetime as dt
+        hour = dt.datetime.now().hour
+        # Morning run (before 10 AM IST = before 4:30 UTC)
+        if hour < 10:
+            return cls.NIFTY50 + cls.NIFTY_NEXT50 + cls.ETF_SYMBOLS
+        else:
+            # Evening — rotate through midcap+smallcap segments by day of week
+            day = dt.datetime.now().weekday()  # 0=Mon, 4=Fri
+            if day in [0, 3]:    # Mon, Thu
+                return cls.NIFTY50 + cls.MIDCAP[:75]
+            elif day in [1, 4]:  # Tue, Fri
+                return cls.NIFTY50 + cls.MIDCAP[75:] + cls.SMALLCAP[:50]
+            else:                # Wed
+                return cls.NIFTY50 + cls.NIFTY_NEXT50 + cls.SMALLCAP[50:]
 
     # yfinance suffix for NSE
     ETF_YF = {
@@ -1567,7 +1655,7 @@ def run():
     log.info("OBSERVE: Fetching macro + prices...")
     macro  = get_macro(client)
     prices = {}
-    all_syms = Config.NIFTY50 + Config.MIDCAP
+    all_syms = Config.get_universe()
     for sym in all_syms:
         ltp = client.get_ltp(sym)
         if ltp: prices[sym] = ltp
@@ -1590,18 +1678,23 @@ def run():
                          "qty":ex["qty"],"price":ex["price"],"score":0,"reason":ex["reason"],
                          "kind":ex["kind"],"regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
 
-    log.info("REASON: Scoring candidates...")
+    log.info("REASON: Scoring all candidates (always — even in Regime C for watchlist)...")
     signals = []
-    if macro.regime != "C":
-        for sym in [s for s in all_syms if not portfolio.has(s)]:
-            df = client.get_historical(sym, 265)
-            if df.empty: continue
-            sig = score_symbol(sym, df, macro, portfolio.cash)
-            signals.append(sig)
-            time.sleep(0.1)
+    for sym in [s for s in all_syms if not portfolio.has(s)]:
+        df = client.get_historical(sym, 265)
+        if df.empty: continue
+        sig = score_symbol(sym, df, macro, portfolio.cash)
+        # In Regime C: override action to watch/avoid — never buy
+        if macro.regime == "C" and sig.action == "buy":
+            sig.action = "watch"
+            sig.reason = f"Score {sig.score:.0f} — regime C, watching for recovery"
+        signals.append(sig)
+        time.sleep(0.1)
 
     signals.sort(key=lambda x: x.score, reverse=True)
-    log.info(f"Scored {len(signals)} symbols | {len([s for s in signals if s.action=='buy'])} buy signals")
+    buy_count   = len([s for s in signals if s.action=="buy"])
+    watch_count = len([s for s in signals if s.action=="watch"])
+    log.info(f"Scored {len(signals)} symbols | {buy_count} buy signals | {watch_count} on watchlist")
 
     if not metrics["paused"]:
         open_count = len(portfolio.positions)
