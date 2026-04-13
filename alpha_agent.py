@@ -416,6 +416,7 @@ class MacroState:
     ad_declines:  int   = 0
     ad_ratio:     float = 1.0
     ad_label:     str   = "Unavailable"
+    nifty_6m_ret: float = -5.0
 
 
 def _fetch_fii_dii() -> tuple:
@@ -720,6 +721,9 @@ def get_macro(client: DataClient) -> MacroState:
         m.nifty_vs_50  = round((cur - ma50)  / ma50  * 100, 2)
         m.nifty_vs_100 = round((cur - ma100) / ma100 * 100, 2)
         m.nifty_vs_200 = round((cur - ma200) / ma200 * 100, 2)
+        # Real Nifty 6M return for RS calculation
+        if len(c) >= 130:
+            m.nifty_6m_ret = round((cur / c.iloc[-126] - 1) * 100, 2)
 
     # 2. India VIX (real)
     m.vix = _fetch_india_vix()
@@ -819,6 +823,7 @@ def score_symbol(symbol: str, df: pd.DataFrame,
 
     c   = df["close"]
     cur = c.iloc[-1]
+    sig.entry = round(cur, 2)   # Always set entry price
     sc  = {}
 
     # 1. Stage (20)
@@ -875,7 +880,8 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     # 7. Relative strength vs Nifty 6M (12)
     if len(df) >= 130:
         ret_6m = (cur / c.iloc[-126] - 1) * 100
-        nifty_6m = 8.0          # Update dynamically — placeholder
+        # Use actual Nifty 6M return passed via macro
+        nifty_6m = getattr(macro, "nifty_6m_ret", -5.0)
         rs = ret_6m - nifty_6m
         if rs > 15:             sc["relative_str"] = Config.WEIGHTS["relative_str"]
         elif rs > 8:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.7
@@ -889,11 +895,29 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     # 9. Macro (8)
     sc["macro"] = macro.score
 
-    # 10. Earnings (6) — stub; extend with Screener API
-    sc["earnings"] = Config.WEIGHTS["earnings"] * 0.5
+    # 10. Earnings (6) — score based on price momentum as proxy
+    ret_1m = (cur / c.iloc[-22] - 1) * 100 if len(c) >= 22 else 0
+    ret_3m = (cur / c.iloc[-66] - 1) * 100 if len(c) >= 66 else 0
+    if ret_1m > 5 and ret_3m > 10:
+        sc["earnings"] = Config.WEIGHTS["earnings"]
+    elif ret_1m > 0 and ret_3m > 0:
+        sc["earnings"] = Config.WEIGHTS["earnings"] * 0.6
+    elif ret_3m > -5:
+        sc["earnings"] = Config.WEIGHTS["earnings"] * 0.3
+    else:
+        sc["earnings"] = 0
 
-    # 11. DXY/Crude (4) — stub
-    sc["crude_dxy"] = Config.WEIGHTS["crude_dxy"] * 0.5
+    # 11. DXY/Crude macro impact (4)
+    crude = getattr(macro, "crude_usd", 75.0)
+    dxy   = getattr(macro, "dxy", 104.0)
+    if crude < 75 and dxy < 102:
+        sc["crude_dxy"] = Config.WEIGHTS["crude_dxy"]       # Best case for India
+    elif crude < 85 and dxy < 106:
+        sc["crude_dxy"] = Config.WEIGHTS["crude_dxy"] * 0.6
+    elif crude < 90:
+        sc["crude_dxy"] = Config.WEIGHTS["crude_dxy"] * 0.3
+    else:
+        sc["crude_dxy"] = 0
 
     total = round(sum(sc.values()), 2)
     sig.score = total
