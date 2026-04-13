@@ -939,6 +939,9 @@ class Signal:
     risk:    float = 0.0
     comps:   dict  = field(default_factory=dict)
     reason:  str   = ""
+    stage:   int   = 0    # Weinstein stage 1-4
+    vcp:     bool  = False
+    missing: str   = ""   # What needs to happen to trigger buy
 
 def score_symbol(symbol: str, df: pd.DataFrame,
                  macro: MacroState, cash: float) -> Signal:
@@ -1069,6 +1072,8 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         max_by_cash = int(cash * 0.95 / cur)
         sig.qty     = min(sig.qty, max_by_cash)
         sig.risk    = round(sig.qty * risk_share, 2)
+        sig.stage   = stage
+        sig.vcp     = vcp["ok"]
         sig.reason  = (f"Score {total:.0f}/100 | Stage {stage} | "
                        f"VCP={'Yes' if vcp['ok'] else 'No'} | "
                        f"MA={'Full stack' if ma['full'] else 'Partial'} | "
@@ -1076,7 +1081,24 @@ def score_symbol(symbol: str, df: pd.DataFrame,
 
     elif total >= Config.WATCHLIST_SCORE_MIN:
         sig.action = "watch"
-        sig.reason = f"Score {total:.0f} — monitoring for setup"
+        sig.stage  = stage
+        sig.vcp    = vcp["ok"]
+        # Identify what's missing for a buy signal
+        gaps = []
+        threshold = 80 if macro.regime == "B" else 72
+        gap       = threshold - total
+        if sc.get("stage2", 0) == 0:
+            gaps.append(f"Stage {stage} (need Stage 2)")
+        if sc.get("vcp", 0) == 0:
+            gaps.append("VCP not formed")
+        if sc.get("ma_stack", 0) < Config.WEIGHTS["ma_stack"] * 0.6:
+            gaps.append("MA stack incomplete")
+        if sc.get("macd", 0) == 0:
+            gaps.append("MACD bearish")
+        if sc.get("relative_str", 0) == 0:
+            gaps.append("Lagging Nifty")
+        sig.missing = f"Need +{gap:.0f}pts: " + (", ".join(gaps[:2]) if gaps else "Score below threshold")
+        sig.reason  = f"Score {total:.0f} — {sig.missing}"
     else:
         sig.action = "avoid"
         sig.reason = f"Score {total:.0f} — does not meet criteria"
@@ -1114,22 +1136,52 @@ class Portfolio:
         self._load()
 
     def _load(self):
+        self.watchlist_history = {}   # symbol -> {days, prev_score, first_seen}
         if os.path.exists(Config.STATE_FILE):
             try:
                 with open(Config.STATE_FILE) as f:
                     d = json.load(f)
-                self.cash      = d.get("cash", Config.VIRTUAL_CAPITAL)
-                self.positions = [Position(**p) for p in d.get("positions", [])]
+                self.cash             = d.get("cash", Config.VIRTUAL_CAPITAL)
+                self.positions        = [Position(**p) for p in d.get("positions", [])]
+                self.watchlist_history= d.get("watchlist_history", {})
             except:
                 pass
 
-    def save(self, regime: str = ""):
+    def save(self, regime: str = "", watchlist: list = None):
         os.makedirs(Config.REPORT_DIR, exist_ok=True)
-        data = {"cash": self.cash, "positions": [asdict(p) for p in self.positions]}
+        data = {
+            "cash":      self.cash,
+            "positions": [asdict(p) for p in self.positions],
+            "watchlist_history": self.watchlist_history,
+        }
         if regime:
             data["last_regime"] = regime
         with open(Config.STATE_FILE, "w") as f:
             json.dump(data, f, indent=2)
+
+    def update_watchlist_history(self, signals: list):
+        """Track watchlist stocks across days — score trend, days monitored."""
+        today = datetime.now().strftime("%Y-%m-%d")
+        current_watch = {s.symbol for s in signals if s.action == "watch"}
+        for sym in current_watch:
+            sig = next(s for s in signals if s.symbol == sym)
+            if sym not in self.watchlist_history:
+                self.watchlist_history[sym] = {
+                    "first_seen": today, "days": 1,
+                    "prev_score": sig.score, "score_history": [sig.score]
+                }
+            else:
+                h = self.watchlist_history[sym]
+                h["days"] += 1
+                h["score_history"] = h.get("score_history", []) + [sig.score]
+                h["score_history"] = h["score_history"][-10:]  # keep last 10
+                h["prev_score"] = h.get("prev_score", sig.score)
+        # Clean up stocks no longer on watchlist for > 5 days
+        to_remove = [s for s in list(self.watchlist_history.keys())
+                     if s not in current_watch and
+                     self.watchlist_history[s].get("days", 0) > 0]
+        for sym in to_remove:
+            self.watchlist_history.pop(sym, None)
 
     def get_last_regime(self) -> str:
         if os.path.exists(Config.STATE_FILE):
@@ -1622,13 +1674,19 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 4px;">Watchlist ({len(watch)})</h2>
-  <p style="color:#7f8c8d;font-size:12px;margin:0 0 14px;">Scoring 55–71. Setting up but not ready yet — monitor daily.</p>
+  <p style="color:#7f8c8d;font-size:12px;margin:0 0 14px;">
+    {"Regime C — all equities on hold. Showing best positioned stocks for when market recovers." if macro.regime=="C" else
+     f"Regime B — buy threshold raised to 80. Stocks scoring 55–79 monitored here. Score trend and gap shown per stock." if macro.regime=="B" else
+     "Regime A — scoring 55–71. Close to buy threshold of 72. Monitor daily for breakout."}
+  </p>
   <table width="100%" style="border-collapse:collapse;font-size:13px;">
     <thead><tr style="background:#f8f9fa;">
-      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">Symbol</th>
-      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Score</th>
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">Symbol + Stage</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Score (trend)</th>
       <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Price</th>
-      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">What is missing</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Days tracked</th>
+      <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Gap to buy</th>
+      <th style="padding:9px 8px;text-align:left;color:#7f8c8d;">What needs to happen</th>
     </tr></thead>
     <tbody>{watch_rows}</tbody>
   </table>
@@ -1759,6 +1817,7 @@ def run():
     else:
         log.warning("Circuit breaker active — no new entries")
 
+    portfolio.update_watchlist_history(signals)
     portfolio.save(macro.regime)
     metrics = portfolio.metrics(prices)
     html_report, plain_report = build_html_report(metrics, signals, macro, portfolio, prices)
