@@ -1855,8 +1855,92 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
 
 # ─── MAIN AGENT LOOP ───────────────────────────────────────────────────────────
 
+# NSE holidays 2025-2026
+NSE_HOLIDAYS = {
+    "2025-01-26","2025-02-19","2025-03-14","2025-03-31",
+    "2025-04-10","2025-04-14","2025-04-18","2025-05-01",
+    "2025-08-15","2025-08-27","2025-10-02","2025-10-21",
+    "2025-10-22","2025-10-24","2025-11-05","2025-12-25",
+    "2026-01-26","2026-02-18","2026-03-19","2026-03-30",
+    "2026-04-02","2026-04-14","2026-04-17","2026-04-30",
+    "2026-05-01","2026-08-15","2026-08-17","2026-10-02",
+    "2026-11-13","2026-11-14","2026-12-25",
+}
+
+def is_market_open() -> tuple:
+    """Check if NSE is open today."""
+    now      = datetime.now()
+    today    = now.strftime("%Y-%m-%d")
+    weekday  = now.weekday()   # 0=Mon, 6=Sun
+
+    if weekday >= 5:
+        return False, "Weekend — NSE closed"
+    if today in NSE_HOLIDAYS:
+        return False, f"NSE holiday ({today})"
+    return True, "Market open"
+
+
+def send_holiday_email(reason: str):
+    """Send a brief holiday notification email."""
+    import smtplib
+    from email.mime.multipart import MIMEMultipart
+    from email.mime.text      import MIMEText
+
+    gmail_user = os.getenv("GMAIL_USER","")
+    gmail_pass = os.getenv("GMAIL_APP_PASS","")
+    to_email   = os.getenv("NOTIFY_EMAIL","")
+
+    if not all([gmail_user, gmail_pass, to_email]):
+        return
+
+    now_str = datetime.now().strftime("%d %b %Y")
+    msg = MIMEMultipart()
+    msg["From"]    = f"AlphaAgent <{gmail_user}>"
+    msg["To"]      = to_email
+    msg["Subject"] = f"AlphaAgent — Market closed today ({now_str})"
+
+    html = f"""<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
+<div style="background:#1a252f;border-radius:10px;padding:20px;margin-bottom:16px;">
+  <h2 style="color:#fff;margin:0;">AlphaAgent</h2>
+  <p style="color:#95a5a6;margin:4px 0 0;">{now_str}</p>
+</div>
+<div style="background:#fef9e7;border:1px solid #f39c12;border-radius:10px;padding:20px;">
+  <h3 style="color:#856404;margin:0 0 10px;">&#128274; {reason}</h3>
+  <p style="color:#856404;font-size:14px;margin:0;">
+    No trades placed. Portfolio unchanged. Bot resumes automatically on next trading day.
+  </p>
+</div>
+<div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px;margin-top:16px;">
+  <p style="color:#1a5276;font-size:13px;margin:0;">
+    <b>Use this time to:</b> Review the watchlist from yesterday's report.
+    Check if any macro events are scheduled for tomorrow.
+    The bot will scan the full universe on market open.
+  </p>
+</div>
+<p style="text-align:center;color:#bdc3c7;font-size:11px;margin-top:20px;">
+  AlphaAgent automated paper trading
+</p>
+</body></html>"""
+
+    msg.attach(MIMEText(html, "html"))
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+            server.login(gmail_user, gmail_pass)
+            server.sendmail(gmail_user, to_email, msg.as_string())
+        log.info(f"Holiday email sent: {reason}")
+    except Exception as e:
+        log.warning(f"Holiday email failed: {e}")
+
+
 def run():
     log.info(f"\n{'='*55}\nALPHAGENT RUN — {datetime.now().strftime('%d %b %Y %H:%M')}\n{'='*55}")
+
+    # Check market holiday first
+    market_open, market_reason = is_market_open()
+    if not market_open:
+        log.info(f"Market closed: {market_reason}. Sending notification.")
+        send_holiday_email(market_reason)
+        return
 
     client    = DataClient()
     portfolio = Portfolio()
