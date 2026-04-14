@@ -814,22 +814,41 @@ def _fetch_geo_risk() -> tuple:
 def _fetch_rbi_stance() -> str:
     """
     Determine RBI stance from latest policy.
-    Checks RBI website and ET for recent policy signals.
+    Uses multiple signals — defaults to known current stance.
+    RBI cut repo rate by 25bps in Feb 2025 and again in Apr 2025 — current stance: cutting.
     """
+    # Known baseline: RBI has been in cutting cycle since Feb 2025
+    # Only override if very clear hiking signals in recent news
+    baseline = "cutting"
     try:
-        r = requests.get(
+        feeds = [
             "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
-            headers={"User-Agent": "Mozilla/5.0"}, timeout=6
-        )
-        text = r.text.lower()
-        if any(k in text for k in ["rate cut", "repo cut", "accommodative", "easing"]):
-            return "cutting"
-        elif any(k in text for k in ["rate hike", "hawkish", "tightening", "inflation concern"]):
-            return "hiking"
-        else:
-            return "neutral"
+            "https://www.rbi.org.in/scripts/rss.aspx",
+        ]
+        for feed_url in feeds:
+            try:
+                r = requests.get(feed_url,
+                                 headers={"User-Agent": "Mozilla/5.0"}, timeout=6)
+                text = r.text.lower()
+                # Only count very recent/strong hiking signals
+                hiking_signals = sum(1 for k in [
+                    "rate hike", "rbi hikes", "repo rate increased",
+                    "monetary tightening", "rbi raises rate"
+                ] if k in text)
+                cut_signals = sum(1 for k in [
+                    "rate cut", "repo cut", "rbi cuts", "accommodative",
+                    "easing", "rate reduction", "repo rate reduced"
+                ] if k in text)
+
+                if hiking_signals >= 2:
+                    return "hiking"
+                elif cut_signals >= 1:
+                    return "cutting"
+            except:
+                continue
     except:
-        return "neutral"
+        pass
+    return baseline
 
 
 def get_macro(client: DataClient) -> MacroState:
@@ -1465,15 +1484,32 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     if metrics["paused"]:
         circuit = '<div style="background:#fdedec;border:1px solid #e74c3c;border-radius:8px;padding:14px 18px;margin:16px 0;"><b style="color:#e74c3c;">⚠ Circuit Breaker Active</b><p style="color:#c0392b;margin:6px 0 0;font-size:13px;">Portfolio drawdown exceeded 10%. No new entries until recovery. Bot is protecting your capital.</p></div>'
 
-    watch_rows = "".join(f"""<tr style="border-bottom:1px solid #f0f0f0;">
-      <td style="padding:9px 8px;font-weight:700;">{s.symbol}</td>
-      <td style="padding:9px 8px;text-align:center;"><span style="background:#fef9e7;color:#f39c12;padding:2px 8px;border-radius:10px;font-size:12px;">{s.score:.0f}</span></td>
-      <td style="padding:9px 8px;text-align:right;">₹{s.entry:,.2f}</td>
-      <td style="padding:9px 8px;font-size:12px;color:#7f8c8d;">{s.reason}</td>
-    </tr>""" for s in watch) or '<tr><td colspan="4" style="text-align:center;color:#999;padding:16px;">Nothing on watchlist today</td></tr>'
-
-
-    # Extended macro interpretations for HTML
+        # Build enriched watchlist rows
+    def _wrow(s):
+        h           = portfolio.watchlist_history.get(s.symbol, {})
+        days        = h.get("days", 1)
+        hist        = h.get("score_history", [s.score])
+        prev_s      = hist[-2] if len(hist) >= 2 else s.score
+        trend       = s.score - prev_s
+        t_arrow     = "▲" if trend > 1 else "▼" if trend < -1 else "▶"
+        t_color     = "#27ae60" if trend > 1 else "#e74c3c" if trend < -1 else "#7f8c8d"
+        sc          = {1:"#3498db",2:"#27ae60",3:"#f39c12",4:"#e74c3c"}.get(s.stage,"#7f8c8d")
+        sl          = {1:"Stage 1",2:"Stage 2 ✓",3:"Stage 3",4:"Stage 4"}.get(s.stage,"?")
+        vcp_b       = '<span style="background:#eaf4fb;color:#1a5276;padding:1px 5px;border-radius:3px;font-size:10px;margin-left:3px;">VCP</span>' if s.vcp else ""
+        threshold   = 80 if macro.regime == "B" else 72
+        gap         = max(0, threshold - s.score)
+        miss        = s.missing
+        for pfx in [f"Need +{gap:.0f}pts: ", f"Need +{gap+1:.0f}pts: ", "Need +"]:
+            if miss.startswith(pfx): miss = miss[len(pfx):]; break
+        return f'''<tr style="border-bottom:1px solid #f0f0f0;">
+          <td style="padding:9px 8px;font-size:13px;font-weight:700;">{s.symbol}{vcp_b}<div style="font-size:10px;color:{sc};">{sl}</div></td>
+          <td style="padding:9px 8px;text-align:center;"><span style="background:#fef9e7;color:#f39c12;padding:2px 7px;border-radius:10px;font-size:13px;font-weight:700;">{s.score:.0f}</span> <span style="color:{t_color};font-size:11px;">{t_arrow}</span></td>
+          <td style="padding:9px 8px;text-align:right;font-size:13px;">&#8377;{s.entry:,.2f}</td>
+          <td style="padding:9px 8px;text-align:center;font-size:12px;font-weight:600;color:#7f8c8d;">{days}d</td>
+          <td style="padding:9px 8px;text-align:center;font-size:12px;font-weight:700;color:#e74c3c;">+{gap:.0f}</td>
+          <td style="padding:9px 8px;font-size:11px;color:#7f8c8d;">{miss[:55]}</td>
+        </tr>'''
+    watch_rows = "".join(_wrow(s) for s in watch) or '<tr><td colspan="6" style="text-align:center;color:#999;padding:16px;">Nothing on watchlist today</td></tr>'    # Extended macro interpretations for HTML
     rbi_color = "#27ae60" if macro.rbi_stance=="cutting" else "#e74c3c" if macro.rbi_stance=="hiking" else "#f39c12"
     rbi_label = "Cutting rates — bullish for equities" if macro.rbi_stance=="cutting" else "Hiking rates — bearish headwind" if macro.rbi_stance=="hiking" else "Neutral — monitoring inflation"
     crude_color = "#27ae60" if macro.crude_usd < 75 else "#f39c12" if macro.crude_usd < 90 else "#e74c3c"
@@ -1739,6 +1775,67 @@ WATCHLIST ({len(watch)})
     return html, plain
 
 
+def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: str):
+    """Save rolling 10-day watchlist history to Excel."""
+    try:
+        excel_path = f"{Config.REPORT_DIR}/watchlist_history.xlsx"
+        watch  = sorted([s for s in signals if s.action=="watch"],
+                        key=lambda x: x.score, reverse=True)[:20]
+        buys   = sorted([s for s in signals if s.action=="buy"],
+                        key=lambda x: x.score, reverse=True)[:10]
+
+        rows = []
+        for s in buys + watch:
+            h       = portfolio.watchlist_history.get(s.symbol, {})
+            hist    = h.get("score_history", [s.score])
+            prev_s  = hist[-2] if len(hist) >= 2 else s.score
+            trend   = round(s.score - prev_s, 1)
+            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            gap     = max(0, threshold - s.score)
+            miss    = s.missing
+            for pfx in [f"Need +{gap:.0f}pts: ", "Need +"]:
+                if miss.startswith(pfx): miss = miss[len(pfx):]; break
+            stage_map = {1:"Stage 1 — Base",2:"Stage 2 — Uptrend ✓",
+                         3:"Stage 3 — Top",4:"Stage 4 — Decline"}
+            rows.append({
+                "Date":           today,
+                "Symbol":         s.symbol,
+                "Action":         s.action.upper(),
+                "Score":          s.score,
+                "Score Trend":    f"{trend:+.1f}",
+                "Stage":          stage_map.get(s.stage, "Unknown"),
+                "VCP":            "Yes" if s.vcp else "No",
+                "Price":          s.entry,
+                "Gap to Buy":     gap,
+                "What's Missing": miss[:80],
+                "Days Tracked":   h.get("days", 1),
+                "First Seen":     h.get("first_seen", today),
+                "Regime":         macro.regime,
+                "Nifty vs 200DMA":f"{macro.nifty_vs_200:+.1f}%",
+                "VIX":            macro.vix,
+                "FII Cr":         macro.fii_flow,
+            })
+
+        new_df = pd.DataFrame(rows)
+
+        # Load existing and append
+        if os.path.exists(excel_path):
+            existing = pd.read_excel(excel_path)
+            # Keep last 10 trading days
+            all_dates = sorted(existing["Date"].unique(), reverse=True)
+            keep_dates = all_dates[:9]  # keep 9 old + today = 10
+            existing   = existing[existing["Date"].isin(keep_dates)]
+            combined   = pd.concat([existing, new_df], ignore_index=True)
+        else:
+            combined = new_df
+
+        combined.to_excel(excel_path, index=False)
+        log.info(f"Excel watchlist saved: {excel_path}")
+    except Exception as e:
+        log.warning(f"Excel watchlist save failed: {e}")
+
+
+
 # ─── MAIN AGENT LOOP ───────────────────────────────────────────────────────────
 
 def run():
@@ -1780,10 +1877,26 @@ def run():
         df = client.get_historical(sym, 265)
         if df.empty: continue
         sig = score_symbol(sym, df, macro, portfolio.cash)
-        # In Regime C: override action to watch/avoid — never buy
+        # In Regime C: override action to watch — never buy
         if macro.regime == "C" and sig.action == "buy":
-            sig.action = "watch"
-            sig.reason = f"Score {sig.score:.0f} — regime C, watching for recovery"
+            sig.action  = "watch"
+            threshold   = 72   # Regime A threshold for reference
+            gap         = max(0, threshold - sig.score)
+            gaps        = []
+            if sig.stage != 2:           gaps.append(f"Stage {sig.stage} (need Stage 2)")
+            if not sig.vcp:              gaps.append("VCP not formed")
+            miss = ("Regime C — market in downtrend. " +
+                    (", ".join(gaps[:2]) if gaps else "Score ready, awaiting regime recovery"))
+            sig.missing = miss
+            sig.reason  = f"Score {sig.score:.0f} — {miss}"
+        # Ensure watchlist signals also have missing populated
+        if sig.action == "watch" and not sig.missing:
+            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            gap       = max(0, threshold - sig.score)
+            gaps      = []
+            if sig.stage != 2: gaps.append(f"Stage {sig.stage} (need Stage 2)")
+            if not sig.vcp:    gaps.append("VCP not formed")
+            sig.missing = f"Need +{gap:.0f}pts: " + (", ".join(gaps[:2]) if gaps else "Score below threshold")
         signals.append(sig)
         time.sleep(0.1)
 
@@ -1826,6 +1939,9 @@ def run():
     os.makedirs(Config.REPORT_DIR, exist_ok=True)
     with open(f"{Config.REPORT_DIR}/report_{today}.html", "w") as f: f.write(html_report)
     with open(f"{Config.REPORT_DIR}/report_{today}.txt",  "w") as f: f.write(plain_report)
+
+    # Excel rolling watchlist — 10 day history
+    _save_watchlist_excel(signals, portfolio, macro, today)
     log.info(f"Reports saved.")
     send_telegram(plain_report[:4000])
     log.info("Run complete.")
