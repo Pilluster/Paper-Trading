@@ -1880,56 +1880,51 @@ def is_market_open() -> tuple:
     return True, "Market open"
 
 
-def send_holiday_email(reason: str):
-    """Send a brief holiday notification email."""
-    import smtplib
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text      import MIMEText
+def write_holiday_report(reason: str):
+    """Write a holiday HTML report so trade.yml email step sends it normally."""
+    os.makedirs(Config.REPORT_DIR, exist_ok=True)
+    now_str = datetime.now().strftime("%d %b %Y, %I:%M %p IST")
+    today   = datetime.now().strftime("%Y%m%d")
 
-    gmail_user = os.getenv("GMAIL_USER","")
-    gmail_pass = os.getenv("GMAIL_APP_PASS","")
-    to_email   = os.getenv("NOTIFY_EMAIL","")
-
-    if not all([gmail_user, gmail_pass, to_email]):
-        return
-
-    now_str = datetime.now().strftime("%d %b %Y")
-    msg = MIMEMultipart()
-    msg["From"]    = f"AlphaAgent <{gmail_user}>"
-    msg["To"]      = to_email
-    msg["Subject"] = f"AlphaAgent — Market closed today ({now_str})"
-
-    html = f"""<!DOCTYPE html><html><body style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;padding:20px;">
-<div style="background:#1a252f;border-radius:10px;padding:20px;margin-bottom:16px;">
-  <h2 style="color:#fff;margin:0;">AlphaAgent</h2>
-  <p style="color:#95a5a6;margin:4px 0 0;">{now_str}</p>
+    html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
+<body style="font-family:Arial,sans-serif;color:#2c3e50;max-width:700px;margin:0 auto;padding:20px;background:#f5f6fa;">
+<div style="background:#1a252f;border-radius:10px;padding:24px;margin-bottom:20px;">
+  <h1 style="color:#fff;margin:0;font-size:22px;">AlphaAgent Daily Report</h1>
+  <p style="color:#95a5a6;margin:4px 0 0;font-size:13px;">{now_str}</p>
 </div>
-<div style="background:#fef9e7;border:1px solid #f39c12;border-radius:10px;padding:20px;">
-  <h3 style="color:#856404;margin:0 0 10px;">&#128274; {reason}</h3>
-  <p style="color:#856404;font-size:14px;margin:0;">
-    No trades placed. Portfolio unchanged. Bot resumes automatically on next trading day.
+<div style="background:#fef9e7;border:2px solid #f39c12;border-radius:10px;padding:24px;margin-bottom:16px;">
+  <div style="font-size:28px;margin-bottom:12px;">&#128274;</div>
+  <h2 style="color:#856404;margin:0 0 10px;font-size:18px;">{reason}</h2>
+  <p style="color:#856404;font-size:14px;line-height:1.6;margin:0;">
+    NSE is closed today. No market data available, no trades placed.
+    Portfolio is unchanged. Bot resumes automatically on the next trading day.
   </p>
 </div>
-<div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px;margin-top:16px;">
-  <p style="color:#1a5276;font-size:13px;margin:0;">
-    <b>Use this time to:</b> Review the watchlist from yesterday's report.
-    Check if any macro events are scheduled for tomorrow.
-    The bot will scan the full universe on market open.
-  </p>
+<div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+  <b style="color:#1a5276;font-size:14px;">Use today to review:</b>
+  <ul style="color:#1a5276;font-size:13px;margin:8px 0 0;padding-left:18px;line-height:1.8;">
+    <li>Yesterday's watchlist — check CPSEETF, JINDALSTEL, VEDL closely</li>
+    <li>Any macro events scheduled for tomorrow (RBI minutes, FII data, global cues)</li>
+    <li>Global markets today — US futures, SGX Nifty will signal tomorrow's open</li>
+  </ul>
 </div>
-<p style="text-align:center;color:#bdc3c7;font-size:11px;margin-top:20px;">
-  AlphaAgent automated paper trading
-</p>
+<div style="text-align:center;color:#bdc3c7;font-size:11px;padding:10px;">
+  AlphaAgent automated paper trading | not SEBI-registered financial advice
+</div>
 </body></html>"""
 
-    msg.attach(MIMEText(html, "html"))
-    try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-            server.login(gmail_user, gmail_pass)
-            server.sendmail(gmail_user, to_email, msg.as_string())
-        log.info(f"Holiday email sent: {reason}")
-    except Exception as e:
-        log.warning(f"Holiday email failed: {e}")
+    plain = f"""AlphaAgent Daily Report
+{now_str}
+
+MARKET CLOSED: {reason}
+No trades placed. Portfolio unchanged.
+Bot resumes on next trading day.
+
+Review yesterday's watchlist and global cues for tomorrow's open.
+"""
+    with open(f"{Config.REPORT_DIR}/report_{today}.html","w") as f: f.write(html)
+    with open(f"{Config.REPORT_DIR}/report_{today}.txt", "w") as f: f.write(plain)
+    log.info(f"Holiday report written: {reason}")
 
 
 def run():
@@ -1938,8 +1933,8 @@ def run():
     # Check market holiday first
     market_open, market_reason = is_market_open()
     if not market_open:
-        log.info(f"Market closed: {market_reason}. Sending notification.")
-        send_holiday_email(market_reason)
+        log.info(f"Market closed: {market_reason}. Writing holiday report.")
+        write_holiday_report(market_reason)
         return
 
     client    = DataClient()
