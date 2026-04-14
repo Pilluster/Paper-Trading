@@ -1106,17 +1106,30 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         gaps = []
         threshold = 80 if macro.regime == "B" else 72
         gap       = threshold - total
+
+        # Specific, actionable gap descriptions
         if sc.get("stage2", 0) == 0:
-            gaps.append(f"Stage {stage} (need Stage 2)")
-        if sc.get("vcp", 0) == 0:
-            gaps.append("VCP not formed")
+            gaps.append(f"Stage {stage} — wait for price to cross rising 30W MA")
+        if sc.get("vcp", 0) == 0 and sc.get("stage2", 0) > 0:
+            gaps.append("VCP incomplete — price range still wide, wait for tighter base (3 contractions)")
+        if sc.get("vcp", 0) == 0 and sc.get("stage2", 0) == 0:
+            gaps.append("VCP not applicable until Stage 2 confirmed")
         if sc.get("ma_stack", 0) < Config.WEIGHTS["ma_stack"] * 0.6:
-            gaps.append("MA stack incomplete")
+            gaps.append("Price below 100/200 DMA — wait for MA alignment")
         if sc.get("macd", 0) == 0:
-            gaps.append("MACD bearish")
+            gaps.append("MACD bearish — wait for bullish crossover")
         if sc.get("relative_str", 0) == 0:
-            gaps.append("Lagging Nifty")
-        sig.missing = f"Need +{gap:.0f}pts: " + (", ".join(gaps[:2]) if gaps else "Score below threshold")
+            gaps.append("Underperforming Nifty — wait for relative strength to turn")
+        if sc.get("rsi", 0) == 0:
+            gaps.append("RSI outside 50-70 zone")
+
+        if not gaps:
+            if gap > 0:
+                gaps.append(f"Score {total:.0f}/100 — need macro improvement or volume surge")
+            else:
+                gaps.append("Ready to buy — awaiting regime recovery")
+
+        sig.missing = ", ".join(gaps[:2])
         sig.reason  = f"Score {total:.0f} — {sig.missing}"
     else:
         sig.action = "avoid"
@@ -1710,10 +1723,14 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 4px;">Watchlist ({len(watch)})</h2>
-  <p style="color:#7f8c8d;font-size:12px;margin:0 0 14px;">
+  <p style="color:#7f8c8d;font-size:12px;margin:0 0 6px;">
     {"Regime C — all equities on hold. Showing best positioned stocks for when market recovers." if macro.regime=="C" else
-     f"Regime B — buy threshold raised to 80. Stocks scoring 55–79 monitored here. Score trend and gap shown per stock." if macro.regime=="B" else
+     f"Regime B — buy threshold raised to 80. Stocks scoring 55–79 monitored here." if macro.regime=="B" else
      "Regime A — scoring 55–71. Close to buy threshold of 72. Monitor daily for breakout."}
+  </p>
+  <p style="color:#7f8c8d;font-size:11px;margin:0 0 14px;background:#f8f9fa;padding:8px 10px;border-radius:6px;">
+    <b>Stage guide:</b> Stage 1=base building (too early) · <b style="color:#27ae60;">Stage 2=uptrend (buy zone)</b> · Stage 3=topping (exit) · Stage 4=downtrend (avoid) &nbsp;|&nbsp;
+    <b>VCP</b>=Volatility Contraction Pattern — price tightening before breakout. Stage 2 + VCP = highest conviction setup.
   </p>
   <table width="100%" style="border-collapse:collapse;font-size:13px;">
     <thead><tr style="background:#f8f9fa;">
@@ -1885,8 +1902,13 @@ def run():
             gaps        = []
             if sig.stage != 2:           gaps.append(f"Stage {sig.stage} (need Stage 2)")
             if not sig.vcp:              gaps.append("VCP not formed")
-            miss = ("Regime C — market in downtrend. " +
-                    (", ".join(gaps[:2]) if gaps else "Score ready, awaiting regime recovery"))
+            # For Stage 2 + VCP stocks in Regime C — they're READY, just need regime
+            if sig.stage == 2 and sig.vcp:
+                miss = f"Score {sig.score:.0f} ready. Stage 2 + VCP confirmed. Awaiting market recovery (Regime A/B)"
+            elif sig.stage == 2:
+                miss = f"Stage 2 confirmed. VCP forming — watch for tighter base. Buy on Regime A/B recovery"
+            else:
+                miss = f"Stage {sig.stage} — need Stage 2 + VCP before entry"
             sig.missing = miss
             sig.reason  = f"Score {sig.score:.0f} — {miss}"
         # Ensure watchlist signals also have missing populated
