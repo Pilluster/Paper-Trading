@@ -1855,28 +1855,74 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
 
 # ─── MAIN AGENT LOOP ───────────────────────────────────────────────────────────
 
-# NSE holidays 2025-2026
-NSE_HOLIDAYS = {
+# NSE holidays 2025-2026 — verified against NSE official calendar
+# Fallback holiday list — only used if live NSE API fails
+NSE_HOLIDAYS_FALLBACK = {
     "2025-01-26","2025-02-19","2025-03-14","2025-03-31",
     "2025-04-10","2025-04-14","2025-04-18","2025-05-01",
     "2025-08-15","2025-08-27","2025-10-02","2025-10-21",
     "2025-10-22","2025-10-24","2025-11-05","2025-12-25",
-    "2026-01-26","2026-02-18","2026-03-19","2026-03-30",
-    "2026-04-02","2026-04-14","2026-04-17","2026-04-30",
-    "2026-05-01","2026-08-15","2026-08-17","2026-10-02",
-    "2026-11-13","2026-11-14","2026-12-25",
+    "2026-01-26","2026-02-18","2026-03-19","2026-03-20",
+    "2026-04-02","2026-04-03","2026-04-14","2026-05-01",
+    "2026-08-15","2026-10-02","2026-11-14","2026-12-25",
 }
 
+
+def _fetch_nse_holidays() -> set:
+    """Fetch live NSE holiday list from NSE API."""
+    try:
+        sess = requests.Session()
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            "Referer":    "https://www.nseindia.com/",
+        }
+        sess.get("https://www.nseindia.com", headers=headers, timeout=6)
+        r = sess.get(
+            "https://www.nseindia.com/api/holiday-master?type=trading",
+            headers=headers, timeout=6
+        )
+        holidays = set()
+        for item in r.json().get("CM", []):
+            date_str = item.get("tradingDate", "")
+            if date_str:
+                try:
+                    from datetime import datetime as dt2
+                    d = dt2.strptime(date_str, "%d-%b-%Y")
+                    holidays.add(d.strftime("%Y-%m-%d"))
+                except:
+                    pass
+        if len(holidays) > 5:
+            log.info(f"Live NSE holidays fetched: {len(holidays)} dates")
+            return holidays
+    except Exception as e:
+        log.warning(f"NSE live holiday fetch failed: {e}")
+    return set()
+
+
 def is_market_open() -> tuple:
-    """Check if NSE is open today."""
-    now      = datetime.now()
-    today    = now.strftime("%Y-%m-%d")
-    weekday  = now.weekday()   # 0=Mon, 6=Sun
+    """
+    Check if NSE is open today.
+    Tries live NSE API first — never relies solely on hardcoded dates.
+    """
+    now     = datetime.now()
+    today   = now.strftime("%Y-%m-%d")
+    weekday = now.weekday()
 
     if weekday >= 5:
         return False, "Weekend — NSE closed"
-    if today in NSE_HOLIDAYS:
-        return False, f"NSE holiday ({today})"
+
+    # Always try live API first
+    live = _fetch_nse_holidays()
+    if live:
+        if today in live:
+            return False, f"NSE holiday ({today})"
+        log.info(f"Market open — confirmed via live NSE API")
+        return True, "Market open"
+
+    # Only use fallback if live API completely fails
+    log.warning("Using fallback holiday calendar — live API unavailable")
+    if today in NSE_HOLIDAYS_FALLBACK:
+        return False, f"NSE holiday ({today}) — fallback calendar"
     return True, "Market open"
 
 
@@ -1933,6 +1979,12 @@ def run():
     # Check market holiday first
     market_open, market_reason = is_market_open()
     if not market_open:
+        today = datetime.now().strftime("%Y%m%d")
+        holiday_file = f"{Config.REPORT_DIR}/report_{today}.html"
+        os.makedirs(Config.REPORT_DIR, exist_ok=True)
+        if os.path.exists(holiday_file):
+            log.info(f"Holiday report already sent today — skipping second run.")
+            return
         log.info(f"Market closed: {market_reason}. Writing holiday report.")
         write_holiday_report(market_reason)
         return
