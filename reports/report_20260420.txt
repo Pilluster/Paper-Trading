@@ -1,15 +1,15 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-20 Apr 2026, 05:50 AM IST
+20 Apr 2026, 11:25 AM IST
 
 MARKET REGIME: C — Risk Off (Bear Market)
 Nifty is below its 200-day moving average — a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.
 Bot action: No new equity entries. Capital fully preserved in cash. Only Gold ETF allowed.
 
 MACRO INDICATORS
-  VIX              : 18.0  [Moderate — normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -0.2%  [-0.2% below — caution zone]
-  Nifty vs 200 DMA : -3.2%  [-3.2% below — confirmed downtrend]
-  FII Net Flow     : Rs+352 Cr  [Marginal buying — neutral]
+  VIX              : 18.8  [Moderate — normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -0.1%  [-0.1% below — caution zone]
+  Nifty vs 200 DMA : -3.1%  [-3.1% below — confirmed downtrend]
+  FII Net Flow     : Rs+60 Cr  [Marginal buying — neutral]
 
 PORTFOLIO
   Total Value : Rs500,000
@@ -22,11 +22,11 @@ BUY SIGNALS (0)
   No buy signals — regime C, bot protecting capital in cash.
 
 WATCHLIST (8)
-  CPSEETF        Score 76 | Rs106.66 | Score 76 — Ready to buy — awaiting regime recovery
-  JINDALSTEL     Score 72 | Rs1275.50 | Score 72 — Ready to buy — awaiting regime recovery
-  ONGC           Score 67 | Rs282.95 | Score 67 — MACD bearish — wait for bullish crossover
-  SBIN           Score 65 | Rs1107.35 | Score 65 — Price below 100/200 DMA — wait for MA alignment
-  NTPC           Score 65 | Rs395.70 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  HINDALCO       Score 65 | Rs1022.75 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  TATASTEEL      Score 65 | Rs211.18 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  LUPIN          Score 65 | Rs2335.10 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  DATAPATTNS     Score 79 | Rs3467.60 | Score 79 — Ready to buy — awaiting regime recovery
+  FEDERALBNK     Score 72 | Rs294.35 | Score 72 — Ready to buy — awaiting regime recovery
+  APLAPOLLO      Score 70 | Rs2143.90 | Score 70 — Score 70/100 — need macro improvement or volume surge
+  AVANTIFEED     Score 67 | Rs1503.40 | Score 67 — Score 67/100 — need macro improvement or volume surge
+  ONGC           Score 66 | Rs283.35 | Score 66 — MACD bearish — wait for bullish crossover
+  SBIN           Score 66 | Rs1107.85 | Score 66 — Price below 100/200 DMA — wait for MA alignment
+  INDIANB        Score 65 | Rs928.30 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  HINDALCO       Score 64 | Rs1015.25 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
