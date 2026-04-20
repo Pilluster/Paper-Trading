@@ -1,0 +1,223 @@
+{
+  "cash": 500000.0,
+  "positions": [],
+  "watchlist_history": {
+    "ICICIB22": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 58.4,
+      "score_history": [
+        58.4
+      ]
+    },
+    "JINDALSTEL": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 72.2,
+      "score_history": [
+        72.2
+      ]
+    },
+    "TORNTPHARM": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 56.0,
+      "score_history": [
+        56.0
+      ]
+    },
+    "CPSEETF": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 75.7,
+      "score_history": [
+        75.7
+      ]
+    },
+    "MARICO": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 59.2,
+      "score_history": [
+        59.2
+      ]
+    },
+    "ADANIPOWER": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.7,
+      "score_history": [
+        64.7
+      ]
+    },
+    "POWERGRID": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 62.7,
+      "score_history": [
+        62.7
+      ]
+    },
+    "NMDC": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "ONGC": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 67.4,
+      "score_history": [
+        67.4
+      ]
+    },
+    "HINDALCO": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "BAJAJ-AUTO": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 58.8,
+      "score_history": [
+        58.8
+      ]
+    },
+    "SIEMENS": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 60.7,
+      "score_history": [
+        60.7
+      ]
+    },
+    "LUPIN": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "SHRIRAMFIN": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 62.4,
+      "score_history": [
+        62.4
+      ]
+    },
+    "TVSMOTOR": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 57.0,
+      "score_history": [
+        57.0
+      ]
+    },
+    "MOTHERSON": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 62.4,
+      "score_history": [
+        62.4
+      ]
+    },
+    "NTPC": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "SAIL": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "ADANIPORTS": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 63.6,
+      "score_history": [
+        63.6
+      ]
+    },
+    "JSWSTEEL": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 61.2,
+      "score_history": [
+        61.2
+      ]
+    },
+    "SILVERBEES": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 63.3,
+      "score_history": [
+        63.3
+      ]
+    },
+    "TITAN": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 62.4,
+      "score_history": [
+        62.4
+      ]
+    },
+    "TATASTEEL": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "GOLDBEES": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 61.1,
+      "score_history": [
+        61.1
+      ]
+    },
+    "SBIN": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 65.3,
+      "score_history": [
+        65.3
+      ]
+    },
+    "VEDL": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 64.8,
+      "score_history": [
+        64.8
+      ]
+    },
+    "AXISBANK": {
+      "first_seen": "2026-04-20",
+      "days": 1,
+      "prev_score": 62.4,
+      "score_history": [
+        62.4
+      ]
+    }
+  },
+  "last_regime": "C"
+}
