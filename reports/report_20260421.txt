@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-21 Apr 2026, 05:37 AM IST
+21 Apr 2026, 07:11 AM IST
 
 MARKET REGIME: B — Cautious (Choppy Market)
 Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
@@ -9,7 +9,7 @@ MACRO INDICATORS
   VIX              : 17.7  [Moderate — normal healthy volatility]  (Normal: 12-20)
   Nifty vs 50 DMA  : +0.7%  [+0.7% above — mildly bullish]
   Nifty vs 200 DMA : -2.4%  [-2.4% below — caution zone]
-  FII Net Flow     : Rs-337 Cr  [Marginal selling — mild caution]
+  FII Net Flow     : Rs-252 Cr  [Marginal selling — mild caution]
 
 PORTFOLIO
   Total Value : Rs500,000
@@ -22,11 +22,11 @@ BUY SIGNALS (0)
   No buy signals — regime C, bot protecting capital in cash.
 
 WATCHLIST (8)
-  CPSEETF        Score 74 | Rs107.07 | Score 74 — Score 74/100 — need macro improvement or volume surge
-  SBIN           Score 73 | Rs1111.50 | Score 73 — Score 73/100 — need macro improvement or volume surge
-  MOTHERSON      Score 71 | Rs125.16 | Score 71 — Score 71/100 — need macro improvement or volume surge
-  ONGC           Score 68 | Rs283.65 | Score 68 — MACD bearish — wait for bullish crossover
-  SAIL           Score 68 | Rs176.75 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  VEDL           Score 67 | Rs772.15 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  HINDALCO       Score 66 | Rs1022.50 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  TATASTEEL      Score 66 | Rs212.80 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  SBIN           Score 74 | Rs1111.00 | Score 74 — Score 74/100 — need macro improvement or volume surge
+  CPSEETF        Score 72 | Rs106.85 | Score 72 — Score 72/100 — need macro improvement or volume surge
+  MOTHERSON      Score 71 | Rs125.58 | Score 71 — Score 71/100 — need macro improvement or volume surge
+  ONGC           Score 69 | Rs284.05 | Score 69 — MACD bearish — wait for bullish crossover
+  SAIL           Score 68 | Rs176.34 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  VEDL           Score 68 | Rs771.55 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  HINDALCO       Score 66 | Rs1022.25 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  TATASTEEL      Score 66 | Rs212.60 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
