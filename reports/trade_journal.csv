@@ -9,3 +9,5 @@ datetime,symbol,action,qty,price,score,reason,kind,regime,mode
 2026-04-21T07:17:56.032140,HINDALCO,BUY,39,1020.75,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
 2026-04-21T07:17:56.034103,TATASTEEL,BUY,188,212.0,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
 2026-04-21T07:17:56.036165,SAIL,BUY,227,175.59,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T10:21:06.267875,APARINDS,BUY,3,11714.0,77.1,Score 77/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T10:21:06.271010,STARHEALTH,BUY,77,514.05,74.0,Score 74/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER

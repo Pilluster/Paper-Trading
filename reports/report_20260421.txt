@@ -1,39 +1,34 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-21 Apr 2026, 07:17 AM IST
+21 Apr 2026, 10:21 AM IST
 
 MARKET REGIME: B — Cautious (Choppy Market)
 Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
 Bot action: Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.
 
 MACRO INDICATORS
-  VIX              : 17.7  [Moderate — normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : +0.7%  [+0.7% above — mildly bullish]
-  Nifty vs 200 DMA : -2.4%  [-2.4% below — caution zone]
-  FII Net Flow     : Rs-249 Cr  [Marginal selling — mild caution]
+  VIX              : 17.5  [Moderate — normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +0.8%  [+0.8% above — mildly bullish]
+  Nifty vs 200 DMA : -2.3%  [-2.3% below — caution zone]
+  FII Net Flow     : Rs-123 Cr  [Marginal selling — mild caution]
 
 PORTFOLIO
-  Total Value : Rs499,954
-  Cash        : Rs103,372
-  P&L         : Rs-46 (-0.01%)
-  Drawdown    : 0.01%  (Limit: 10%)
-  Positions   : 10/14
+  Total Value : Rs498,999
+  Cash        : Rs28,648
+  P&L         : Rs-1,001 (-0.20%)
+  Drawdown    : 0.20%  (Limit: 10%)
+  Positions   : 12/14
 
-BUY SIGNALS (8)
-  SBIN           Score 78/100 | Entry Rs1111.10 | Stop Rs1033.32 | Qty 36 | Capital Rs40,000
-  MOTHERSON      Score 75/100 | Entry Rs125.59 | Stop Rs116.80 | Qty 318 | Capital Rs39,938
-  ONGC           Score 73/100 | Entry Rs283.90 | Stop Rs264.03 | Qty 140 | Capital Rs39,746
-  ADANIPORTS     Score 72/100 | Entry Rs1605.70 | Stop Rs1493.30 | Qty 24 | Capital Rs38,537
-  VEDL           Score 72/100 | Entry Rs770.00 | Stop Rs716.10 | Qty 51 | Capital Rs39,270
-  CPSEETF        Score 70/100 | Entry Rs106.80 | Stop Rs98.90 | Qty 374 | Capital Rs39,943
-  JSWSTEEL       Score 70/100 | Entry Rs1279.70 | Stop Rs1190.12 | Qty 31 | Capital Rs39,671
-  HINDALCO       Score 70/100 | Entry Rs1020.75 | Stop Rs949.30 | Qty 39 | Capital Rs39,809
+BUY SIGNALS (3)
+  APARINDS       Score 77/100 | Entry Rs11714.00 | Stop Rs10894.02 | Qty 3 | Capital Rs35,142
+  STARHEALTH     Score 74/100 | Entry Rs514.05 | Stop Rs478.07 | Qty 77 | Capital Rs39,582
+  TORNTPOWER     Score 72/100 | Entry Rs1621.50 | Stop Rs1508.00 | Qty 24 | Capital Rs38,916
 
 WATCHLIST (8)
-  AXISBANK       Score 68 | Rs1371.70 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  TITAN          Score 68 | Rs4486.50 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  SHRIRAMFIN     Score 68 | Rs1042.25 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  NMDC           Score 68 | Rs87.50 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  ADANIPOWER     Score 68 | Rs203.22 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  JINDALSTEL     Score 68 | Rs1279.30 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  BAJAJ-AUTO     Score 65 | Rs9800.50 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  ICICIB22       Score 64 | Rs125.42 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  UNIONBANK      Score 70 | Rs191.38 | Score 70 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  ANURAS         Score 69 | Rs1318.10 | Score 69 — Price below 100/200 DMA — wait for MA alignment
+  AXISBANK       Score 67 | Rs1377.70 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  TITAN          Score 67 | Rs4479.70 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  SHRIRAMFIN     Score 67 | Rs1045.30 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  NATCOPHARM     Score 67 | Rs1055.65 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions), MACD bearish — wait for bullish crossover
+  SHRIRAMFIN     Score 67 | Rs1045.30 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  TITAN          Score 67 | Rs4479.70 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
