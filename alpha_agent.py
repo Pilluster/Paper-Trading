@@ -1071,8 +1071,8 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     sig.score = total
     sig.comps = {k: round(v,2) for k,v in sc.items()}
 
-    threshold = Config.ENTRY_SCORE_MIN
-    if macro.regime == "B": threshold = 80
+    threshold = Config.ENTRY_SCORE_MIN   # 72 for Regime A
+    if macro.regime == "B": threshold = 75   # Lowered from 80 — was too conservative
     if macro.regime == "C": threshold = 9999
 
     if total >= threshold:
@@ -1104,7 +1104,7 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         sig.vcp    = vcp["ok"]
         # Identify what's missing for a buy signal
         gaps = []
-        threshold = 80 if macro.regime == "B" else 72
+        threshold = 75 if macro.regime == "B" else 72
         gap       = threshold - total
 
         # Specific, actionable gap descriptions
@@ -1807,7 +1807,7 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
             hist    = h.get("score_history", [s.score])
             prev_s  = hist[-2] if len(hist) >= 2 else s.score
             trend   = round(s.score - prev_s, 1)
-            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 75 if macro.regime == "B" else 72 if macro.regime == "A" else 72
             gap     = max(0, threshold - s.score)
             miss    = s.missing
             for pfx in [f"Need +{gap:.0f}pts: ", "Need +"]:
@@ -2044,7 +2044,7 @@ def run():
             sig.reason  = f"Score {sig.score:.0f} — {miss}"
         # Ensure watchlist signals also have missing populated
         if sig.action == "watch" and not sig.missing:
-            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 75 if macro.regime == "B" else 72 if macro.regime == "A" else 72
             gap       = max(0, threshold - sig.score)
             gaps      = []
             if sig.stage != 2: gaps.append(f"Stage {sig.stage} (need Stage 2)")
@@ -2057,6 +2057,38 @@ def run():
     buy_count   = len([s for s in signals if s.action=="buy"])
     watch_count = len([s for s in signals if s.action=="watch"])
     log.info(f"Scored {len(signals)} symbols | {buy_count} buy signals | {watch_count} on watchlist")
+
+    # In Regime C — buy Gold ETF as hedge (up to 15% of portfolio)
+    if macro.regime == "C" and not metrics["paused"]:
+        gold_sym = "GOLDBEES"
+        if not portfolio.has(gold_sym):
+            gold_ltp = client.get_ltp(gold_sym)
+            if gold_ltp and gold_ltp > 0:
+                gold_budget = Config.VIRTUAL_CAPITAL * Config.ETF_BOOK_PCT
+                gold_qty    = max(1, int(gold_budget / gold_ltp))
+                max_by_cash = int(portfolio.cash * 0.95 / gold_ltp)
+                gold_qty    = min(gold_qty, max_by_cash)
+                if gold_qty > 0:
+                    oid = client.place_order(gold_sym, gold_qty, gold_ltp, "BUY")
+                    if oid:
+                        pos = Position(
+                            symbol=gold_sym, entry=gold_ltp, qty=gold_qty,
+                            stop=round(gold_ltp * 0.93, 2),
+                            target1=round(gold_ltp * 1.10, 2),
+                            target2=round(gold_ltp * 1.20, 2),
+                            entry_date=datetime.now().strftime("%Y-%m-%d"),
+                            score=70
+                        )
+                        portfolio.add(pos)
+                        journal.log({
+                            "datetime": datetime.now().isoformat(),
+                            "symbol": gold_sym, "action": "BUY",
+                            "qty": gold_qty, "price": gold_ltp,
+                            "score": 70, "reason": "Regime C hedge — Gold ETF",
+                            "kind": "etf_hedge", "regime": macro.regime,
+                            "mode": "PAPER" if PAPER_MODE else "LIVE"
+                        })
+                        log.info(f"GOLD ETF ENTRY: {gold_qty}x GOLDBEES @ Rs{gold_ltp:.2f}")
 
     if not metrics["paused"]:
         open_count = len(portfolio.positions)
