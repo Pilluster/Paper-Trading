@@ -923,6 +923,12 @@ def get_macro(client: DataClient) -> MacroState:
     if m.regime == "A" and (not rbi_ok or not crude_ok or not dxy_ok or m.geo_risk == "medium"):
         m.regime = "B"
 
+    # Upgrade C → B if breadth is strongly bullish (A/D > 3x) and VIX falling
+    # This catches recovery days where 200 DMA lags actual market momentum
+    if m.regime == "C" and m.ad_ratio >= 3.0 and m.vix < 20 and m.nifty_vs_50 > -2:
+        m.regime = "B"
+        log.info(f"Regime upgraded C→B: strong breadth {m.ad_ratio:.1f}x overrides 200DMA lag")
+
     # 8. Macro score (out of 8) — enhanced
     s = 0.0
     if m.nifty_vs_200 > 5:    s += 3
@@ -1025,20 +1031,49 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     elif tod_vol >= avg_vol * 1.2:sc["volume"] = Config.WEIGHTS["volume"] * 0.5
     else:                         sc["volume"] = 0
 
-    # 7. Relative strength vs Nifty 6M (12)
+    # 7. Relative strength vs Nifty — use best of 1M, 3M, 6M windows (12)
+    # Using max window helps in crash recoveries where 6M is depressed for all stocks
+    nifty_6m = getattr(macro, "nifty_6m_ret", -5.0)
+    nifty_1m = nifty_6m / 6   # Approximate
     if len(df) >= 130:
         ret_6m = (cur / c.iloc[-126] - 1) * 100
-        # Use actual Nifty 6M return passed via macro
-        nifty_6m = getattr(macro, "nifty_6m_ret", -5.0)
-        rs = ret_6m - nifty_6m
-        if rs > 15:             sc["relative_str"] = Config.WEIGHTS["relative_str"]
-        elif rs > 8:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.7
-        elif rs > 0:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.4
-        else:                   sc["relative_str"] = 0
-    else:                       sc["relative_str"] = 0
+        rs_6m  = ret_6m - nifty_6m
+    else:
+        rs_6m  = 0
+    if len(df) >= 66:
+        ret_3m = (cur / c.iloc[-66] - 1) * 100
+        rs_3m  = ret_3m - (nifty_6m / 2)
+    else:
+        rs_3m  = 0
+    if len(df) >= 22:
+        ret_1m = (cur / c.iloc[-22] - 1) * 100
+        rs_1m  = ret_1m - nifty_1m
+    else:
+        rs_1m  = 0
+    # Use best RS window — rewards stocks recovering fastest
+    rs = max(rs_6m, rs_3m, rs_1m)
+    if rs > 10:             sc["relative_str"] = Config.WEIGHTS["relative_str"]
+    elif rs > 4:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.7
+    elif rs > 0:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.4
+    elif rs > -5:           sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.2
+    else:                   sc["relative_str"] = 0
 
-    # 8. Sector RRG (10) — simplified relative momentum
-    sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.6
+    # 8. Sector momentum proxy (10) — based on stock's own 3M vs 1M momentum trend
+    # Improving = stock accelerating = RRG "Leading" equivalent
+    ret_1m = (cur / c.iloc[-22]  - 1) * 100 if len(c) >= 22  else 0
+    ret_3m = (cur / c.iloc[-66]  - 1) * 100 if len(c) >= 66  else 0
+    ret_6m = (cur / c.iloc[-126] - 1) * 100 if len(c) >= 126 else 0
+    # Improving momentum: 1M better than 3M average monthly
+    monthly_3m = ret_3m / 3
+    accelerating = ret_1m > monthly_3m and ret_1m > 0
+    if accelerating and ret_3m > 5:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"]          # Full score
+    elif accelerating:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.7
+    elif ret_1m > 0:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.4
+    else:
+        sc["sector_rrg"] = 0
 
     # 9. Macro (8)
     sc["macro"] = macro.score
@@ -1072,7 +1107,7 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     sig.comps = {k: round(v,2) for k,v in sc.items()}
 
     threshold = Config.ENTRY_SCORE_MIN   # 72 for Regime A
-    if macro.regime == "B": threshold = 75   # Lowered from 80 — was too conservative
+    if macro.regime == "B": threshold = 70   # Balanced — buy strong setups in recovery
     if macro.regime == "C": threshold = 9999
 
     if total >= threshold:
@@ -1104,7 +1139,7 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         sig.vcp    = vcp["ok"]
         # Identify what's missing for a buy signal
         gaps = []
-        threshold = 75 if macro.regime == "B" else 72
+        threshold = 70 if macro.regime == "B" else 68
         gap       = threshold - total
 
         # Specific, actionable gap descriptions
@@ -1807,7 +1842,7 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
             hist    = h.get("score_history", [s.score])
             prev_s  = hist[-2] if len(hist) >= 2 else s.score
             trend   = round(s.score - prev_s, 1)
-            threshold = 75 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 70 if macro.regime == "B" else 68 if macro.regime == "A" else 70
             gap     = max(0, threshold - s.score)
             miss    = s.missing
             for pfx in [f"Need +{gap:.0f}pts: ", "Need +"]:
@@ -2044,7 +2079,7 @@ def run():
             sig.reason  = f"Score {sig.score:.0f} — {miss}"
         # Ensure watchlist signals also have missing populated
         if sig.action == "watch" and not sig.missing:
-            threshold = 75 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 70 if macro.regime == "B" else 68 if macro.regime == "A" else 70
             gap       = max(0, threshold - sig.score)
             gaps      = []
             if sig.stage != 2: gaps.append(f"Stage {sig.stage} (need Stage 2)")
