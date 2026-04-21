@@ -1,1 +1,11 @@
 datetime,symbol,action,qty,price,score,reason,kind,regime,mode
+2026-04-21T07:17:56.017769,SBIN,BUY,36,1111.1,77.6,Score 78/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.020721,MOTHERSON,BUY,318,125.59,75.2,Score 75/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.022453,ONGC,BUY,140,283.9,72.7,Score 73/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.024154,ADANIPORTS,BUY,24,1605.7,72.5,Score 72/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.026056,VEDL,BUY,51,770.0,72.1,Score 72/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.028168,CPSEETF,BUY,374,106.8,70.2,Score 70/100 | Stage 2 | VCP=Yes | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.030265,JSWSTEEL,BUY,31,1279.7,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.032140,HINDALCO,BUY,39,1020.75,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.034103,TATASTEEL,BUY,188,212.0,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-21T07:17:56.036165,SAIL,BUY,227,175.59,70.1,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
