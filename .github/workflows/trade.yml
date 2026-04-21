@@ -2,8 +2,17 @@ name: AlphaAgent — Daily Trading Run
 
 on:
   schedule:
+    # Pre-market scan: 8:45 AM IST = 3:15 AM UTC — scan only, no orders
     - cron: "15 3 * * 1-5"
-    - cron: "05 10 * * 1-5"
+    # Market open entry: 9:20 AM IST = 3:50 AM UTC — place buy orders
+    - cron: "50 3 * * 1-5"
+    # Mid-session check: 12:00 PM IST = 6:30 AM UTC — monitor stops/targets
+    - cron: "30 6 * * 1-5"
+    # Pre-close check: 3:00 PM IST = 9:30 AM UTC — tighten stops, review
+    - cron: "30 9 * * 1-5"
+    # Post-market report: 3:40 PM IST = 10:10 AM UTC — full EOD report
+    - cron: "10 10 * * 1-5"
+
   workflow_dispatch:
     inputs:
       reason:
@@ -32,7 +41,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install --quiet yfinance pandas numpy requests pyotp smartapi-python schedule ta
+          pip install --quiet yfinance pandas numpy requests pyotp smartapi-python schedule ta openpyxl xlsxwriter
 
       - name: Run AlphaAgent
         env:
@@ -54,7 +63,7 @@ jobs:
           NOTIFY_EMAIL:   ${{ secrets.NOTIFY_EMAIL }}
         run: |
           python - <<'PYEOF'
-          import os, smtplib
+          import os, smtplib, glob
           from email.mime.multipart import MIMEMultipart
           from email.mime.text      import MIMEText
           from email.mime.base      import MIMEBase
@@ -71,7 +80,7 @@ jobs:
 
           today   = datetime.now().strftime("%Y-%m-%d")
           today_s = datetime.now().strftime("%Y%m%d")
-          run_time= datetime.now().strftime("%d %b %Y")
+          run_time= datetime.now().strftime("%d %b %Y %H:%M IST")
 
           html_path = f"reports/report_{today_s}.html"
           txt_path  = f"reports/report_{today_s}.txt"
@@ -84,7 +93,8 @@ jobs:
                   body = f.read()
               html_body = f"<pre style='font-family:monospace;font-size:13px;line-height:1.6'>{body}</pre>"
           else:
-              html_body = "<p>Report not generated — check GitHub Actions logs.</p>"
+              print("No report file found — skipping email")
+              exit(0)
 
           msg = MIMEMultipart("mixed")
           msg["From"]    = f"AlphaAgent <{gmail_user}>"
@@ -109,6 +119,15 @@ jobs:
               part2.add_header("Content-Disposition", f"attachment; filename=report_{today}.txt")
               msg.attach(part2)
 
+          xl_path = "reports/watchlist_history.xlsx"
+          if os.path.exists(xl_path):
+              with open(xl_path, "rb") as f:
+                  part3 = MIMEBase("application", "octet-stream")
+                  part3.set_payload(f.read())
+              encoders.encode_base64(part3)
+              part3.add_header("Content-Disposition", f"attachment; filename=watchlist_10day_{today}.xlsx")
+              msg.attach(part3)
+
           try:
               with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
                   server.login(gmail_user, gmail_pass)
@@ -125,7 +144,7 @@ jobs:
           git config --local user.name  "AlphaAgent Bot"
           git add reports/
           git add alpha_agent.log || true
-          git diff --staged --quiet || git commit -m "bot: daily run $(date +'%Y-%m-%d %H:%M UTC') [skip ci]"
+          git diff --staged --quiet || git commit -m "bot: run $(date +'%Y-%m-%d %H:%M UTC') [skip ci]"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
