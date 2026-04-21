@@ -2024,6 +2024,21 @@ def run():
         write_holiday_report(market_reason)
         return
 
+    # Determine run mode based on IST time
+    now_ist  = datetime.now()
+    hour_ist = now_ist.hour
+    min_ist  = now_ist.minute
+
+    if hour_ist < 9 or (hour_ist == 9 and min_ist < 15):
+        run_mode = "premarket"    # Scan only — no new orders in live mode
+    elif (hour_ist == 9 and min_ist >= 15) or (9 < hour_ist < 15) or \
+         (hour_ist == 15 and min_ist < 25):
+        run_mode = "market"       # Active trading window
+    else:
+        run_mode = "postmarket"   # EOD report only
+
+    log.info(f"Run mode: {run_mode} | IST: {hour_ist:02d}:{min_ist:02d}")
+
     client    = DataClient()
     portfolio = Portfolio()
     journal   = Journal()
@@ -2094,7 +2109,7 @@ def run():
     log.info(f"Scored {len(signals)} symbols | {buy_count} buy signals | {watch_count} on watchlist")
 
     # In Regime C — buy Gold ETF as hedge (up to 15% of portfolio)
-    if macro.regime == "C" and not metrics["paused"]:
+    if macro.regime == "C" and not metrics["paused"] and (PAPER_MODE or run_mode == "market"):
         gold_sym = "GOLDBEES"
         if not portfolio.has(gold_sym):
             gold_ltp = client.get_ltp(gold_sym)
@@ -2125,9 +2140,13 @@ def run():
                         })
                         log.info(f"GOLD ETF ENTRY: {gold_qty}x GOLDBEES @ Rs{gold_ltp:.2f}")
 
-    if not metrics["paused"]:
+    if not metrics["paused"] and run_mode in ("market", "premarket"):
+        # In paper mode — allow orders in premarket too (uses previous close)
+        # In live mode — only place orders during market hours
+        can_order = PAPER_MODE or run_mode == "market"
         open_count = len(portfolio.positions)
         for sig in signals:
+            if not can_order: break
             if sig.action != "buy": continue
             if open_count >= Config.MAX_POSITIONS: break
             if portfolio.has(sig.symbol): continue
