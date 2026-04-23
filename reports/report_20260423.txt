@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-23 Apr 2026, 10:53 AM IST
+23 Apr 2026, 11:33 AM IST
 
 MARKET REGIME: B — Cautious (Choppy Market)
 Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
