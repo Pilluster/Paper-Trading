@@ -1,32 +1,32 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-23 Apr 2026, 05:57 AM IST
+23 Apr 2026, 08:16 AM IST
 
 MARKET REGIME: B — Cautious (Choppy Market)
 Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
 Bot action: Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.
 
 MACRO INDICATORS
-  VIX              : 18.8  [Moderate — normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -0.5%  [-0.5% below — caution zone]
-  Nifty vs 200 DMA : -3.8%  [-3.8% below — confirmed downtrend]
-  FII Net Flow     : Rs+320 Cr  [Marginal buying — neutral]
+  VIX              : 18.4  [Moderate — normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -0.4%  [-0.4% below — caution zone]
+  Nifty vs 200 DMA : -3.7%  [-3.7% below — confirmed downtrend]
+  FII Net Flow     : Rs+250 Cr  [Marginal buying — neutral]
 
 PORTFOLIO
-  Total Value : Rs499,379
+  Total Value : Rs500,826
   Cash        : Rs331
-  P&L         : Rs-621 (-0.12%)
-  Drawdown    : 0.12%  (Limit: 10%)
+  P&L         : Rs+826 (+0.17%)
+  Drawdown    : -0.17%  (Limit: 10%)
   Positions   : 14/14
 
 BUY SIGNALS (0)
   No buy signals — regime C, bot protecting capital in cash.
 
 WATCHLIST (8)
-  JINDALSTEL     Score 66 | Rs1263.20 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  GOLDBEES       Score 64 | Rs124.10 | Score 64 — Price below 100/200 DMA — wait for MA alignment
-  AXISBANK       Score 64 | Rs1371.20 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  TITAN          Score 64 | Rs4440.20 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  LUPIN          Score 64 | Rs2353.40 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  NTPC           Score 64 | Rs400.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  SIEMENS        Score 64 | Rs3856.30 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  ADANIPOWER     Score 61 | Rs214.69 | Score 61 — VCP incomplete — price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
+  JINDALSTEL     Score 67 | Rs1262.70 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  NTPC           Score 67 | Rs404.60 | Score 67 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  GOLDBEES       Score 65 | Rs124.38 | Score 65 — Price below 100/200 DMA — wait for MA alignment
+  AXISBANK       Score 64 | Rs1376.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  TITAN          Score 64 | Rs4456.20 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  LUPIN          Score 64 | Rs2358.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  SIEMENS        Score 64 | Rs3875.60 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  ADANIGREEN     Score 63 | Rs1231.65 | Score 63 — VCP incomplete — price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA — wait for MA alignment
