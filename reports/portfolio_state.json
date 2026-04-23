@@ -13,7 +13,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 0
+      "flat_days": 1
     },
     {
       "symbol": "MOTHERSON",
@@ -27,7 +27,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 0
+      "flat_days": 1
     },
     {
       "symbol": "ONGC",
@@ -41,7 +41,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "ADANIPORTS",
@@ -55,7 +55,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "VEDL",
@@ -83,7 +83,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "JSWSTEEL",
@@ -97,7 +97,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "HINDALCO",
@@ -125,7 +125,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "SAIL",
@@ -139,7 +139,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "APARINDS",
@@ -153,7 +153,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 0
+      "flat_days": 1
     },
     {
       "symbol": "STARHEALTH",
@@ -167,7 +167,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 8
+      "flat_days": 9
     },
     {
       "symbol": "MARICO",
@@ -181,7 +181,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 7
+      "flat_days": 8
     },
     {
       "symbol": "GESHIP",
@@ -195,16 +195,15 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 4
+      "flat_days": 0
     }
   ],
   "watchlist_history": {
     "POWERGRID": {
       "first_seen": "2026-04-20",
-      "days": 14,
+      "days": 15,
       "prev_score": 62.7,
       "score_history": [
-        62.0,
         61.5,
         58.6,
         58.6,
@@ -213,15 +212,15 @@
         57.9,
         61.9,
         55.9,
-        56.4
+        56.4,
+        55.9
       ]
     },
     "BAJAJ-AUTO": {
       "first_seen": "2026-04-20",
-      "days": 14,
+      "days": 15,
       "prev_score": 58.8,
       "score_history": [
-        64.7,
         64.2,
         63.7,
         63.7,
@@ -230,32 +229,15 @@
         59.4,
         55.6,
         55.6,
-        56.1
-      ]
-    },
-    "SHRIRAMFIN": {
-      "first_seen": "2026-04-20",
-      "days": 14,
-      "prev_score": 62.4,
-      "score_history": [
-        67.7,
-        67.2,
-        60.7,
-        60.7,
-        67.2,
-        67.2,
-        66.0,
-        61.0,
-        61.0,
-        61.5
+        56.1,
+        56.6
       ]
     },
     "TITAN": {
       "first_seen": "2026-04-20",
-      "days": 14,
+      "days": 15,
       "prev_score": 62.4,
       "score_history": [
-        67.7,
         67.2,
         66.7,
         66.7,
@@ -264,15 +246,15 @@
         66.0,
         64.0,
         64.0,
-        64.5
+        64.5,
+        64.0
       ]
     },
     "AXISBANK": {
       "first_seen": "2026-04-20",
-      "days": 14,
+      "days": 15,
       "prev_score": 62.4,
       "score_history": [
-        67.7,
         67.2,
         66.7,
         69.1,
@@ -281,12 +263,13 @@
         66.0,
         64.0,
         64.0,
-        64.5
+        64.5,
+        64.0
       ]
     },
     "NESTLEIND": {
       "first_seen": "2026-04-21",
-      "days": 9,
+      "days": 10,
       "prev_score": 64.6,
       "score_history": [
         64.6,
@@ -297,133 +280,119 @@
         63.4,
         59.4,
         59.4,
-        60.9
-      ]
-    },
-    "ADANIPOWER": {
-      "first_seen": "2026-04-22",
-      "days": 8,
-      "prev_score": 67.5,
-      "score_history": [
-        67.5,
-        68.5,
-        69.0,
-        69.0,
-        67.8,
-        61.4,
-        61.4,
-        62.9
-      ]
-    },
-    "LUPIN": {
-      "first_seen": "2026-04-22",
-      "days": 8,
-      "prev_score": 58.3,
-      "score_history": [
-        58.3,
-        58.3,
-        58.8,
-        58.8,
-        57.6,
-        64.0,
-        64.0,
-        64.5
-      ]
-    },
-    "ADANIGREEN": {
-      "first_seen": "2026-04-22",
-      "days": 8,
-      "prev_score": 62.1,
-      "score_history": [
-        62.1,
-        62.1,
-        62.6,
-        63.6,
-        62.4,
-        59.4,
-        59.4,
-        63.3
-      ]
-    },
-    "NMDC": {
-      "first_seen": "2026-04-22",
-      "days": 8,
-      "prev_score": 66.7,
-      "score_history": [
-        66.7,
-        66.7,
-        67.2,
-        67.2,
-        66.0,
-        61.0,
-        61.0,
-        61.5
-      ]
-    },
-    "JINDALSTEL": {
-      "first_seen": "2026-04-22",
-      "days": 8,
-      "prev_score": 66.6,
-      "score_history": [
-        66.6,
-        66.6,
-        67.1,
-        61.1,
-        59.9,
-        66.4,
-        66.4,
-        66.9
+        60.9,
+        61.4
       ]
     },
     "NTPC": {
       "first_seen": "2026-04-22",
-      "days": 4,
+      "days": 5,
       "prev_score": 69.3,
       "score_history": [
         69.3,
         63.9,
         63.9,
-        66.8
+        66.8,
+        63.9
       ]
     },
     "COALINDIA": {
       "first_seen": "2026-04-23",
-      "days": 3,
+      "days": 4,
       "prev_score": 57.3,
       "score_history": [
         57.3,
         57.3,
-        57.8
+        57.8,
+        57.3
       ]
     },
-    "SIEMENS": {
+    "FEDERALBNK": {
       "first_seen": "2026-04-23",
-      "days": 3,
-      "prev_score": 63.9,
+      "days": 1,
+      "prev_score": 66.4,
       "score_history": [
-        63.9,
-        63.9,
-        64.4
+        66.4
       ]
     },
-    "GOLDBEES": {
+    "APLAPOLLO": {
       "first_seen": "2026-04-23",
-      "days": 3,
-      "prev_score": 64.5,
+      "days": 1,
+      "prev_score": 61.5,
       "score_history": [
-        64.5,
-        64.5,
-        65.0
+        61.5
       ]
     },
-    "ICICIB22": {
+    "MRPL": {
       "first_seen": "2026-04-23",
-      "days": 3,
-      "prev_score": 60.0,
+      "days": 1,
+      "prev_score": 60.9,
       "score_history": [
-        60.0,
-        60.0,
-        60.5
+        60.9
+      ]
+    },
+    "AUBANK": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 61.4,
+      "score_history": [
+        61.4
+      ]
+    },
+    "AUROPHARMA": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 66.3,
+      "score_history": [
+        66.3
+      ]
+    },
+    "AVANTIFEED": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 65.4,
+      "score_history": [
+        65.4
+      ]
+    },
+    "CESC": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 59.4,
+      "score_history": [
+        59.4
+      ]
+    },
+    "GLENMARK": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 68.3,
+      "score_history": [
+        68.3
+      ]
+    },
+    "KARURVYSYA": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 69.3,
+      "score_history": [
+        69.3
+      ]
+    },
+    "HFCL": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 56.9,
+      "score_history": [
+        56.9
+      ]
+    },
+    "ENGINERSIN": {
+      "first_seen": "2026-04-23",
+      "days": 1,
+      "prev_score": 59.4,
+      "score_history": [
+        59.4
       ]
     }
   },
