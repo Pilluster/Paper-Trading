@@ -1,32 +1,32 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-24 Apr 2026, 08:28 AM IST
+24 Apr 2026, 10:50 AM IST
 
-MARKET REGIME: C — Risk Off (Bear Market)
-Nifty is below its 200-day moving average — a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.
-Bot action: No new equity entries. Capital fully preserved in cash. Only Gold ETF allowed.
+MARKET REGIME: B — Cautious (Choppy Market)
+Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
+Bot action: Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.
 
 MACRO INDICATORS
   VIX              : 19.7  [Moderate — normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -1.8%  [-1.8% below — caution zone]
-  Nifty vs 200 DMA : -5.1%  [-5.1% below — confirmed downtrend]
-  FII Net Flow     : Rs+17 Cr  [Marginal buying — neutral]
+  Nifty vs 50 DMA  : -1.6%  [-1.6% below — caution zone]
+  Nifty vs 200 DMA : -4.9%  [-4.9% below — confirmed downtrend]
+  FII Net Flow     : Rs-128 Cr  [Marginal selling — mild caution]
 
 PORTFOLIO
-  Total Value : Rs495,839
+  Total Value : Rs496,897
   Cash        : Rs1,868
-  P&L         : Rs-4,161 (-0.83%)
-  Drawdown    : 0.83%  (Limit: 10%)
+  P&L         : Rs-3,103 (-0.62%)
+  Drawdown    : 0.62%  (Limit: 10%)
   Positions   : 14/14
 
-BUY SIGNALS (0)
-  No buy signals — regime C, bot protecting capital in cash.
+BUY SIGNALS (1)
+  NAVINFLUOR     Score 76/100 | Entry Rs6452.00 | Stop Rs6000.36 | Qty 0 | Capital Rs0
 
 WATCHLIST (8)
-  GOLDBEES       Score 64 | Rs124.04 | Score 64 — Price below 100/200 DMA — wait for MA alignment
-  NMDC           Score 64 | Rs88.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  NTPC           Score 64 | Rs400.20 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  ADANIPOWER     Score 64 | Rs208.75 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  SIEMENS        Score 64 | Rs3796.50 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  VEDL           Score 62 | Rs716.05 | Score 62 — VCP incomplete — price range still wide, wait for tighter base (3 contractions), MACD bearish — wait for bullish crossover
-  NESTLEIND      Score 61 | Rs1415.60 | Score 61 — VCP incomplete — price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA — wait for MA alignment
-  AXISBANK       Score 61 | Rs1356.60 | Score 61 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  ANURAS         Score 69 | Rs1341.00 | Score 69 — Price below 100/200 DMA — wait for MA alignment
+  TORNTPOWER     Score 68 | Rs1699.50 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  ABSLAMC        Score 68 | Rs1067.65 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  SONACOMS       Score 66 | Rs564.85 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  TIMKEN         Score 66 | Rs3517.60 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  POLYCAB        Score 65 | Rs8033.00 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  AXISBANK       Score 64 | Rs1365.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  NTPC           Score 64 | Rs401.85 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
