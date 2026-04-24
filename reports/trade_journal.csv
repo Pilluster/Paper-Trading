@@ -13,3 +13,5 @@ datetime,symbol,action,qty,price,score,reason,kind,regime,mode
 2026-04-21T10:21:06.271010,STARHEALTH,BUY,77,514.05,74.0,Score 74/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
 2026-04-22T05:36:26.836968,MARICO,BUY,35,767.65,70.0,Score 70/100 | Stage 2 | VCP=No | MA=Full stack | Regime B,entry,B,PAPER
 2026-04-22T10:47:03.148250,GESHIP,BUY,1,1449.1,73.7,Score 74/100 | Stage 2 | VCP=Yes | MA=Full stack | Regime B,entry,B,PAPER
+2026-04-24T08:28:00.702090,VEDL,SELL,51,716.0,0,Stop ₹716.10,stop,C,PAPER
+2026-04-24T08:28:20.866716,GOLDBEES,BUY,282,124.04,70,Regime C hedge — Gold ETF,etf_hedge,C,PAPER
