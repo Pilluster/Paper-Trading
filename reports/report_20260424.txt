@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-24 Apr 2026, 10:50 AM IST
+24 Apr 2026, 11:23 AM IST
 
 MARKET REGIME: B — Cautious (Choppy Market)
 Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
@@ -19,14 +19,14 @@ PORTFOLIO
   Positions   : 14/14
 
 BUY SIGNALS (1)
-  NAVINFLUOR     Score 76/100 | Entry Rs6452.00 | Stop Rs6000.36 | Qty 0 | Capital Rs0
+  NAVINFLUOR     Score 75/100 | Entry Rs6452.00 | Stop Rs6000.36 | Qty 0 | Capital Rs0
 
 WATCHLIST (8)
-  ANURAS         Score 69 | Rs1341.00 | Score 69 — Price below 100/200 DMA — wait for MA alignment
+  ANURAS         Score 68 | Rs1341.00 | Score 68 — Price below 100/200 DMA — wait for MA alignment
   TORNTPOWER     Score 68 | Rs1699.50 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
   ABSLAMC        Score 68 | Rs1067.65 | Score 68 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
   SONACOMS       Score 66 | Rs564.85 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
   TIMKEN         Score 66 | Rs3517.60 | Score 66 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  POLYCAB        Score 65 | Rs8033.00 | Score 65 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  POLYCAB        Score 64 | Rs8033.00 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
   AXISBANK       Score 64 | Rs1365.90 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
-  NTPC           Score 64 | Rs401.85 | Score 64 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
+  NTPC           Score 63 | Rs401.85 | Score 63 — VCP incomplete — price range still wide, wait for tighter base (3 contractions)
