@@ -1,14 +1,14 @@
 """
-AlphaAgent — Automated Trading Bot for Indian Markets
+AlphaAgent -- Automated Trading Bot for Indian Markets
 Angel One SmartAPI (live) | yfinance (paper/interim)
-Target: 15–20% annual alpha over Nifty 50
+Target: 15-20% annual alpha over Nifty 50
 
 Run modes:
   PAPER_MODE=true  + no Angel One keys → uses yfinance (works TODAY)
   PAPER_MODE=true  + Angel One keys    → uses SmartAPI, paper orders
   PAPER_MODE=false + Angel One keys    → LIVE trading
 
-Triggered automatically by GitHub Actions — no manual runs needed.
+Triggered automatically by GitHub Actions -- no manual runs needed.
 """
 
 import os
@@ -73,8 +73,8 @@ class Config:
         "crude_dxy":      4,
     }
 
-    # ── Complete tradable universe — Nifty 500 (covers 95% of NSE market cap) ──
-    # Nifty 50 — large cap anchors
+    # ── Complete tradable universe -- Nifty 500 (covers 95% of NSE market cap) ──
+    # Nifty 50 -- large cap anchors
     NIFTY50 = [
         "RELIANCE","TCS","HDFCBANK","INFY","ICICIBANK","HINDUNILVR","ITC",
         "SBIN","BHARTIARTL","KOTAKBANK","LT","AXISBANK","BAJFINANCE",
@@ -87,7 +87,7 @@ class Config:
         "SHRIRAMFIN","LTIM"
     ]
 
-    # Nifty Next 50 — large cap extended
+    # Nifty Next 50 -- large cap extended
     NIFTY_NEXT50 = [
         "ADANIGREEN","ADANIPOWER","AMBUJACEM","BAJAJHLDNG","BANKBARODA",
         "BERGEPAINT","BOSCHLTD","CANBK","CHOLAFIN","COLPAL","DMART",
@@ -100,7 +100,7 @@ class Config:
         "VOLTAS","WHIRLPOOL","ZOMATO"
     ]
 
-    # Nifty Midcap 150 — high alpha source
+    # Nifty Midcap 150 -- high alpha source
     MIDCAP = [
         "ABCAPITAL","ABFRL","APLAPOLLO","APLLTD","ATUL","AUBANK",
         "AUROPHARMA","AVANTIFEED","BALKRISIND","BATAINDIA","BAYERCROP",
@@ -128,7 +128,7 @@ class Config:
         "WELCORP","WHIRLPOOL","WIPRO","ZENSARTECH","ZYDUSLIFE"
     ]
 
-    # Nifty Smallcap 100 — opportunistic (higher risk, higher reward)
+    # Nifty Smallcap 100 -- opportunistic (higher risk, higher reward)
     SMALLCAP = [
         "AAVAS","ABSLAMC","ACCELYA","AEGISLOG","AFFLE","AGROPHOS",
         "AJANTPHARM","ALKEM","ALKYLAMINE","ALLCARGO","AMBER","ANURAS",
@@ -171,7 +171,7 @@ class Config:
         if hour < 10:
             return cls.NIFTY50 + cls.NIFTY_NEXT50 + cls.ETF_SYMBOLS
         else:
-            # Evening — rotate through midcap+smallcap segments by day of week
+            # Evening -- rotate through midcap+smallcap segments by day of week
             day = dt.datetime.now().weekday()  # 0=Mon, 4=Fri
             if day in [0, 3]:    # Mon, Thu
                 return cls.NIFTY50 + cls.MIDCAP[:75]
@@ -226,7 +226,7 @@ def send_telegram(message: str):
         log.warning(f"Telegram send failed: {e}")
 
 
-# ─── DATA LAYER — auto-selects yfinance or AngelOne ───────────────────────────
+# ─── DATA LAYER -- auto-selects yfinance or AngelOne ───────────────────────────
 
 class DataClient:
     """
@@ -334,7 +334,7 @@ class DataClient:
             end    = datetime.now() + timedelta(days=1)  # +1 to include today
             start  = datetime.now() - timedelta(days=days + 60)
 
-            # auto_adjust=False gives raw OHLC — no dividend/split distortion
+            # auto_adjust=False gives raw OHLC -- no dividend/split distortion
             df = ticker.history(
                 start=start.strftime("%Y-%m-%d"),
                 end=end.strftime("%Y-%m-%d"),
@@ -372,14 +372,14 @@ class DataClient:
             return pd.DataFrame()
 
     def _yf_ltp(self, symbol: str) -> Optional[float]:
-        """Get latest traded price — uses fast_info for speed."""
+        """Get latest traded price -- uses fast_info for speed."""
         try:
             import yfinance as yf
             yf_sym = self._yf_sym(symbol)
             t      = yf.Ticker(yf_sym)
             # fast_info.last_price is the most recent available price
             price  = float(t.fast_info.last_price)
-            # Sanity check — reject obviously wrong values
+            # Sanity check -- reject obviously wrong values
             if price > 0.5:
                 return round(price, 2)
         except:
@@ -619,12 +619,12 @@ def _fetch_fii_dii() -> tuple:
         except:
             pass
 
-    log.warning("All FII sources failed — using ETF proxy as 0")
+    log.warning("All FII sources failed -- using ETF proxy as 0")
     return 0.0, 0.0
 
 
 def _fetch_india_vix() -> float:
-    """Fetch India VIX — tries NSE first, falls back to yfinance."""
+    """Fetch India VIX -- tries NSE first, falls back to yfinance."""
     # Source 1: NSE India VIX API
     try:
         headers = {
@@ -738,9 +738,9 @@ def _fetch_advance_decline() -> dict:
         ratio    = round(advances / declines, 2) if declines > 0 else advances
 
         if ratio >= 3:     label = "Strongly bullish breadth"
-        elif ratio >= 1.5: label = "Bullish — majority rising"
-        elif ratio >= 0.8: label = "Neutral — mixed breadth"
-        elif ratio >= 0.4: label = "Bearish — majority falling"
+        elif ratio >= 1.5: label = "Bullish -- majority rising"
+        elif ratio >= 0.8: label = "Neutral -- mixed breadth"
+        elif ratio >= 0.4: label = "Bearish -- majority falling"
         else:              label = "Strongly bearish breadth"
 
         log.info(f"A/D Ratio: {advances}A / {declines}D = {ratio}")
@@ -814,8 +814,8 @@ def _fetch_geo_risk() -> tuple:
 def _fetch_rbi_stance() -> str:
     """
     Determine RBI stance from latest policy.
-    Uses multiple signals — defaults to known current stance.
-    RBI cut repo rate by 25bps in Feb 2025 and again in Apr 2025 — current stance: cutting.
+    Uses multiple signals -- defaults to known current stance.
+    RBI cut repo rate by 25bps in Feb 2025 and again in Apr 2025 -- current stance: cutting.
     """
     # Known baseline: RBI has been in cutting cycle since Feb 2025
     # Only override if very clear hiking signals in recent news
@@ -878,7 +878,7 @@ def get_macro(client: DataClient) -> MacroState:
     m.fii_flow, m.dii_flow = _fetch_fii_dii()
     log.info(f"FII: {m.fii_flow:+.0f}Cr | DII: {m.dii_flow:+.0f}Cr")
 
-    # 4. Global macro — USD/INR, Crude, Gold, DXY, US yields
+    # 4. Global macro -- USD/INR, Crude, Gold, DXY, US yields
     gm = _fetch_global_macro()
     m.usd_inr      = gm.get("usd_inr", 83.0)
     m.crude_usd    = gm.get("crude",   75.0)
@@ -923,7 +923,13 @@ def get_macro(client: DataClient) -> MacroState:
     if m.regime == "A" and (not rbi_ok or not crude_ok or not dxy_ok or m.geo_risk == "medium"):
         m.regime = "B"
 
-    # 8. Macro score (out of 8) — enhanced
+    # Upgrade C → B if breadth is strongly bullish (A/D > 3x) and VIX falling
+    # This catches recovery days where 200 DMA lags actual market momentum
+    if m.regime == "C" and m.ad_ratio >= 3.0 and m.vix < 20 and m.nifty_vs_50 > -2:
+        m.regime = "B"
+        log.info(f"Regime upgraded C→B: strong breadth {m.ad_ratio:.1f}x overrides 200DMA lag")
+
+    # 8. Macro score (out of 8) -- enhanced
     s = 0.0
     if m.nifty_vs_200 > 5:    s += 3
     elif m.nifty_vs_200 > 0:  s += 1.5
@@ -1025,25 +1031,54 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     elif tod_vol >= avg_vol * 1.2:sc["volume"] = Config.WEIGHTS["volume"] * 0.5
     else:                         sc["volume"] = 0
 
-    # 7. Relative strength vs Nifty 6M (12)
+    # 7. Relative strength vs Nifty -- use best of 1M, 3M, 6M windows (12)
+    # Using max window helps in crash recoveries where 6M is depressed for all stocks
+    nifty_6m = getattr(macro, "nifty_6m_ret", -5.0)
+    nifty_1m = nifty_6m / 6   # Approximate
     if len(df) >= 130:
         ret_6m = (cur / c.iloc[-126] - 1) * 100
-        # Use actual Nifty 6M return passed via macro
-        nifty_6m = getattr(macro, "nifty_6m_ret", -5.0)
-        rs = ret_6m - nifty_6m
-        if rs > 15:             sc["relative_str"] = Config.WEIGHTS["relative_str"]
-        elif rs > 8:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.7
-        elif rs > 0:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.4
-        else:                   sc["relative_str"] = 0
-    else:                       sc["relative_str"] = 0
+        rs_6m  = ret_6m - nifty_6m
+    else:
+        rs_6m  = 0
+    if len(df) >= 66:
+        ret_3m = (cur / c.iloc[-66] - 1) * 100
+        rs_3m  = ret_3m - (nifty_6m / 2)
+    else:
+        rs_3m  = 0
+    if len(df) >= 22:
+        ret_1m = (cur / c.iloc[-22] - 1) * 100
+        rs_1m  = ret_1m - nifty_1m
+    else:
+        rs_1m  = 0
+    # Use best RS window -- rewards stocks recovering fastest
+    rs = max(rs_6m, rs_3m, rs_1m)
+    if rs > 10:             sc["relative_str"] = Config.WEIGHTS["relative_str"]
+    elif rs > 4:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.7
+    elif rs > 0:            sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.4
+    elif rs > -5:           sc["relative_str"] = Config.WEIGHTS["relative_str"] * 0.2
+    else:                   sc["relative_str"] = 0
 
-    # 8. Sector RRG (10) — simplified relative momentum
-    sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.6
+    # 8. Sector momentum proxy (10) -- based on stock's own 3M vs 1M momentum trend
+    # Improving = stock accelerating = RRG "Leading" equivalent
+    ret_1m = (cur / c.iloc[-22]  - 1) * 100 if len(c) >= 22  else 0
+    ret_3m = (cur / c.iloc[-66]  - 1) * 100 if len(c) >= 66  else 0
+    ret_6m = (cur / c.iloc[-126] - 1) * 100 if len(c) >= 126 else 0
+    # Improving momentum: 1M better than 3M average monthly
+    monthly_3m = ret_3m / 3
+    accelerating = ret_1m > monthly_3m and ret_1m > 0
+    if accelerating and ret_3m > 5:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"]          # Full score
+    elif accelerating:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.7
+    elif ret_1m > 0:
+        sc["sector_rrg"] = Config.WEIGHTS["sector_rrg"] * 0.4
+    else:
+        sc["sector_rrg"] = 0
 
     # 9. Macro (8)
     sc["macro"] = macro.score
 
-    # 10. Earnings (6) — score based on price momentum as proxy
+    # 10. Earnings (6) -- score based on price momentum as proxy
     ret_1m = (cur / c.iloc[-22] - 1) * 100 if len(c) >= 22 else 0
     ret_3m = (cur / c.iloc[-66] - 1) * 100 if len(c) >= 66 else 0
     if ret_1m > 5 and ret_3m > 10:
@@ -1071,8 +1106,8 @@ def score_symbol(symbol: str, df: pd.DataFrame,
     sig.score = total
     sig.comps = {k: round(v,2) for k,v in sc.items()}
 
-    threshold = Config.ENTRY_SCORE_MIN
-    if macro.regime == "B": threshold = 80
+    threshold = Config.ENTRY_SCORE_MIN   # 72 for Regime A
+    if macro.regime == "B": threshold = 70   # Balanced -- buy strong setups in recovery
     if macro.regime == "C": threshold = 9999
 
     if total >= threshold:
@@ -1104,36 +1139,36 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         sig.vcp    = vcp["ok"]
         # Identify what's missing for a buy signal
         gaps = []
-        threshold = 80 if macro.regime == "B" else 72
+        threshold = 70 if macro.regime == "B" else 68
         gap       = threshold - total
 
         # Specific, actionable gap descriptions
         if sc.get("stage2", 0) == 0:
-            gaps.append(f"Stage {stage} — wait for price to cross rising 30W MA")
+            gaps.append(f"Stage {stage} -- wait for price to cross rising 30W MA")
         if sc.get("vcp", 0) == 0 and sc.get("stage2", 0) > 0:
-            gaps.append("VCP incomplete — price range still wide, wait for tighter base (3 contractions)")
+            gaps.append("VCP incomplete -- price range still wide, wait for tighter base (3 contractions)")
         if sc.get("vcp", 0) == 0 and sc.get("stage2", 0) == 0:
             gaps.append("VCP not applicable until Stage 2 confirmed")
         if sc.get("ma_stack", 0) < Config.WEIGHTS["ma_stack"] * 0.6:
-            gaps.append("Price below 100/200 DMA — wait for MA alignment")
+            gaps.append("Price below 100/200 DMA -- wait for MA alignment")
         if sc.get("macd", 0) == 0:
-            gaps.append("MACD bearish — wait for bullish crossover")
+            gaps.append("MACD bearish -- wait for bullish crossover")
         if sc.get("relative_str", 0) == 0:
-            gaps.append("Underperforming Nifty — wait for relative strength to turn")
+            gaps.append("Underperforming Nifty -- wait for relative strength to turn")
         if sc.get("rsi", 0) == 0:
             gaps.append("RSI outside 50-70 zone")
 
         if not gaps:
             if gap > 0:
-                gaps.append(f"Score {total:.0f}/100 — need macro improvement or volume surge")
+                gaps.append(f"Score {total:.0f}/100 -- need macro improvement or volume surge")
             else:
-                gaps.append("Ready to buy — awaiting regime recovery")
+                gaps.append("Ready to buy -- awaiting regime recovery")
 
         sig.missing = ", ".join(gaps[:2])
-        sig.reason  = f"Score {total:.0f} — {sig.missing}"
+        sig.reason  = f"Score {total:.0f} -- {sig.missing}"
     else:
         sig.action = "avoid"
-        sig.reason = f"Score {total:.0f} — does not meet criteria"
+        sig.reason = f"Score {total:.0f} -- does not meet criteria"
 
     return sig
 
@@ -1192,7 +1227,7 @@ class Portfolio:
             json.dump(data, f, indent=2)
 
     def update_watchlist_history(self, signals: list):
-        """Track watchlist stocks across days — score trend, days monitored."""
+        """Track watchlist stocks across days -- score trend, days monitored."""
         today = datetime.now().strftime("%Y-%m-%d")
         current_watch = {s.symbol for s in signals if s.action == "watch"}
         for sym in current_watch:
@@ -1242,20 +1277,38 @@ class Portfolio:
         self.save()
 
     def metrics(self, prices: dict) -> dict:
-        total = self.cash
-        pnl   = 0.0
+        unrealized  = 0.0
+        cost_basis  = 0.0
         for p in self.positions:
-            ltp   = prices.get(p.symbol, p.entry)
-            total += ltp * p.qty
-            pnl   += (ltp - p.entry) * p.qty
-        dd = (Config.VIRTUAL_CAPITAL - total) / Config.VIRTUAL_CAPITAL * 100
+            ltp        = prices.get(p.symbol, p.entry)
+            cost       = p.entry * p.qty
+            unrealized += (ltp - p.entry) * p.qty
+            cost_basis += cost
+
+        # Realized P&L = cash now vs (starting capital - cost of open positions)
+        realized_pnl = self.cash - (Config.VIRTUAL_CAPITAL - cost_basis)
+
+        # True total = starting capital + realized + unrealized
+        true_total   = Config.VIRTUAL_CAPITAL + realized_pnl + unrealized
+
+        # Display total = cash + cost of open positions (no unrealized)
+        # This is what you actually have in hand + what you paid for positions
+        display_total = self.cash + cost_basis
+
+        dd = (Config.VIRTUAL_CAPITAL - true_total) / Config.VIRTUAL_CAPITAL * 100
         return {
-            "total":     round(total, 2),
-            "cash":      round(self.cash, 2),
-            "unrealized": round(pnl, 2),
-            "drawdown":  round(dd, 2),
-            "positions": len(self.positions),
-            "paused":    dd > 10
+            "total":        round(display_total, 2),   # Cash + cost of positions
+            "true_total":   round(true_total, 2),       # Including unrealized
+            "cash":         round(self.cash, 2),
+            "unrealized":   round(unrealized, 2),
+            "realized_pnl": round(realized_pnl, 2),
+            "cost_basis":   round(cost_basis, 2),
+            "mkt_value":    round(cost_basis + unrealized, 2),
+            "drawdown":     round(dd, 2),
+            "positions":    len(self.positions),
+            "paused":       dd > 10,
+            "alpha":        round(true_total - Config.VIRTUAL_CAPITAL, 2),
+            "alpha_pct":    round((true_total / Config.VIRTUAL_CAPITAL - 1) * 100, 2),
         }
 
 
@@ -1295,11 +1348,28 @@ def check_exits(positions: list[Position], prices: dict) -> list[dict]:
                          "reason": f"Target2 +{pct*100:.1f}%", "kind": "t2"})
             p.partial = 2
 
-        # Time stop
-        p.flat_days = p.flat_days + 1 if abs(pct) < 0.02 else 0
-        if p.flat_days >= Config.TIME_STOP_DAYS:
+        # Time stop -- 20 TRADING SESSIONS flat = exit
+        # 20 trading sessions ≈ 28 calendar days (accounts for weekends/holidays)
+        try:
+            entry_dt    = datetime.strptime(p.entry_date, "%Y-%m-%d")
+            cal_days    = (datetime.now() - entry_dt).days
+            # Approximate trading sessions from calendar days
+            trading_sessions = int(cal_days * 5 / 7)
+        except:
+            trading_sessions = 0
+
+        p.flat_days = trading_sessions  # store for display
+
+        # Only time-stop if stock is genuinely flat (within 2% of entry)
+        if trading_sessions >= 20 and abs(pct) < 0.02:
             acts.append({"sym": p.symbol, "qty": rem, "price": ltp,
-                         "reason": f"Time stop ({p.flat_days}d flat)", "kind": "time"})
+                         "reason": f"Time stop: {trading_sessions} sessions, flat ({pct*100:+.1f}%)",
+                         "kind": "time"})
+        # Also exit if deeply underwater and not recovering after 30 sessions
+        elif trading_sessions >= 30 and pct < -0.03:
+            acts.append({"sym": p.symbol, "qty": rem, "price": ltp,
+                         "reason": f"Extended loss stop: {trading_sessions} sessions, {pct*100:+.1f}%",
+                         "kind": "time"})
     return acts
 
 
@@ -1311,7 +1381,7 @@ class Journal:
         if not os.path.exists(Config.JOURNAL):
             pd.DataFrame(columns=[
                 "datetime","symbol","action","qty","price",
-                "score","reason","kind","regime","mode"
+                "realized_pnl","pnl_pct","score","reason","kind","regime","mode"
             ]).to_csv(Config.JOURNAL, index=False)
 
     def log(self, row: dict):
@@ -1333,7 +1403,9 @@ def gauge_bar(value, min_val, max_val, low_bad=True, width=120):
             f'border-radius:4px;vertical-align:middle;margin:0 6px;">'
             f'<span style="display:block;width:{pct:.0f}%;height:100%;background:{color};border-radius:4px;"></span></span>')
 
-def build_html_report(metrics, signals, macro, portfolio, prices):
+def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=None):
+    if recent_closed is None:
+        recent_closed = []
     mode_tag  = "PAPER" if PAPER_MODE else "LIVE"
     data_tag  = "yfinance" if not USE_ANGEL_ONE else "AngelOne"
     now_str   = datetime.now().strftime("%d %b %Y, %I:%M %p IST")
@@ -1343,49 +1415,49 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     dd_color  = "#27ae60" if metrics["drawdown"] <= 3 else "#f39c12" if metrics["drawdown"] <= 7 else "#e74c3c"
 
     regime_map = {
-        "A": {"label":"A — Risk On (Bull Market)","color":"#27ae60","bg":"#eafaf1","border":"#27ae60",
-              "meaning":"Nifty is above both its 50-day and 200-day moving averages and trending up. Ideal environment for swing trading — strong institutional support. Bot is fully deployed.",
+        "A": {"label":"A -- Risk On (Bull Market)","color":"#27ae60","bg":"#eafaf1","border":"#27ae60",
+              "meaning":"Nifty is above both its 50-day and 200-day moving averages and trending up. Ideal environment for swing trading -- strong institutional support. Bot is fully deployed.",
               "action":"Full deployment. All modes active. Swing + ETF positions open.","emoji":"🟢"},
-        "B": {"label":"B — Cautious (Choppy Market)","color":"#f39c12","bg":"#fef9e7","border":"#f39c12",
+        "B": {"label":"B -- Cautious (Choppy Market)","color":"#f39c12","bg":"#fef9e7","border":"#f39c12",
               "meaning":"Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.",
               "action":"Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.","emoji":"🟡"},
-        "C": {"label":"C — Risk Off (Bear Market)","color":"#e74c3c","bg":"#fdedec","border":"#e74c3c",
-              "meaning":"Nifty is below its 200-day moving average — a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.",
+        "C": {"label":"C -- Risk Off (Bear Market)","color":"#e74c3c","bg":"#fdedec","border":"#e74c3c",
+              "meaning":"Nifty is below its 200-day moving average -- a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.",
               "action":"No new equity entries. Capital fully preserved in cash. Only Gold ETF allowed.","emoji":"🔴"},
     }
     r = regime_map.get(macro.regime, regime_map["B"])
 
     vix = macro.vix
-    if vix < 12:   vix_label, vix_color = "Very low — extreme complacency, watch for reversal", "#f39c12"
-    elif vix < 16: vix_label, vix_color = "Low — calm market, good for momentum trades", "#27ae60"
-    elif vix < 20: vix_label, vix_color = "Moderate — normal healthy volatility", "#27ae60"
-    elif vix < 25: vix_label, vix_color = "Elevated — caution warranted, tighten stops", "#f39c12"
-    elif vix < 30: vix_label, vix_color = "High — fear in market, reduce all exposure", "#e74c3c"
-    else:          vix_label, vix_color = "Extreme fear — stay in cash, wait for calm", "#e74c3c"
+    if vix < 12:   vix_label, vix_color = "Very low -- extreme complacency, watch for reversal", "#f39c12"
+    elif vix < 16: vix_label, vix_color = "Low -- calm market, good for momentum trades", "#27ae60"
+    elif vix < 20: vix_label, vix_color = "Moderate -- normal healthy volatility", "#27ae60"
+    elif vix < 25: vix_label, vix_color = "Elevated -- caution warranted, tighten stops", "#f39c12"
+    elif vix < 30: vix_label, vix_color = "High -- fear in market, reduce all exposure", "#e74c3c"
+    else:          vix_label, vix_color = "Extreme fear -- stay in cash, wait for calm", "#e74c3c"
 
     def ma_interp(pct):
-        if pct > 5:    return f"{pct:+.1f}% above — strong uptrend confirmed", "#27ae60"
-        elif pct > 0:  return f"{pct:+.1f}% above — mildly bullish", "#27ae60"
-        elif pct > -3: return f"{pct:+.1f}% below — caution zone", "#f39c12"
-        else:          return f"{pct:+.1f}% below — confirmed downtrend", "#e74c3c"
+        if pct > 5:    return f"{pct:+.1f}% above -- strong uptrend confirmed", "#27ae60"
+        elif pct > 0:  return f"{pct:+.1f}% above -- mildly bullish", "#27ae60"
+        elif pct > -3: return f"{pct:+.1f}% below -- caution zone", "#f39c12"
+        else:          return f"{pct:+.1f}% below -- confirmed downtrend", "#e74c3c"
 
     ma50_label,  ma50_color  = ma_interp(macro.nifty_vs_50)
     ma200_label, ma200_color = ma_interp(macro.nifty_vs_200)
 
     fii = macro.fii_flow
-    if fii > 2000:    fii_label, fii_color = "Strong buying — very bullish signal", "#27ae60"
-    elif fii > 500:   fii_label, fii_color = "Net buyers — bullish", "#27ae60"
-    elif fii > 0:     fii_label, fii_color = "Marginal buying — neutral", "#f39c12"
-    elif fii > -500:  fii_label, fii_color = "Marginal selling — mild caution", "#f39c12"
-    elif fii > -2000: fii_label, fii_color = "Net sellers — bearish pressure", "#e74c3c"
-    else:             fii_label, fii_color = "Heavy selling — very bearish", "#e74c3c"
+    if fii > 2000:    fii_label, fii_color = "Strong buying -- very bullish signal", "#27ae60"
+    elif fii > 500:   fii_label, fii_color = "Net buyers -- bullish", "#27ae60"
+    elif fii > 0:     fii_label, fii_color = "Marginal buying -- neutral", "#f39c12"
+    elif fii > -500:  fii_label, fii_color = "Marginal selling -- mild caution", "#f39c12"
+    elif fii > -2000: fii_label, fii_color = "Net sellers -- bearish pressure", "#e74c3c"
+    else:             fii_label, fii_color = "Heavy selling -- very bearish", "#e74c3c"
 
     buys  = sorted([s for s in signals if s.action=="buy"],  key=lambda x: x.score, reverse=True)[:8]
     watch = sorted([s for s in signals if s.action=="watch"],key=lambda x: x.score, reverse=True)[:8]
 
     def sig_rows(sigs):
         if not sigs:
-            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No signals in current regime — bot protecting capital</td></tr>'
+            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No signals in current regime -- bot protecting capital</td></tr>'
         rows = ""
         for s in sigs:
             cost = s.entry * s.qty
@@ -1406,7 +1478,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 
     def pos_rows():
         if not portfolio.positions:
-            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No open positions — fully in cash</td></tr>'
+            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No open positions -- fully in cash</td></tr>'
         rows = ""
         for p in portfolio.positions:
             ltp = prices.get(p.symbol, p.entry)
@@ -1430,11 +1502,11 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
         if not buys: return ""
         top = buys[0]
         labels = {
-            "stage2":("Stage 2 — Weinstein",20,"Price above rising 30-week MA"),
+            "stage2":("Stage 2 -- Weinstein",20,"Price above rising 30-week MA"),
             "vcp":("VCP Pattern",15,"Volatility contraction + pivot breakout"),
             "ma_stack":("MA Stack 50/100/200",10,"Full upward hierarchy"),
             "macd":("MACD",8,"Bullish crossover + expanding histogram"),
-            "rsi":("Weekly RSI",5,"Sweet spot: 50–70"),
+            "rsi":("Weekly RSI",5,"Sweet spot: 50-70"),
             "volume":("Volume",2,"Breakout vol ≥ 1.5× average"),
             "relative_str":("Relative Strength vs Nifty",12,"6-month outperformance"),
             "sector_rrg":("Sector RRG",10,"Leading quadrant"),
@@ -1453,7 +1525,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
               <td style="padding:7px 8px;text-align:right;font-weight:700;color:{bc};">{got:.0f}/{mx}</td>
               <td style="padding:7px 8px;width:100px;"><div style="background:#e0e0e0;border-radius:3px;height:6px;"><div style="width:{pct:.0f}%;background:{bc};height:6px;border-radius:3px;"></div></div></td>
             </tr>"""
-        return f"""<h3 style="color:#2c3e50;font-size:15px;margin:24px 0 10px;">Signal breakdown — {top.symbol} (top pick today)</h3>
+        return f"""<h3 style="color:#2c3e50;font-size:15px;margin:24px 0 10px;">Signal breakdown -- {top.symbol} (top pick today)</h3>
         <table style="width:100%;border-collapse:collapse;font-family:Arial,sans-serif;font-size:13px;">
           <thead><tr style="background:#f8f9fa;">
             <th style="padding:8px;text-align:left;color:#7f8c8d;">Factor</th>
@@ -1469,15 +1541,15 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     if prev_regime and prev_regime != macro.regime:
         change_styles = {
             ("C","B"): ("#1a5276","#eaf4fb","#85c1e9","📈 Regime upgraded: C → B (Bear → Cautious)",
-                        "Market has recovered from bear territory. Nifty is now between key moving averages. Bot raising alert — watchlist being monitored. Entry threshold raised to 80/100. Max 8 positions."),
+                        "Market has recovered from bear territory. Nifty is now between key moving averages. Bot raising alert -- watchlist being monitored. Entry threshold raised to 80/100. Max 8 positions."),
             ("C","A"): ("#1e8449","#eafaf1","#27ae60","🎉 Regime upgraded: C → A (Bear → Bull Market!)",
-                        "Major recovery! Nifty back above both 50 and 200 DMA. Bot fully deployed — all modes active. Entry threshold 72/100. Up to 14 positions."),
+                        "Major recovery! Nifty back above both 50 and 200 DMA. Bot fully deployed -- all modes active. Entry threshold 72/100. Up to 14 positions."),
             ("B","A"): ("#1e8449","#eafaf1","#27ae60","📈 Regime upgraded: B → A (Full Bull Mode)",
-                        "Market strengthened. Nifty clearly above all key MAs. Bot expanding to full deployment — up to 14 positions, intraday and swing both active."),
+                        "Market strengthened. Nifty clearly above all key MAs. Bot expanding to full deployment -- up to 14 positions, intraday and swing both active."),
             ("A","B"): ("#7d6608","#fef9e7","#f39c12","⚠️ Regime downgraded: A → B (Bull → Cautious)",
-                        "Market weakening. Nifty showing mixed signals. Bot tightening — entry threshold raised to 80, max 8 positions. Existing positions held with tighter stops."),
+                        "Market weakening. Nifty showing mixed signals. Bot tightening -- entry threshold raised to 80, max 8 positions. Existing positions held with tighter stops."),
             ("B","C"): ("#922b21","#fdedec","#e74c3c","🔴 Regime downgraded: B → C (BEAR MARKET)",
-                        "Market breakdown. Nifty below 200 DMA — confirmed downtrend. Bot moving to full cash protection. No new equity entries until recovery."),
+                        "Market breakdown. Nifty below 200 DMA -- confirmed downtrend. Bot moving to full cash protection. No new equity entries until recovery."),
             ("A","C"): ("#922b21","#fdedec","#e74c3c","🚨 ALERT: Sharp crash detected A → C",
                         "Major breakdown! Nifty fell below 200 DMA. Bot immediately halting all new entries. Capital preserved in cash. Monitor closely."),
         }
@@ -1524,14 +1596,14 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
         </tr>'''
     watch_rows = "".join(_wrow(s) for s in watch) or '<tr><td colspan="6" style="text-align:center;color:#999;padding:16px;">Nothing on watchlist today</td></tr>'    # Extended macro interpretations for HTML
     rbi_color = "#27ae60" if macro.rbi_stance=="cutting" else "#e74c3c" if macro.rbi_stance=="hiking" else "#f39c12"
-    rbi_label = "Cutting rates — bullish for equities" if macro.rbi_stance=="cutting" else "Hiking rates — bearish headwind" if macro.rbi_stance=="hiking" else "Neutral — monitoring inflation"
+    rbi_label = "Cutting rates -- bullish for equities" if macro.rbi_stance=="cutting" else "Hiking rates -- bearish headwind" if macro.rbi_stance=="hiking" else "Neutral -- monitoring inflation"
     crude_color = "#27ae60" if macro.crude_usd < 75 else "#f39c12" if macro.crude_usd < 90 else "#e74c3c"
-    crude_label = "Low — positive for India economy" if macro.crude_usd < 75 else "Moderate — manageable" if macro.crude_usd < 90 else "High — negative for CAD and inflation"
+    crude_label = "Low -- positive for India economy" if macro.crude_usd < 75 else "Moderate -- manageable" if macro.crude_usd < 90 else "High -- negative for CAD and inflation"
     dxy_color = "#27ae60" if macro.dxy < 102 else "#f39c12" if macro.dxy < 107 else "#e74c3c"
-    dxy_label = "Weak dollar — EM equity tailwind" if macro.dxy < 102 else "Moderate dollar — neutral" if macro.dxy < 107 else "Strong dollar — FII outflow risk for India"
+    dxy_label = "Weak dollar -- EM equity tailwind" if macro.dxy < 102 else "Moderate dollar -- neutral" if macro.dxy < 107 else "Strong dollar -- FII outflow risk for India"
     geo_color = "#27ae60" if macro.geo_risk=="low" else "#f39c12" if macro.geo_risk=="medium" else "#e74c3c"
     inr_color = "#27ae60" if macro.usd_inr < 83 else "#f39c12" if macro.usd_inr < 85 else "#e74c3c"
-    inr_label = "Strong rupee — FII inflow friendly" if macro.usd_inr < 83 else "Stable range" if macro.usd_inr < 85 else "Weak rupee — FII pressure increasing"
+    inr_label = "Strong rupee -- FII inflow friendly" if macro.usd_inr < 83 else "Stable range" if macro.usd_inr < 85 else "Weak rupee -- FII pressure increasing"
     sgx_color = "#27ae60" if macro.sgx_nifty_chg > 0.3 else "#e74c3c" if macro.sgx_nifty_chg < -0.3 else "#f39c12"
 
     html = f"""<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
@@ -1555,14 +1627,18 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Portfolio</h2>
   <table width="100%"><tr>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
-      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TOTAL VALUE</div>
-      <div style="font-size:22px;font-weight:700;">₹{metrics["total"]:,.0f}</div>
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">DEPLOYED CAPITAL</div>
+      <div style="font-size:22px;font-weight:700;">&#8377;{metrics["total"]:,.0f}</div>
+      <div style="font-size:10px;color:#aaa;margin-top:3px;">Cash &#8377;{metrics["cash"]:,.0f} + Cost &#8377;{metrics["cost_basis"]:,.0f}</div>
     </td>
     <td width="5%"></td>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
-      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TOTAL P&L</div>
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TRUE P&L (vs &#8377;5,00,000)</div>
       <div style="font-size:22px;font-weight:700;color:{pnl_color};">{alpha_pct:+.2f}%</div>
-      <div style="font-size:12px;color:{pnl_color};">₹{alpha:+,.0f}</div>
+      <div style="font-size:12px;color:{pnl_color};">&#8377;{alpha:+,.0f} total</div>
+      <div style="font-size:11px;color:#7f8c8d;margin-top:2px;">
+        Realized &#8377;{metrics["realized_pnl"]:+,.0f} | Unrealized &#8377;{metrics["unrealized"]:+,.0f}
+      </div>
     </td>
     <td width="5%"></td>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
@@ -1574,7 +1650,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
   <table width="100%" style="margin-top:12px;"><tr>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
       <div style="font-size:11px;color:#7f8c8d;">CASH AVAILABLE</div>
-      <div style="font-size:16px;font-weight:600;">₹{metrics["cash"]:,.0f}</div>
+      <div style="font-size:16px;font-weight:600;">&#8377;{metrics["cash"]:,.0f}</div>
     </td>
     <td width="5%"></td>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
@@ -1584,7 +1660,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     <td width="5%"></td>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:12px;">
       <div style="font-size:11px;color:#7f8c8d;">UNREALIZED P&L</div>
-      <div style="font-size:16px;font-weight:600;color:{pnl_color};">₹{metrics["unrealized"]:+,.0f}</div>
+      <div style="font-size:16px;font-weight:600;color:{pnl_color};">&#8377;{metrics["unrealized"]:+,.0f}</div>
     </td>
   </tr></table>
 </div>
@@ -1605,7 +1681,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     <tr style="border-bottom:1px solid #f0f0f0;">
       <td style="padding:9px 0;color:#7f8c8d;width:170px;">India VIX</td>
       <td><b style="color:{vix_color};">{vix:.1f}</b> {gauge_bar(vix,10,35,low_bad=False)} <span style="font-size:12px;color:{vix_color};">{vix_label}</span></td>
-      <td style="font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Normal: 12–20</td>
+      <td style="font-size:11px;color:#bdc3c7;text-align:right;white-space:nowrap;">Normal: 12-20</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
       <td style="padding:9px 0;color:#7f8c8d;">Nifty vs 50 DMA</td>
@@ -1669,7 +1745,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
     <tr style="border-bottom:1px solid #f0f0f0;">
       <td style="padding:9px 0;color:#7f8c8d;">US 10Y Yield</td>
       <td><b style="color:{"#e74c3c" if macro.us_10y_yield>4.5 else "#f39c12" if macro.us_10y_yield>4 else "#27ae60"};">{macro.us_10y_yield:.2f}%</b>
-        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"High — EM outflow risk" if macro.us_10y_yield>4.5 else "Elevated" if macro.us_10y_yield>4 else "Low — EM friendly"}</span></td>
+        <span style="font-size:12px;color:#7f8c8d;margin-left:8px;">{"High -- EM outflow risk" if macro.us_10y_yield>4.5 else "Elevated" if macro.us_10y_yield>4 else "Low -- EM friendly"}</span></td>
       <td style="font-size:11px;color:#bdc3c7;text-align:right;">FII cost of carry</td>
     </tr>
     <tr style="border-bottom:1px solid #f0f0f0;">
@@ -1686,6 +1762,33 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
       <td style="font-size:11px;color:#bdc3c7;text-align:right;">Auto-monitored</td>
     </tr>
   </table>
+
+<div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
+  <h2 style="color:#2c3e50;font-size:16px;margin:0 0 10px;">Recently closed positions (last 7 days)</h2>
+  <table width="100%" style="border-collapse:collapse;font-size:13px;">
+    <thead><tr style="background:#f8f9fa;">
+      <th style="padding:8px;text-align:left;color:#7f8c8d;">Symbol</th>
+      <th style="padding:8px;text-align:center;color:#7f8c8d;">Date</th>
+      <th style="padding:8px;text-align:right;color:#7f8c8d;">Exit &#8377;</th>
+      <th style="padding:8px;text-align:center;color:#7f8c8d;">Qty</th>
+      <th style="padding:8px;text-align:right;color:#7f8c8d;">Realized P&L</th>
+      <th style="padding:8px;text-align:left;color:#7f8c8d;">Reason</th>
+    </tr></thead>
+    <tbody id="closed-tbody">
+    {"".join(
+        f'<tr style="border-bottom:1px solid #f0f0f0;background:{"#eafaf1" if float(rc.get("pnl",0))>=0 else "#fdedec"};">' +
+        f'<td style="padding:8px;font-weight:700;">{rc["symbol"]}</td>' +
+        f'<td style="padding:8px;text-align:center;color:#7f8c8d;font-size:12px;">{rc["date"]}</td>' +
+        f'<td style="padding:8px;text-align:right;">&#8377;{float(rc["price"]):,.2f}</td>' +
+        f'<td style="padding:8px;text-align:center;">{rc["qty"]}</td>' +
+        f'<td style="padding:8px;text-align:right;font-weight:700;color:{"#27ae60" if float(rc.get("pnl",0))>=0 else "#e74c3c"};">' +
+        f'{"+" if float(rc.get("pnl",0))>=0 else ""}&#8377;{float(rc.get("pnl",0)):,.0f} ({float(rc.get("pnl_pct",0)):+.1f}%)</td>' +
+        f'<td style="padding:8px;font-size:11px;color:#7f8c8d;">{str(rc.get("reason",""))[:45]}</td></tr>'
+        for rc in recent_closed)
+    or '<tr><td colspan="6" style="text-align:center;color:#999;padding:16px;">No closed positions this week</td></tr>'}
+    </tbody>
+  </table>
+</div>
 
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 16px;">Open positions ({metrics["positions"]})</h2>
@@ -1724,13 +1827,13 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 <div style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;border:1px solid #e8ecef;">
   <h2 style="color:#2c3e50;font-size:16px;margin:0 0 4px;">Watchlist ({len(watch)})</h2>
   <p style="color:#7f8c8d;font-size:12px;margin:0 0 6px;">
-    {"Regime C — all equities on hold. Showing best positioned stocks for when market recovers." if macro.regime=="C" else
-     f"Regime B — buy threshold raised to 80. Stocks scoring 55–79 monitored here." if macro.regime=="B" else
-     "Regime A — scoring 55–71. Close to buy threshold of 72. Monitor daily for breakout."}
+    {"Regime C -- all equities on hold. Showing best positioned stocks for when market recovers." if macro.regime=="C" else
+     f"Regime B -- buy threshold raised to 80. Stocks scoring 55-79 monitored here." if macro.regime=="B" else
+     "Regime A -- scoring 55-71. Close to buy threshold of 72. Monitor daily for breakout."}
   </p>
   <p style="color:#7f8c8d;font-size:11px;margin:0 0 14px;background:#f8f9fa;padding:8px 10px;border-radius:6px;">
     <b>Stage guide:</b> Stage 1=base building (too early) · <b style="color:#27ae60;">Stage 2=uptrend (buy zone)</b> · Stage 3=topping (exit) · Stage 4=downtrend (avoid) &nbsp;|&nbsp;
-    <b>VCP</b>=Volatility Contraction Pattern — price tightening before breakout. Stage 2 + VCP = highest conviction setup.
+    <b>VCP</b>=Volatility Contraction Pattern -- price tightening before breakout. Stage 2 + VCP = highest conviction setup.
   </p>
   <table width="100%" style="border-collapse:collapse;font-size:13px;">
     <thead><tr style="background:#f8f9fa;">
@@ -1746,7 +1849,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices):
 </div>
 
 <div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
-  <b style="color:#1a5276;font-size:13px;">Strategy rules — quick reference</b>
+  <b style="color:#1a5276;font-size:13px;">Strategy rules -- quick reference</b>
   <table width="100%" style="margin-top:10px;font-size:12px;color:#1a5276;">
     <tr><td>Risk per trade</td><td><b>1.5% of portfolio (₹{Config.VIRTUAL_CAPITAL*Config.RISK_PER_TRADE_PCT:,.0f})</b></td>
         <td>Stop loss</td><td><b>7% below entry or VCP base low</b></td></tr>
@@ -1784,7 +1887,7 @@ PORTFOLIO
   Positions   : {metrics["positions"]}/{Config.MAX_POSITIONS}
 
 BUY SIGNALS ({len(buys)})
-{"  No buy signals — regime C, bot protecting capital in cash." if not buys else chr(10).join(f"  {s.symbol:<14} Score {s.score:.0f}/100 | Entry Rs{s.entry:.2f} | Stop Rs{s.stop:.2f} | Qty {s.qty} | Capital Rs{s.entry*s.qty:,.0f}" for s in buys)}
+{"  No buy signals -- regime C, bot protecting capital in cash." if not buys else chr(10).join(f"  {s.symbol:<14} Score {s.score:.0f}/100 | Entry Rs{s.entry:.2f} | Stop Rs{s.stop:.2f} | Qty {s.qty} | Capital Rs{s.entry*s.qty:,.0f}" for s in buys)}
 
 WATCHLIST ({len(watch)})
 {"  Nothing on watchlist today." if not watch else chr(10).join(f"  {s.symbol:<14} Score {s.score:.0f} | Rs{s.entry:.2f} | {s.reason}" for s in watch)}
@@ -1807,13 +1910,13 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
             hist    = h.get("score_history", [s.score])
             prev_s  = hist[-2] if len(hist) >= 2 else s.score
             trend   = round(s.score - prev_s, 1)
-            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 70 if macro.regime == "B" else 68 if macro.regime == "A" else 70
             gap     = max(0, threshold - s.score)
             miss    = s.missing
             for pfx in [f"Need +{gap:.0f}pts: ", "Need +"]:
                 if miss.startswith(pfx): miss = miss[len(pfx):]; break
-            stage_map = {1:"Stage 1 — Base",2:"Stage 2 — Uptrend ✓",
-                         3:"Stage 3 — Top",4:"Stage 4 — Decline"}
+            stage_map = {1:"Stage 1 -- Base",2:"Stage 2 -- Uptrend ✓",
+                         3:"Stage 3 -- Top",4:"Stage 4 -- Decline"}
             rows.append({
                 "Date":           today,
                 "Symbol":         s.symbol,
@@ -1855,8 +1958,8 @@ def _save_watchlist_excel(signals: list, portfolio, macro: MacroState, today: st
 
 # ─── MAIN AGENT LOOP ───────────────────────────────────────────────────────────
 
-# NSE holidays 2025-2026 — verified against NSE official calendar
-# Fallback holiday list — only used if live NSE API fails
+# NSE holidays 2025-2026 -- verified against NSE official calendar
+# Fallback holiday list -- only used if live NSE API fails
 NSE_HOLIDAYS_FALLBACK = {
     "2025-01-26","2025-02-19","2025-03-14","2025-03-31",
     "2025-04-10","2025-04-14","2025-04-18","2025-05-01",
@@ -1902,27 +2005,27 @@ def _fetch_nse_holidays() -> set:
 def is_market_open() -> tuple:
     """
     Check if NSE is open today.
-    Tries live NSE API first — never relies solely on hardcoded dates.
+    Tries live NSE API first -- never relies solely on hardcoded dates.
     """
     now     = datetime.now()
     today   = now.strftime("%Y-%m-%d")
     weekday = now.weekday()
 
     if weekday >= 5:
-        return False, "Weekend — NSE closed"
+        return False, "Weekend -- NSE closed"
 
     # Always try live API first
     live = _fetch_nse_holidays()
     if live:
         if today in live:
             return False, f"NSE holiday ({today})"
-        log.info(f"Market open — confirmed via live NSE API")
+        log.info(f"Market open -- confirmed via live NSE API")
         return True, "Market open"
 
     # Only use fallback if live API completely fails
-    log.warning("Using fallback holiday calendar — live API unavailable")
+    log.warning("Using fallback holiday calendar -- live API unavailable")
     if today in NSE_HOLIDAYS_FALLBACK:
-        return False, f"NSE holiday ({today}) — fallback calendar"
+        return False, f"NSE holiday ({today}) -- fallback calendar"
     return True, "Market open"
 
 
@@ -1949,9 +2052,9 @@ def write_holiday_report(reason: str):
 <div style="background:#eaf4fb;border:1px solid #85c1e9;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
   <b style="color:#1a5276;font-size:14px;">Use today to review:</b>
   <ul style="color:#1a5276;font-size:13px;margin:8px 0 0;padding-left:18px;line-height:1.8;">
-    <li>Yesterday's watchlist — check CPSEETF, JINDALSTEL, VEDL closely</li>
+    <li>Yesterday's watchlist -- check CPSEETF, JINDALSTEL, VEDL closely</li>
     <li>Any macro events scheduled for tomorrow (RBI minutes, FII data, global cues)</li>
-    <li>Global markets today — US futures, SGX Nifty will signal tomorrow's open</li>
+    <li>Global markets today -- US futures, SGX Nifty will signal tomorrow's open</li>
   </ul>
 </div>
 <div style="text-align:center;color:#bdc3c7;font-size:11px;padding:10px;">
@@ -1974,7 +2077,7 @@ Review yesterday's watchlist and global cues for tomorrow's open.
 
 
 def run():
-    log.info(f"\n{'='*55}\nALPHAGENT RUN — {datetime.now().strftime('%d %b %Y %H:%M')}\n{'='*55}")
+    log.info(f"\n{'='*55}\nALPHAGENT RUN -- {datetime.now().strftime('%d %b %Y %H:%M')}\n{'='*55}")
 
     # Check market holiday first
     market_open, market_reason = is_market_open()
@@ -1983,11 +2086,26 @@ def run():
         holiday_file = f"{Config.REPORT_DIR}/report_{today}.html"
         os.makedirs(Config.REPORT_DIR, exist_ok=True)
         if os.path.exists(holiday_file):
-            log.info(f"Holiday report already sent today — skipping second run.")
+            log.info(f"Holiday report already sent today -- skipping second run.")
             return
         log.info(f"Market closed: {market_reason}. Writing holiday report.")
         write_holiday_report(market_reason)
         return
+
+    # Determine run mode based on IST time
+    now_ist  = datetime.now()
+    hour_ist = now_ist.hour
+    min_ist  = now_ist.minute
+
+    if hour_ist < 9 or (hour_ist == 9 and min_ist < 15):
+        run_mode = "premarket"    # Scan only -- no new orders in live mode
+    elif (hour_ist == 9 and min_ist >= 15) or (9 < hour_ist < 15) or \
+         (hour_ist == 15 and min_ist < 25):
+        run_mode = "market"       # Active trading window
+    else:
+        run_mode = "postmarket"   # EOD report only
+
+    log.info(f"Run mode: {run_mode} | IST: {hour_ist:02d}:{min_ist:02d}")
 
     client    = DataClient()
     portfolio = Portfolio()
@@ -2014,18 +2132,23 @@ def run():
     for ex in exits:
         oid = client.place_order(ex["sym"], ex["qty"], ex["price"], "SELL")
         if oid:
+            entry_px = next((p.entry for p in portfolio.positions if p.symbol==ex["sym"]), ex["price"])
+            rpnl     = round((ex["price"] - entry_px) * ex["qty"], 2)
+            rpnl_pct = round((ex["price"] / entry_px - 1) * 100, 2) if entry_px > 0 else 0
             portfolio.remove(ex["sym"], ex["qty"], ex["price"])
             journal.log({"datetime":datetime.now().isoformat(),"symbol":ex["sym"],"action":"SELL",
-                         "qty":ex["qty"],"price":ex["price"],"score":0,"reason":ex["reason"],
+                         "qty":ex["qty"],"price":ex["price"],
+                         "realized_pnl":rpnl,"pnl_pct":rpnl_pct,
+                         "score":0,"reason":ex["reason"],
                          "kind":ex["kind"],"regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
 
-    log.info("REASON: Scoring all candidates (always — even in Regime C for watchlist)...")
+    log.info("REASON: Scoring all candidates (always -- even in Regime C for watchlist)...")
     signals = []
     for sym in [s for s in all_syms if not portfolio.has(s)]:
         df = client.get_historical(sym, 265)
         if df.empty: continue
         sig = score_symbol(sym, df, macro, portfolio.cash)
-        # In Regime C: override action to watch — never buy
+        # In Regime C: override action to watch -- never buy
         if macro.regime == "C" and sig.action == "buy":
             sig.action  = "watch"
             threshold   = 72   # Regime A threshold for reference
@@ -2033,18 +2156,18 @@ def run():
             gaps        = []
             if sig.stage != 2:           gaps.append(f"Stage {sig.stage} (need Stage 2)")
             if not sig.vcp:              gaps.append("VCP not formed")
-            # For Stage 2 + VCP stocks in Regime C — they're READY, just need regime
+            # For Stage 2 + VCP stocks in Regime C -- they're READY, just need regime
             if sig.stage == 2 and sig.vcp:
                 miss = f"Score {sig.score:.0f} ready. Stage 2 + VCP confirmed. Awaiting market recovery (Regime A/B)"
             elif sig.stage == 2:
-                miss = f"Stage 2 confirmed. VCP forming — watch for tighter base. Buy on Regime A/B recovery"
+                miss = f"Stage 2 confirmed. VCP forming -- watch for tighter base. Buy on Regime A/B recovery"
             else:
-                miss = f"Stage {sig.stage} — need Stage 2 + VCP before entry"
+                miss = f"Stage {sig.stage} -- need Stage 2 + VCP before entry"
             sig.missing = miss
-            sig.reason  = f"Score {sig.score:.0f} — {miss}"
+            sig.reason  = f"Score {sig.score:.0f} -- {miss}"
         # Ensure watchlist signals also have missing populated
         if sig.action == "watch" and not sig.missing:
-            threshold = 80 if macro.regime == "B" else 72 if macro.regime == "A" else 72
+            threshold = 70 if macro.regime == "B" else 68 if macro.regime == "A" else 70
             gap       = max(0, threshold - sig.score)
             gaps      = []
             if sig.stage != 2: gaps.append(f"Stage {sig.stage} (need Stage 2)")
@@ -2058,9 +2181,45 @@ def run():
     watch_count = len([s for s in signals if s.action=="watch"])
     log.info(f"Scored {len(signals)} symbols | {buy_count} buy signals | {watch_count} on watchlist")
 
-    if not metrics["paused"]:
+    # In Regime C -- buy Gold ETF as hedge (up to 15% of portfolio)
+    if macro.regime == "C" and not metrics["paused"] and (PAPER_MODE or run_mode == "market"):
+        gold_sym = "GOLDBEES"
+        if not portfolio.has(gold_sym):
+            gold_ltp = client.get_ltp(gold_sym)
+            if gold_ltp and gold_ltp > 0:
+                gold_budget = Config.VIRTUAL_CAPITAL * Config.ETF_BOOK_PCT
+                gold_qty    = max(1, int(gold_budget / gold_ltp))
+                max_by_cash = int(portfolio.cash * 0.95 / gold_ltp)
+                gold_qty    = min(gold_qty, max_by_cash)
+                if gold_qty > 0:
+                    oid = client.place_order(gold_sym, gold_qty, gold_ltp, "BUY")
+                    if oid:
+                        pos = Position(
+                            symbol=gold_sym, entry=gold_ltp, qty=gold_qty,
+                            stop=round(gold_ltp * 0.93, 2),
+                            target1=round(gold_ltp * 1.10, 2),
+                            target2=round(gold_ltp * 1.20, 2),
+                            entry_date=datetime.now().strftime("%Y-%m-%d"),
+                            score=70
+                        )
+                        portfolio.add(pos)
+                        journal.log({
+                            "datetime": datetime.now().isoformat(),
+                            "symbol": gold_sym, "action": "BUY",
+                            "qty": gold_qty, "price": gold_ltp,
+                            "score": 70, "reason": "Regime C hedge -- Gold ETF",
+                            "kind": "etf_hedge", "regime": macro.regime,
+                            "mode": "PAPER" if PAPER_MODE else "LIVE"
+                        })
+                        log.info(f"GOLD ETF ENTRY: {gold_qty}x GOLDBEES @ Rs{gold_ltp:.2f}")
+
+    if not metrics["paused"] and run_mode in ("market", "premarket"):
+        # In paper mode -- allow orders in premarket too (uses previous close)
+        # In live mode -- only place orders during market hours
+        can_order = PAPER_MODE or run_mode == "market"
         open_count = len(portfolio.positions)
         for sig in signals:
+            if not can_order: break
             if sig.action != "buy": continue
             if open_count >= Config.MAX_POSITIONS: break
             if portfolio.has(sig.symbol): continue
@@ -2077,15 +2236,39 @@ def run():
                 client.place_gtt_stop(sig.symbol, sig.entry, sig.stop, sig.qty)
                 journal.log({"datetime":datetime.now().isoformat(),"symbol":sig.symbol,"action":"BUY",
                              "qty":sig.qty,"price":sig.entry,"score":sig.score,"reason":sig.reason,
-                             "kind":"entry","regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
+                             "realized_pnl":0,"pnl_pct":0,"kind":"entry","regime":macro.regime,"mode":"PAPER" if PAPER_MODE else "LIVE"})
                 log.info(f"ENTRY: {sig.symbol} | {sig.qty}x @ Rs{sig.entry:.2f} | Score {sig.score:.0f}")
                 open_count += 1
     else:
-        log.warning("Circuit breaker active — no new entries")
+        log.warning("Circuit breaker active -- no new entries")
 
     portfolio.update_watchlist_history(signals)
     portfolio.save(macro.regime)
     metrics = portfolio.metrics(prices)
+    # Calculate recently closed positions for report
+    recent_closed = []
+    try:
+        if os.path.exists(Config.JOURNAL):
+            jdf = pd.read_csv(Config.JOURNAL)
+            if not jdf.empty and "action" in jdf.columns:
+                sells = jdf[jdf["action"]=="SELL"].copy()
+                if not sells.empty:
+                    sells["datetime"] = pd.to_datetime(sells["datetime"])
+                    cutoff = datetime.now() - timedelta(days=7)
+                    recent = sells[sells["datetime"] >= cutoff].sort_values("datetime", ascending=False)
+                    for _, row in recent.head(8).iterrows():
+                        recent_closed.append({
+                            "symbol":  row["symbol"],
+                            "pnl":     row.get("realized_pnl", 0),
+                            "pnl_pct": row.get("pnl_pct", 0),
+                            "qty":     row["qty"],
+                            "price":   row["price"],
+                            "reason":  row.get("reason",""),
+                            "date":    row["datetime"].strftime("%d %b"),
+                        })
+    except Exception as e:
+        log.warning(f"Recent closed calc failed: {e}")
+
     html_report, plain_report = build_html_report(metrics, signals, macro, portfolio, prices)
 
     today = datetime.now().strftime("%Y%m%d")
@@ -2093,7 +2276,7 @@ def run():
     with open(f"{Config.REPORT_DIR}/report_{today}.html", "w") as f: f.write(html_report)
     with open(f"{Config.REPORT_DIR}/report_{today}.txt",  "w") as f: f.write(plain_report)
 
-    # Excel rolling watchlist — 10 day history
+    # Excel rolling watchlist -- 10 day history
     _save_watchlist_excel(signals, portfolio, macro, today)
     log.info(f"Reports saved.")
     send_telegram(plain_report[:4000])
