@@ -1,0 +1,32 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+04 May 2026, 06:22 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.
+Bot action: Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.
+
+MACRO INDICATORS
+  VIX              : 17.9  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +0.5%  [+0.5% above -- mildly bullish]
+  Nifty vs 200 DMA : -3.4%  [-3.4% below -- confirmed downtrend]
+  FII Net Flow     : Rs-182 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs500,000
+  Cash        : Rs460,031
+  P&L         : Rs+0 (+0.00%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 1/14
+
+BUY SIGNALS (1)
+  MARICO         Score 74/100 | Entry Rs783.70 | Stop Rs723.55 | Qty 51 | Capital Rs39,969
+
+WATCHLIST (8)
+  CPSEETF        Score 70 | Rs108.55 | Score 70 -- Score 70/100 -- need macro improvement or volume surge
+  POWERGRID      Score 67 | Rs321.90 | Score 67 -- RSI outside 50-70 zone
+  COALINDIA      Score 67 | Rs480.65 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  EICHERMOT      Score 66 | Rs7221.50 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment
+  TORNTPHARM     Score 66 | Rs4255.30 | Score 66 -- Score 66/100 -- need macro improvement or volume surge
+  BAJAJ-AUTO     Score 66 | Rs10194.50 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 66 | Rs1739.80 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  HINDALCO       Score 65 | Rs1045.30 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)

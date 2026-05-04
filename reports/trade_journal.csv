@@ -1,0 +1,2 @@
+datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,mode
+2026-05-04T06:22:48.552255,MARICO,BUY,51,783.7,74.5,Score 74/100 | Stage 2 | VCP=Yes | MA=Full stack | Regime B,0,0,entry,B,PAPER
