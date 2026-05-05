@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-05 May 2026, 06:06 PM IST
+05 May 2026, 06:13 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
 Nifty is above the 50 DMA (-0.2%) but below the 200 DMA (-4.2%). Recovery in progress but not confirmed. Key risks: FII flows (-110 Cr) and VIX (17.9). Bot enters only high-conviction setups (score >=70) with tighter sizing.
@@ -13,15 +13,13 @@ MACRO INDICATORS
 
 PORTFOLIO
   Total Value : Rs3,500,000
-  Cash        : Rs3,500,000
-  P&L         : Rs+0 (+0.00%)
+  Cash        : Rs3,266,742
+  P&L         : Rs+1,602 (+0.05%)
   Drawdown    : 0.00%  (Limit: 10%)
-  Positions   : 0/14
+  Positions   : 6/14
 
-BUY SIGNALS (3)
-  APARINDS       Score 75/100 | Entry Rs12794.00 | Stop Rs11898.42 | Qty 21 | Capital Rs268,674
-  ASTERDM        Score 73/100 | Entry Rs742.80 | Stop Rs668.52 | Qty 376 | Capital Rs279,293
-  AJANTPHARM     Score 71/100 | Entry Rs2897.60 | Stop Rs2694.77 | Qty 96 | Capital Rs278,170
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
 
 WATCHLIST (20)
   NAVINFLUOR     Score 68 | Rs7005.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
