@@ -1,280 +1,92 @@
 {
-  "cash": 3500000.0,
-  "virtual_capital": 3500000.0,
-  "positions": [],
-  "watchlist_history": {
-    "BAJAJCON": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.9,
-      "score_history": [
-        62.9
-      ]
+  "cash": 3266741.9,
+  "virtual_capital": 3500000,
+  "positions": [
+    {
+      "symbol": "MARICO",
+      "entry": 783.7,
+      "qty": 51,
+      "stop": 723.55,
+      "target1": 924.77,
+      "target2": 1018.81,
+      "entry_date": "2026-05-04",
+      "score": 74.5,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     },
-    "DIVISLAB": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.8,
-      "score_history": [
-        62.8
-      ]
+    {
+      "symbol": "JBCHEPHARM",
+      "entry": 2082.1,
+      "qty": 19,
+      "stop": 1892.6,
+      "target1": 2456.88,
+      "target2": 2706.73,
+      "entry_date": "2026-05-04",
+      "score": 72.9,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     },
-    "NTPC": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.5,
-      "score_history": [
-        62.5
-      ]
+    {
+      "symbol": "TORNTPHARM",
+      "entry": 4256.7,
+      "qty": 9,
+      "stop": 3958.73,
+      "target1": 5022.91,
+      "target2": 5533.71,
+      "entry_date": "2026-05-05",
+      "score": 74.4,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     },
-    "SCHAEFFLER": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 58.0,
-      "score_history": [
-        58.0
-      ]
+    {
+      "symbol": "APARINDS",
+      "entry": 12794.0,
+      "qty": 3,
+      "stop": 11898.42,
+      "target1": 15096.92,
+      "target2": 16632.2,
+      "entry_date": "2026-05-05",
+      "score": 74.8,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     },
-    "ABSLAMC": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 57.0,
-      "score_history": [
-        57.0
-      ]
+    {
+      "symbol": "ASTERDM",
+      "entry": 742.8,
+      "qty": 53,
+      "stop": 668.52,
+      "target1": 876.5,
+      "target2": 965.64,
+      "entry_date": "2026-05-05",
+      "score": 72.8,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     },
-    "TRITURBINE": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 60.4,
-      "score_history": [
-        60.4
-      ]
-    },
-    "ONGC": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 55.0,
-      "score_history": [
-        55.0
-      ]
-    },
-    "TATAINVEST": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 58.0,
-      "score_history": [
-        58.0
-      ]
-    },
-    "LT": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 55.6,
-      "score_history": [
-        55.6
-      ]
-    },
-    "POWERGRID": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 67.5,
-      "score_history": [
-        67.5
-      ]
-    },
-    "INDUSINDBK": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 55.0,
-      "score_history": [
-        55.0
-      ]
-    },
-    "RADICO": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 60.4,
-      "score_history": [
-        60.4
-      ]
-    },
-    "SONACOMS": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 67.0,
-      "score_history": [
-        67.0
-      ]
-    },
-    "HINDALCO": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.6,
-      "score_history": [
-        62.6
-      ]
-    },
-    "ADANIPORTS": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 65.9,
-      "score_history": [
-        65.9
-      ]
-    },
-    "STARHEALTH": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 63.4,
-      "score_history": [
-        63.4
-      ]
-    },
-    "PNBHOUSING": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 57.9,
-      "score_history": [
-        57.9
-      ]
-    },
-    "NESTLEIND": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 61.4,
-      "score_history": [
-        61.4
-      ]
-    },
-    "CCL": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 64.8,
-      "score_history": [
-        64.8
-      ]
-    },
-    "TITAN": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.6,
-      "score_history": [
-        62.6
-      ]
-    },
-    "NAVINFLUOR": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 67.8,
-      "score_history": [
-        67.8
-      ]
-    },
-    "COALINDIA": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 67.4,
-      "score_history": [
-        67.4
-      ]
-    },
-    "APOLLOHOSP": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 57.8,
-      "score_history": [
-        57.8
-      ]
-    },
-    "NATCOPHARM": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 56.0,
-      "score_history": [
-        56.0
-      ]
-    },
-    "TORNTPOWER": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 64.9,
-      "score_history": [
-        64.9
-      ]
-    },
-    "BAJAJ-AUTO": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 63.4,
-      "score_history": [
-        63.4
-      ]
-    },
-    "TATASTEEL": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.6,
-      "score_history": [
-        62.6
-      ]
-    },
-    "EICHERMOT": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 64.9,
-      "score_history": [
-        64.9
-      ]
-    },
-    "ANURAS": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 62.8,
-      "score_history": [
-        62.8
-      ]
-    },
-    "SBIN": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 57.6,
-      "score_history": [
-        57.6
-      ]
-    },
-    "WELCORP": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 55.4,
-      "score_history": [
-        55.4
-      ]
-    },
-    "POLYCAB": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 67.4,
-      "score_history": [
-        67.4
-      ]
-    },
-    "SUNPHARMA": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 65.8,
-      "score_history": [
-        65.8
-      ]
-    },
-    "JSWSTEEL": {
-      "first_seen": "2026-05-05",
-      "days": 1,
-      "prev_score": 61.0,
-      "score_history": [
-        61.0
-      ]
+    {
+      "symbol": "AJANTPHARM",
+      "entry": 2897.6,
+      "qty": 13,
+      "stop": 2694.77,
+      "target1": 3419.17,
+      "target2": 3766.88,
+      "entry_date": "2026-05-05",
+      "score": 70.9,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     }
-  },
+  ],
+  "watchlist_history": {},
   "last_regime": "B"
 }
