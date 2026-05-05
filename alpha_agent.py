@@ -84,7 +84,7 @@ class Config:
         "GRASIM","HDFCLIFE","SBILIFE","CIPLA","DIVISLAB","DRREDDY","BPCL",
         "EICHERMOT","HINDALCO","TATASTEEL","BRITANNIA","APOLLOHOSP",
         "ADANIPORTS","MM","TATACONSUM","BAJAJ-AUTO","HEROMOTOCO",
-        "SHRIRAMFIN","LTIM"
+        "SHRIRAMFIN","LTIMINDTCH"
     ]
 
     # Nifty Next 50 -- large cap extended
@@ -118,13 +118,13 @@ class Config:
         "MPHASIS","MRPL","NATCOPHARM","NAUKRI","NAVINFLUOR","NBCC",
         "NIACL","NOCIL","OFSS","OLECTRA","PAGEIND","PERSISTENT",
         "PETRONET","PFIZER","PHOENIXLTD","PNBHOUSING","POLYCAB",
-        "POLYMED","PRESTIGE","PRINCEPIPES","PVCGLOBS","RADICO",
+        "POLYMED","PRESTIGE","RADICO",
         "RAJESHEXPO","RAMCOCEM","RITES","ROSSARI","SAFARI","SCHAEFFLER",
         "SHRIRAMFIN","SKFINDIA","SOBHA","SONACOMS","STARHEALTH",
-        "SUPREMEIND","SUVENPHAR","TANLA","TATACOMM","TATACHEM",
+        "SUPREMEIND","TANLA","TATACOMM","TATACHEM",
         "TATAINVEST","TEJASNET","THYROCARE","TIMKEN","TITAN",
-        "TORNTPOWER","TRITURBINE","TTKPRESTIG","UCOBANK","UJJIVAN",
-        "UNIONBANK","VAIBHAVGBL","VIJAYA","VSTIND","WABCOINDIA",
+        "TORNTPOWER","TRITURBINE","TTKPRESTIG","UCOBANK","UJJIVANSFB",
+        "UNIONBANK","VAIBHAVGBL","VIJAYA","VSTIND",
         "WELCORP","WHIRLPOOL","WIPRO","ZENSARTECH","ZYDUSLIFE"
     ]
 
@@ -133,12 +133,12 @@ class Config:
         "AAVAS","ABSLAMC","ACCELYA","AEGISLOG","AFFLE","AGROPHOS",
         "AJANTPHARM","ALKEM","ALKYLAMINE","ALLCARGO","AMBER","ANURAS",
         "APARINDS","ARCHIDPLY","ARVINDFASN","ASKAUTOLTD","ASIANTILES",
-        "ASTER","ASTERDM","ATGL","BAJAJCON","BALRAMCHIN","BARBEQUE",
+        "ASTERMED","ASTERDM","ATGL","BAJAJCON","BALRAMCHIN",
         "BASF","BAYERCROP","BBTC","BCG","BECTORFOOD","BIKAJI",
         "CAPACITE","CARBORUNIV","CARTRADE","CCL","CENTURYPLY",
-        "CERA","CHEMCON","CLEANBREW","COLLEGE","CONFIPET",
-        "CONTROLPRINT","CSBBANK","DATAMATICS","DCB","DCBBANK",
-        "DECCANCE","DEEPAKFERT","DELTACORP","DHANI","DIAMONDYD",
+        "CERA","CHEMCON","CONFIPET",
+        "CSBBANK","DATAMATICS","DCBBANK","DCBBANK",
+        "DECCANCE","DEEPAKFERT","DELTACORP","DIAMONDYD",
         "DLINKINDIA","DODLA","DPWWORLD","DRREDDY","EASEMYTRIP",
         "ECLERX","EIDPARRY","ELECON","ELGIEQUIP","EMUDHRA",
         "ERIS","ESABINDIA","ETHOSLTD","EXLSERVICE","FCONSUMER",
@@ -244,6 +244,13 @@ class DataClient:
 
     def _init_angel(self):
         try:
+            # Install logzero if missing (required by smartapi)
+            try:
+                import logzero
+            except ImportError:
+                import subprocess, sys
+                subprocess.check_call([sys.executable, "-m", "pip", "install",
+                                       "logzero", "--quiet"])
             from SmartApi import SmartConnect
             self.angel = SmartConnect(api_key=Config.API_KEY)
             totp = pyotp.TOTP(Config.TOTP_SECRET).now()
@@ -320,8 +327,17 @@ class DataClient:
 
     def _yf_sym(self, symbol: str) -> str:
         """Convert Angel One symbol to yfinance NSE format."""
-        special = {"MM": "M&M.NS", "NIFTY50_INDEX": "^NSEI",
-                   "BAJAJ-AUTO": "BAJAJ-AUTO.NS"}
+        special = {
+            "MM":            "M&M.NS",
+            "NIFTY50_INDEX": "^NSEI",
+            "BAJAJ-AUTO":    "BAJAJ-AUTO.NS",
+            "TATAMOTORS":    "TATAMOTORS.NS",
+            "LTIMINDTCH":          "LTIMINDTCH.NS",
+            "UJJIVANSFB":       "UJJIVANSFB.NS",
+            "DCBBANK":           "DCBBANK.NS",
+            "ASTERMED":         "ASTERMED.NS",
+            "MM":            "M&M.NS",
+        }
         if symbol in special:
             return special[symbol]
         return symbol + ".NS"
@@ -1118,20 +1134,25 @@ def score_symbol(symbol: str, df: pd.DataFrame,
         sig.stop    = round(max(stop_vcp, cur * 0.90), 2)  # never > 10% away
         sig.entry   = round(cur, 2)
         risk_share  = sig.entry - sig.stop
-        risk_budget = Config.VIRTUAL_CAPITAL * Config.RISK_PER_TRADE_PCT
+        # Conviction-based position sizing
+        if total >= 85:   risk_pct, conviction = 0.025, "HIGH"
+        elif total >= 78: risk_pct, conviction = 0.020, "GOOD"
+        elif total >= 72: risk_pct, conviction = 0.015, "STANDARD"
+        else:             risk_pct, conviction = 0.008, "SPECULATIVE"
+
+        risk_budget = Config.VIRTUAL_CAPITAL * risk_pct
         sig.qty     = max(1, int(risk_budget / risk_share)) if risk_share > 0 else 1
         max_qty     = int(Config.VIRTUAL_CAPITAL * Config.MAX_POSITION_PCT / cur)
         sig.qty     = min(sig.qty, max_qty)
-        # Don't exceed available cash
         max_by_cash = int(cash * 0.95 / cur)
         sig.qty     = min(sig.qty, max_by_cash)
         sig.risk    = round(sig.qty * risk_share, 2)
         sig.stage   = stage
         sig.vcp     = vcp["ok"]
-        sig.reason  = (f"Score {total:.0f}/100 | Stage {stage} | "
+        sig.reason  = (f"Score {total:.0f}/100 [{conviction}] | Stage {stage} | "
                        f"VCP={'Yes' if vcp['ok'] else 'No'} | "
                        f"MA={'Full stack' if ma['full'] else 'Partial'} | "
-                       f"Regime {macro.regime}")
+                       f"Risk {risk_pct*100:.1f}% | Regime {macro.regime}")
 
     elif total >= Config.WATCHLIST_SCORE_MIN:
         sig.action = "watch"
@@ -1203,12 +1224,20 @@ class Portfolio:
         self._load()
 
     def _load(self):
-        self.watchlist_history = {}   # symbol -> {days, prev_score, first_seen}
+        self.watchlist_history = {}
         if os.path.exists(Config.STATE_FILE):
             try:
                 with open(Config.STATE_FILE) as f:
                     d = json.load(f)
-                self.cash             = d.get("cash", Config.VIRTUAL_CAPITAL)
+                stored_capital = d.get("virtual_capital", Config.VIRTUAL_CAPITAL)
+                self.cash      = d.get("cash", Config.VIRTUAL_CAPITAL)
+                # If capital was increased, add the difference to cash
+                if Config.VIRTUAL_CAPITAL > stored_capital:
+                    added = Config.VIRTUAL_CAPITAL - stored_capital
+                    self.cash += added
+                    log.info(f"Capital increased from Rs{stored_capital:,.0f} to Rs{Config.VIRTUAL_CAPITAL:,.0f}: +Rs{added:,.0f} added to cash")
+                # Safety check: cash should never be negative
+                self.cash = max(self.cash, 0)
                 self.positions        = [Position(**p) for p in d.get("positions", [])]
                 self.watchlist_history= d.get("watchlist_history", {})
             except:
@@ -1217,8 +1246,9 @@ class Portfolio:
     def save(self, regime: str = "", watchlist: list = None):
         os.makedirs(Config.REPORT_DIR, exist_ok=True)
         data = {
-            "cash":      self.cash,
-            "positions": [asdict(p) for p in self.positions],
+            "cash":            self.cash,
+            "virtual_capital": Config.VIRTUAL_CAPITAL,
+            "positions":       [asdict(p) for p in self.positions],
             "watchlist_history": self.watchlist_history,
         }
         if regime:
@@ -1285,20 +1315,21 @@ class Portfolio:
             unrealized += (ltp - p.entry) * p.qty
             cost_basis += cost
 
-        # Realized P&L = cash now vs (starting capital - cost of open positions)
-        realized_pnl = self.cash - (Config.VIRTUAL_CAPITAL - cost_basis)
+        # True portfolio value = cash in hand + current market value of positions
+        true_total    = self.cash + cost_basis + unrealized
 
-        # True total = starting capital + realized + unrealized
-        true_total   = Config.VIRTUAL_CAPITAL + realized_pnl + unrealized
+        # Realized P&L = true total - starting capital - unrealized
+        realized_pnl  = true_total - Config.VIRTUAL_CAPITAL - unrealized
 
-        # Display total = cash + cost of open positions (no unrealized)
-        # This is what you actually have in hand + what you paid for positions
+        # Display total = cash + cost (deployed capital, no unrealized inflation)
         display_total = self.cash + cost_basis
 
-        dd = (Config.VIRTUAL_CAPITAL - true_total) / Config.VIRTUAL_CAPITAL * 100
+        # Drawdown = how far true total is below starting capital
+        dd = max(0, (Config.VIRTUAL_CAPITAL - true_total) / Config.VIRTUAL_CAPITAL * 100)
+
         return {
-            "total":        round(display_total, 2),   # Cash + cost of positions
-            "true_total":   round(true_total, 2),       # Including unrealized
+            "total":        round(display_total, 2),
+            "true_total":   round(true_total, 2),
             "cash":         round(self.cash, 2),
             "unrealized":   round(unrealized, 2),
             "realized_pnl": round(realized_pnl, 2),
@@ -1409,21 +1440,41 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
     mode_tag  = "PAPER" if PAPER_MODE else "LIVE"
     data_tag  = "yfinance" if not USE_ANGEL_ONE else "AngelOne"
     now_str   = datetime.now().strftime("%d %b %Y, %I:%M %p IST")
-    alpha     = metrics["total"] - Config.VIRTUAL_CAPITAL
-    alpha_pct = (metrics["total"] / Config.VIRTUAL_CAPITAL - 1) * 100
+    alpha     = metrics["true_total"] - Config.VIRTUAL_CAPITAL
+    alpha_pct = (metrics["true_total"] / Config.VIRTUAL_CAPITAL - 1) * 100
     pnl_color = "#27ae60" if alpha >= 0 else "#e74c3c"
     dd_color  = "#27ae60" if metrics["drawdown"] <= 3 else "#f39c12" if metrics["drawdown"] <= 7 else "#e74c3c"
 
     regime_map = {
         "A": {"label":"A -- Risk On (Bull Market)","color":"#27ae60","bg":"#eafaf1","border":"#27ae60",
-              "meaning":"Nifty is above both its 50-day and 200-day moving averages and trending up. Ideal environment for swing trading -- strong institutional support. Bot is fully deployed.",
-              "action":"Full deployment. All modes active. Swing + ETF positions open.","emoji":"🟢"},
+              "meaning":f"Nifty is above both 50 DMA ({macro.nifty_vs_50:+.1f}%) and 200 DMA ({macro.nifty_vs_200:+.1f}%) -- confirmed bull market. Institutional money flowing in (FII: Rs{macro.fii_flow:+,.0f} Cr). VIX at {macro.vix:.1f} shows low fear. Ideal environment for momentum trading.",
+              "factors": [
+                  f"Nifty vs 200 DMA: {macro.nifty_vs_200:+.1f}% -- bull confirmed",
+                  f"FII: Rs{macro.fii_flow:+,.0f} Cr -- institutional support",
+                  f"VIX: {macro.vix:.1f} -- low fear, favorable",
+                  f"A/D: {macro.ad_ratio:.1f}x -- {'broad rally' if macro.ad_ratio>2 else 'selective'}",
+              ],
+              "action":"Full deployment. Score threshold 68. Up to 14 positions. All modes active.","emoji":"🟢"},
         "B": {"label":"B -- Cautious (Choppy Market)","color":"#f39c12","bg":"#fef9e7","border":"#f39c12",
-              "meaning":"Nifty is in a mixed zone between its key moving averages. Market lacks clear direction. High risk of whipsaws. Bot raises entry threshold and reduces position count.",
-              "action":"Reduced exposure. Score threshold raised to 80. Max 8 positions. ETF hedge increased.","emoji":"🟡"},
+              "meaning":f"Nifty is above the 50 DMA ({macro.nifty_vs_50:+.1f}%) but below the 200 DMA ({macro.nifty_vs_200:+.1f}%). Recovery in progress but not confirmed. Key risks: FII flows ({macro.fii_flow:+.0f} Cr) and VIX ({macro.vix:.1f}). Bot enters only high-conviction setups (score >=70) with tighter sizing.",
+              "factors": [
+                  f"Nifty vs 50 DMA: {macro.nifty_vs_50:+.1f}% ({'above -- recovering' if macro.nifty_vs_50>0 else 'below -- still weak'})",
+                  f"Nifty vs 200 DMA: {macro.nifty_vs_200:+.1f}% ({'bull confirmed' if macro.nifty_vs_200>0 else 'bear territory'})",
+                  f"India VIX: {macro.vix:.1f} ({'calm -- good for entries' if macro.vix<18 else 'elevated -- tighten stops'})",
+                  f"FII Flow: Rs{macro.fii_flow:+,.0f} Cr ({'buying' if macro.fii_flow>500 else 'selling' if macro.fii_flow<-500 else 'neutral'})",
+                  f"A/D Ratio: {macro.ad_ratio:.1f}x ({'strong breadth' if macro.ad_ratio>2 else 'weak breadth'})",
+                  f"RBI: {macro.rbi_stance.title()} ({'supports equity' if macro.rbi_stance=='cutting' else 'headwind'})",
+              ],
+              "action":"Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.","emoji":"🟡"},
         "C": {"label":"C -- Risk Off (Bear Market)","color":"#e74c3c","bg":"#fdedec","border":"#e74c3c",
-              "meaning":"Nifty is below its 200-day moving average -- a confirmed downtrend. Institutional money is leaving equities. Buying stocks now means catching a falling knife. Bot stays in cash.",
-              "action":"No new equity entries. Capital fully preserved in cash. Only Gold ETF allowed.","emoji":"🔴"},
+              "meaning":f"Nifty is {macro.nifty_vs_200:+.1f}% below 200 DMA -- confirmed downtrend. FII: Rs{macro.fii_flow:+,.0f} Cr. VIX at {macro.vix:.1f}. Buying now means catching a falling knife. Capital preservation is the priority.",
+              "factors": [
+                  f"Nifty vs 200 DMA: {macro.nifty_vs_200:+.1f}% -- confirmed downtrend",
+                  f"FII: Rs{macro.fii_flow:+,.0f} Cr -- {'heavy outflow' if macro.fii_flow<-2000 else 'selling'}",
+                  f"VIX: {macro.vix:.1f} -- {'extreme fear' if macro.vix>25 else 'elevated fear'}",
+                  "Gold ETF hedge active",
+              ],
+              "action":"No new equity entries. Cash preserved. Gold ETF only.","emoji":"🔴"},
     }
     r = regime_map.get(macro.regime, regime_map["B"])
 
@@ -1453,7 +1504,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
     else:             fii_label, fii_color = "Heavy selling -- very bearish", "#e74c3c"
 
     buys  = sorted([s for s in signals if s.action=="buy"],  key=lambda x: x.score, reverse=True)[:8]
-    watch = sorted([s for s in signals if s.action=="watch"],key=lambda x: x.score, reverse=True)[:8]
+    watch = sorted([s for s in signals if s.action=="watch"],key=lambda x: x.score, reverse=True)[:20]
 
     def sig_rows(sigs):
         if not sigs:
@@ -1478,7 +1529,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
 
     def pos_rows():
         if not portfolio.positions:
-            return '<tr><td colspan="7" style="text-align:center;color:#999;padding:16px;">No open positions -- fully in cash</td></tr>'
+            return '<tr><td colspan="8" style="text-align:center;color:#999;padding:16px;">No open positions -- fully in cash</td></tr>'
         rows = ""
         for p in portfolio.positions:
             ltp = prices.get(p.symbol, p.entry)
@@ -1487,13 +1538,15 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
             pc  = "#27ae60" if pp >= 0 else "#e74c3c"
             sd  = (ltp - p.live_stop) / ltp * 100
             tr  = "✓ Trailing" if p.trail_on else "Hard stop"
+            capital = p.entry * p.qty
             rows += f"""<tr style="border-bottom:1px solid #f0f0f0;">
               <td style="padding:9px 8px;font-weight:700;">{p.symbol}</td>
-              <td style="padding:9px 8px;text-align:right;">₹{p.entry:,.2f}</td>
-              <td style="padding:9px 8px;text-align:right;">₹{ltp:,.2f}</td>
-              <td style="padding:9px 8px;text-align:right;color:{pc};font-weight:700;">{pp:+.1f}%<br><span style="font-size:11px;">₹{pv:+,.0f}</span></td>
-              <td style="padding:9px 8px;text-align:right;color:#e74c3c;">₹{p.live_stop:,.2f}<br><span style="font-size:11px;color:#7f8c8d;">{sd:.1f}% away | {tr}</span></td>
-              <td style="padding:9px 8px;text-align:right;">₹{p.target1:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;">&#8377;{p.entry:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;">&#8377;{ltp:,.2f}</td>
+              <td style="padding:9px 8px;text-align:right;color:{pc};font-weight:700;">{pp:+.1f}%<br><span style="font-size:11px;">&#8377;{pv:+,.0f}</span></td>
+              <td style="padding:9px 8px;text-align:right;color:#e74c3c;">&#8377;{p.live_stop:,.2f}<br><span style="font-size:11px;color:#7f8c8d;">{sd:.1f}% away | {tr}</span></td>
+              <td style="padding:9px 8px;text-align:right;font-weight:600;">&#8377;{capital:,.0f}</td>
+              <td style="padding:9px 8px;text-align:right;">&#8377;{p.target1:,.2f}</td>
               <td style="padding:9px 8px;text-align:center;font-size:12px;color:#7f8c8d;">{p.entry_date}</td>
             </tr>"""
         return rows
@@ -1633,7 +1686,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
     </td>
     <td width="5%"></td>
     <td width="33%" style="text-align:center;background:#f8f9fa;border-radius:8px;padding:14px;">
-      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TRUE P&L (vs &#8377;5,00,000)</div>
+      <div style="font-size:11px;color:#7f8c8d;margin-bottom:4px;">TRUE P&L (vs &#8377;{Config.VIRTUAL_CAPITAL:,.0f})</div>
       <div style="font-size:22px;font-weight:700;color:{pnl_color};">{alpha_pct:+.2f}%</div>
       <div style="font-size:12px;color:{pnl_color};">&#8377;{alpha:+,.0f} total</div>
       <div style="font-size:11px;color:#7f8c8d;margin-top:2px;">
@@ -1667,8 +1720,9 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
 
 <div style="background:{r["bg"]};border:2px solid {r["border"]};border-radius:10px;padding:20px;margin-bottom:16px;">
   <div style="font-size:24px;margin-bottom:8px;">{r["emoji"]} <span style="font-size:17px;font-weight:700;color:{r["color"]};">{r["label"]}</span></div>
-  <p style="color:#2c3e50;font-size:13px;line-height:1.7;margin:0 0 12px;">{r["meaning"]}</p>
-  <div style="background:rgba(255,255,255,0.7);border-radius:6px;padding:10px 14px;">
+  <p style="color:#2c3e50;font-size:13px;line-height:1.7;margin:0 0 10px;">{r["meaning"]}</p>
+  {"".join(f'<div style="font-size:12px;color:#2c3e50;padding:3px 0 3px 12px;border-left:3px solid {r["border"]};margin:3px 0;">{f}</div>' for f in r.get("factors",[]))}
+  <div style="background:rgba(255,255,255,0.7);border-radius:6px;padding:10px 14px;margin-top:10px;">
     <b style="font-size:12px;color:{r["color"]};">What the bot is doing today: </b>
     <span style="font-size:12px;color:#2c3e50;">{r["action"]}</span>
   </div>
@@ -1799,6 +1853,7 @@ def build_html_report(metrics, signals, macro, portfolio, prices, recent_closed=
       <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">LTP</th>
       <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">P&L</th>
       <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Stop</th>
+      <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Capital</th>
       <th style="padding:9px 8px;text-align:right;color:#7f8c8d;">Target 1</th>
       <th style="padding:9px 8px;text-align:center;color:#7f8c8d;">Entry date</th>
     </tr></thead>
