@@ -1,3 +1,5 @@
 datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,mode
 2026-05-06T06:15:15.594885,LUPIN,BUY,115,2425.9,77.3,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-05-06T06:15:15.598591,SUNPHARMA,BUY,152,1840.9,71.3,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
+2026-05-06T11:58:30.883987,HAPPYFORGE,BUY,206,1353.9,79.3,Score 79/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-05-06T11:58:30.887210,NESTLEIND,BUY,188,1486.1,70.4,Score 70/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
