@@ -3,3 +3,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-05-06T06:15:15.598591,SUNPHARMA,BUY,152,1840.9,71.3,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
 2026-05-06T11:58:30.883987,HAPPYFORGE,BUY,206,1353.9,79.3,Score 79/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-05-06T11:58:30.887210,NESTLEIND,BUY,188,1486.1,70.4,Score 70/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
+2026-05-07T06:21:13.301927,BAJAJ-AUTO,BUY,26,10677.0,73.8,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-05-07T06:21:13.305454,TATASTEEL,BUY,1288,217.3,72.1,Score 72/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
