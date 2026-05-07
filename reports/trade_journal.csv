@@ -5,3 +5,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-05-06T11:58:30.887210,NESTLEIND,BUY,188,1486.1,70.4,Score 70/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
 2026-05-07T06:21:13.301927,BAJAJ-AUTO,BUY,26,10677.0,73.8,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-05-07T06:21:13.305454,TATASTEEL,BUY,1288,217.3,72.1,Score 72/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-05-07T11:58:10.566127,LAURUSLABS,BUY,232,1206.5,76.8,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-05-07T11:58:10.569286,ENGINERSIN,BUY,1071,261.35,73.4,Score 73/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
