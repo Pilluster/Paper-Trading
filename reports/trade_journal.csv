@@ -7,3 +7,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-05-07T06:21:13.305454,TATASTEEL,BUY,1288,217.3,72.1,Score 72/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-05-07T11:58:10.566127,LAURUSLABS,BUY,232,1206.5,76.8,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-05-07T11:58:10.569286,ENGINERSIN,BUY,1071,261.35,73.4,Score 73/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-05-11T06:52:01.393381,LUPIN,SELL,115,2255.6,-19584.5,-7.02,0,Stop ₹2256.09,stop,B,PAPER

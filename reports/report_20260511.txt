@@ -1,0 +1,44 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+11 May 2026, 06:52 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (-0.1%) but below the 200 DMA (-4.5%). Recovery in progress but not confirmed. Key risks: FII flows (+128 Cr) and VIX (18.3). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 18.3  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -0.1%  [-0.1% below -- caution zone]
+  Nifty vs 200 DMA : -4.5%  [-4.5% below -- confirmed downtrend]
+  FII Net Flow     : Rs+128 Cr  [Marginal buying -- neutral]
+
+PORTFOLIO
+  Total Value : Rs3,480,416
+  Cash        : Rs1,291,752
+  P&L         : Rs+11,833 (+0.34%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 13/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (20)
+  SILVERBEES     Score 67 | Rs241.73 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
+  ADANIPORTS     Score 66 | Rs1756.10 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  MOTHERSON      Score 65 | Rs130.76 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  SAIL           Score 64 | Rs182.85 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TATACONSUM     Score 64 | Rs1247.10 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  POWERGRID      Score 63 | Rs310.45 | Score 63 -- MACD bearish -- wait for bullish crossover
+  SIEMENS        Score 62 | Rs3626.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NTPC           Score 62 | Rs396.90 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  JSWSTEEL       Score 62 | Rs1268.20 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  HINDALCO       Score 62 | Rs1032.90 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NMDC           Score 62 | Rs87.54 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GRASIM         Score 59 | Rs2990.40 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  DIVISLAB       Score 59 | Rs6749.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ADANIPOWER     Score 59 | Rs221.97 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  EICHERMOT      Score 58 | Rs7215.00 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
+  MOM100         Score 57 | Rs66.11 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ADANIGREEN     Score 57 | Rs1383.50 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  APOLLOHOSP     Score 57 | Rs8091.50 | Score 57 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  GOLDBEES       Score 56 | Rs123.72 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
+  COALINDIA      Score 56 | Rs464.65 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
