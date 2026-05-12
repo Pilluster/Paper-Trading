@@ -1,44 +1,44 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-12 May 2026, 06:24 AM IST
+12 May 2026, 12:05 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.8% below 200 DMA -- confirmed downtrend. FII: Rs+79 Cr. VIX at 18.9. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -6.7% below 200 DMA -- confirmed downtrend. FII: Rs-405 Cr. VIX at 19.3. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 18.9  [Moderate -- normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -1.3%  [-1.3% below -- caution zone]
-  Nifty vs 200 DMA : -5.8%  [-5.8% below -- confirmed downtrend]
-  FII Net Flow     : Rs+79 Cr  [Marginal buying -- neutral]
+  VIX              : 19.3  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -2.2%  [-2.2% below -- caution zone]
+  Nifty vs 200 DMA : -6.7%  [-6.7% below -- confirmed downtrend]
+  FII Net Flow     : Rs-405 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
-  Total Value : Rs3,480,416
-  Cash        : Rs766,753
-  P&L         : Rs-914 (-0.03%)
-  Drawdown    : 0.03%  (Limit: 10%)
-  Positions   : 14/14
+  Total Value : Rs3,454,283
+  Cash        : Rs1,020,527
+  P&L         : Rs-31,252 (-0.89%)
+  Drawdown    : 0.89%  (Limit: 10%)
+  Positions   : 13/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
 WATCHLIST (20)
-  SILVERBEES     Score 69 | Rs252.99 | Score 69 -- Price below 100/200 DMA -- wait for MA alignment
-  APOLLOHOSP     Score 67 | Rs8026.50 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
-  ADANIPORTS     Score 66 | Rs1720.80 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  ONGC           Score 65 | Rs297.80 | Score 65 -- MACD bearish -- wait for bullish crossover
-  SAIL           Score 64 | Rs177.75 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  NTPC           Score 62 | Rs396.40 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  COALINDIA      Score 62 | Rs466.45 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  HINDALCO       Score 62 | Rs1044.80 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  NMDC           Score 62 | Rs87.54 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  ADANIPOWER     Score 62 | Rs214.88 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SIEMENS        Score 60 | Rs3595.70 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  DIVISLAB       Score 59 | Rs6695.50 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  TATACONSUM     Score 59 | Rs1260.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  JSWSTEEL       Score 59 | Rs1257.40 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  GOLDBEES       Score 58 | Rs124.97 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
-  MOTHERSON      Score 57 | Rs127.23 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  OFSS           Score 57 | Rs9189.50 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  ADANIGREEN     Score 57 | Rs1342.40 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  POWERGRID      Score 56 | Rs308.40 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  JINDALSTEL     Score 56 | Rs1227.60 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NATCOPHARM     Score 70 | Rs1181.90 | Score 70 -- RSI outside 50-70 zone
+  ANURAS         Score 67 | Rs1359.50 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
+  BAJAJCON       Score 67 | Rs547.95 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  APOLLOHOSP     Score 66 | Rs8022.50 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment
+  ADANIPORTS     Score 66 | Rs1688.20 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  POLYCAB        Score 66 | Rs9021.50 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  SONACOMS       Score 66 | Rs584.10 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TIMKEN         Score 65 | Rs3611.10 | Score 65 -- Score 65/100 -- need macro improvement or volume surge
+  ONGC           Score 65 | Rs294.50 | Score 65 -- MACD bearish -- wait for bullish crossover
+  TORNTPOWER     Score 64 | Rs1597.60 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NAVINFLUOR     Score 62 | Rs6950.50 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  NTPC           Score 61 | Rs392.70 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  COALINDIA      Score 61 | Rs463.05 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  HINDALCO       Score 61 | Rs1041.40 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  STARHEALTH     Score 61 | Rs511.20 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TATACONSUM     Score 61 | Rs1253.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  DIVISLAB       Score 59 | Rs6644.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  THYROCARE      Score 59 | Rs475.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  AMBER          Score 59 | Rs8163.50 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  WELCORP        Score 58 | Rs1319.40 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
