@@ -14,7 +14,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 11
+      "flat_days": 12
     },
     {
       "symbol": "JBCHEPHARM",
@@ -28,7 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 11
+      "flat_days": 12
     },
     {
       "symbol": "TORNTPHARM",
@@ -42,7 +42,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 10
+      "flat_days": 11
     },
     {
       "symbol": "APARINDS",
@@ -56,7 +56,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 10
+      "flat_days": 11
     },
     {
       "symbol": "ASTERDM",
@@ -70,7 +70,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 10
+      "flat_days": 11
     },
     {
       "symbol": "AJANTPHARM",
@@ -84,7 +84,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 10
+      "flat_days": 11
     },
     {
       "symbol": "SUNPHARMA",
@@ -140,7 +140,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "TATASTEEL",
@@ -154,7 +154,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "LAURUSLABS",
@@ -168,7 +168,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 9
+      "flat_days": 10
     },
     {
       "symbol": "GOLDBEES",
@@ -182,16 +182,15 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 5
+      "flat_days": 6
     }
   ],
   "watchlist_history": {
     "ADANIPORTS": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 65.9,
       "score_history": [
-        66.4,
         68.8,
         68.3,
         71.3,
@@ -200,15 +199,15 @@
         65.9,
         64.0,
         64.0,
-        64.0
+        64.0,
+        62.0
       ]
     },
     "APOLLOHOSP": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 57.8,
       "score_history": [
-        69.3,
         69.3,
         58.9,
         59.9,
@@ -217,15 +216,15 @@
         58.9,
         57.0,
         57.0,
-        57.0
+        57.0,
+        64.3
       ]
     },
     "JSWSTEEL": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 61.0,
       "score_history": [
-        61.6,
         60.6,
         59.1,
         61.1,
@@ -234,15 +233,15 @@
         65.6,
         63.1,
         64.8,
-        70.6
+        70.6,
+        66.6
       ]
     },
     "COALINDIA": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 67.4,
       "score_history": [
-        61.6,
         61.6,
         61.1,
         62.1,
@@ -251,15 +250,15 @@
         68.6,
         69.1,
         69.1,
-        69.1
+        69.1,
+        69.6
       ]
     },
     "HINDALCO": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 62.6,
       "score_history": [
-        64.0,
         64.0,
         62.6,
         63.6,
@@ -268,15 +267,15 @@
         68.6,
         69.1,
         70.0,
-        71.0
+        71.0,
+        69.5
       ]
     },
     "DIVISLAB": {
       "first_seen": "2026-05-05",
-      "days": 23,
+      "days": 24,
       "prev_score": 62.8,
       "score_history": [
-        59.3,
         60.3,
         56.4,
         59.9,
@@ -285,15 +284,15 @@
         61.3,
         61.8,
         64.4,
-        64.4
+        64.4,
+        60.5
       ]
     },
     "ONGC": {
       "first_seen": "2026-05-11",
-      "days": 15,
+      "days": 16,
       "prev_score": 57.3,
       "score_history": [
-        64.0,
         64.0,
         68.3,
         69.3,
@@ -302,12 +301,13 @@
         63.5,
         64.0,
         66.4,
-        64.0
+        64.0,
+        72.0
       ]
     },
     "DRREDDY": {
       "first_seen": "2026-05-15",
-      "days": 8,
+      "days": 9,
       "prev_score": 57.1,
       "score_history": [
         57.1,
@@ -317,92 +317,72 @@
         65.9,
         66.4,
         61.0,
-        61.0
+        61.0,
+        61.5
       ]
     },
     "GRASIM": {
       "first_seen": "2026-05-20",
-      "days": 2,
+      "days": 3,
       "prev_score": 57.3,
       "score_history": [
         57.3,
-        64.9
+        64.9,
+        76.9
       ]
     },
     "ADANIGREEN": {
       "first_seen": "2026-05-20",
-      "days": 2,
+      "days": 3,
       "prev_score": 61.5,
       "score_history": [
         61.5,
-        61.5
+        61.5,
+        59.5
       ]
     },
     "SAIL": {
       "first_seen": "2026-05-20",
-      "days": 2,
+      "days": 3,
       "prev_score": 63.9,
       "score_history": [
         63.9,
-        66.3
-      ]
-    },
-    "NMDC": {
-      "first_seen": "2026-05-20",
-      "days": 2,
-      "prev_score": 57.3,
-      "score_history": [
-        57.3,
-        63.1
+        66.3,
+        64.4
       ]
     },
     "MOTHERSON": {
       "first_seen": "2026-05-20",
-      "days": 2,
+      "days": 3,
       "prev_score": 63.9,
       "score_history": [
         63.9,
-        65.9
+        65.9,
+        66.4
       ]
     },
-    "FLAIR": {
-      "first_seen": "2026-05-20",
+    "CPSEETF": {
+      "first_seen": "2026-05-21",
       "days": 1,
-      "prev_score": 71.5,
+      "prev_score": 57.8,
       "score_history": [
-        71.5
+        57.8
       ]
     },
-    "ELGIEQUIP": {
-      "first_seen": "2026-05-20",
+    "MOM100": {
+      "first_seen": "2026-05-21",
       "days": 1,
-      "prev_score": 61.1,
+      "prev_score": 63.5,
       "score_history": [
-        61.1
+        63.5
       ]
     },
-    "ESABINDIA": {
-      "first_seen": "2026-05-20",
+    "INDUSINDBK": {
+      "first_seen": "2026-05-21",
       "days": 1,
-      "prev_score": 57.5,
+      "prev_score": 55.3,
       "score_history": [
-        57.5
-      ]
-    },
-    "JINDALSTEL": {
-      "first_seen": "2026-05-20",
-      "days": 1,
-      "prev_score": 57.3,
-      "score_history": [
-        57.3
-      ]
-    },
-    "GESHIP": {
-      "first_seen": "2026-05-20",
-      "days": 1,
-      "prev_score": 67.3,
-      "score_history": [
-        67.3
+        55.3
       ]
     }
   },
