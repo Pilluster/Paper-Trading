@@ -1,0 +1,39 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+01 Jun 2026, 08:47 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -6.3% below 200 DMA -- confirmed downtrend. FII: Rs-73 Cr. VIX at 16.7. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 16.7  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -1.2%  [-1.2% below -- caution zone]
+  Nifty vs 200 DMA : -6.3%  [-6.3% below -- confirmed downtrend]
+  FII Net Flow     : Rs-73 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,454,283
+  Cash        : Rs742,667
+  P&L         : Rs-17,286 (-0.49%)
+  Drawdown    : 0.49%  (Limit: 10%)
+  Positions   : 14/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (15)
+  HINDALCO       Score 72 | Rs1138.40 | Score 72 -- Ready to buy -- awaiting regime recovery
+  ADANIPORTS     Score 68 | Rs1785.80 | Score 68 -- MACD bearish -- wait for bullish crossover
+  JSWSTEEL       Score 67 | Rs1298.20 | Score 67 -- MACD bearish -- wait for bullish crossover
+  NMDC           Score 66 | Rs91.27 | Score 66 -- MACD bearish -- wait for bullish crossover
+  MOTHERSON      Score 65 | Rs142.77 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  SAIL           Score 65 | Rs203.69 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ASIANPAINT     Score 64 | Rs2648.30 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  MOM100         Score 64 | Rs65.67 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 63 | Rs8139.50 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  JUNIORBEES     Score 62 | Rs757.29 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment
+  DIVISLAB       Score 60 | Rs6562.50 | Score 60 -- MACD bearish -- wait for bullish crossover
+  ADANIGREEN     Score 60 | Rs1446.60 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ADANIENT       Score 58 | Rs2897.40 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  SIEMENS        Score 57 | Rs3756.10 | Score 57 -- Score 57/100 -- need macro improvement or volume surge
+  SILVERBEES     Score 56 | Rs249.02 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
