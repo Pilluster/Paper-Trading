@@ -11,3 +11,7 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-05-12T06:24:34.476999,GOLDBEES,BUY,4201,124.97,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
 2026-05-12T12:04:49.716169,ENGINERSIN,SELL,1071,236.95,-26132.4,-9.34,0,Stop ₹243.06,stop,C,PAPER
 2026-05-22T06:59:23.299665,GRASIM,BUY,88,3157.5,75.4,Score 75/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Partial | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-06-02T08:09:00.086511,JBCHEPHARM,SELL,19,2117.0,663.1,1.68,0,"Time stop: 20 sessions, flat (+1.7%)",time,C,PAPER
+2026-06-02T08:09:00.089231,TORNTPHARM,SELL,9,4304.1,426.6,1.11,0,"Time stop: 20 sessions, flat (+1.1%)",time,C,PAPER
+2026-06-02T08:09:00.091050,APARINDS,SELL,3,12966.0,516.0,1.34,0,"Time stop: 20 sessions, flat (+1.3%)",time,C,PAPER
+2026-06-02T08:09:00.092791,AJANTPHARM,SELL,13,2909.6,156.0,0.41,0,"Time stop: 20 sessions, flat (+0.4%)",time,C,PAPER
