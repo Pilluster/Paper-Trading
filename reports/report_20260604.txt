@@ -1,40 +1,41 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-04 Jun 2026, 08:02 AM IST
+04 Jun 2026, 12:50 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -6.4% below 200 DMA -- confirmed downtrend. FII: Rs+262 Cr. VIX at 16.2. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -6.2% below 200 DMA -- confirmed downtrend. FII: Rs-161 Cr. VIX at 15.9. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 16.2  [Moderate -- normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -1.4%  [-1.4% below -- caution zone]
-  Nifty vs 200 DMA : -6.4%  [-6.4% below -- confirmed downtrend]
-  FII Net Flow     : Rs+262 Cr  [Marginal buying -- neutral]
+  VIX              : 15.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -1.1%  [-1.1% below -- caution zone]
+  Nifty vs 200 DMA : -6.2%  [-6.2% below -- confirmed downtrend]
+  FII Net Flow     : Rs-161 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,565,394
   Cash        : Rs1,047,067
-  P&L         : Rs+89,266 (+2.55%)
+  P&L         : Rs+89,641 (+2.56%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 9/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (16)
-  NMDC           Score 70 | Rs95.24 | Score 70 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  COALINDIA      Score 69 | Rs481.60 | Score 69 -- Ready to buy -- awaiting regime recovery
-  JSWSTEEL       Score 68 | Rs1297.00 | Score 68 -- MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 66 | Rs145.05 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  HINDALCO       Score 65 | Rs1128.50 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  ADANIPORTS     Score 65 | Rs1793.30 | Score 65 -- MACD bearish -- wait for bullish crossover
-  APOLLOHOSP     Score 63 | Rs8243.00 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SAIL           Score 60 | Rs197.76 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  JUNIORBEES     Score 59 | Rs757.00 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  MOM100         Score 59 | Rs65.81 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  DIVISLAB       Score 59 | Rs6609.50 | Score 59 -- MACD bearish -- wait for bullish crossover
-  SIEMENS        Score 59 | Rs3705.70 | Score 59 -- MACD bearish -- wait for bullish crossover
-  ASIANPAINT     Score 58 | Rs2652.10 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  ADANIGREEN     Score 57 | Rs1426.10 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SILVERBEES     Score 56 | Rs245.83 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  ADANIENT       Score 56 | Rs2965.40 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (17)
+  FEDERALBNK     Score 78 | Rs300.10 | Score 78 -- Ready to buy -- awaiting regime recovery
+  COALINDIA      Score 68 | Rs481.65 | Score 68 -- Score 68/100 -- need macro improvement or volume surge
+  JSWSTEEL       Score 66 | Rs1301.10 | Score 66 -- MACD bearish -- wait for bullish crossover
+  GRINDWELL      Score 64 | Rs1921.40 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  HINDALCO       Score 64 | Rs1125.60 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 63 | Rs1790.90 | Score 63 -- MACD bearish -- wait for bullish crossover
+  MANAPPURAM     Score 63 | Rs310.90 | Score 63 -- MACD bearish -- wait for bullish crossover
+  EQUITASBNK     Score 62 | Rs72.30 | Score 62 -- Score 62/100 -- need macro improvement or volume surge
+  APOLLOHOSP     Score 62 | Rs8249.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GODREJIND      Score 59 | Rs1047.30 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  IPCALAB        Score 59 | Rs1614.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ASIANPAINT     Score 58 | Rs2661.60 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  JSWENERGY      Score 58 | Rs590.05 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DIVISLAB       Score 57 | Rs6596.50 | Score 57 -- MACD bearish -- wait for bullish crossover
+  ABCAPITAL      Score 57 | Rs353.65 | Score 57 -- MACD bearish -- wait for bullish crossover
+  ATUL           Score 57 | Rs6739.00 | Score 57 -- MACD bearish -- wait for bullish crossover
+  HFCL           Score 56 | Rs197.08 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone

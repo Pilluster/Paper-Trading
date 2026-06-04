@@ -132,10 +132,9 @@
   "watchlist_history": {
     "APOLLOHOSP": {
       "first_seen": "2026-05-05",
-      "days": 41,
+      "days": 42,
       "prev_score": 57.8,
       "score_history": [
-        60.7,
         68.2,
         68.2,
         62.6,
@@ -144,15 +143,15 @@
         61.1,
         63.6,
         64.1,
-        63.1
+        63.1,
+        61.6
       ]
     },
     "JSWSTEEL": {
       "first_seen": "2026-05-05",
-      "days": 41,
+      "days": 42,
       "prev_score": 61.0,
       "score_history": [
-        69.8,
         67.3,
         60.5,
         67.1,
@@ -161,29 +160,13 @@
         67.6,
         67.1,
         66.6,
-        67.6
-      ]
-    },
-    "ADANIENT": {
-      "first_seen": "2026-05-22",
-      "days": 16,
-      "prev_score": 57.9,
-      "score_history": [
-        64.0,
-        61.1,
-        60.1,
-        57.9,
-        57.9,
-        57.9,
-        58.4,
-        57.9,
-        57.4,
-        56.0
+        67.6,
+        66.1
       ]
     },
     "ADANIPORTS": {
       "first_seen": "2026-05-29",
-      "days": 8,
+      "days": 9,
       "prev_score": 71.2,
       "score_history": [
         71.2,
@@ -193,12 +176,13 @@
         62.1,
         61.6,
         61.1,
-        64.6
+        64.6,
+        63.1
       ]
     },
     "ASIANPAINT": {
       "first_seen": "2026-05-29",
-      "days": 8,
+      "days": 9,
       "prev_score": 71.1,
       "score_history": [
         71.1,
@@ -208,12 +192,13 @@
         58.5,
         58.0,
         57.5,
-        58.5
+        58.5,
+        58.0
       ]
     },
     "HINDALCO": {
       "first_seen": "2026-05-29",
-      "days": 8,
+      "days": 9,
       "prev_score": 69.6,
       "score_history": [
         69.6,
@@ -223,12 +208,13 @@
         65.4,
         64.9,
         64.4,
-        65.4
+        65.4,
+        63.9
       ]
     },
     "COALINDIA": {
       "first_seen": "2026-06-01",
-      "days": 6,
+      "days": 7,
       "prev_score": 55.2,
       "score_history": [
         55.2,
@@ -236,91 +222,99 @@
         57.1,
         61.4,
         55.1,
-        69.4
-      ]
-    },
-    "MOTHERSON": {
-      "first_seen": "2026-06-03",
-      "days": 3,
-      "prev_score": 65.0,
-      "score_history": [
-        65.0,
-        64.5,
-        65.5
-      ]
-    },
-    "NMDC": {
-      "first_seen": "2026-06-03",
-      "days": 3,
-      "prev_score": 78.3,
-      "score_history": [
-        78.3,
-        78.8,
-        70.3
-      ]
-    },
-    "ADANIGREEN": {
-      "first_seen": "2026-06-03",
-      "days": 3,
-      "prev_score": 56.5,
-      "score_history": [
-        56.5,
-        56.0,
-        57.0
-      ]
-    },
-    "SIEMENS": {
-      "first_seen": "2026-06-03",
-      "days": 3,
-      "prev_score": 58.3,
-      "score_history": [
-        58.3,
-        57.8,
-        58.8
-      ]
-    },
-    "SAIL": {
-      "first_seen": "2026-06-03",
-      "days": 3,
-      "prev_score": 62.5,
-      "score_history": [
-        62.5,
-        62.0,
-        59.5
+        69.4,
+        67.9
       ]
     },
     "DIVISLAB": {
       "first_seen": "2026-06-03",
-      "days": 3,
+      "days": 4,
       "prev_score": 59.3,
       "score_history": [
         59.3,
         59.8,
-        58.8
+        58.8,
+        57.3
       ]
     },
-    "MOM100": {
+    "IPCALAB": {
       "first_seen": "2026-06-04",
       "days": 1,
-      "prev_score": 59.3,
+      "prev_score": 58.6,
       "score_history": [
-        59.3
+        58.6
       ]
     },
-    "SILVERBEES": {
+    "HFCL": {
       "first_seen": "2026-06-04",
       "days": 1,
-      "prev_score": 56.3,
+      "prev_score": 56.4,
       "score_history": [
-        56.3
+        56.4
       ]
     },
-    "JUNIORBEES": {
+    "GRINDWELL": {
       "first_seen": "2026-06-04",
       "days": 1,
-      "prev_score": 59.3,
+      "prev_score": 64.0,
       "score_history": [
-        59.3
+        64.0
+      ]
+    },
+    "MANAPPURAM": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 63.1,
+      "score_history": [
+        63.1
+      ]
+    },
+    "EQUITASBNK": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 61.7,
+      "score_history": [
+        61.7
+      ]
+    },
+    "GODREJIND": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 59.1,
+      "score_history": [
+        59.1
+      ]
+    },
+    "FEDERALBNK": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 78.4,
+      "score_history": [
+        78.4
+      ]
+    },
+    "JSWENERGY": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 58.0,
+      "score_history": [
+        58.0
+      ]
+    },
+    "ABCAPITAL": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
+      ]
+    },
+    "ATUL": {
+      "first_seen": "2026-06-04",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
       ]
     }
   },
