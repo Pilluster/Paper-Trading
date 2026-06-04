@@ -16,3 +16,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-02T08:09:00.091050,APARINDS,SELL,3,12966.0,516.0,1.34,0,"Time stop: 20 sessions, flat (+1.3%)",time,C,PAPER
 2026-06-02T08:09:00.092791,AJANTPHARM,SELL,13,2909.6,156.0,0.41,0,"Time stop: 20 sessions, flat (+0.4%)",time,C,PAPER
 2026-06-03T08:30:38.118561,ASTERDM,SELL,53,731.65,-590.95,-1.5,0,"Time stop: 20 sessions, flat (-1.5%)",time,C,PAPER
+2026-06-04T08:02:04.982354,LAURUSLABS,SELL,77,1427.8,17040.1,18.34,0,Target1 +18.3%,t1,C,PAPER
