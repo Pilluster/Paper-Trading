@@ -18,3 +18,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-03T08:30:38.118561,ASTERDM,SELL,53,731.65,-590.95,-1.5,0,"Time stop: 20 sessions, flat (-1.5%)",time,C,PAPER
 2026-06-04T08:02:04.982354,LAURUSLABS,SELL,77,1427.8,17040.1,18.34,0,Target1 +18.3%,t1,C,PAPER
 2026-06-05T07:19:33.871027,NESTLEIND,SELL,188,1376.6,-20586.0,-7.37,0,Stop ₹1382.07,stop,C,PAPER
+2026-06-08T08:24:14.204618,HAPPYFORGE,SELL,206,1368.1,2925.2,1.05,0,"Time stop: 23 sessions, flat (+1.0%)",time,C,PAPER

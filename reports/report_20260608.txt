@@ -1,0 +1,34 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+08 Jun 2026, 08:24 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -7.2% below 200 DMA -- confirmed downtrend. FII: Rs+132 Cr. VIX at 17.0. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 17.0  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -2.2%  [-2.2% below -- caution zone]
+  Nifty vs 200 DMA : -7.2%  [-7.2% below -- confirmed downtrend]
+  FII Net Flow     : Rs+132 Cr  [Marginal buying -- neutral]
+
+PORTFOLIO
+  Total Value : Rs3,547,734
+  Cash        : Rs1,587,697
+  P&L         : Rs+53,557 (+1.53%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 7/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (10)
+  TORNTPHARM     Score 75 | Rs4441.70 | Score 75 -- MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 70 | Rs8424.00 | Score 70 -- MACD bearish -- wait for bullish crossover
+  MOTHERSON      Score 63 | Rs139.45 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ADANIPORTS     Score 62 | Rs1817.20 | Score 62 -- MACD bearish -- wait for bullish crossover
+  COALINDIA      Score 59 | Rs465.20 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  JUNIORBEES     Score 59 | Rs749.49 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  JSWSTEEL       Score 58 | Rs1265.70 | Score 58 -- MACD bearish -- wait for bullish crossover
+  HINDALCO       Score 57 | Rs1069.10 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NMDC           Score 57 | Rs90.50 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  SAIL           Score 57 | Rs184.90 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
