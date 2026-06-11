@@ -1,36 +1,40 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-11 Jun 2026, 08:17 AM IST
+11 Jun 2026, 02:07 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -6.9% below 200 DMA -- confirmed downtrend. FII: Rs-171 Cr. VIX at 15.6. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -7.1% below 200 DMA -- confirmed downtrend. FII: Rs+48 Cr. VIX at 15.6. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
   VIX              : 15.6  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -2.1%  [-2.1% below -- caution zone]
-  Nifty vs 200 DMA : -6.9%  [-6.9% below -- confirmed downtrend]
-  FII Net Flow     : Rs-171 Cr  [Marginal selling -- mild caution]
+  Nifty vs 50 DMA  : -2.3%  [-2.3% below -- caution zone]
+  Nifty vs 200 DMA : -7.1%  [-7.1% below -- confirmed downtrend]
+  FII Net Flow     : Rs+48 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,530,029
   Cash        : Rs1,849,907
-  P&L         : Rs+23,566 (+0.67%)
+  P&L         : Rs+20,192 (+0.58%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 6/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (12)
-  TORNTPHARM     Score 82 | Rs4588.60 | Score 82 -- Ready to buy -- awaiting regime recovery
-  APOLLOHOSP     Score 76 | Rs8473.50 | Score 76 -- Ready to buy -- awaiting regime recovery
-  AXISBANK       Score 73 | Rs1322.40 | Score 73 -- Price below 100/200 DMA -- wait for MA alignment
-  JSWSTEEL       Score 72 | Rs1285.90 | Score 72 -- MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 66 | Rs139.64 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  ADANIPORTS     Score 62 | Rs1797.20 | Score 62 -- MACD bearish -- wait for bullish crossover
-  ADANIPOWER     Score 62 | Rs216.46 | Score 62 -- MACD bearish -- wait for bullish crossover
-  ADANIGREEN     Score 62 | Rs1458.60 | Score 62 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
-  JUNIORBEES     Score 60 | Rs739.47 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  DIVISLAB       Score 59 | Rs6665.00 | Score 59 -- MACD bearish -- wait for bullish crossover
-  DRREDDY        Score 56 | Rs1276.50 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  LUPIN          Score 56 | Rs2277.00 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+WATCHLIST (16)
+  JBCHEPHARM     Score 82 | Rs2252.70 | Score 82 -- Ready to buy -- awaiting regime recovery
+  APOLLOHOSP     Score 76 | Rs8493.00 | Score 76 -- Ready to buy -- awaiting regime recovery
+  AXISBANK       Score 74 | Rs1317.30 | Score 74 -- Price below 100/200 DMA -- wait for MA alignment
+  JSWSTEEL       Score 73 | Rs1282.30 | Score 73 -- MACD bearish -- wait for bullish crossover
+  GRINDWELL      Score 68 | Rs1895.20 | Score 68 -- MACD bearish -- wait for bullish crossover
+  FEDERALBNK     Score 66 | Rs309.75 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  IPCALAB        Score 66 | Rs1613.60 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  JSWENERGY      Score 66 | Rs552.25 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  AUROPHARMA     Score 64 | Rs1464.10 | Score 64 -- MACD bearish -- wait for bullish crossover
+  ADANIPORTS     Score 63 | Rs1787.10 | Score 63 -- MACD bearish -- wait for bullish crossover
+  DATAPATTNS     Score 60 | Rs4205.00 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  EQUITASBNK     Score 60 | Rs71.39 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DIVISLAB       Score 60 | Rs6655.50 | Score 60 -- MACD bearish -- wait for bullish crossover
+  DRREDDY        Score 57 | Rs1276.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  ADANIENT       Score 57 | Rs2908.80 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  HFCL           Score 55 | Rs163.68 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
