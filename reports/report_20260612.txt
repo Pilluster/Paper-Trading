@@ -1,36 +1,51 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-12 Jun 2026, 08:04 AM IST
+12 Jun 2026, 01:36 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-1.2%) but below the 200 DMA (-6.0%). Recovery in progress but not confirmed. Key risks: FII flows (-204 Cr) and VIX (14.8). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-0.4%) but below the 200 DMA (-5.2%). Recovery in progress but not confirmed. Key risks: FII flows (+166 Cr) and VIX (14.7). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 14.8  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -1.2%  [-1.2% below -- caution zone]
-  Nifty vs 200 DMA : -6.0%  [-6.0% below -- confirmed downtrend]
-  FII Net Flow     : Rs-204 Cr  [Marginal selling -- mild caution]
+  VIX              : 14.7  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -0.4%  [-0.4% below -- caution zone]
+  Nifty vs 200 DMA : -5.2%  [-5.2% below -- confirmed downtrend]
+  FII Net Flow     : Rs+166 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,525,150
-  Cash        : Rs1,565,715
-  P&L         : Rs+32,543 (+0.93%)
+  Cash        : Rs176,132
+  P&L         : Rs+36,587 (+1.05%)
   Drawdown    : 0.00%  (Limit: 10%)
-  Positions   : 7/14
+  Positions   : 12/14
 
-BUY SIGNALS (2)
-  TORNTPHARM     Score 81/100 | Entry Rs4579.50 | Stop Rs4213.00 | Qty 61 | Capital Rs279,350
-  AXISBANK       Score 74/100 | Entry Rs1345.10 | Stop Rs1222.10 | Qty 208 | Capital Rs279,781
+BUY SIGNALS (8)
+  ABSLAMC        Score 80/100 | Entry Rs1101.20 | Stop Rs991.08 | Qty 254 | Capital Rs279,705
+  LT             Score 79/100 | Entry Rs4049.30 | Stop Rs3847.00 | Qty 69 | Capital Rs279,402
+  APARINDS       Score 78/100 | Entry Rs15221.00 | Stop Rs14155.53 | Qty 18 | Capital Rs273,978
+  NAVINFLUOR     Score 74/100 | Entry Rs7303.00 | Stop Rs6791.79 | Qty 38 | Capital Rs277,514
+  JSWSTEEL       Score 73/100 | Entry Rs1297.60 | Stop Rs1245.80 | Qty 215 | Capital Rs278,984
+  POLYCAB        Score 73/100 | Entry Rs9554.00 | Stop Rs8598.60 | Qty 29 | Capital Rs277,066
+  SONACOMS       Score 73/100 | Entry Rs593.05 | Stop Rs555.55 | Qty 472 | Capital Rs279,920
+  BAJAJCON       Score 73/100 | Entry Rs591.65 | Stop Rs532.49 | Qty 473 | Capital Rs279,850
 
-WATCHLIST (11)
-  APOLLOHOSP     Score 69 | Rs8512.50 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  ADANIGREEN     Score 68 | Rs1474.20 | Score 68 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
-  JSWSTEEL       Score 67 | Rs1296.30 | Score 67 -- MACD bearish -- wait for bullish crossover
-  DIVISLAB       Score 67 | Rs6650.00 | Score 67 -- MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 66 | Rs141.83 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  ADANIPORTS     Score 63 | Rs1795.00 | Score 63 -- MACD bearish -- wait for bullish crossover
-  JUNIORBEES     Score 60 | Rs748.13 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  SUNPHARMA      Score 60 | Rs1808.60 | Score 60 -- MACD bearish -- wait for bullish crossover
-  NMDC           Score 60 | Rs90.49 | Score 60 -- MACD bearish -- wait for bullish crossover
-  EICHERMOT      Score 59 | Rs7250.00 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  LUPIN          Score 59 | Rs2284.60 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+WATCHLIST (20)
+  ASTERDM        Score 70 | Rs814.95 | Score 70 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DIVISLAB       Score 67 | Rs6638.00 | Score 67 -- MACD bearish -- wait for bullish crossover
+  PHOENIXLTD     Score 67 | Rs1757.60 | Score 67 -- MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 66 | Rs8498.00 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  TIMKEN         Score 65 | Rs3530.20 | Score 65 -- MACD bearish -- wait for bullish crossover
+  AJANTPHARM     Score 64 | Rs3131.00 | Score 64 -- Score 64/100 -- need macro improvement or volume surge
+  TRITURBINE     Score 64 | Rs671.20 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  EICHERMOT      Score 64 | Rs7312.00 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment
+  INDUSINDBK     Score 63 | Rs917.35 | Score 63 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  ADANIPORTS     Score 63 | Rs1812.90 | Score 63 -- MACD bearish -- wait for bullish crossover
+  CONFIPET       Score 63 | Rs70.42 | Score 63 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  SHRIRAMFIN     Score 61 | Rs954.95 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  SHRIRAMFIN     Score 61 | Rs954.95 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  TITAN          Score 61 | Rs4184.00 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  TITAN          Score 61 | Rs4184.00 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  WELCORP        Score 60 | Rs1402.30 | Score 60 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  CCL            Score 60 | Rs1129.30 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  SUNPHARMA      Score 60 | Rs1807.70 | Score 60 -- MACD bearish -- wait for bullish crossover
+  DIAMONDYD      Score 59 | Rs1129.40 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  BALRAMCHIN     Score 58 | Rs539.95 | Score 58 -- Score 58/100 -- need macro improvement or volume surge

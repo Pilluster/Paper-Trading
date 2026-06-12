@@ -25,3 +25,8 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-12T08:03:58.593578,SUNPHARMA,SELL,152,1808.8,-4879.2,-1.74,0,"Time stop: 26 sessions, flat (-1.7%)",time,B,PAPER
 2026-06-12T08:04:22.959007,TORNTPHARM,BUY,61,4579.5,80.6,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-06-12T08:04:22.960900,AXISBANK,BUY,208,1345.1,73.6,Score 74/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Partial | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-06-12T13:36:47.260865,ABSLAMC,BUY,254,1101.2,79.6,Score 80/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-12T13:36:47.263882,LT,BUY,69,4049.3,78.8,Score 79/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-12T13:36:47.265966,APARINDS,BUY,18,15221.0,78.0,Score 78/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-12T13:36:47.268181,NAVINFLUOR,BUY,38,7303.0,73.7,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-06-12T13:36:47.270312,JSWSTEEL,BUY,215,1297.6,72.8,Score 73/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
