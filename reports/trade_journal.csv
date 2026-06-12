@@ -22,3 +22,6 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-09T06:59:58.535208,TATASTEEL,SELL,1288,201.63,-20182.96,-7.21,0,Stop ₹202.09,stop,C,PAPER
 2026-06-09T06:59:58.537695,GOLDBEES,SELL,4201,125.56,2478.59,0.47,0,"Time stop: 20 sessions, flat (+0.5%)",time,C,PAPER
 2026-06-09T07:00:17.305394,GOLDBEES,BUY,4181,125.56,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
+2026-06-12T08:03:58.593578,SUNPHARMA,SELL,152,1808.8,-4879.2,-1.74,0,"Time stop: 26 sessions, flat (-1.7%)",time,B,PAPER
+2026-06-12T08:04:22.959007,TORNTPHARM,BUY,61,4579.5,80.6,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-12T08:04:22.960900,AXISBANK,BUY,208,1345.1,73.6,Score 74/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Partial | Risk 1.5% | Regime B,0,0,entry,B,PAPER
