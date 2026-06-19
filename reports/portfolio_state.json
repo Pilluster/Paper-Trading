@@ -202,10 +202,9 @@
   "watchlist_history": {
     "APOLLOHOSP": {
       "first_seen": "2026-05-05",
-      "days": 63,
+      "days": 64,
       "prev_score": 57.8,
       "score_history": [
-        66.2,
         69.4,
         69.4,
         67.5,
@@ -214,15 +213,15 @@
         69.4,
         69.1,
         69.1,
-        61.5
+        61.5,
+        62.0
       ]
     },
     "DIVISLAB": {
       "first_seen": "2026-06-09",
-      "days": 17,
+      "days": 18,
       "prev_score": 62.8,
       "score_history": [
-        67.0,
         58.7,
         58.7,
         66.7,
@@ -231,15 +230,15 @@
         62.7,
         64.8,
         63.3,
-        65.6
+        65.6,
+        66.1
       ]
     },
     "SUNPHARMA": {
       "first_seen": "2026-06-12",
-      "days": 11,
+      "days": 12,
       "prev_score": 59.5,
       "score_history": [
-        59.5,
         59.1,
         59.1,
         59.6,
@@ -248,12 +247,13 @@
         59.1,
         63.6,
         63.6,
-        64.4
+        64.4,
+        64.9
       ]
     },
     "HINDALCO": {
       "first_seen": "2026-06-15",
-      "days": 9,
+      "days": 10,
       "prev_score": 56.7,
       "score_history": [
         56.7,
@@ -264,12 +264,13 @@
         57.7,
         57.8,
         57.8,
-        56.2
+        56.2,
+        56.7
       ]
     },
     "ADANIENT": {
       "first_seen": "2026-06-16",
-      "days": 7,
+      "days": 8,
       "prev_score": 59.4,
       "score_history": [
         59.4,
@@ -278,12 +279,13 @@
         58.9,
         68.5,
         68.5,
-        66.9
+        66.9,
+        68.4
       ]
     },
     "EICHERMOT": {
       "first_seen": "2026-06-16",
-      "days": 7,
+      "days": 8,
       "prev_score": 69.8,
       "score_history": [
         69.8,
@@ -292,78 +294,162 @@
         64.8,
         69.3,
         69.3,
-        65.3
+        65.3,
+        66.8
       ]
     },
     "POWERGRID": {
       "first_seen": "2026-06-18",
-      "days": 3,
+      "days": 4,
       "prev_score": 57.6,
       "score_history": [
         57.6,
         57.6,
-        56.0
+        56.0,
+        56.5
       ]
     },
     "BAJAJ-AUTO": {
       "first_seen": "2026-06-18",
-      "days": 3,
+      "days": 4,
       "prev_score": 57.8,
       "score_history": [
         57.8,
         57.8,
-        56.2
+        56.2,
+        58.7
       ]
     },
-    "NMDC": {
+    "ASIANPAINT": {
+      "first_seen": "2026-06-19",
+      "days": 2,
+      "prev_score": 64.5,
+      "score_history": [
+        64.5,
+        67.4
+      ]
+    },
+    "ASTERDM": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 62.0,
+      "prev_score": 66.7,
       "score_history": [
-        62.0
+        66.7
       ]
     },
-    "MARICO": {
+    "TRITURBINE": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 55.7,
+      "prev_score": 58.7,
       "score_history": [
-        55.7
+        58.7
       ]
     },
-    "ADANIPOWER": {
+    "VIJAYA": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 66.4,
+      "prev_score": 69.4,
       "score_history": [
-        66.4
+        69.4
       ]
     },
-    "MOTHERSON": {
+    "AJANTPHARM": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 68.9,
+      "prev_score": 58.6,
       "score_history": [
-        68.9
+        58.6
       ]
     },
-    "LICI": {
+    "ROSSARI": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 57.2,
+      "prev_score": 56.8,
       "score_history": [
-        57.2
+        56.8
       ]
     },
-    "SAIL": {
+    "BALRAMCHIN": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 56.2,
+      "prev_score": 59.7,
       "score_history": [
-        56.2
+        59.7
       ]
     },
-    "CHOLAFIN": {
+    "ASKAUTOLTD": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 61.7,
+      "score_history": [
+        61.7
+      ]
+    },
+    "VSTIND": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 60.0,
+      "score_history": [
+        60.0
+      ]
+    },
+    "TORNTPOWER": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 59.0,
+      "score_history": [
+        59.0
+      ]
+    },
+    "DEEPAKFERT": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 64.7,
+      "score_history": [
+        64.7
+      ]
+    },
+    "TEJASNET": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 67.7,
+      "score_history": [
+        67.7
+      ]
+    },
+    "AMBER": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 56.3,
+      "score_history": [
+        56.3
+      ]
+    },
+    "AEGISLOG": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 60.8,
+      "score_history": [
+        60.8
+      ]
+    },
+    "NESTLEIND": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 67.0,
+      "score_history": [
+        67.0
+      ]
+    },
+    "DIAMONDYD": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 60.9,
+      "score_history": [
+        60.9
+      ]
+    },
+    "OLECTRA": {
       "first_seen": "2026-06-19",
       "days": 1,
       "prev_score": 55.2,
@@ -371,28 +457,52 @@
         55.2
       ]
     },
-    "ASIANPAINT": {
+    "VAIBHAVGBL": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 64.5,
+      "prev_score": 60.8,
       "score_history": [
-        64.5
+        60.8
       ]
     },
-    "MOM100": {
+    "CCL": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 64.3,
+      "prev_score": 64.4,
       "score_history": [
-        64.3
+        64.4
       ]
     },
-    "PIDILITIND": {
+    "ATGL": {
       "first_seen": "2026-06-19",
       "days": 1,
-      "prev_score": 62.8,
+      "prev_score": 60.9,
       "score_history": [
-        62.8
+        60.9
+      ]
+    },
+    "ZYDUSLIFE": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 62.5,
+      "score_history": [
+        62.5
+      ]
+    },
+    "ARVINDFASN": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 63.2,
+      "score_history": [
+        63.2
+      ]
+    },
+    "NIACL": {
+      "first_seen": "2026-06-19",
+      "days": 1,
+      "prev_score": 55.2,
+      "score_history": [
+        55.2
       ]
     }
   },
