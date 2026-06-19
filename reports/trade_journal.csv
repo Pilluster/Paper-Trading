@@ -36,3 +36,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-17T08:38:44.677837,SHRIRAMFIN,BUY,42,1007.0,75.5,Score 76/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Partial | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-06-18T08:21:20.787175,BAJAJ-AUTO,SELL,26,10042.0,-16510.0,-5.95,0,"Extended loss stop: 30 sessions, -5.9%",time,B,PAPER
 2026-06-18T08:21:39.167144,JUNIORBEES,BUY,321,781.0,81.9,Score 82/100 [GOOD] | Stage 2 | VCP=Yes | MA=Partial | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-19T08:42:25.069490,GRASIM,SELL,88,3137.7,-1742.4,-0.63,0,"Time stop: 20 sessions, flat (-0.6%)",time,B,PAPER
+2026-06-19T08:42:49.967966,SIEMENS,BUY,73,3751.0,81.3,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
