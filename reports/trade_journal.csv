@@ -38,3 +38,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-18T08:21:39.167144,JUNIORBEES,BUY,321,781.0,81.9,Score 82/100 [GOOD] | Stage 2 | VCP=Yes | MA=Partial | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-06-19T08:42:25.069490,GRASIM,SELL,88,3137.7,-1742.4,-0.63,0,"Time stop: 20 sessions, flat (-0.6%)",time,B,PAPER
 2026-06-19T08:42:49.967966,SIEMENS,BUY,73,3751.0,81.3,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-06-23T12:42:07.025491,JSWSTEEL,SELL,215,1242.2,-11911.0,-4.27,0,Stop ₹1245.80,stop,B,PAPER
+2026-06-23T12:42:32.794335,SONACOMS,BUY,436,615.95,81.4,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
