@@ -1,0 +1,49 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+24 Jun 2026, 06:58 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (+0.7%) but below the 200 DMA (-3.5%). Recovery in progress but not confirmed. Key risks: FII flows (-165 Cr) and VIX (13.7). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 13.7  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +0.7%  [+0.7% above -- mildly bullish]
+  Nifty vs 200 DMA : -3.5%  [-3.5% below -- confirmed downtrend]
+  FII Net Flow     : Rs-165 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,495,639
+  Cash        : Rs14,168
+  P&L         : Rs+85,293 (+2.44%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 14/14
+
+BUY SIGNALS (8)
+  DRREDDY        Score 83/100 | Entry Rs1334.00 | Stop Rs1248.40 | Qty 10 | Capital Rs13,340
+  LUPIN          Score 81/100 | Entry Rs2378.00 | Stop Rs2211.54 | Qty 5 | Capital Rs11,890
+  DIVISLAB       Score 80/100 | Entry Rs6754.00 | Stop Rs6450.50 | Qty 1 | Capital Rs6,754
+  MOTHERSON      Score 78/100 | Entry Rs144.68 | Stop Rs130.21 | Qty 93 | Capital Rs13,455
+  DMART          Score 77/100 | Entry Rs4330.90 | Stop Rs4027.74 | Qty 3 | Capital Rs12,993
+  SUNPHARMA      Score 75/100 | Entry Rs1873.30 | Stop Rs1742.17 | Qty 7 | Capital Rs13,113
+  ADANIENT       Score 73/100 | Entry Rs3030.30 | Stop Rs2727.27 | Qty 4 | Capital Rs12,121
+  ADANIGREEN     Score 73/100 | Entry Rs1503.00 | Stop Rs1352.70 | Qty 8 | Capital Rs12,024
+
+WATCHLIST (18)
+  ADANIPORTS     Score 67 | Rs1802.50 | Score 67 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  ASIANPAINT     Score 66 | Rs2678.00 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  EICHERMOT      Score 66 | Rs7560.00 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment
+  SBIN           Score 65 | Rs1043.95 | Score 65 -- Price below 100/200 DMA -- wait for MA alignment
+  MOM100         Score 64 | Rs67.03 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment
+  GRASIM         Score 62 | Rs3127.30 | Score 62 -- MACD bearish -- wait for bullish crossover
+  MARICO         Score 62 | Rs815.85 | Score 62 -- MACD bearish -- wait for bullish crossover
+  OFSS           Score 62 | Rs10110.00 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  APOLLOHOSP     Score 61 | Rs8561.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ICICIB22       Score 60 | Rs120.32 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment
+  ADANIPOWER     Score 60 | Rs229.20 | Score 60 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  PIDILITIND     Score 58 | Rs1571.80 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  JSWSTEEL       Score 58 | Rs1238.90 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  BAJAJ-AUTO     Score 58 | Rs9776.00 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  NMDC           Score 58 | Rs85.37 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  SAIL           Score 58 | Rs168.85 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  POWERGRID      Score 58 | Rs290.45 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
+  NESTLEIND      Score 55 | Rs1392.30 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
