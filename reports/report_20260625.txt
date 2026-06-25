@@ -1,0 +1,49 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+25 Jun 2026, 06:58 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (+1.5%) but below the 200 DMA (-2.7%). Recovery in progress but not confirmed. Key risks: FII flows (-108 Cr) and VIX (12.9). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 12.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +1.5%  [+1.5% above -- mildly bullish]
+  Nifty vs 200 DMA : -2.7%  [-2.7% below -- caution zone]
+  FII Net Flow     : Rs-108 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,451,614
+  Cash        : Rs216,432
+  P&L         : Rs+76,609 (+2.19%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 14/14
+
+BUY SIGNALS (8)
+  DRREDDY        Score 85/100 | Entry Rs1352.80 | Stop Rs1248.40 | Qty 206 | Capital Rs278,677
+  LUPIN          Score 76/100 | Entry Rs2361.00 | Stop Rs2195.73 | Qty 118 | Capital Rs278,598
+  MOTHERSON      Score 75/100 | Entry Rs151.00 | Stop Rs135.90 | Qty 1854 | Capital Rs279,954
+  SUNPHARMA      Score 75/100 | Entry Rs1871.50 | Stop Rs1740.50 | Qty 149 | Capital Rs278,854
+  DIVISLAB       Score 74/100 | Entry Rs6696.00 | Stop Rs6450.50 | Qty 41 | Capital Rs274,536
+  EICHERMOT      Score 74/100 | Entry Rs7741.50 | Stop Rs7199.59 | Qty 36 | Capital Rs278,694
+  ADANIENT       Score 73/100 | Entry Rs3073.70 | Stop Rs2766.33 | Qty 91 | Capital Rs279,707
+  ADANIGREEN     Score 73/100 | Entry Rs1535.40 | Stop Rs1381.86 | Qty 182 | Capital Rs279,443
+
+WATCHLIST (18)
+  DMART          Score 68 | Rs4304.50 | Score 68 -- Score 68/100 -- need macro improvement or volume surge
+  OFSS           Score 67 | Rs10854.00 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  ADANIPORTS     Score 67 | Rs1811.60 | Score 67 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  SBIN           Score 67 | Rs1052.10 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
+  MARICO         Score 64 | Rs827.20 | Score 64 -- Score 64/100 -- need macro improvement or volume surge
+  PIDILITIND     Score 64 | Rs1610.90 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  RECLTD         Score 61 | Rs364.50 | Score 61 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  UNITDSPR       Score 61 | Rs1391.00 | Score 61 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  APOLLOHOSP     Score 60 | Rs8632.50 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ASIANPAINT     Score 60 | Rs2670.60 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  GRASIM         Score 59 | Rs3141.90 | Score 59 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  ADANIPOWER     Score 59 | Rs230.41 | Score 59 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  JSWSTEEL       Score 57 | Rs1231.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  BAJAJ-AUTO     Score 57 | Rs9905.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  NMDC           Score 57 | Rs84.94 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  MOM100         Score 57 | Rs67.19 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+  ICICIBANK      Score 56 | Rs1401.40 | Score 56 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  INDIGO         Score 56 | Rs5446.90 | Score 56 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
