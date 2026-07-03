@@ -1,0 +1,48 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+03 Jul 2026, 06:44 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (+2.3%) but below the 200 DMA (-2.0%). Recovery in progress but not confirmed. Key risks: FII flows (-70 Cr) and VIX (11.9). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 11.9  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +2.3%  [+2.3% above -- mildly bullish]
+  Nifty vs 200 DMA : -2.0%  [-2.0% below -- caution zone]
+  FII Net Flow     : Rs-70 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,451,614
+  Cash        : Rs10,913
+  P&L         : Rs+81,050 (+2.32%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 15/14
+
+BUY SIGNALS (8)
+  SUNPHARMA      Score 91/100 | Entry Rs1913.10 | Stop Rs1756.80 | Qty 5 | Capital Rs9,566
+  NESTLEIND      Score 80/100 | Entry Rs1449.10 | Stop Rs1368.10 | Qty 7 | Capital Rs10,144
+  ADANIENT       Score 78/100 | Entry Rs3182.00 | Stop Rs2863.80 | Qty 3 | Capital Rs9,546
+  ADANIPORTS     Score 78/100 | Entry Rs1880.10 | Stop Rs1745.20 | Qty 5 | Capital Rs9,400
+  DIVISLAB       Score 76/100 | Entry Rs6790.00 | Stop Rs6450.50 | Qty 1 | Capital Rs6,790
+  ADANIGREEN     Score 76/100 | Entry Rs1545.50 | Stop Rs1390.95 | Qty 6 | Capital Rs9,273
+  LUPIN          Score 74/100 | Entry Rs2470.50 | Stop Rs2297.56 | Qty 4 | Capital Rs9,882
+  APOLLOHOSP     Score 74/100 | Entry Rs8893.00 | Stop Rs8270.49 | Qty 1 | Capital Rs8,893
+
+WATCHLIST (17)
+  EICHERMOT      Score 70 | Rs7316.00 | Score 70 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  MOM100         Score 69 | Rs67.32 | Score 69 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  POWERGRID      Score 67 | Rs290.35 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
+  BOSCHLTD       Score 66 | Rs41950.00 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  MOTHERSON      Score 66 | Rs148.67 | Score 66 -- MACD bearish -- wait for bullish crossover, RSI outside 50-70 zone
+  SBIN           Score 62 | Rs1043.80 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  PIDILITIND     Score 60 | Rs1606.60 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ULTRACEMCO     Score 59 | Rs11707.00 | Score 59 -- Stage 4 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  TVSMOTOR       Score 58 | Rs3628.10 | Score 58 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  BAJAJ-AUTO     Score 58 | Rs9833.00 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  NMDC           Score 58 | Rs86.02 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  HDFCAMC        Score 57 | Rs2787.00 | Score 57 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  UNITDSPR       Score 57 | Rs1390.00 | Score 57 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  JSWSTEEL       Score 55 | Rs1233.50 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  COALINDIA      Score 55 | Rs442.10 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  ADANIPOWER     Score 55 | Rs222.70 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  FMCGIETF       Score 55 | Rs53.80 | Score 55 -- Stage 4 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
