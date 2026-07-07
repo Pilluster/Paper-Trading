@@ -1,0 +1,38 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+07 Jul 2026, 06:57 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (+2.8%) but below the 200 DMA (-1.5%). Recovery in progress but not confirmed. Key risks: FII flows (-166 Cr) and VIX (11.7). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 11.7  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +2.8%  [+2.8% above -- mildly bullish]
+  Nifty vs 200 DMA : -1.5%  [-1.5% below -- caution zone]
+  FII Net Flow     : Rs-166 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,451,614
+  Cash        : Rs10,913
+  P&L         : Rs+78,074 (+2.23%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 15/14
+
+BUY SIGNALS (8)
+  SUNPHARMA      Score 91/100 | Entry Rs1913.60 | Stop Rs1756.80 | Qty 5 | Capital Rs9,568
+  NESTLEIND      Score 78/100 | Entry Rs1465.90 | Stop Rs1368.10 | Qty 7 | Capital Rs10,261
+  ADANIENT       Score 77/100 | Entry Rs3159.60 | Stop Rs2865.20 | Qty 3 | Capital Rs9,479
+  GRASIM         Score 77/100 | Entry Rs3188.00 | Stop Rs3034.90 | Qty 3 | Capital Rs9,564
+  TVSMOTOR       Score 76/100 | Entry Rs3732.30 | Stop Rs3471.04 | Qty 2 | Capital Rs7,465
+  MARICO         Score 76/100 | Entry Rs845.10 | Stop Rs785.94 | Qty 12 | Capital Rs10,141
+  ADANIPORTS     Score 75/100 | Entry Rs1865.00 | Stop Rs1745.20 | Qty 5 | Capital Rs9,325
+  LUPIN          Score 73/100 | Entry Rs2492.00 | Stop Rs2317.56 | Qty 4 | Capital Rs9,968
+
+WATCHLIST (7)
+  OFSS           Score 70 | Rs11167.00 | Score 70 -- RSI outside 50-70 zone
+  MOTHERSON      Score 69 | Rs143.60 | Score 69 -- MACD bearish -- wait for bullish crossover
+  MOM100         Score 66 | Rs67.18 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  BAJAJ-AUTO     Score 62 | Rs10096.00 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment
+  PIDILITIND     Score 59 | Rs1617.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  UNITDSPR       Score 56 | Rs1427.70 | Score 56 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  NAUKRI         Score 55 | Rs1130.90 | Score 55 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
