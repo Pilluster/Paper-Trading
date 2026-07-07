@@ -43,3 +43,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-06-25T06:58:08.774952,GOLDBEES,SELL,4181,115.03,-44025.93,-8.39,0,Stop ₹116.77,stop,B,PAPER
 2026-06-25T06:58:29.337336,DRREDDY,BUY,206,1352.8,85.4,Score 85/100 [HIGH] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.5% | Regime B,0,0,entry,B,PAPER
 2026-07-01T12:41:01.415272,GOLDBEES,BUY,1780,115.46,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
+2026-07-07T12:33:24.044823,APARINDS,SELL,18,14154.0,-19206.0,-7.01,0,Stop ₹14155.53,stop,B,PAPER
