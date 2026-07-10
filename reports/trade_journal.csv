@@ -46,3 +46,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-07T12:33:24.044823,APARINDS,SELL,18,14154.0,-19206.0,-7.01,0,Stop ₹14155.53,stop,B,PAPER
 2026-07-08T11:52:43.232705,SIEMENS,SELL,73,3446.1,-22257.7,-8.13,0,Stop ₹3454.50,stop,B,PAPER
 2026-07-08T11:53:10.557039,SUNPHARMA,BUY,148,1888.2,86.0,Score 86/100 [HIGH] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.5% | Regime B,0,0,entry,B,PAPER
+2026-07-10T06:56:38.664532,DRREDDY,SELL,206,1246.7,-21856.6,-7.84,0,Stop ₹1248.40,stop,B,PAPER
+2026-07-10T06:56:57.015098,OFSS,BUY,24,11572.0,78.8,Score 79/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
