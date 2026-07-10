@@ -1,5 +1,5 @@
 {
-  "cash": 216888.70000000036,
+  "cash": 212998.3000000004,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -25,20 +25,6 @@
       "target2": 5953.35,
       "entry_date": "2026-06-12",
       "score": 80.6,
-      "partial": 0,
-      "trail_on": false,
-      "trail_high": 0.0,
-      "flat_days": 20
-    },
-    {
-      "symbol": "AXISBANK",
-      "entry": 1345.1,
-      "qty": 208,
-      "stop": 1222.1,
-      "target1": 1587.22,
-      "target2": 1748.63,
-      "entry_date": "2026-06-12",
-      "score": 73.6,
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
@@ -197,75 +183,100 @@
       "trail_on": false,
       "trail_high": 0.0,
       "flat_days": 0
+    },
+    {
+      "symbol": "CCL",
+      "entry": 1214.0,
+      "qty": 230,
+      "stop": 1129.02,
+      "target1": 1432.52,
+      "target2": 1578.2,
+      "entry_date": "2026-07-10",
+      "score": 83.3,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     }
   ],
   "watchlist_history": {
     "ICICIBANK": {
       "first_seen": "2026-07-08",
-      "days": 5,
+      "days": 6,
       "prev_score": 64.9,
       "score_history": [
         64.9,
         66.4,
         58.0,
         58.0,
-        62.0
+        62.0,
+        59.1
       ]
     },
     "EICHERMOT": {
       "first_seen": "2026-07-08",
-      "days": 5,
+      "days": 6,
       "prev_score": 56.6,
       "score_history": [
         56.6,
         57.6,
         55.6,
         55.0,
-        55.5
+        55.5,
+        62.0
       ]
     },
     "BAJAJ-AUTO": {
       "first_seen": "2026-07-09",
-      "days": 2,
+      "days": 3,
       "prev_score": 67.9,
       "score_history": [
         67.9,
-        68.4
+        68.4,
+        67.9
       ]
     },
-    "PIDILITIND": {
+    "DCBBANK": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 67.0,
+      "prev_score": 69.1,
       "score_history": [
-        67.0
+        69.1
       ]
     },
-    "MOTHERSON": {
+    "OLECTRA": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 60.6,
+      "prev_score": 61.5,
       "score_history": [
-        60.6
+        61.5
       ]
     },
-    "TVSMOTOR": {
+    "THYROCARE": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 59.7,
+      "prev_score": 61.8,
       "score_history": [
-        59.7
+        61.8
       ]
     },
-    "SIEMENS": {
+    "CONFIPET": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 57.8,
+      "prev_score": 62.5,
       "score_history": [
-        57.8
+        62.5
       ]
     },
-    "RECLTD": {
+    "PAGEIND": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 62.6,
+      "score_history": [
+        62.6
+      ]
+    },
+    "AEGISLOG": {
       "first_seen": "2026-07-10",
       "days": 1,
       "prev_score": 60.0,
@@ -273,36 +284,140 @@
         60.0
       ]
     },
-    "ADANIPOWER": {
+    "DLINKINDIA": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 61.1,
+      "prev_score": 69.6,
       "score_history": [
-        61.1
+        69.6
       ]
     },
-    "CHOLAFIN": {
+    "CENTURYPLY": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 62.0,
+      "prev_score": 63.4,
       "score_history": [
-        62.0
+        63.4
       ]
     },
-    "BOSCHLTD": {
+    "AJANTPHARM": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 61.9,
+      "prev_score": 62.5,
       "score_history": [
-        61.9
+        62.5
       ]
     },
-    "HINDALCO": {
+    "NATCOPHARM": {
       "first_seen": "2026-07-10",
       "days": 1,
-      "prev_score": 55.1,
+      "prev_score": 57.3,
       "score_history": [
-        55.1
+        57.3
+      ]
+    },
+    "DEEPAKFERT": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 60.6,
+      "score_history": [
+        60.6
+      ]
+    },
+    "SCHAEFFLER": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 61.6,
+      "score_history": [
+        61.6
+      ]
+    },
+    "SOBHA": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 55.8,
+      "score_history": [
+        55.8
+      ]
+    },
+    "ATGL": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 65.1,
+      "score_history": [
+        65.1
+      ]
+    },
+    "NOCIL": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 64.6,
+      "score_history": [
+        64.6
+      ]
+    },
+    "TEJASNET": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 60.3,
+      "score_history": [
+        60.3
+      ]
+    },
+    "DIAMONDYD": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 57.9,
+      "score_history": [
+        57.9
+      ]
+    },
+    "TRITURBINE": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
+      ]
+    },
+    "VSTIND": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 59.3,
+      "score_history": [
+        59.3
+      ]
+    },
+    "NIACL": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 61.5,
+      "score_history": [
+        61.5
+      ]
+    },
+    "CERA": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 63.0,
+      "score_history": [
+        63.0
+      ]
+    },
+    "TANLA": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 55.8,
+      "score_history": [
+        55.8
+      ]
+    },
+    "ZYDUSLIFE": {
+      "first_seen": "2026-07-10",
+      "days": 1,
+      "prev_score": 60.0,
+      "score_history": [
+        60.0
       ]
     }
   },
