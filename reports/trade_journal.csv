@@ -53,3 +53,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-14T05:41:37.286205,LAURUSLABS,SELL,77,1569.9,27981.8,30.12,0,Target2 +30.1%,t2,B,PAPER
 2026-07-15T05:43:27.931049,LT,SELL,69,3836.8,-14662.5,-5.25,0,Stop ₹3847.00,stop,B,PAPER
 2026-07-15T05:43:54.598734,DIVISLAB,BUY,38,7277.5,84.7,Score 85/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-07-16T05:57:20.676295,JUNIORBEES,SELL,321,782.12,359.52,0.14,0,"Time stop: 20 sessions, flat (+0.1%)",time,B,PAPER
+2026-07-16T05:57:48.426172,BAJAJ-AUTO,BUY,27,10370.0,79.3,Score 79/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
