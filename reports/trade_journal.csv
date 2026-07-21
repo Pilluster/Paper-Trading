@@ -59,3 +59,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-16T11:49:24.485316,KAJARIACER,BUY,225,1241.8,77.3,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-07-20T12:24:12.422948,ABSLAMC,SELL,254,1118.6,4419.6,1.58,0,"Time stop: 27 sessions, flat (+1.6%)",time,B,PAPER
 2026-07-20T12:24:45.190405,ICICIBANK,BUY,191,1460.2,80.8,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Partial | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-07-21T11:53:46.675637,SONACOMS,SELL,145,732.75,16936.0,18.96,0,Target1 +19.0%,t1,B,PAPER
