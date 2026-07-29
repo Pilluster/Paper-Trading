@@ -62,3 +62,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-21T11:53:46.675637,SONACOMS,SELL,145,732.75,16936.0,18.96,0,Target1 +19.0%,t1,B,PAPER
 2026-07-23T06:11:37.412259,OFSS,SELL,24,10267.0,-31320.0,-11.28,0,Stop ₹10761.96,stop,B,PAPER
 2026-07-23T06:11:55.389156,TVSMOTOR,BUY,70,3952.6,73.5,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Partial | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-07-29T06:09:16.183644,GOLDBEES,SELL,1780,116.95,2652.2,1.29,0,"Time stop: 20 sessions, flat (+1.3%)",time,B,PAPER
+2026-07-29T06:09:34.661846,MARICO,BUY,318,878.1,86.7,Score 87/100 [HIGH] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.5% | Regime B,0,0,entry,B,PAPER
