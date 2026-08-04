@@ -66,3 +66,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-29T06:09:34.661846,MARICO,BUY,318,878.1,86.7,Score 87/100 [HIGH] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.5% | Regime B,0,0,entry,B,PAPER
 2026-07-30T11:58:08.917067,NAVINFLUOR,SELL,38,7386.5,3173.0,1.14,0,"Time stop: 34 sessions, flat (+1.1%)",time,C,PAPER
 2026-07-30T11:58:29.156422,GOLDBEES,BUY,2813,117.37,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
+2026-08-04T12:08:34.719041,CCL,SELL,230,1122.0,-21160.0,-7.58,0,Stop ₹1129.02,stop,B,PAPER
+2026-08-04T12:09:00.894182,APARINDS,BUY,16,15433.0,82.7,Score 83/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
