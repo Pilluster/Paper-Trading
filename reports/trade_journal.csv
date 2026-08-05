@@ -68,3 +68,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-07-30T11:58:29.156422,GOLDBEES,BUY,2813,117.37,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
 2026-08-04T12:08:34.719041,CCL,SELL,230,1122.0,-21160.0,-7.58,0,Stop ₹1129.02,stop,B,PAPER
 2026-08-04T12:09:00.894182,APARINDS,BUY,16,15433.0,82.7,Score 83/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
+2026-08-05T06:02:44.671255,SONACOMS,SELL,145,806.7,27658.75,30.97,0,Target2 +31.0%,t2,B,PAPER
