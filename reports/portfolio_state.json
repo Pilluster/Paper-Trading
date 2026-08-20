@@ -200,26 +200,9 @@
     }
   ],
   "watchlist_history": {
-    "NESTLEIND": {
-      "first_seen": "2026-08-04",
-      "days": 24,
-      "prev_score": 68.4,
-      "score_history": [
-        64.0,
-        64.0,
-        64.0,
-        64.5,
-        64.0,
-        63.3,
-        63.0,
-        63.0,
-        57.8,
-        55.2
-      ]
-    },
     "SHRIRAMFIN": {
       "first_seen": "2026-08-17",
-      "days": 7,
+      "days": 8,
       "prev_score": 69.8,
       "score_history": [
         69.8,
@@ -228,12 +211,13 @@
         68.3,
         57.5,
         55.3,
-        60.9
+        60.9,
+        59.7
       ]
     },
     "APOLLOHOSP": {
       "first_seen": "2026-08-17",
-      "days": 6,
+      "days": 7,
       "prev_score": 67.7,
       "score_history": [
         67.7,
@@ -241,175 +225,161 @@
         67.7,
         66.7,
         67.0,
-        63.2
+        63.2,
+        62.0
       ]
     },
     "TECHM": {
       "first_seen": "2026-08-18",
-      "days": 5,
+      "days": 6,
       "prev_score": 60.8,
       "score_history": [
         60.8,
         60.5,
         58.0,
         58.3,
-        59.0
-      ]
-    },
-    "SAIL": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 57.3,
-      "score_history": [
-        57.3,
-        57.5,
-        60.7
-      ]
-    },
-    "BOSCHLTD": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 64.2,
-      "score_history": [
-        64.2,
-        64.6,
-        66.8
-      ]
-    },
-    "SIEMENS": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 66.0,
-      "score_history": [
-        66.0,
-        63.8,
-        67.0
-      ]
-    },
-    "UNITDSPR": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 58.9,
-      "score_history": [
-        58.9,
-        56.7,
-        59.9
-      ]
-    },
-    "MOTHERSON": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 65.8,
-      "score_history": [
-        65.8,
-        63.6,
-        66.8
-      ]
-    },
-    "BAJAJHLDNG": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 59.0,
-      "score_history": [
         59.0,
-        59.2,
-        60.0
-      ]
-    },
-    "HAL": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 65.8,
-      "score_history": [
-        65.8,
-        66.1,
-        69.3
-      ]
-    },
-    "PIDILITIND": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 63.4,
-      "score_history": [
-        63.4,
-        63.7,
-        66.9
-      ]
-    },
-    "OFSS": {
-      "first_seen": "2026-08-19",
-      "days": 3,
-      "prev_score": 57.5,
-      "score_history": [
-        57.5,
-        55.3,
-        66.9
+        60.3
       ]
     },
     "HINDALCO": {
       "first_seen": "2026-08-19",
-      "days": 2,
+      "days": 3,
       "prev_score": 59.4,
       "score_history": [
         59.4,
-        58.3
-      ]
-    },
-    "GRASIM": {
-      "first_seen": "2026-08-19",
-      "days": 2,
-      "prev_score": 67.2,
-      "score_history": [
-        67.2,
-        69.4
-      ]
-    },
-    "GAIL": {
-      "first_seen": "2026-08-20",
-      "days": 1,
-      "prev_score": 55.7,
-      "score_history": [
-        55.7
-      ]
-    },
-    "ADANIENT": {
-      "first_seen": "2026-08-20",
-      "days": 1,
-      "prev_score": 55.7,
-      "score_history": [
-        55.7
+        58.3,
+        59.6
       ]
     },
     "BAJFINANCE": {
       "first_seen": "2026-08-20",
-      "days": 1,
+      "days": 2,
       "prev_score": 61.0,
       "score_history": [
-        61.0
-      ]
-    },
-    "JUNIORBEES": {
-      "first_seen": "2026-08-20",
-      "days": 1,
-      "prev_score": 58.5,
-      "score_history": [
-        58.5
-      ]
-    },
-    "CHOLAFIN": {
-      "first_seen": "2026-08-20",
-      "days": 1,
-      "prev_score": 59.9,
-      "score_history": [
-        59.9
+        61.0,
+        59.8
       ]
     },
     "JSWSTEEL": {
+      "first_seen": "2026-08-20",
+      "days": 2,
+      "prev_score": 64.0,
+      "score_history": [
+        64.0,
+        64.8
+      ]
+    },
+    "KECL": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 59.8,
+      "score_history": [
+        59.8
+      ]
+    },
+    "EXIDEIND": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
+      ]
+    },
+    "IDFCFIRSTB": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 57.7,
+      "score_history": [
+        57.7
+      ]
+    },
+    "APLAPOLLO": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 63.6,
+      "score_history": [
+        63.6
+      ]
+    },
+    "DATAPATTNS": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 64.9,
+      "score_history": [
+        64.9
+      ]
+    },
+    "CRISIL": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 55.2,
+      "score_history": [
+        55.2
+      ]
+    },
+    "ENGINERSIN": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 61.4,
+      "score_history": [
+        61.4
+      ]
+    },
+    "BALKRISIND": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 58.8,
+      "score_history": [
+        58.8
+      ]
+    },
+    "AUROPHARMA": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 59.8,
+      "score_history": [
+        59.8
+      ]
+    },
+    "HFCL": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 67.2,
+      "score_history": [
+        67.2
+      ]
+    },
+    "FEDERALBNK": {
       "first_seen": "2026-08-20",
       "days": 1,
       "prev_score": 64.0,
       "score_history": [
         64.0
+      ]
+    },
+    "MANAPPURAM": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 56.0,
+      "score_history": [
+        56.0
+      ]
+    },
+    "EQUITASBNK": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 63.9,
+      "score_history": [
+        63.9
+      ]
+    },
+    "COFORGE": {
+      "first_seen": "2026-08-20",
+      "days": 1,
+      "prev_score": 57.2,
+      "score_history": [
+        57.2
       ]
     }
   },
