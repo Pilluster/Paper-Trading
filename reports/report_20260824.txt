@@ -1,41 +1,51 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-24 Aug 2026, 04:08 AM IST
+24 Aug 2026, 10:45 AM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (+0.4%) but below the 200 DMA (-1.6%). Recovery in progress but not confirmed. Key risks: FII flows (-435 Cr) and VIX (11.2). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (+0.1%) but below the 200 DMA (-1.9%). Recovery in progress but not confirmed. Key risks: FII flows (+116 Cr) and VIX (11.7). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 11.2  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
-  Nifty vs 50 DMA  : +0.4%  [+0.4% above -- mildly bullish]
-  Nifty vs 200 DMA : -1.6%  [-1.6% below -- caution zone]
-  FII Net Flow     : Rs-435 Cr  [Marginal selling -- mild caution]
+  VIX              : 11.7  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +0.1%  [+0.1% above -- mildly bullish]
+  Nifty vs 200 DMA : -1.9%  [-1.9% below -- caution zone]
+  FII Net Flow     : Rs+116 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,784,135
   Cash        : Rs261,077
-  P&L         : Rs+701,759 (+20.05%)
+  P&L         : Rs+700,035 (+20.00%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 14/14
 
-BUY SIGNALS (1)
-  CHOLAFIN       Score 73/100 | Entry Rs1857.70 | Stop Rs1727.66 | Qty 133 | Capital Rs247,074
+BUY SIGNALS (8)
+  ENGINERSIN     Score 84/100 | Entry Rs254.83 | Stop Rs236.99 | Qty 973 | Capital Rs247,950
+  HFCL           Score 80/100 | Entry Rs238.42 | Stop Rs221.73 | Qty 1040 | Capital Rs247,957
+  DATAPATTNS     Score 78/100 | Entry Rs4736.20 | Stop Rs4262.58 | Qty 52 | Capital Rs246,282
+  GLENMARK       Score 78/100 | Entry Rs2390.70 | Stop Rs2162.00 | Qty 103 | Capital Rs246,242
+  ABCAPITAL      Score 72/100 | Entry Rs412.90 | Stop Rs384.00 | Qty 600 | Capital Rs247,740
+  IPCALAB        Score 72/100 | Entry Rs1920.40 | Stop Rs1785.97 | Qty 129 | Capital Rs247,732
+  AUBANK         Score 72/100 | Entry Rs1114.00 | Stop Rs1036.02 | Qty 222 | Capital Rs247,308
+  KECL           Score 72/100 | Entry Rs131.57 | Stop Rs122.36 | Qty 1885 | Capital Rs248,009
 
-WATCHLIST (17)
-  BAJFINANCE     Score 68 | Rs1092.60 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  OFSS           Score 68 | Rs11836.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SIEMENS        Score 65 | Rs4007.60 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SHRIRAMFIN     Score 65 | Rs1131.70 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  HAL            Score 65 | Rs4937.00 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  BOSCHLTD       Score 65 | Rs48180.00 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
-  MOTHERSON      Score 65 | Rs168.28 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
-  PIDILITIND     Score 63 | Rs1642.10 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  NESTLEIND      Score 62 | Rs1473.40 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  GRASIM         Score 62 | Rs3278.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  APOLLOHOSP     Score 62 | Rs8653.00 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  TECHM          Score 60 | Rs1592.90 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  INDIGO         Score 60 | Rs5106.00 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  JUNIORBEES     Score 60 | Rs800.98 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SAIL           Score 59 | Rs177.74 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  BERGEPAINT     Score 58 | Rs523.65 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  JSWSTEEL       Score 58 | Rs1298.40 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (20)
+  BAJFINANCE     Score 69 | Rs1077.00 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GRASIM         Score 68 | Rs3288.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  GRINDWELL      Score 68 | Rs2053.10 | Score 68 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  AUROPHARMA     Score 67 | Rs1608.00 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  SHRIRAMFIN     Score 67 | Rs1119.00 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  CONCORDBIO     Score 65 | Rs1539.40 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  IIFL           Score 64 | Rs696.40 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  NESTLEIND      Score 64 | Rs1471.30 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  KPRMILL        Score 64 | Rs1112.30 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment
+  APOLLOHOSP     Score 63 | Rs8702.00 | Score 63 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  APLAPOLLO      Score 62 | Rs2145.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TECHM          Score 62 | Rs1584.00 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  JSWSTEEL       Score 61 | Rs1327.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  KARURVYSYA     Score 60 | Rs338.15 | Score 60 -- MACD bearish -- wait for bullish crossover
+  HINDALCO       Score 60 | Rs1058.50 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  BALKRISIND     Score 60 | Rs2358.40 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  COFORGE        Score 60 | Rs1873.00 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  IDFCFIRSTB     Score 59 | Rs85.89 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  EXIDEIND       Score 58 | Rs453.30 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  EQUITASBNK     Score 58 | Rs75.00 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
