@@ -75,3 +75,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-08-13T05:09:53.437288,MOM100,BUY,4062,68.93,80.8,Score 81/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-08-14T05:06:32.934878,SUNPHARMA,SELL,148,1919.8,4676.8,1.67,0,"Time stop: 26 sessions, flat (+1.7%)",time,B,PAPER
 2026-08-14T05:06:54.773848,EICHERMOT,BUY,34,8097.5,74.2,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-08-26T04:05:30.337112,ICICIBANK,SELL,191,1444.9,-2922.3,-1.05,0,"Time stop: 26 sessions, flat (-1.0%)",time,B,PAPER
+2026-08-26T04:05:48.307030,ADANIENT,BUY,89,3118.5,76.3,Score 76/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
