@@ -77,3 +77,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-08-14T05:06:54.773848,EICHERMOT,BUY,34,8097.5,74.2,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-08-26T04:05:30.337112,ICICIBANK,SELL,191,1444.9,-2922.3,-1.05,0,"Time stop: 26 sessions, flat (-1.0%)",time,B,PAPER
 2026-08-26T04:05:48.307030,ADANIENT,BUY,89,3118.5,76.3,Score 76/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-08-31T17:32:10.180930,DIVISLAB,SELL,12,9467.0,26274.0,30.09,0,Target2 +30.1%,t2,B,PAPER
+2026-08-31T17:32:10.183105,ADANIENT,SELL,89,2859.1,-23086.6,-8.32,0,Stop ₹2900.20,stop,B,PAPER
