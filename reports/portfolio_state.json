@@ -202,10 +202,9 @@
   "watchlist_history": {
     "GRASIM": {
       "first_seen": "2026-08-21",
-      "days": 15,
+      "days": 16,
       "prev_score": 59.8,
       "score_history": [
-        67.9,
         64.0,
         63.5,
         62.0,
@@ -214,34 +213,62 @@
         62.5,
         64.8,
         68.2,
-        63.8
+        63.8,
+        57.8
       ]
     },
-    "SIEMENS": {
+    "CIPLA": {
       "first_seen": "2026-09-01",
-      "days": 1,
-      "prev_score": 63.8,
-      "score_history": [
-        63.8
-      ]
-    },
-    "BOSCHLTD": {
-      "first_seen": "2026-09-01",
-      "days": 1,
-      "prev_score": 61.2,
-      "score_history": [
-        61.2
-      ]
-    },
-    "BAJAJHLDNG": {
-      "first_seen": "2026-09-01",
-      "days": 1,
+      "days": 2,
       "prev_score": 60.0,
       "score_history": [
+        60.0,
         60.0
       ]
     },
-    "PIDILITIND": {
+    "JSWSTEEL": {
+      "first_seen": "2026-09-01",
+      "days": 2,
+      "prev_score": 56.2,
+      "score_history": [
+        56.2,
+        56.2
+      ]
+    },
+    "ICICIBANK": {
+      "first_seen": "2026-09-01",
+      "days": 2,
+      "prev_score": 64.4,
+      "score_history": [
+        64.4,
+        66.8
+      ]
+    },
+    "ALKYLAMINE": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 66.1,
+      "score_history": [
+        66.1
+      ]
+    },
+    "POLYMED": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
+      ]
+    },
+    "ASKAUTOLTD": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 55.2,
+      "score_history": [
+        55.2
+      ]
+    },
+    "AJANTPHARM": {
       "first_seen": "2026-09-01",
       "days": 1,
       "prev_score": 57.0,
@@ -249,15 +276,79 @@
         57.0
       ]
     },
-    "NMDC": {
+    "ALLCARGO": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 55.1,
+      "prev_score": 59.1,
       "score_history": [
-        55.1
+        59.1
       ]
     },
-    "MOTHERSON": {
+    "WELCORP": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 68.0,
+      "score_history": [
+        68.0
+      ]
+    },
+    "PNBHOUSING": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 68.2,
+      "score_history": [
+        68.2
+      ]
+    },
+    "RADICO": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 67.8,
+      "score_history": [
+        67.8
+      ]
+    },
+    "CONFIPET": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 56.8,
+      "score_history": [
+        56.8
+      ]
+    },
+    "SUNPHARMA": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 56.4,
+      "score_history": [
+        56.4
+      ]
+    },
+    "ARCHIDPLY": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 59.1,
+      "score_history": [
+        59.1
+      ]
+    },
+    "NAVINFLUOR": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 63.6,
+      "score_history": [
+        63.6
+      ]
+    },
+    "CARBORUNIV": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 58.3,
+      "score_history": [
+        58.3
+      ]
+    },
+    "VIJAYA": {
       "first_seen": "2026-09-01",
       "days": 1,
       "prev_score": 66.2,
@@ -265,44 +356,84 @@
         66.2
       ]
     },
-    "CIPLA": {
+    "NIACL": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 60.0,
+      "prev_score": 66.1,
       "score_history": [
-        60.0
+        66.1
       ]
     },
-    "HAL": {
+    "CHEMCON": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 57.8,
+      "prev_score": 63.2,
       "score_history": [
-        57.8
+        63.2
       ]
     },
-    "UNITDSPR": {
+    "ABSLAMC": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 57.0,
+      "prev_score": 61.2,
       "score_history": [
-        57.0
+        61.2
       ]
     },
-    "JSWSTEEL": {
+    "BALRAMCHIN": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 56.2,
+      "prev_score": 57.3,
       "score_history": [
-        56.2
+        57.3
       ]
     },
-    "ICICIBANK": {
+    "DCBBANK": {
       "first_seen": "2026-09-01",
       "days": 1,
-      "prev_score": 64.4,
+      "prev_score": 68.0,
       "score_history": [
-        64.4
+        68.0
+      ]
+    },
+    "UNIONBANK": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 66.2,
+      "score_history": [
+        66.2
+      ]
+    },
+    "NOCIL": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 57.3,
+      "score_history": [
+        57.3
+      ]
+    },
+    "PETRONET": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 60.7,
+      "score_history": [
+        60.7
+      ]
+    },
+    "ZYDUSLIFE": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 66.2,
+      "score_history": [
+        66.2
+      ]
+    },
+    "CARTRADE": {
+      "first_seen": "2026-09-01",
+      "days": 1,
+      "prev_score": 58.1,
+      "score_history": [
+        58.1
       ]
     }
   },
