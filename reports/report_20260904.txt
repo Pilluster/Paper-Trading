@@ -1,0 +1,34 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+04 Sep 2026, 08:02 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (-1.1%) but below the 200 DMA (-2.8%). Recovery in progress but not confirmed. Key risks: FII flows (-309 Cr) and VIX (11.0). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 11.0  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -1.1%  [-1.1% below -- caution zone]
+  Nifty vs 200 DMA : -2.8%  [-2.8% below -- caution zone]
+  FII Net Flow     : Rs-309 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,982,376
+  Cash        : Rs461,388
+  P&L         : Rs+890,005 (+25.43%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 14/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (10)
+  JUNIORBEES     Score 66 | Rs791.28 | Score 66 -- MACD bearish -- wait for bullish crossover
+  PIDILITIND     Score 63 | Rs1628.00 | Score 63 -- MACD bearish -- wait for bullish crossover
+  UNITDSPR       Score 63 | Rs1470.50 | Score 63 -- MACD bearish -- wait for bullish crossover
+  ICICIBANK      Score 63 | Rs1434.00 | Score 63 -- RSI outside 50-70 zone
+  GRASIM         Score 63 | Rs3320.60 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  LICI           Score 61 | Rs417.50 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  BOSCHLTD       Score 60 | Rs46825.00 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  MOTHERSON      Score 57 | Rs160.43 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  SIEMENS        Score 57 | Rs3992.10 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  CHOLAFIN       Score 56 | Rs1834.00 | Score 56 -- MACD bearish -- wait for bullish crossover
