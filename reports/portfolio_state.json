@@ -200,58 +200,86 @@
     }
   ],
   "watchlist_history": {
-    "ICICIBANK": {
-      "first_seen": "2026-09-01",
-      "days": 13,
-      "prev_score": 64.4,
-      "score_history": [
-        64.4,
-        66.1,
-        64.2,
-        63.2,
-        55.5,
-        67.6,
-        67.1,
-        56.8,
-        56.3,
-        56.8
-      ]
-    },
     "APOLLOHOSP": {
       "first_seen": "2026-09-08",
-      "days": 3,
+      "days": 4,
       "prev_score": 58.8,
       "score_history": [
         58.8,
         58.3,
+        67.0,
         67.0
       ]
     },
     "GAIL": {
       "first_seen": "2026-09-09",
-      "days": 1,
+      "days": 2,
       "prev_score": 57.2,
       "score_history": [
-        57.2
-      ]
-    },
-    "CHOLAFIN": {
-      "first_seen": "2026-09-09",
-      "days": 1,
-      "prev_score": 56.3,
-      "score_history": [
-        56.3
+        57.2,
+        59.6
       ]
     },
     "ADANIENT": {
       "first_seen": "2026-09-09",
-      "days": 1,
+      "days": 2,
       "prev_score": 60.5,
       "score_history": [
-        60.5
+        60.5,
+        63.5
       ]
     },
     "JSWSTEEL": {
+      "first_seen": "2026-09-09",
+      "days": 2,
+      "prev_score": 60.1,
+      "score_history": [
+        60.1,
+        60.1
+      ]
+    },
+    "SIEMENS": {
+      "first_seen": "2026-09-09",
+      "days": 2,
+      "prev_score": 64.6,
+      "score_history": [
+        64.6,
+        58.8
+      ]
+    },
+    "FINEORG": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 60.6,
+      "score_history": [
+        60.6
+      ]
+    },
+    "HIKAL": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 60.3,
+      "score_history": [
+        60.3
+      ]
+    },
+    "GMMPFAUDLR": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 60.3,
+      "score_history": [
+        60.3
+      ]
+    },
+    "GODREJAGRO": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 58.4,
+      "score_history": [
+        58.4
+      ]
+    },
+    "ELGIEQUIP": {
       "first_seen": "2026-09-09",
       "days": 1,
       "prev_score": 60.1,
@@ -259,20 +287,36 @@
         60.1
       ]
     },
-    "SIEMENS": {
+    "GARFIBRES": {
       "first_seen": "2026-09-09",
       "days": 1,
-      "prev_score": 64.6,
+      "prev_score": 67.0,
       "score_history": [
-        64.6
+        67.0
       ]
     },
-    "JUNIORBEES": {
+    "GLAND": {
       "first_seen": "2026-09-09",
       "days": 1,
-      "prev_score": 66.3,
+      "prev_score": 56.6,
       "score_history": [
-        66.3
+        56.6
+      ]
+    },
+    "MOTHERSON": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 58.8,
+      "score_history": [
+        58.8
+      ]
+    },
+    "GNFC": {
+      "first_seen": "2026-09-09",
+      "days": 1,
+      "prev_score": 66.6,
+      "score_history": [
+        66.6
       ]
     }
   },
