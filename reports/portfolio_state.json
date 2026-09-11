@@ -13,7 +13,7 @@
       "score": 76.8,
       "partial": 2,
       "trail_on": true,
-      "trail_high": 1946.9,
+      "trail_high": 1972.0,
       "flat_days": 90
     },
     {
@@ -28,7 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 64
+      "flat_days": 65
     },
     {
       "symbol": "INDUSINDBK",
@@ -56,7 +56,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 61
+      "flat_days": 62
     },
     {
       "symbol": "SONACOMS",
@@ -70,7 +70,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 824.0,
-      "flat_days": 56
+      "flat_days": 57
     },
     {
       "symbol": "DIVISLAB",
@@ -84,7 +84,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9575.0,
-      "flat_days": 40
+      "flat_days": 41
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -140,7 +140,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 26
+      "flat_days": 27
     },
     {
       "symbol": "MOM100",
@@ -168,7 +168,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 19
+      "flat_days": 20
     },
     {
       "symbol": "OFSS",
@@ -182,7 +182,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 6
+      "flat_days": 7
     },
     {
       "symbol": "NIACL",
@@ -196,150 +196,44 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 1
+      "flat_days": 2
     }
   ],
   "watchlist_history": {
     "ADANIENT": {
       "first_seen": "2026-09-09",
-      "days": 4,
+      "days": 5,
       "prev_score": 60.5,
       "score_history": [
         60.5,
         63.5,
         64.4,
-        63.9
+        63.9,
+        55.9
       ]
     },
-    "JSWSTEEL": {
-      "first_seen": "2026-09-09",
-      "days": 4,
-      "prev_score": 60.1,
-      "score_history": [
-        60.1,
-        60.1,
-        60.6,
-        60.1
-      ]
-    },
-    "GLENMARK": {
-      "first_seen": "2026-09-10",
+    "GAIL": {
+      "first_seen": "2026-09-11",
       "days": 1,
-      "prev_score": 65.5,
+      "prev_score": 57.7,
       "score_history": [
-        65.5
+        57.7
       ]
     },
-    "KPRMILL": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 66.6,
-      "score_history": [
-        66.6
-      ]
-    },
-    "LICHSGFIN": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 56.5,
-      "score_history": [
-        56.5
-      ]
-    },
-    "ENGINERSIN": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 60.9,
-      "score_history": [
-        60.9
-      ]
-    },
-    "COFORGE": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 57.1,
-      "score_history": [
-        57.1
-      ]
-    },
-    "MRPL": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 56.9,
-      "score_history": [
-        56.9
-      ]
-    },
-    "IDFCFIRSTB": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 59.6,
-      "score_history": [
-        59.6
-      ]
-    },
-    "KAJARIACER": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 66.2,
-      "score_history": [
-        66.2
-      ]
-    },
-    "APLAPOLLO": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 56.0,
-      "score_history": [
-        56.0
-      ]
-    },
-    "HFCL": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 67.0,
-      "score_history": [
-        67.0
-      ]
-    },
-    "APLLTD": {
-      "first_seen": "2026-09-10",
+    "MOTHERSON": {
+      "first_seen": "2026-09-11",
       "days": 1,
       "prev_score": 59.3,
       "score_history": [
         59.3
       ]
     },
-    "CDSL": {
-      "first_seen": "2026-09-10",
+    "SIEMENS": {
+      "first_seen": "2026-09-11",
       "days": 1,
-      "prev_score": 57.6,
+      "prev_score": 59.3,
       "score_history": [
-        57.6
-      ]
-    },
-    "FIVESTAR": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 56.6,
-      "score_history": [
-        56.6
-      ]
-    },
-    "IPCALAB": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 63.0,
-      "score_history": [
-        63.0
-      ]
-    },
-    "CONCORDBIO": {
-      "first_seen": "2026-09-10",
-      "days": 1,
-      "prev_score": 57.1,
-      "score_history": [
-        57.1
+        59.3
       ]
     }
   },
