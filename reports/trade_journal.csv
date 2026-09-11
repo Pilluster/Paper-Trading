@@ -83,3 +83,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-09-01T08:43:24.477940,OFSS,BUY,23,12036.0,83.6,Score 84/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-09-07T08:23:28.808364,MARICO,SELL,318,804.95,-23261.7,-8.33,0,Stop ₹805.40,stop,B,PAPER
 2026-09-08T14:23:09.384668,NIACL,BUY,1364,205.22,76.9,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-09-11T14:16:41.637199,EICHERMOT,SELL,34,7530.0,-19295.0,-7.01,0,Stop ₹7530.67,stop,B,PAPER
+2026-09-11T14:17:10.842347,CONFIPET,BUY,3138,89.22,71.3,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
