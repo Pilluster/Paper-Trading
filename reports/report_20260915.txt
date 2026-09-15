@@ -1,0 +1,27 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+15 Sep 2026, 08:45 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -5.3% below 200 DMA -- confirmed downtrend. FII: Rs+187 Cr. VIX at 13.1. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 13.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -3.7%  [-3.7% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -5.3%  [-5.3% below -- confirmed downtrend]
+  FII Net Flow     : Rs+187 Cr  [Marginal buying -- neutral]
+
+PORTFOLIO
+  Total Value : Rs3,915,212
+  Cash        : Rs668,804
+  P&L         : Rs+810,588 (+23.16%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 13/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (3)
+  BOSCHLTD       Score 62 | Rs47705.00 | Score 62 -- MACD bearish -- wait for bullish crossover
+  MOTHERSON      Score 59 | Rs159.87 | Score 59 -- MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 56 | Rs8778.50 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment

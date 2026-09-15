@@ -85,3 +85,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-09-08T14:23:09.384668,NIACL,BUY,1364,205.22,76.9,Score 77/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
 2026-09-11T14:16:41.637199,EICHERMOT,SELL,34,7530.0,-19295.0,-7.01,0,Stop ₹7530.67,stop,B,PAPER
 2026-09-11T14:17:10.842347,CONFIPET,BUY,3138,89.22,71.3,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
+2026-09-15T08:45:08.486525,NIACL,SELL,1364,187.18,-24606.56,-8.79,0,Stop ₹190.85,stop,C,PAPER
