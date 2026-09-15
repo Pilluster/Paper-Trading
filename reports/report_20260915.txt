@@ -1,27 +1,38 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-15 Sep 2026, 08:45 AM IST
+15 Sep 2026, 02:51 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.3% below 200 DMA -- confirmed downtrend. FII: Rs+187 Cr. VIX at 13.1. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -5.8% below 200 DMA -- confirmed downtrend. FII: Rs-138 Cr. VIX at 13.3. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 13.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -3.7%  [-3.7% below -- confirmed downtrend]
-  Nifty vs 200 DMA : -5.3%  [-5.3% below -- confirmed downtrend]
-  FII Net Flow     : Rs+187 Cr  [Marginal buying -- neutral]
+  VIX              : 13.3  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -4.2%  [-4.2% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -5.8%  [-5.8% below -- confirmed downtrend]
+  FII Net Flow     : Rs-138 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,915,212
   Cash        : Rs668,804
-  P&L         : Rs+810,588 (+23.16%)
+  P&L         : Rs+795,759 (+22.74%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 13/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (3)
-  BOSCHLTD       Score 62 | Rs47705.00 | Score 62 -- MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 59 | Rs159.87 | Score 59 -- MACD bearish -- wait for bullish crossover
-  APOLLOHOSP     Score 56 | Rs8778.50 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (14)
+  AEGISLOG       Score 69 | Rs1323.50 | Score 69 -- Ready to buy -- awaiting regime recovery
+  BALRAMCHIN     Score 66 | Rs677.10 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  DCBBANK        Score 65 | Rs221.89 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DCBBANK        Score 65 | Rs221.89 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CHEMCON        Score 64 | Rs213.88 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ARCHIDPLY      Score 63 | Rs100.21 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TATAINVEST     Score 63 | Rs718.35 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  WELCORP        Score 62 | Rs2413.30 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  NOCIL          Score 62 | Rs183.60 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  AJANTPHARM     Score 59 | Rs3510.40 | Score 59 -- MACD bearish -- wait for bullish crossover
+  ALLCARGO       Score 58 | Rs11.60 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  NIACL          Score 57 | Rs185.41 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  PNBHOUSING     Score 56 | Rs1145.00 | Score 56 -- MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 56 | Rs8714.00 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
