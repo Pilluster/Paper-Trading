@@ -1,5 +1,5 @@
 {
-  "cash": 668803.6800000005,
+  "cash": 838817.8800000005,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 1972.0,
-      "flat_days": 93
+      "flat_days": 94
     },
     {
       "symbol": "TORNTPHARM",
@@ -28,21 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 67
-    },
-    {
-      "symbol": "INDUSINDBK",
-      "entry": 933.85,
-      "qty": 179,
-      "stop": 870.2,
-      "target1": 1101.94,
-      "target2": 1214.01,
-      "entry_date": "2026-06-15",
-      "score": 80.0,
-      "partial": 0,
-      "trail_on": false,
-      "trail_high": 0.0,
-      "flat_days": 65
+      "flat_days": 68
     },
     {
       "symbol": "TITAN",
@@ -84,7 +70,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9575.0,
-      "flat_days": 44
+      "flat_days": 45
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -98,7 +84,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 43
+      "flat_days": 44
     },
     {
       "symbol": "TVSMOTOR",
@@ -112,7 +98,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 38
+      "flat_days": 39
     },
     {
       "symbol": "GOLDBEES",
@@ -126,7 +112,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 33
+      "flat_days": 34
     },
     {
       "symbol": "APARINDS",
@@ -154,7 +140,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 23
+      "flat_days": 24
     },
     {
       "symbol": "OFSS",
@@ -182,114 +168,35 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 3
     }
   ],
   "watchlist_history": {
     "APOLLOHOSP": {
       "first_seen": "2026-09-11",
-      "days": 3,
+      "days": 4,
       "prev_score": 63.0,
       "score_history": [
         63.0,
         55.5,
-        55.5
-      ]
-    },
-    "NIACL": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 57.1,
-      "score_history": [
-        57.1
-      ]
-    },
-    "DCBBANK": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 65.4,
-      "score_history": [
-        65.4
-      ]
-    },
-    "AEGISLOG": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 69.4,
-      "score_history": [
-        69.4
-      ]
-    },
-    "NOCIL": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 61.9,
-      "score_history": [
-        61.9
-      ]
-    },
-    "ARCHIDPLY": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 63.0,
-      "score_history": [
-        63.0
-      ]
-    },
-    "TATAINVEST": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 62.9,
-      "score_history": [
-        62.9
-      ]
-    },
-    "WELCORP": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 62.5,
-      "score_history": [
-        62.5
-      ]
-    },
-    "CHEMCON": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 63.5,
-      "score_history": [
-        63.5
-      ]
-    },
-    "BALRAMCHIN": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 65.5,
-      "score_history": [
-        65.5
-      ]
-    },
-    "PNBHOUSING": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 56.3,
-      "score_history": [
-        56.3
-      ]
-    },
-    "AJANTPHARM": {
-      "first_seen": "2026-09-15",
-      "days": 1,
-      "prev_score": 58.8,
-      "score_history": [
+        55.5,
         58.8
       ]
     },
-    "ALLCARGO": {
-      "first_seen": "2026-09-15",
+    "BOSCHLTD": {
+      "first_seen": "2026-09-16",
       "days": 1,
-      "prev_score": 58.5,
+      "prev_score": 61.6,
       "score_history": [
-        58.5
+        61.6
+      ]
+    },
+    "MOTHERSON": {
+      "first_seen": "2026-09-16",
+      "days": 1,
+      "prev_score": 58.3,
+      "score_history": [
+        58.3
       ]
     }
   },
