@@ -1,27 +1,34 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-17 Sep 2026, 08:43 AM IST
+17 Sep 2026, 02:52 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.0% below 200 DMA -- confirmed downtrend. FII: Rs-118 Cr. VIX at 12.5. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -5.0% below 200 DMA -- confirmed downtrend. FII: Rs-65 Cr. VIX at 12.1. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 12.5  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  VIX              : 12.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
   Nifty vs 50 DMA  : -3.4%  [-3.4% below -- confirmed downtrend]
   Nifty vs 200 DMA : -5.0%  [-5.0% below -- confirmed downtrend]
-  FII Net Flow     : Rs-118 Cr  [Marginal selling -- mild caution]
+  FII Net Flow     : Rs-65 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,918,067
   Cash        : Rs838,818
-  P&L         : Rs+819,155 (+23.40%)
+  P&L         : Rs+828,158 (+23.66%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 12/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (3)
-  BOSCHLTD       Score 62 | Rs47930.00 | Score 62 -- MACD bearish -- wait for bullish crossover
-  APOLLOHOSP     Score 59 | Rs8742.50 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 59 | Rs162.30 | Score 59 -- MACD bearish -- wait for bullish crossover
+WATCHLIST (10)
+  APLLTD         Score 72 | Rs826.00 | Score 72 -- Ready to buy -- awaiting regime recovery
+  IPCALAB        Score 71 | Rs1970.30 | Score 71 -- MACD bearish -- wait for bullish crossover
+  AUROPHARMA     Score 70 | Rs1690.00 | Score 70 -- MACD bearish -- wait for bullish crossover
+  GLENMARK       Score 66 | Rs2416.00 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ENGINERSIN     Score 63 | Rs263.75 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  APOLLOHOSP     Score 59 | Rs8768.50 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  CASTROLIND     Score 59 | Rs191.72 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KAJARIACER     Score 59 | Rs1217.20 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  GODREJIND      Score 57 | Rs1127.30 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+  BRIGADE        Score 56 | Rs620.90 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment

@@ -174,7 +174,7 @@
   "watchlist_history": {
     "APOLLOHOSP": {
       "first_seen": "2026-09-11",
-      "days": 6,
+      "days": 7,
       "prev_score": 63.0,
       "score_history": [
         63.0,
@@ -182,27 +182,80 @@
         55.5,
         58.8,
         58.3,
+        59.3,
         59.3
       ]
     },
-    "BOSCHLTD": {
-      "first_seen": "2026-09-16",
-      "days": 3,
-      "prev_score": 61.6,
+    "GLENMARK": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 65.5,
       "score_history": [
-        61.6,
-        61.1,
-        62.1
+        65.5
       ]
     },
-    "MOTHERSON": {
-      "first_seen": "2026-09-16",
-      "days": 3,
-      "prev_score": 58.3,
+    "KAJARIACER": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 59.3,
       "score_history": [
-        58.3,
-        57.8,
-        58.8
+        59.3
+      ]
+    },
+    "ENGINERSIN": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 63.1,
+      "score_history": [
+        63.1
+      ]
+    },
+    "CASTROLIND": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 59.3,
+      "score_history": [
+        59.3
+      ]
+    },
+    "GODREJIND": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 56.6,
+      "score_history": [
+        56.6
+      ]
+    },
+    "IPCALAB": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 70.6,
+      "score_history": [
+        70.6
+      ]
+    },
+    "APLLTD": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 72.5,
+      "score_history": [
+        72.5
+      ]
+    },
+    "AUROPHARMA": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 69.6,
+      "score_history": [
+        69.6
+      ]
+    },
+    "BRIGADE": {
+      "first_seen": "2026-09-17",
+      "days": 1,
+      "prev_score": 56.1,
+      "score_history": [
+        56.1
       ]
     }
   },
