@@ -1,5 +1,5 @@
 {
-  "cash": 838817.8800000005,
+  "cash": 930497.8800000005,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -28,7 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 69
+      "flat_days": 70
     },
     {
       "symbol": "TITAN",
@@ -42,7 +42,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 66
+      "flat_days": 67
     },
     {
       "symbol": "SONACOMS",
@@ -56,7 +56,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 824.0,
-      "flat_days": 61
+      "flat_days": 62
     },
     {
       "symbol": "DIVISLAB",
@@ -70,7 +70,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9575.0,
-      "flat_days": 45
+      "flat_days": 46
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -123,10 +123,10 @@
       "target2": 20062.9,
       "entry_date": "2026-08-04",
       "score": 82.7,
-      "partial": 0,
+      "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 31
+      "flat_days": 32
     },
     {
       "symbol": "MOM100",
@@ -154,7 +154,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 11
+      "flat_days": 12
     },
     {
       "symbol": "CONFIPET",
@@ -168,13 +168,13 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 4
+      "flat_days": 5
     }
   ],
   "watchlist_history": {
     "APOLLOHOSP": {
       "first_seen": "2026-09-11",
-      "days": 7,
+      "days": 8,
       "prev_score": 63.0,
       "score_history": [
         63.0,
@@ -183,81 +183,26 @@
         58.8,
         58.3,
         59.3,
-        59.3
+        59.3,
+        68.1
       ]
     },
-    "GLENMARK": {
-      "first_seen": "2026-09-17",
+    "GAIL": {
+      "first_seen": "2026-09-18",
       "days": 1,
-      "prev_score": 65.5,
+      "prev_score": 58.8,
       "score_history": [
-        65.5
+        58.8
       ]
     },
-    "KAJARIACER": {
-      "first_seen": "2026-09-17",
+    "MOTHERSON": {
+      "first_seen": "2026-09-18",
       "days": 1,
-      "prev_score": 59.3,
+      "prev_score": 58.8,
       "score_history": [
-        59.3
-      ]
-    },
-    "ENGINERSIN": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 63.1,
-      "score_history": [
-        63.1
-      ]
-    },
-    "CASTROLIND": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 59.3,
-      "score_history": [
-        59.3
-      ]
-    },
-    "GODREJIND": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 56.6,
-      "score_history": [
-        56.6
-      ]
-    },
-    "IPCALAB": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 70.6,
-      "score_history": [
-        70.6
-      ]
-    },
-    "APLLTD": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 72.5,
-      "score_history": [
-        72.5
-      ]
-    },
-    "AUROPHARMA": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 69.6,
-      "score_history": [
-        69.6
-      ]
-    },
-    "BRIGADE": {
-      "first_seen": "2026-09-17",
-      "days": 1,
-      "prev_score": 56.1,
-      "score_history": [
-        56.1
+        58.8
       ]
     }
   },
-  "last_regime": "C"
+  "last_regime": "B"
 }
