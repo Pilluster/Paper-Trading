@@ -1,27 +1,41 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-18 Sep 2026, 08:19 AM IST
+18 Sep 2026, 02:21 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-3.2%) but below the 200 DMA (-4.8%). Recovery in progress but not confirmed. Key risks: FII flows (-209 Cr) and VIX (11.6). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-3.0%) but below the 200 DMA (-4.7%). Recovery in progress but not confirmed. Key risks: FII flows (-89 Cr) and VIX (11.4). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 11.6  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -3.2%  [-3.2% below -- confirmed downtrend]
-  Nifty vs 200 DMA : -4.8%  [-4.8% below -- confirmed downtrend]
-  FII Net Flow     : Rs-209 Cr  [Marginal selling -- mild caution]
+  VIX              : 11.4  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -3.0%  [-3.0% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -4.7%  [-4.7% below -- confirmed downtrend]
+  FII Net Flow     : Rs-89 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs4,009,747
-  Cash        : Rs930,498
-  P&L         : Rs+975,835 (+27.88%)
+  Cash        : Rs374,385
+  P&L         : Rs+984,186 (+28.12%)
   Drawdown    : 0.00%  (Limit: 10%)
-  Positions   : 12/14
+  Positions   : 14/14
 
-BUY SIGNALS (0)
-  No buy signals -- regime C, bot protecting capital in cash.
+BUY SIGNALS (2)
+  AEGISLOG       Score 79/100 | Entry Rs1415.40 | Stop Rs1273.86 | Qty 197 | Capital Rs278,834
+  APOLLOHOSP     Score 76/100 | Entry Rs8944.50 | Stop Rs8507.50 | Qty 31 | Capital Rs277,280
 
-WATCHLIST (3)
-  APOLLOHOSP     Score 68 | Rs8835.00 | Score 68 -- MACD bearish -- wait for bullish crossover
-  GAIL           Score 59 | Rs173.70 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  MOTHERSON      Score 59 | Rs164.41 | Score 59 -- MACD bearish -- wait for bullish crossover
+WATCHLIST (16)
+  CARTRADE       Score 66 | Rs2988.90 | Score 66 -- MACD bearish -- wait for bullish crossover
+  CHEMCON        Score 65 | Rs216.36 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  NOCIL          Score 65 | Rs194.56 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  VIJAYA         Score 63 | Rs1558.90 | Score 63 -- MACD bearish -- wait for bullish crossover
+  ARCHIDPLY      Score 62 | Rs104.80 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  DCBBANK        Score 62 | Rs218.35 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  DCBBANK        Score 62 | Rs218.35 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  WELCORP        Score 62 | Rs2660.10 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ZYDUSLIFE      Score 61 | Rs1160.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  PNBHOUSING     Score 59 | Rs1133.10 | Score 59 -- MACD bearish -- wait for bullish crossover
+  AJANTPHARM     Score 58 | Rs3563.60 | Score 58 -- MACD bearish -- wait for bullish crossover
+  ADANIPORTS     Score 58 | Rs1824.00 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  NIACL          Score 57 | Rs187.66 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TATAINVEST     Score 57 | Rs702.35 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  CARBORUNIV     Score 56 | Rs1124.40 | Score 56 -- MACD bearish -- wait for bullish crossover
+  TATACOMM       Score 56 | Rs1780.10 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
