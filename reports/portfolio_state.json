@@ -13,7 +13,7 @@
       "score": 76.8,
       "partial": 2,
       "trail_on": true,
-      "trail_high": 2016.5,
+      "trail_high": 2017.5,
       "flat_days": 97
     },
     {
@@ -200,23 +200,63 @@
     }
   ],
   "watchlist_history": {
-    "MOTHERSON": {
+    "GLENMARK": {
       "first_seen": "2026-09-21",
       "days": 1,
-      "prev_score": 58.3,
+      "prev_score": 65.5,
       "score_history": [
-        58.3
+        65.5
       ]
     },
-    "BAJAJHLDNG": {
+    "CASTROLIND": {
       "first_seen": "2026-09-21",
       "days": 1,
-      "prev_score": 62.5,
+      "prev_score": 60.9,
       "score_history": [
-        62.5
+        60.9
       ]
     },
-    "SIEMENS": {
+    "ENGINERSIN": {
+      "first_seen": "2026-09-21",
+      "days": 1,
+      "prev_score": 67.5,
+      "score_history": [
+        67.5
+      ]
+    },
+    "FIVESTAR": {
+      "first_seen": "2026-09-21",
+      "days": 1,
+      "prev_score": 61.0,
+      "score_history": [
+        61.0
+      ]
+    },
+    "CLEAN": {
+      "first_seen": "2026-09-21",
+      "days": 1,
+      "prev_score": 60.6,
+      "score_history": [
+        60.6
+      ]
+    },
+    "LICHSGFIN": {
+      "first_seen": "2026-09-21",
+      "days": 1,
+      "prev_score": 56.5,
+      "score_history": [
+        56.5
+      ]
+    },
+    "CONCORDBIO": {
+      "first_seen": "2026-09-21",
+      "days": 1,
+      "prev_score": 61.5,
+      "score_history": [
+        61.5
+      ]
+    },
+    "EXIDEIND": {
       "first_seen": "2026-09-21",
       "days": 1,
       "prev_score": 56.6,
@@ -225,5 +265,5 @@
       ]
     }
   },
-  "last_regime": "C"
+  "last_regime": "B"
 }
