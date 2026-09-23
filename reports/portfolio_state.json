@@ -13,8 +13,8 @@
       "score": 76.8,
       "partial": 2,
       "trail_on": true,
-      "trail_high": 2017.5,
-      "flat_days": 98
+      "trail_high": 2026.2,
+      "flat_days": 99
     },
     {
       "symbol": "TORNTPHARM",
@@ -28,7 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 72
+      "flat_days": 73
     },
     {
       "symbol": "TITAN",
@@ -55,7 +55,7 @@
       "score": 81.4,
       "partial": 2,
       "trail_on": true,
-      "trail_high": 824.0,
+      "trail_high": 831.0,
       "flat_days": 65
     },
     {
@@ -70,7 +70,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9575.0,
-      "flat_days": 49
+      "flat_days": 50
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -84,7 +84,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 48
+      "flat_days": 49
     },
     {
       "symbol": "TVSMOTOR",
@@ -98,7 +98,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 43
+      "flat_days": 44
     },
     {
       "symbol": "GOLDBEES",
@@ -112,7 +112,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 38
+      "flat_days": 39
     },
     {
       "symbol": "APARINDS",
@@ -140,7 +140,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 28
+      "flat_days": 29
     },
     {
       "symbol": "OFSS",
@@ -168,7 +168,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 7
+      "flat_days": 8
     },
     {
       "symbol": "AEGISLOG",
@@ -182,7 +182,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 3
     },
     {
       "symbol": "APOLLOHOSP",
@@ -196,104 +196,16 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 3
     }
   ],
   "watchlist_history": {
-    "PAGEIND": {
-      "first_seen": "2026-09-22",
+    "MOTHERSON": {
+      "first_seen": "2026-09-23",
       "days": 1,
-      "prev_score": 58.3,
+      "prev_score": 59.3,
       "score_history": [
-        58.3
-      ]
-    },
-    "NAVINFLUOR": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 55.1,
-      "score_history": [
-        55.1
-      ]
-    },
-    "DCBBANK": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 63.5,
-      "score_history": [
-        63.5
-      ]
-    },
-    "VIJAYA": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 60.0,
-      "score_history": [
-        60.0
-      ]
-    },
-    "WELCORP": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 55.0,
-      "score_history": [
-        55.0
-      ]
-    },
-    "ASKAUTOLTD": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 57.4,
-      "score_history": [
-        57.4
-      ]
-    },
-    "NOCIL": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 63.0,
-      "score_history": [
-        63.0
-      ]
-    },
-    "PHOENIXLTD": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 65.9,
-      "score_history": [
-        65.9
-      ]
-    },
-    "ZYDUSLIFE": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 65.4,
-      "score_history": [
-        65.4
-      ]
-    },
-    "RADICO": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 56.8,
-      "score_history": [
-        56.8
-      ]
-    },
-    "CHEMCON": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 66.3,
-      "score_history": [
-        66.3
-      ]
-    },
-    "CARTRADE": {
-      "first_seen": "2026-09-22",
-      "days": 1,
-      "prev_score": 55.3,
-      "score_history": [
-        55.3
+        59.3
       ]
     }
   },
