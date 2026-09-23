@@ -1,25 +1,33 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-23 Sep 2026, 08:39 AM IST
+23 Sep 2026, 02:53 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-2.5%) but below the 200 DMA (-4.2%). Recovery in progress but not confirmed. Key risks: FII flows (+240 Cr) and VIX (10.3). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-2.5%) but below the 200 DMA (-4.2%). Recovery in progress but not confirmed. Key risks: FII flows (+121 Cr) and VIX (10.3). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
   VIX              : 10.3  [Very low -- extreme complacency, watch for reversal]  (Normal: 12-20)
   Nifty vs 50 DMA  : -2.5%  [-2.5% below -- caution zone]
   Nifty vs 200 DMA : -4.2%  [-4.2% below -- confirmed downtrend]
-  FII Net Flow     : Rs+240 Cr  [Marginal buying -- neutral]
+  FII Net Flow     : Rs+121 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs4,009,747
   Cash        : Rs374,385
-  P&L         : Rs+976,557 (+27.90%)
+  P&L         : Rs+978,612 (+27.96%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 14/14
 
-BUY SIGNALS (1)
-  BAJAJHLDNG     Score 73/100 | Entry Rs11347.00 | Stop Rs10811.00 | Qty 24 | Capital Rs272,328
+BUY SIGNALS (2)
+  BAJAJHLDNG     Score 73/100 | Entry Rs11449.00 | Stop Rs10811.00 | Qty 24 | Capital Rs274,776
+  GNFC           Score 72/100 | Entry Rs623.05 | Stop Rs579.44 | Qty 449 | Capital Rs279,749
 
-WATCHLIST (1)
-  MOTHERSON      Score 59 | Rs164.53 | Score 59 -- MACD bearish -- wait for bullish crossover
+WATCHLIST (8)
+  HIKAL          Score 64 | Rs232.43 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  GODREJAGRO     Score 63 | Rs670.05 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GLAND          Score 62 | Rs2910.20 | Score 62 -- MACD bearish -- wait for bullish crossover
+  ELGIEQUIP      Score 60 | Rs614.70 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  MOTHERSON      Score 59 | Rs164.40 | Score 59 -- MACD bearish -- wait for bullish crossover
+  EMUDHRA        Score 58 | Rs637.80 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  GESHIP         Score 56 | Rs1483.80 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  GMMPFAUDLR     Score 56 | Rs1432.60 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
