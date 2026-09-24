@@ -90,3 +90,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-09-18T08:19:27.833034,APARINDS,SELL,5,18336.0,14515.0,18.81,0,Target1 +18.8%,t1,B,PAPER
 2026-09-18T14:21:04.209540,AEGISLOG,BUY,197,1415.4,78.8,Score 79/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-09-18T14:21:04.212847,APOLLOHOSP,BUY,31,8944.5,76.0,Score 76/100 [STANDARD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 1.5% | Regime B,0,0,entry,B,PAPER
+2026-09-24T08:31:54.863609,MOM100,SELL,4062,66.08,-11576.7,-4.13,0,"Extended loss stop: 30 sessions, -4.1%",time,C,PAPER

@@ -1,5 +1,5 @@
 {
-  "cash": 374384.5800000004,
+  "cash": 642801.5400000005,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -13,8 +13,8 @@
       "score": 76.8,
       "partial": 2,
       "trail_on": true,
-      "trail_high": 2034.0,
-      "flat_days": 99
+      "trail_high": 2040.1,
+      "flat_days": 100
     },
     {
       "symbol": "TORNTPHARM",
@@ -28,7 +28,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 73
+      "flat_days": 74
     },
     {
       "symbol": "TITAN",
@@ -42,7 +42,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 70
+      "flat_days": 71
     },
     {
       "symbol": "SONACOMS",
@@ -56,7 +56,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 833.0,
-      "flat_days": 65
+      "flat_days": 66
     },
     {
       "symbol": "DIVISLAB",
@@ -84,7 +84,7 @@
       "partial": 1,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 49
+      "flat_days": 50
     },
     {
       "symbol": "TVSMOTOR",
@@ -98,7 +98,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 44
+      "flat_days": 45
     },
     {
       "symbol": "GOLDBEES",
@@ -112,7 +112,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 39
+      "flat_days": 40
     },
     {
       "symbol": "APARINDS",
@@ -126,21 +126,7 @@
       "partial": 1,
       "trail_on": true,
       "trail_high": 18955.0,
-      "flat_days": 35
-    },
-    {
-      "symbol": "MOM100",
-      "entry": 68.93,
-      "qty": 4062,
-      "stop": 65.8,
-      "target1": 81.34,
-      "target2": 89.61,
-      "entry_date": "2026-08-13",
-      "score": 80.8,
-      "partial": 0,
-      "trail_on": false,
-      "trail_high": 0.0,
-      "flat_days": 29
+      "flat_days": 36
     },
     {
       "symbol": "OFSS",
@@ -154,7 +140,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 15
+      "flat_days": 16
     },
     {
       "symbol": "CONFIPET",
@@ -168,7 +154,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 8
+      "flat_days": 9
     },
     {
       "symbol": "AEGISLOG",
@@ -182,7 +168,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 3
+      "flat_days": 4
     },
     {
       "symbol": "APOLLOHOSP",
@@ -196,75 +182,36 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 3
+      "flat_days": 4
     }
   ],
   "watchlist_history": {
     "MOTHERSON": {
       "first_seen": "2026-09-23",
-      "days": 2,
+      "days": 3,
       "prev_score": 59.3,
       "score_history": [
         59.3,
-        58.8
+        58.8,
+        58.3
       ]
     },
-    "GMMPFAUDLR": {
-      "first_seen": "2026-09-23",
+    "CIPLA": {
+      "first_seen": "2026-09-24",
       "days": 1,
-      "prev_score": 55.9,
+      "prev_score": 57.1,
       "score_history": [
-        55.9
+        57.1
       ]
     },
-    "EMUDHRA": {
-      "first_seen": "2026-09-23",
+    "BAJAJHLDNG": {
+      "first_seen": "2026-09-24",
       "days": 1,
-      "prev_score": 58.4,
+      "prev_score": 61.2,
       "score_history": [
-        58.4
-      ]
-    },
-    "GESHIP": {
-      "first_seen": "2026-09-23",
-      "days": 1,
-      "prev_score": 56.1,
-      "score_history": [
-        56.1
-      ]
-    },
-    "GLAND": {
-      "first_seen": "2026-09-23",
-      "days": 1,
-      "prev_score": 62.1,
-      "score_history": [
-        62.1
-      ]
-    },
-    "HIKAL": {
-      "first_seen": "2026-09-23",
-      "days": 1,
-      "prev_score": 63.9,
-      "score_history": [
-        63.9
-      ]
-    },
-    "GODREJAGRO": {
-      "first_seen": "2026-09-23",
-      "days": 1,
-      "prev_score": 63.0,
-      "score_history": [
-        63.0
-      ]
-    },
-    "ELGIEQUIP": {
-      "first_seen": "2026-09-23",
-      "days": 1,
-      "prev_score": 60.1,
-      "score_history": [
-        60.1
+        61.2
       ]
     }
   },
-  "last_regime": "B"
+  "last_regime": "C"
 }
