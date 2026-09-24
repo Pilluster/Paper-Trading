@@ -1,27 +1,35 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-24 Sep 2026, 08:32 AM IST
+24 Sep 2026, 02:53 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.6% below 200 DMA -- confirmed downtrend. FII: Rs-115 Cr. VIX at 13.1. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -5.7% below 200 DMA -- confirmed downtrend. FII: Rs-421 Cr. VIX at 12.7. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 13.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  VIX              : 12.7  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
   Nifty vs 50 DMA  : -4.0%  [-4.0% below -- confirmed downtrend]
-  Nifty vs 200 DMA : -5.6%  [-5.6% below -- confirmed downtrend]
-  FII Net Flow     : Rs-115 Cr  [Marginal selling -- mild caution]
+  Nifty vs 200 DMA : -5.7%  [-5.7% below -- confirmed downtrend]
+  FII Net Flow     : Rs-421 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,998,171
   Cash        : Rs642,802
-  P&L         : Rs+937,458 (+26.78%)
+  P&L         : Rs+927,620 (+26.50%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 13/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (3)
-  BAJAJHLDNG     Score 61 | Rs11078.00 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
-  MOTHERSON      Score 58 | Rs164.30 | Score 58 -- MACD bearish -- wait for bullish crossover
-  CIPLA          Score 57 | Rs1396.50 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (11)
+  ENGINERSIN     Score 70 | Rs296.65 | Score 70 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  IPCALAB        Score 70 | Rs1997.10 | Score 70 -- MACD bearish -- wait for bullish crossover
+  FIVESTAR       Score 66 | Rs524.85 | Score 66 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  AUROPHARMA     Score 65 | Rs1716.00 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CASTROLIND     Score 62 | Rs194.80 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CIPLA          Score 59 | Rs1399.00 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment
+  CRISIL         Score 58 | Rs4503.50 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  APLLTD         Score 57 | Rs850.00 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KAJARIACER     Score 56 | Rs1221.80 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  CONCORDBIO     Score 56 | Rs1478.80 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  LICHSGFIN      Score 56 | Rs564.25 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
