@@ -1,26 +1,40 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-25 Sep 2026, 08:53 AM IST
+25 Sep 2026, 03:08 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.4% below 200 DMA -- confirmed downtrend. FII: Rs+18 Cr. VIX at 12.3. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -5.2% below 200 DMA -- confirmed downtrend. FII: Rs-119 Cr. VIX at 12.2. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 12.3  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -3.7%  [-3.7% below -- confirmed downtrend]
-  Nifty vs 200 DMA : -5.4%  [-5.4% below -- confirmed downtrend]
-  FII Net Flow     : Rs+18 Cr  [Marginal buying -- neutral]
+  VIX              : 12.2  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -3.6%  [-3.6% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -5.2%  [-5.2% below -- confirmed downtrend]
+  FII Net Flow     : Rs-119 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,967,673
   Cash        : Rs889,132
-  P&L         : Rs+933,923 (+26.68%)
+  P&L         : Rs+940,562 (+26.87%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 12/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (2)
-  MOTHERSON      Score 59 | Rs165.70 | Score 59 -- MACD bearish -- wait for bullish crossover
-  CIPLA          Score 57 | Rs1392.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (16)
+  CARBORUNIV     Score 70 | Rs1278.50 | Score 70 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PHOENIXLTD     Score 68 | Rs1978.40 | Score 68 -- Ready to buy -- awaiting regime recovery
+  BALRAMCHIN     Score 68 | Rs685.80 | Score 68 -- MACD bearish -- wait for bullish crossover
+  AJANTPHARM     Score 64 | Rs3547.80 | Score 64 -- Score 64/100 -- need macro improvement or volume surge
+  ASKAUTOLTD     Score 64 | Rs645.15 | Score 64 -- RSI outside 50-70 zone
+  ZYDUSLIFE      Score 63 | Rs1203.90 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  NOCIL          Score 62 | Rs188.41 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CHEMCON        Score 61 | Rs227.84 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DATAMATICS     Score 60 | Rs807.60 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  VIJAYA         Score 60 | Rs1513.60 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DCBBANK        Score 59 | Rs214.09 | Score 59 -- MACD bearish -- wait for bullish crossover
+  DCBBANK        Score 59 | Rs214.09 | Score 59 -- MACD bearish -- wait for bullish crossover
+  RADICO         Score 59 | Rs4557.10 | Score 59 -- RSI outside 50-70 zone
+  CIPLA          Score 57 | Rs1399.70 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+  THYROCARE      Score 57 | Rs566.85 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+  WELCORP        Score 56 | Rs2832.40 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
