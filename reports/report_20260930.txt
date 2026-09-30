@@ -1,0 +1,25 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+30 Sep 2026, 09:47 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -7.2% below 200 DMA -- confirmed downtrend. FII: Rs+26 Cr. VIX at 13.6. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 13.6  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -5.4%  [-5.4% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -7.2%  [-7.2% below -- confirmed downtrend]
+  FII Net Flow     : Rs+26 Cr  [Marginal buying -- neutral]
+
+PORTFOLIO
+  Total Value : Rs3,883,652
+  Cash        : Rs1,329,319
+  P&L         : Rs+775,735 (+22.16%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 10/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (0)
+  Nothing on watchlist today.
