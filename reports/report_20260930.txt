@@ -1,25 +1,31 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-30 Sep 2026, 09:47 AM IST
+30 Sep 2026, 04:22 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -7.2% below 200 DMA -- confirmed downtrend. FII: Rs+26 Cr. VIX at 13.6. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -7.2% below 200 DMA -- confirmed downtrend. FII: Rs+9 Cr. VIX at 13.5. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 13.6  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  VIX              : 13.5  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
   Nifty vs 50 DMA  : -5.4%  [-5.4% below -- confirmed downtrend]
   Nifty vs 200 DMA : -7.2%  [-7.2% below -- confirmed downtrend]
-  FII Net Flow     : Rs+26 Cr  [Marginal buying -- neutral]
+  FII Net Flow     : Rs+9 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,883,652
   Cash        : Rs1,329,319
-  P&L         : Rs+775,735 (+22.16%)
+  P&L         : Rs+772,505 (+22.07%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 10/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (0)
-  Nothing on watchlist today.
+WATCHLIST (7)
+  GNFC           Score 66 | Rs604.40 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  FINEORG        Score 64 | Rs5124.50 | Score 64 -- MACD bearish -- wait for bullish crossover
+  GESHIP         Score 61 | Rs1560.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  GMMPFAUDLR     Score 61 | Rs1466.70 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  EMUDHRA        Score 58 | Rs596.50 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 55 | Rs1798.30 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  GLAND          Score 55 | Rs2899.40 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
