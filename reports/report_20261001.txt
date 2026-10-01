@@ -1,0 +1,31 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+01 Oct 2026, 10:14 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -7.9% below 200 DMA -- confirmed downtrend. FII: Rs-228 Cr. VIX at 14.4. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 14.4  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -6.1%  [-6.1% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -7.9%  [-7.9% below -- confirmed downtrend]
+  FII Net Flow     : Rs-228 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,789,260
+  Cash        : Rs1,791,599
+  P&L         : Rs+637,274 (+18.21%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 8/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (7)
+  ENGINERSIN     Score 69 | Rs312.75 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CASTROLIND     Score 65 | Rs199.04 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  HFCL           Score 62 | Rs238.36 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  AUROPHARMA     Score 58 | Rs1676.80 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GRINDWELL      Score 56 | Rs1975.80 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  IPCALAB        Score 56 | Rs1943.20 | Score 56 -- MACD bearish -- wait for bullish crossover
+  COFORGE        Score 55 | Rs1826.00 | Score 55 -- MACD bearish -- wait for bullish crossover
