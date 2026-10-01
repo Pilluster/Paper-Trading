@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-01 Oct 2026, 10:14 AM IST
+01 Oct 2026, 04:59 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
 Nifty is -7.9% below 200 DMA -- confirmed downtrend. FII: Rs-228 Cr. VIX at 14.4. Buying now means catching a falling knife. Capital preservation is the priority.
@@ -21,11 +21,10 @@ PORTFOLIO
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (7)
+WATCHLIST (6)
   ENGINERSIN     Score 69 | Rs312.75 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  CASTROLIND     Score 65 | Rs199.04 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CASTROLIND     Score 64 | Rs199.04 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
   HFCL           Score 62 | Rs238.36 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  AUROPHARMA     Score 58 | Rs1676.80 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  AUROPHARMA     Score 57 | Rs1676.80 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
   GRINDWELL      Score 56 | Rs1975.80 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  IPCALAB        Score 56 | Rs1943.20 | Score 56 -- MACD bearish -- wait for bullish crossover
-  COFORGE        Score 55 | Rs1826.00 | Score 55 -- MACD bearish -- wait for bullish crossover
+  IPCALAB        Score 55 | Rs1943.20 | Score 55 -- MACD bearish -- wait for bullish crossover
