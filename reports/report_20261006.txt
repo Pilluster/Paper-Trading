@@ -1,0 +1,35 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+06 Oct 2026, 10:25 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -6.4% below 200 DMA -- confirmed downtrend. FII: Rs-44 Cr. VIX at 13.6. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 13.6  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -4.4%  [-4.4% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -6.4%  [-6.4% below -- confirmed downtrend]
+  FII Net Flow     : Rs-44 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,789,260
+  Cash        : Rs1,791,599
+  P&L         : Rs+671,890 (+19.20%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 8/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (11)
+  CARBORUNIV     Score 69 | Rs1269.60 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  AJANTPHARM     Score 66 | Rs3573.40 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CHEMCON        Score 66 | Rs217.40 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  DELTACORP      Score 66 | Rs84.34 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ZYDUSLIFE      Score 61 | Rs1159.50 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  RADICO         Score 60 | Rs4460.10 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  BALRAMCHIN     Score 60 | Rs691.30 | Score 60 -- MACD bearish -- wait for bullish crossover
+  DEEPAKFERT     Score 60 | Rs1385.60 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  ECLERX         Score 58 | Rs1917.20 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  UJJIVANSFB     Score 57 | Rs65.19 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
+  APARINDS       Score 55 | Rs18016.00 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
