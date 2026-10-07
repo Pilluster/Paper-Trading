@@ -104,58 +104,65 @@
   "watchlist_history": {
     "FINEORG": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 76.4,
       "score_history": [
-        76.4
+        76.4,
+        77.6
       ]
     },
     "ADANIGREEN": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 57.8,
       "score_history": [
-        57.8
+        57.8,
+        59.0
       ]
     },
     "GESHIP": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 67.4,
       "score_history": [
-        67.4
+        67.4,
+        68.6
       ]
     },
     "GNFC": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 58.5,
       "score_history": [
-        58.5
+        58.5,
+        59.7
       ]
     },
     "GLAND": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 67.9,
       "score_history": [
-        67.9
+        67.9,
+        69.1
       ]
     },
     "EMUDHRA": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 60.5,
       "score_history": [
-        60.5
+        60.5,
+        61.7
       ]
     },
     "TRENT": {
       "first_seen": "2026-10-07",
-      "days": 1,
+      "days": 2,
       "prev_score": 58.6,
       "score_history": [
-        58.6
+        58.6,
+        59.8
       ]
     }
   },

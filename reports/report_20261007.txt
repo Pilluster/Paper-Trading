@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-07 Oct 2026, 10:21 AM IST
+07 Oct 2026, 05:24 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
 Nifty is -7.0% below 200 DMA -- confirmed downtrend. FII: Rs-150 Cr. VIX at 13.9. Buying now means catching a falling knife. Capital preservation is the priority.
@@ -22,10 +22,10 @@ BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
 WATCHLIST (7)
-  FINEORG        Score 76 | Rs5625.50 | Score 76 -- Ready to buy -- awaiting regime recovery
-  GLAND          Score 68 | Rs3150.60 | Score 68 -- Score 68/100 -- need macro improvement or volume surge
-  GESHIP         Score 67 | Rs1567.90 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
-  EMUDHRA        Score 60 | Rs605.50 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  TRENT          Score 59 | Rs2890.30 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  GNFC           Score 58 | Rs618.20 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  ADANIGREEN     Score 58 | Rs1341.40 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  FINEORG        Score 78 | Rs5625.50 | Score 78 -- Ready to buy -- awaiting regime recovery
+  GLAND          Score 69 | Rs3150.60 | Score 69 -- Ready to buy -- awaiting regime recovery
+  GESHIP         Score 69 | Rs1567.90 | Score 69 -- Price below 100/200 DMA -- wait for MA alignment
+  EMUDHRA        Score 62 | Rs605.50 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TRENT          Score 60 | Rs2890.30 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  GNFC           Score 60 | Rs618.20 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIGREEN     Score 59 | Rs1341.40 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
