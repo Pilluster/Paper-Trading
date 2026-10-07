@@ -1,0 +1,31 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+07 Oct 2026, 10:21 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -7.0% below 200 DMA -- confirmed downtrend. FII: Rs-150 Cr. VIX at 13.9. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 13.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -5.0%  [-5.0% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -7.0%  [-7.0% below -- confirmed downtrend]
+  FII Net Flow     : Rs-150 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,789,300
+  Cash        : Rs1,795,976
+  P&L         : Rs+693,804 (+19.82%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 7/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (7)
+  FINEORG        Score 76 | Rs5625.50 | Score 76 -- Ready to buy -- awaiting regime recovery
+  GLAND          Score 68 | Rs3150.60 | Score 68 -- Score 68/100 -- need macro improvement or volume surge
+  GESHIP         Score 67 | Rs1567.90 | Score 67 -- Price below 100/200 DMA -- wait for MA alignment
+  EMUDHRA        Score 60 | Rs605.50 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  TRENT          Score 59 | Rs2890.30 | Score 59 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  GNFC           Score 58 | Rs618.20 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIGREEN     Score 58 | Rs1341.40 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
