@@ -90,65 +90,73 @@
   "watchlist_history": {
     "GRINDWELL": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 57.2,
       "score_history": [
+        57.2,
         57.2
       ]
     },
     "KECL": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 59.0,
       "score_history": [
+        59.0,
         59.0
       ]
     },
     "ENGINERSIN": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 60.5,
       "score_history": [
+        60.5,
         60.5
       ]
     },
     "HFCL": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 60.9,
       "score_history": [
+        60.9,
         60.9
       ]
     },
     "KARURVYSYA": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 56.6,
       "score_history": [
+        56.6,
         56.6
       ]
     },
     "AUROPHARMA": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 58.3,
       "score_history": [
+        58.3,
         58.3
       ]
     },
     "CASTROLIND": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 62.1,
       "score_history": [
+        62.1,
         62.1
       ]
     },
     "IPCALAB": {
       "first_seen": "2026-10-08",
-      "days": 1,
+      "days": 2,
       "prev_score": 57.8,
       "score_history": [
+        57.8,
         57.8
       ]
     }
