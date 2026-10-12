@@ -1,0 +1,33 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+12 Oct 2026, 10:58 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -7.8% below 200 DMA -- confirmed downtrend. FII: Rs-104 Cr. VIX at 15.2. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 15.2  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -5.6%  [-5.6% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -7.8%  [-7.8% below -- confirmed downtrend]
+  FII Net Flow     : Rs-104 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,791,594
+  Cash        : Rs2,077,619
+  P&L         : Rs+654,644 (+18.70%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 6/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (9)
+  AUROPHARMA     Score 68 | Rs1706.90 | Score 68 -- MACD bearish -- wait for bullish crossover
+  HFCL           Score 67 | Rs265.48 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KARURVYSYA     Score 65 | Rs342.30 | Score 65 -- Score 65/100 -- need macro improvement or volume surge
+  ENGINERSIN     Score 64 | Rs296.45 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  COFORGE        Score 64 | Rs1846.60 | Score 64 -- Score 64/100 -- need macro improvement or volume surge
+  CASTROLIND     Score 62 | Rs193.87 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  GRINDWELL      Score 58 | Rs1997.10 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
+  LICHSGFIN      Score 58 | Rs568.00 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  KAJARIACER     Score 55 | Rs1224.70 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
