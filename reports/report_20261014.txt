@@ -1,0 +1,28 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+14 Oct 2026, 08:48 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -6.6% below 200 DMA -- confirmed downtrend. FII: Rs-246 Cr. VIX at 14.8. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 14.8  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -4.2%  [-4.2% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -6.6%  [-6.6% below -- confirmed downtrend]
+  FII Net Flow     : Rs-246 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,798,148
+  Cash        : Rs1,889,406
+  P&L         : Rs+643,033 (+18.37%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 6/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (4)
+  HAL            Score 63 | Rs4894.60 | Score 63 -- Score 63/100 -- need macro improvement or volume surge
+  ADANIGREEN     Score 56 | Rs1314.40 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
+  TECHM          Score 56 | Rs1570.30 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TRENT          Score 55 | Rs2949.90 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment

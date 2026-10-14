@@ -1,5 +1,5 @@
 {
-  "cash": 2077618.6400000006,
+  "cash": 1889406.3900000006,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -14,7 +14,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 2069.2,
-      "flat_days": 113
+      "flat_days": 114
     },
     {
       "symbol": "SONACOMS",
@@ -42,21 +42,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9624.0,
-      "flat_days": 64
-    },
-    {
-      "symbol": "GOLDBEES",
-      "entry": 117.37,
-      "qty": 2813,
-      "stop": 109.15,
-      "target1": 129.11,
-      "target2": 140.84,
-      "entry_date": "2026-07-30",
-      "score": 70,
-      "partial": 0,
-      "trail_on": false,
-      "trail_high": 0.0,
-      "flat_days": 53
+      "flat_days": 65
     },
     {
       "symbol": "CONFIPET",
@@ -70,7 +56,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 22
+      "flat_days": 23
     },
     {
       "symbol": "AEGISLOG",
@@ -84,116 +70,56 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 17
+      "flat_days": 18
+    },
+    {
+      "symbol": "GOLDBEES",
+      "entry": 119.71,
+      "qty": 4385,
+      "stop": 111.33,
+      "target1": 131.68,
+      "target2": 143.65,
+      "entry_date": "2026-10-14",
+      "score": 70,
+      "partial": 0,
+      "trail_on": false,
+      "trail_high": 0.0,
+      "flat_days": 0
     }
   ],
   "watchlist_history": {
-    "RADICO": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 64.9,
-      "score_history": [
-        64.9,
-        64.9
-      ]
-    },
-    "CARTRADE": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 55.0,
-      "score_history": [
-        55.0,
-        55.0
-      ]
-    },
-    "UJJIVANSFB": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 58.6,
-      "score_history": [
-        58.6,
-        58.6
-      ]
-    },
-    "TANLA": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 64.4,
-      "score_history": [
-        64.4,
-        64.4
-      ]
-    },
-    "PNBHOUSING": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 73.3,
-      "score_history": [
-        73.3,
-        73.3
-      ]
-    },
-    "DELTACORP": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 60.4,
-      "score_history": [
-        60.4,
-        60.4
-      ]
-    },
     "TECHM": {
       "first_seen": "2026-10-13",
-      "days": 2,
+      "days": 3,
       "prev_score": 60.5,
       "score_history": [
         60.5,
-        60.5
+        60.5,
+        56.0
       ]
     },
-    "PERSISTENT": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 69.8,
+    "ADANIGREEN": {
+      "first_seen": "2026-10-14",
+      "days": 1,
+      "prev_score": 56.3,
       "score_history": [
-        69.8,
-        69.8
+        56.3
       ]
     },
-    "CARBORUNIV": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 58.6,
+    "TRENT": {
+      "first_seen": "2026-10-14",
+      "days": 1,
+      "prev_score": 55.0,
       "score_history": [
-        58.6,
-        58.6
+        55.0
       ]
     },
-    "ECLERX": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 69.0,
+    "HAL": {
+      "first_seen": "2026-10-14",
+      "days": 1,
+      "prev_score": 63.1,
       "score_history": [
-        69.0,
-        69.0
-      ]
-    },
-    "APARINDS": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 57.6,
-      "score_history": [
-        57.6,
-        57.6
-      ]
-    },
-    "BALRAMCHIN": {
-      "first_seen": "2026-10-13",
-      "days": 2,
-      "prev_score": 57.4,
-      "score_history": [
-        57.4,
-        57.4
+        63.1
       ]
     }
   },
