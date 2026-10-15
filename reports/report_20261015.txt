@@ -1,31 +1,35 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-15 Oct 2026, 08:23 AM IST
+15 Oct 2026, 02:51 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-2.3%) but below the 200 DMA (-4.8%). Recovery in progress but not confirmed. Key risks: FII flows (+23 Cr) and VIX (14.5). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-2.5%) but below the 200 DMA (-5.0%). Recovery in progress but not confirmed. Key risks: FII flows (+183 Cr) and VIX (14.0). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 14.5  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -2.3%  [-2.3% below -- caution zone]
-  Nifty vs 200 DMA : -4.8%  [-4.8% below -- confirmed downtrend]
-  FII Net Flow     : Rs+23 Cr  [Marginal buying -- neutral]
+  VIX              : 14.0  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -2.5%  [-2.5% below -- caution zone]
+  Nifty vs 200 DMA : -5.0%  [-5.0% below -- confirmed downtrend]
+  FII Net Flow     : Rs+183 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,777,657
-  Cash        : Rs1,869,018
-  P&L         : Rs+617,266 (+17.64%)
+  Cash        : Rs1,031,971
+  P&L         : Rs+612,855 (+17.51%)
   Drawdown    : 0.00%  (Limit: 10%)
-  Positions   : 6/14
+  Positions   : 9/14
 
-BUY SIGNALS (1)
-  HAL            Score 83/100 | Entry Rs4910.00 | Stop Rs4549.30 | Qty 57 | Capital Rs279,870
+BUY SIGNALS (3)
+  KARURVYSYA     Score 80/100 | Entry Rs345.65 | Stop Rs321.45 | Qty 810 | Capital Rs279,976
+  COFORGE        Score 79/100 | Entry Rs1934.30 | Stop Rs1740.87 | Qty 144 | Capital Rs278,539
+  AUROPHARMA     Score 73/100 | Entry Rs1677.90 | Stop Rs1622.60 | Qty 166 | Capital Rs278,531
 
-WATCHLIST (7)
-  TECHM          Score 66 | Rs1640.00 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  KOTAKBANK      Score 62 | Rs446.45 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
-  ADANIPORTS     Score 61 | Rs1755.10 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  HCLTECH        Score 60 | Rs1368.90 | Score 60 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
-  MOTHERSON      Score 60 | Rs160.79 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment
-  ADANIGREEN     Score 57 | Rs1314.80 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  TRENT          Score 56 | Rs2925.00 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (9)
+  HFCL           Score 68 | Rs243.82 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  TECHM          Score 66 | Rs1650.00 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KOTAKBANK      Score 64 | Rs447.95 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
+  CASTROLIND     Score 64 | Rs196.23 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  MANAPPURAM     Score 62 | Rs323.40 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment
+  HCLTECH        Score 61 | Rs1360.00 | Score 61 -- Stage 3 -- wait for price to cross rising 30W MA, Price below 100/200 DMA -- wait for MA alignment
+  IIFL           Score 60 | Rs598.10 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment
+  ENGINERSIN     Score 60 | Rs277.05 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  FEDERALBNK     Score 57 | Rs335.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment
