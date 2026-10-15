@@ -100,3 +100,5 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-10-08T10:40:39.028405,TORNTPHARM,SELL,61,4617.1,2293.6,0.82,0,"Time stop: 84 sessions, flat (+0.8%)",time,C,PAPER
 2026-10-14T08:47:52.314731,GOLDBEES,SELL,2813,119.7,6554.29,1.99,0,"Time stop: 54 sessions, flat (+2.0%)",time,C,PAPER
 2026-10-14T08:48:14.776698,GOLDBEES,BUY,4385,119.71,70,Regime C hedge -- Gold ETF,etf_hedge,C,PAPER
+2026-10-15T08:23:02.200696,CONFIPET,SELL,3138,82.69,-20491.14,-7.32,0,Stop ₹82.97,stop,B,PAPER
+2026-10-15T08:23:26.910222,HAL,BUY,57,4910.0,82.9,Score 83/100 [GOOD] | Stage 2 | VCP=Yes | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
