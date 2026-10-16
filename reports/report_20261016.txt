@@ -1,30 +1,41 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-16 Oct 2026, 08:15 AM IST
+16 Oct 2026, 02:44 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-1.8%) but below the 200 DMA (-4.4%). Recovery in progress but not confirmed. Key risks: FII flows (+25 Cr) and VIX (13.9). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-1.7%) but below the 200 DMA (-4.3%). Recovery in progress but not confirmed. Key risks: FII flows (+374 Cr) and VIX (14.1). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 13.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -1.8%  [-1.8% below -- caution zone]
-  Nifty vs 200 DMA : -4.4%  [-4.4% below -- confirmed downtrend]
-  FII Net Flow     : Rs+25 Cr  [Marginal buying -- neutral]
+  VIX              : 14.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -1.7%  [-1.7% below -- caution zone]
+  Nifty vs 200 DMA : -4.3%  [-4.3% below -- confirmed downtrend]
+  FII Net Flow     : Rs+374 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
   Total Value : Rs3,777,657
   Cash        : Rs1,031,971
-  P&L         : Rs+631,518 (+18.04%)
+  P&L         : Rs+632,750 (+18.08%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 9/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (6)
-  TECHM          Score 66 | Rs1774.20 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  MOTHERSON      Score 63 | Rs160.41 | Score 63 -- Price below 100/200 DMA -- wait for MA alignment
-  TVSMOTOR       Score 63 | Rs4096.60 | Score 63 -- Price below 100/200 DMA -- wait for MA alignment
-  KOTAKBANK      Score 59 | Rs446.40 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
-  ADANIGREEN     Score 57 | Rs1311.50 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  TRENT          Score 56 | Rs2955.00 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (17)
+  TECHM          Score 65 | Rs1790.00 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PNBHOUSING     Score 65 | Rs1167.70 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CARTRADE       Score 65 | Rs3011.40 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DELTACORP      Score 65 | Rs81.04 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  CHEMCON        Score 64 | Rs219.08 | Score 64 -- MACD bearish -- wait for bullish crossover
+  PERSISTENT     Score 62 | Rs5741.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  NAUKRI         Score 62 | Rs1265.10 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment
+  ARCHIDPLY      Score 62 | Rs104.47 | Score 62 -- MACD bearish -- wait for bullish crossover
+  BALRAMCHIN     Score 61 | Rs721.15 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 61 | Rs1750.80 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  RADICO         Score 60 | Rs4473.40 | Score 60 -- Price below 100/200 DMA -- wait for MA alignment
+  KOTAKBANK      Score 59 | Rs447.40 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
+  NAVINFLUOR     Score 57 | Rs8167.00 | Score 57 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  TANLA          Score 57 | Rs559.65 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  BECTORFOOD     Score 56 | Rs210.49 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
+  DCBBANK        Score 56 | Rs209.77 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DCBBANK        Score 56 | Rs209.77 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
