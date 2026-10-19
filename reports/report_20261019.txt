@@ -1,0 +1,28 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+19 Oct 2026, 08:59 AM IST
+
+MARKET REGIME: C -- Risk Off (Bear Market)
+Nifty is -5.5% below 200 DMA -- confirmed downtrend. FII: Rs+217 Cr. VIX at 14.9. Buying now means catching a falling knife. Capital preservation is the priority.
+Bot action: No new equity entries. Cash preserved. Gold ETF only.
+
+MACRO INDICATORS
+  VIX              : 14.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -2.8%  [-2.8% below -- caution zone]
+  Nifty vs 200 DMA : -5.5%  [-5.5% below -- confirmed downtrend]
+  FII Net Flow     : Rs+217 Cr  [Marginal buying -- neutral]
+
+PORTFOLIO
+  Total Value : Rs3,777,657
+  Cash        : Rs1,031,971
+  P&L         : Rs+625,485 (+17.87%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 9/14
+
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
+
+WATCHLIST (4)
+  TECHM          Score 67 | Rs1764.30 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KOTAKBANK      Score 61 | Rs442.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 61 | Rs1760.60 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  TVSMOTOR       Score 56 | Rs4074.70 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
