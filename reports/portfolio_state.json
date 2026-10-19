@@ -1,5 +1,5 @@
 {
-  "cash": 1031970.5100000008,
+  "cash": 1301122.9100000008,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -113,26 +113,12 @@
       "trail_on": false,
       "trail_high": 0.0,
       "flat_days": 2
-    },
-    {
-      "symbol": "AUROPHARMA",
-      "entry": 1677.9,
-      "qty": 166,
-      "stop": 1622.6,
-      "target1": 1979.92,
-      "target2": 2181.27,
-      "entry_date": "2026-10-15",
-      "score": 72.6,
-      "partial": 0,
-      "trail_on": false,
-      "trail_high": 0.0,
-      "flat_days": 2
     }
   ],
   "watchlist_history": {
     "TECHM": {
       "first_seen": "2026-10-13",
-      "days": 8,
+      "days": 9,
       "prev_score": 60.5,
       "score_history": [
         60.5,
@@ -142,36 +128,79 @@
         66.4,
         66.3,
         65.3,
+        66.8,
         66.8
       ]
     },
     "KOTAKBANK": {
       "first_seen": "2026-10-15",
-      "days": 5,
+      "days": 6,
       "prev_score": 62.3,
       "score_history": [
         62.3,
         63.8,
         59.4,
         59.4,
+        60.9,
         60.9
       ]
     },
     "ADANIPORTS": {
       "first_seen": "2026-10-16",
-      "days": 2,
+      "days": 3,
       "prev_score": 60.8,
       "score_history": [
+        60.8,
         60.8,
         60.8
       ]
     },
-    "TVSMOTOR": {
+    "HFCL": {
+      "first_seen": "2026-10-19",
+      "days": 1,
+      "prev_score": 70.8,
+      "score_history": [
+        70.8
+      ]
+    },
+    "CRISIL": {
       "first_seen": "2026-10-19",
       "days": 1,
       "prev_score": 56.1,
       "score_history": [
         56.1
+      ]
+    },
+    "IIFL": {
+      "first_seen": "2026-10-19",
+      "days": 1,
+      "prev_score": 67.9,
+      "score_history": [
+        67.9
+      ]
+    },
+    "CASTROLIND": {
+      "first_seen": "2026-10-19",
+      "days": 1,
+      "prev_score": 62.6,
+      "score_history": [
+        62.6
+      ]
+    },
+    "FEDERALBNK": {
+      "first_seen": "2026-10-19",
+      "days": 1,
+      "prev_score": 70.4,
+      "score_history": [
+        70.4
+      ]
+    },
+    "MANAPPURAM": {
+      "first_seen": "2026-10-19",
+      "days": 1,
+      "prev_score": 58.2,
+      "score_history": [
+        58.2
       ]
     }
   },

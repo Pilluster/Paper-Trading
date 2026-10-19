@@ -1,28 +1,33 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-19 Oct 2026, 08:59 AM IST
+19 Oct 2026, 04:55 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -5.5% below 200 DMA -- confirmed downtrend. FII: Rs+217 Cr. VIX at 14.9. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -5.3% below 200 DMA -- confirmed downtrend. FII: Rs+155 Cr. VIX at 14.7. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
-  VIX              : 14.9  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -2.8%  [-2.8% below -- caution zone]
-  Nifty vs 200 DMA : -5.5%  [-5.5% below -- confirmed downtrend]
-  FII Net Flow     : Rs+217 Cr  [Marginal buying -- neutral]
+  VIX              : 14.7  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -2.7%  [-2.7% below -- caution zone]
+  Nifty vs 200 DMA : -5.3%  [-5.3% below -- confirmed downtrend]
+  FII Net Flow     : Rs+155 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
-  Total Value : Rs3,777,657
-  Cash        : Rs1,031,971
-  P&L         : Rs+625,485 (+17.87%)
+  Total Value : Rs3,768,278
+  Cash        : Rs1,301,123
+  P&L         : Rs+620,044 (+17.72%)
   Drawdown    : 0.00%  (Limit: 10%)
-  Positions   : 9/14
+  Positions   : 8/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (4)
-  TECHM          Score 67 | Rs1764.30 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  KOTAKBANK      Score 61 | Rs442.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  ADANIPORTS     Score 61 | Rs1760.60 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  TVSMOTOR       Score 56 | Rs4074.70 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (9)
+  HFCL           Score 71 | Rs268.81 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  FEDERALBNK     Score 70 | Rs348.85 | Score 70 -- Ready to buy -- awaiting regime recovery
+  IIFL           Score 68 | Rs612.50 | Score 68 -- Price below 100/200 DMA -- wait for MA alignment
+  TECHM          Score 67 | Rs1779.10 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CASTROLIND     Score 63 | Rs196.79 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  KOTAKBANK      Score 61 | Rs442.30 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 61 | Rs1766.00 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  MANAPPURAM     Score 58 | Rs319.55 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
+  CRISIL         Score 56 | Rs4527.40 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
