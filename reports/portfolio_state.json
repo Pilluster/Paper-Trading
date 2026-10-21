@@ -1,5 +1,5 @@
 {
-  "cash": 1301122.9100000008,
+  "cash": 1412703.4100000008,
   "virtual_capital": 3500000.0,
   "positions": [
     {
@@ -14,21 +14,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 2073.6,
-      "flat_days": 117
-    },
-    {
-      "symbol": "SONACOMS",
-      "entry": 615.95,
-      "qty": 436,
-      "stop": 555.55,
-      "target1": 726.82,
-      "target2": 800.74,
-      "entry_date": "2026-06-23",
-      "score": 81.4,
-      "partial": 2,
-      "trail_on": true,
-      "trail_high": 833.0,
-      "flat_days": 84
+      "flat_days": 119
     },
     {
       "symbol": "DIVISLAB",
@@ -42,7 +28,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9624.0,
-      "flat_days": 68
+      "flat_days": 70
     },
     {
       "symbol": "AEGISLOG",
@@ -56,7 +42,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 22
+      "flat_days": 23
     },
     {
       "symbol": "GOLDBEES",
@@ -70,7 +56,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 3
+      "flat_days": 5
     },
     {
       "symbol": "HAL",
@@ -84,7 +70,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 4
     },
     {
       "symbol": "KARURVYSYA",
@@ -98,7 +84,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 4
     },
     {
       "symbol": "COFORGE",
@@ -112,13 +98,13 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 2
+      "flat_days": 4
     }
   ],
   "watchlist_history": {
     "TECHM": {
       "first_seen": "2026-10-13",
-      "days": 9,
+      "days": 10,
       "prev_score": 60.5,
       "score_history": [
         60.5,
@@ -129,12 +115,13 @@
         66.3,
         65.3,
         66.8,
-        66.8
+        66.8,
+        67.8
       ]
     },
     "KOTAKBANK": {
       "first_seen": "2026-10-15",
-      "days": 6,
+      "days": 7,
       "prev_score": 62.3,
       "score_history": [
         62.3,
@@ -142,65 +129,16 @@
         59.4,
         59.4,
         60.9,
-        60.9
+        60.9,
+        63.4
       ]
     },
-    "ADANIPORTS": {
-      "first_seen": "2026-10-16",
-      "days": 3,
-      "prev_score": 60.8,
-      "score_history": [
-        60.8,
-        60.8,
-        60.8
-      ]
-    },
-    "HFCL": {
-      "first_seen": "2026-10-19",
+    "MPHASIS": {
+      "first_seen": "2026-10-21",
       "days": 1,
-      "prev_score": 70.8,
+      "prev_score": 62.4,
       "score_history": [
-        70.8
-      ]
-    },
-    "CRISIL": {
-      "first_seen": "2026-10-19",
-      "days": 1,
-      "prev_score": 56.1,
-      "score_history": [
-        56.1
-      ]
-    },
-    "IIFL": {
-      "first_seen": "2026-10-19",
-      "days": 1,
-      "prev_score": 67.9,
-      "score_history": [
-        67.9
-      ]
-    },
-    "CASTROLIND": {
-      "first_seen": "2026-10-19",
-      "days": 1,
-      "prev_score": 62.6,
-      "score_history": [
-        62.6
-      ]
-    },
-    "FEDERALBNK": {
-      "first_seen": "2026-10-19",
-      "days": 1,
-      "prev_score": 70.4,
-      "score_history": [
-        70.4
-      ]
-    },
-    "MANAPPURAM": {
-      "first_seen": "2026-10-19",
-      "days": 1,
-      "prev_score": 58.2,
-      "score_history": [
-        58.2
+        62.4
       ]
     }
   },
