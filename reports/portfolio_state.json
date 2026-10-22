@@ -14,7 +14,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 2073.6,
-      "flat_days": 119
+      "flat_days": 120
     },
     {
       "symbol": "DIVISLAB",
@@ -42,7 +42,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 23
+      "flat_days": 24
     },
     {
       "symbol": "GOLDBEES",
@@ -70,7 +70,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 4
+      "flat_days": 5
     },
     {
       "symbol": "KARURVYSYA",
@@ -84,7 +84,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 4
+      "flat_days": 5
     },
     {
       "symbol": "COFORGE",
@@ -98,16 +98,15 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 4
+      "flat_days": 5
     }
   ],
   "watchlist_history": {
     "TECHM": {
       "first_seen": "2026-10-13",
-      "days": 11,
+      "days": 12,
       "prev_score": 60.5,
       "score_history": [
-        60.5,
         56.0,
         65.9,
         66.4,
@@ -116,12 +115,13 @@
         66.8,
         66.8,
         67.8,
-        67.8
+        67.8,
+        63.9
       ]
     },
     "KOTAKBANK": {
       "first_seen": "2026-10-15",
-      "days": 8,
+      "days": 9,
       "prev_score": 62.3,
       "score_history": [
         62.3,
@@ -131,40 +131,34 @@
         60.9,
         60.9,
         63.4,
-        60.9
+        60.9,
+        63.9
       ]
     },
     "MPHASIS": {
       "first_seen": "2026-10-21",
-      "days": 2,
+      "days": 3,
       "prev_score": 62.4,
       "score_history": [
         62.4,
-        62.4
+        62.4,
+        55.5
       ]
     },
-    "GLAND": {
-      "first_seen": "2026-10-21",
+    "LTTS": {
+      "first_seen": "2026-10-22",
       "days": 1,
-      "prev_score": 56.3,
+      "prev_score": 65.3,
       "score_history": [
-        56.3
+        65.3
       ]
     },
-    "NAUKRI": {
-      "first_seen": "2026-10-21",
+    "BAJAJHLDNG": {
+      "first_seen": "2026-10-22",
       "days": 1,
-      "prev_score": 56.1,
+      "prev_score": 61.6,
       "score_history": [
-        56.1
-      ]
-    },
-    "GESHIP": {
-      "first_seen": "2026-10-21",
-      "days": 1,
-      "prev_score": 65.5,
-      "score_history": [
-        65.5
+        61.6
       ]
     }
   },
