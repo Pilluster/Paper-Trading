@@ -1,29 +1,28 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-23 Oct 2026, 08:37 AM IST
+23 Oct 2026, 02:54 PM IST
 
 MARKET REGIME: C -- Risk Off (Bear Market)
-Nifty is -6.5% below 200 DMA -- confirmed downtrend. FII: Rs+2 Cr. VIX at 16.8. Buying now means catching a falling knife. Capital preservation is the priority.
+Nifty is -6.3% below 200 DMA -- confirmed downtrend. FII: Rs-151 Cr. VIX at 16.8. Buying now means catching a falling knife. Capital preservation is the priority.
 Bot action: No new equity entries. Cash preserved. Gold ETF only.
 
 MACRO INDICATORS
   VIX              : 16.8  [Moderate -- normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : -3.6%  [-3.6% below -- confirmed downtrend]
-  Nifty vs 200 DMA : -6.5%  [-6.5% below -- confirmed downtrend]
-  FII Net Flow     : Rs+2 Cr  [Marginal buying -- neutral]
+  Nifty vs 50 DMA  : -3.4%  [-3.4% below -- confirmed downtrend]
+  Nifty vs 200 DMA : -6.3%  [-6.3% below -- confirmed downtrend]
+  FII Net Flow     : Rs-151 Cr  [Marginal selling -- mild caution]
 
 PORTFOLIO
   Total Value : Rs3,582,463
   Cash        : Rs1,662,696
-  P&L         : Rs+275,158 (+7.86%)
+  P&L         : Rs+283,458 (+8.10%)
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 6/14
 
 BUY SIGNALS (0)
   No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (5)
-  TECHM          Score 68 | Rs1795.50 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  LTTS           Score 63 | Rs3922.00 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  BAJAJHLDNG     Score 60 | Rs11160.00 | Score 60 -- Score 60/100 -- need macro improvement or volume surge
-  KOTAKBANK      Score 59 | Rs431.35 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  MPHASIS        Score 58 | Rs2492.40 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (4)
+  TECHM          Score 68 | Rs1790.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  DELTACORP      Score 65 | Rs73.01 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  PERSISTENT     Score 60 | Rs5727.50 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  KOTAKBANK      Score 59 | Rs430.50 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
