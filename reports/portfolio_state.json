@@ -14,7 +14,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 2073.6,
-      "flat_days": 120
+      "flat_days": 122
     },
     {
       "symbol": "DIVISLAB",
@@ -28,7 +28,7 @@
       "partial": 2,
       "trail_on": true,
       "trail_high": 9624.0,
-      "flat_days": 71
+      "flat_days": 73
     },
     {
       "symbol": "GOLDBEES",
@@ -42,7 +42,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 6
+      "flat_days": 8
     },
     {
       "symbol": "HAL",
@@ -56,7 +56,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 5
+      "flat_days": 7
     },
     {
       "symbol": "KARURVYSYA",
@@ -70,7 +70,7 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 5
+      "flat_days": 7
     },
     {
       "symbol": "COFORGE",
@@ -84,16 +84,15 @@
       "partial": 0,
       "trail_on": false,
       "trail_high": 0.0,
-      "flat_days": 5
+      "flat_days": 7
     }
   ],
   "watchlist_history": {
     "TECHM": {
       "first_seen": "2026-10-13",
-      "days": 15,
+      "days": 16,
       "prev_score": 60.5,
       "score_history": [
-        66.3,
         65.3,
         66.8,
         66.8,
@@ -102,15 +101,15 @@
         63.9,
         70.8,
         67.9,
-        68.4
+        68.4,
+        63.4
       ]
     },
     "KOTAKBANK": {
       "first_seen": "2026-10-15",
-      "days": 12,
+      "days": 13,
       "prev_score": 62.3,
       "score_history": [
-        59.4,
         59.4,
         60.9,
         60.9,
@@ -119,23 +118,24 @@
         63.9,
         63.4,
         59.1,
-        58.6
+        58.6,
+        60.5
       ]
     },
-    "PERSISTENT": {
-      "first_seen": "2026-10-23",
+    "LTTS": {
+      "first_seen": "2026-10-26",
       "days": 1,
-      "prev_score": 60.0,
+      "prev_score": 63.8,
       "score_history": [
-        60.0
+        63.8
       ]
     },
-    "DELTACORP": {
-      "first_seen": "2026-10-23",
+    "MPHASIS": {
+      "first_seen": "2026-10-26",
       "days": 1,
-      "prev_score": 65.0,
+      "prev_score": 60.4,
       "score_history": [
-        65.0
+        60.4
       ]
     }
   },
