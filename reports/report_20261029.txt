@@ -1,12 +1,12 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-29 Oct 2026, 10:04 AM IST
+29 Oct 2026, 04:51 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
-Nifty is above the 50 DMA (-1.5%) but below the 200 DMA (-4.7%). Recovery in progress but not confirmed. Key risks: FII flows (-170 Cr) and VIX (15.1). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Nifty is above the 50 DMA (-1.5%) but below the 200 DMA (-4.7%). Recovery in progress but not confirmed. Key risks: FII flows (-170 Cr) and VIX (15.2). Bot enters only high-conviction setups (score >=70) with tighter sizing.
 Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
 
 MACRO INDICATORS
-  VIX              : 15.1  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  VIX              : 15.2  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
   Nifty vs 50 DMA  : -1.5%  [-1.5% below -- caution zone]
   Nifty vs 200 DMA : -4.7%  [-4.7% below -- confirmed downtrend]
   FII Net Flow     : Rs-170 Cr  [Marginal selling -- mild caution]
