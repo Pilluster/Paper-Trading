@@ -1,0 +1,32 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+30 Oct 2026, 10:07 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (-0.9%) but below the 200 DMA (-4.1%). Recovery in progress but not confirmed. Key risks: FII flows (-75 Cr) and VIX (15.3). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 15.3  [Low -- calm market, good for momentum trades]  (Normal: 12-20)
+  Nifty vs 50 DMA  : -0.9%  [-0.9% below -- caution zone]
+  Nifty vs 200 DMA : -4.1%  [-4.1% below -- confirmed downtrend]
+  FII Net Flow     : Rs-75 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,582,463
+  Cash        : Rs1,105,319
+  P&L         : Rs+457,278 (+13.07%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 8/14
+
+BUY SIGNALS (2)
+  NAVINFLUOR     Score 79/100 | Entry Rs8680.00 | Stop Rs8072.40 | Qty 32 | Capital Rs277,760
+  SONACOMS       Score 70/100 | Entry Rs890.50 | Stop Rs828.16 | Qty 314 | Capital Rs279,617
+
+WATCHLIST (7)
+  KOTAKBANK      Score 67 | Rs461.60 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PERSISTENT     Score 65 | Rs6048.00 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  TECHM          Score 64 | Rs1790.80 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ZYDUSLIFE      Score 63 | Rs1245.50 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 59 | Rs1850.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TANLA          Score 59 | Rs627.15 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  VIJAYA         Score 56 | Rs1445.70 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
