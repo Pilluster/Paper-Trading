@@ -110,3 +110,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-10-23T08:37:32.065594,AEGISLOG,SELL,197,1269.0,-28840.8,-10.34,0,Stop ₹1273.86,stop,C,PAPER
 2026-10-30T10:07:52.581415,NAVINFLUOR,BUY,32,8680.0,78.8,Score 79/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime B,0,0,entry,B,PAPER
 2026-10-30T10:07:52.583877,SONACOMS,BUY,314,890.5,70.3,Score 70/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
+2026-11-03T10:58:21.916901,PETRONET,BUY,924,303.0,70.8,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
