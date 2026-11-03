@@ -1,5 +1,5 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-03 Nov 2026, 10:58 AM IST
+03 Nov 2026, 05:42 PM IST
 
 MARKET REGIME: B -- Cautious (Choppy Market)
 Nifty is above the 50 DMA (+2.5%) but below the 200 DMA (-0.9%). Recovery in progress but not confirmed. Key risks: FII flows (+358 Cr) and VIX (15.7). Bot enters only high-conviction setups (score >=70) with tighter sizing.
@@ -18,23 +18,24 @@ PORTFOLIO
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 9/14
 
-BUY SIGNALS (1)
-  PETRONET       Score 71/100 | Entry Rs303.00 | Stop Rs281.79 | Qty 924 | Capital Rs279,972
+BUY SIGNALS (0)
+  No buy signals -- regime C, bot protecting capital in cash.
 
-WATCHLIST (16)
-  ZYDUSLIFE      Score 68 | Rs1240.60 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  PERSISTENT     Score 67 | Rs6097.00 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  TANLA          Score 66 | Rs662.05 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  ADANIPORTS     Score 65 | Rs1866.90 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+WATCHLIST (17)
+  ZYDUSLIFE      Score 69 | Rs1240.60 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PERSISTENT     Score 68 | Rs6097.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  TANLA          Score 67 | Rs662.05 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ADANIPORTS     Score 66 | Rs1866.90 | Score 66 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
   KOTAKBANK      Score 65 | Rs464.65 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
   BHARTIARTL     Score 64 | Rs2065.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  TECHM          Score 62 | Rs1789.10 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  TECHM          Score 63 | Rs1789.10 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
   PHOENIXLTD     Score 62 | Rs2048.70 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  VIJAYA         Score 61 | Rs1447.10 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment
+  VIJAYA         Score 62 | Rs1447.10 | Score 62 -- Price below 100/200 DMA -- wait for MA alignment
   BALRAMCHIN     Score 61 | Rs654.80 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
-  JSWSTEEL       Score 59 | Rs1320.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  JSWSTEEL       Score 60 | Rs1320.00 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
   ASKAUTOLTD     Score 58 | Rs592.95 | Score 58 -- Price below 100/200 DMA -- wait for MA alignment
-  TATACOMM       Score 57 | Rs1759.20 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TATACOMM       Score 58 | Rs1759.20 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
   ICICIBANK      Score 57 | Rs1424.50 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
   AFFLE          Score 57 | Rs1582.90 | Score 57 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  ALLCARGO       Score 55 | Rs9.77 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment
+  ALLCARGO       Score 56 | Rs9.77 | Score 56 -- Price below 100/200 DMA -- wait for MA alignment
+  ARCHIDPLY      Score 55 | Rs95.90 | Score 55 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
