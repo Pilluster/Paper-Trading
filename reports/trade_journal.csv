@@ -113,3 +113,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-11-03T10:58:21.916901,PETRONET,BUY,924,303.0,70.8,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
 2026-11-05T11:01:51.437510,AUROPHARMA,BUY,156,1785.0,76.5,Score 76/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime A,0,0,entry,A,PAPER
 2026-11-05T11:01:51.440042,GLENMARK,BUY,112,2481.8,75.5,Score 76/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime A,0,0,entry,A,PAPER
+2026-11-06T11:00:31.443242,TECHM,BUY,139,1831.0,70.9,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
