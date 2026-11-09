@@ -1,0 +1,44 @@
+AlphaAgent Daily Report [PAPER | AngelOne]
+09 Nov 2026, 11:41 AM IST
+
+MARKET REGIME: B -- Cautious (Choppy Market)
+Nifty is above the 50 DMA (+7.7%) but below the 200 DMA (+4.4%). Recovery in progress but not confirmed. Key risks: FII flows (-142 Cr) and VIX (17.4). Bot enters only high-conviction setups (score >=70) with tighter sizing.
+Bot action: Selective deployment. Score threshold 70. Only Stage 2 + MA stack confirmed. Tighter stops.
+
+MACRO INDICATORS
+  VIX              : 17.4  [Moderate -- normal healthy volatility]  (Normal: 12-20)
+  Nifty vs 50 DMA  : +7.7%  [+7.7% above -- strong uptrend confirmed]
+  Nifty vs 200 DMA : +4.4%  [+4.4% above -- mildly bullish]
+  FII Net Flow     : Rs-142 Cr  [Marginal selling -- mild caution]
+
+PORTFOLIO
+  Total Value : Rs3,582,463
+  Cash        : Rs1,329
+  P&L         : Rs+632,473 (+18.07%)
+  Drawdown    : 0.00%  (Limit: 10%)
+  Positions   : 13/14
+
+BUY SIGNALS (1)
+  APLAPOLLO      Score 71/100 | Entry Rs2181.30 | Stop Rs2028.61 | Qty 6 | Capital Rs13,088
+
+WATCHLIST (20)
+  IPCALAB        Score 70 | Rs1959.70 | Score 70 -- Score 70/100 -- need macro improvement or volume surge
+  APLLTD         Score 69 | Rs1017.30 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  LTTS           Score 67 | Rs4202.20 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KOTAKBANK      Score 67 | Rs479.50 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ADANIPORTS     Score 67 | Rs1942.70 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  IIFL           Score 64 | Rs627.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ICICIBANK      Score 64 | Rs1589.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  LICHSGFIN      Score 64 | Rs551.90 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  LT             Score 63 | Rs4185.00 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  JSWSTEEL       Score 63 | Rs1347.00 | Score 63 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KPRMILL        Score 62 | Rs1154.80 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TITAN          Score 61 | Rs5005.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  ENGINERSIN     Score 61 | Rs299.35 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  CYIENT         Score 61 | Rs1092.60 | Score 61 -- Price below 100/200 DMA -- wait for MA alignment, MACD bearish -- wait for bullish crossover
+  DRREDDY        Score 59 | Rs1385.00 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  BHARTIARTL     Score 59 | Rs2072.10 | Score 59 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  CDSL           Score 58 | Rs1356.00 | Score 58 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  BAJAJ-AUTO     Score 56 | Rs10979.00 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), RSI outside 50-70 zone
+  HCLTECH        Score 56 | Rs1407.00 | Score 56 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  BAJFINANCE     Score 55 | Rs1064.85 | Score 55 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
