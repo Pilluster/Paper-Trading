@@ -117,3 +117,4 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-11-09T11:41:18.169289,APLAPOLLO,BUY,6,2181.3,71.0,Score 71/100 [SPECULATIVE] | Stage 2 | VCP=No | MA=Full stack | Risk 0.8% | Regime B,0,0,entry,B,PAPER
 2026-11-12T11:23:38.789098,HAL,SELL,57,4843.4,-3796.2,-1.36,0,"Time stop: 20 sessions, flat (-1.4%)",time,A,PAPER
 2026-11-12T11:24:01.231495,APLLTD,BUY,251,1047.25,74.0,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime A,0,0,entry,A,PAPER
+2026-11-13T11:07:11.027238,DCBBANK,BUY,59,233.01,82.0,Score 82/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime A,0,0,entry,A,PAPER
