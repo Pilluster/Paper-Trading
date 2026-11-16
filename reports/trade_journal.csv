@@ -118,3 +118,6 @@ datetime,symbol,action,qty,price,realized_pnl,pnl_pct,score,reason,kind,regime,m
 2026-11-12T11:23:38.789098,HAL,SELL,57,4843.4,-3796.2,-1.36,0,"Time stop: 20 sessions, flat (-1.4%)",time,A,PAPER
 2026-11-12T11:24:01.231495,APLLTD,BUY,251,1047.25,74.0,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime A,0,0,entry,A,PAPER
 2026-11-13T11:07:11.027238,DCBBANK,BUY,59,233.01,82.0,Score 82/100 [GOOD] | Stage 2 | VCP=No | MA=Full stack | Risk 2.0% | Regime A,0,0,entry,A,PAPER
+2026-11-16T11:31:59.344534,LAURUSLABS,SELL,78,2220.0,79053.0,84.0,0,Stop ₹2257.68,stop,A,PAPER
+2026-11-16T11:31:59.346849,GOLDBEES,SELL,4385,110.06,-42315.25,-8.06,0,Stop ₹111.33,stop,A,PAPER
+2026-11-16T11:32:19.381489,LICHSGFIN,BUY,462,605.5,73.5,Score 74/100 [STANDARD] | Stage 2 | VCP=No | MA=Full stack | Risk 1.5% | Regime A,0,0,entry,A,PAPER
