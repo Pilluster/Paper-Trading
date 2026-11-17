@@ -188,10 +188,9 @@
   "watchlist_history": {
     "ICICIBANK": {
       "first_seen": "2026-11-03",
-      "days": 18,
+      "days": 19,
       "prev_score": 56.6,
       "score_history": [
-        63.6,
         68.1,
         67.6,
         67.0,
@@ -200,15 +199,15 @@
         62.1,
         63.6,
         62.6,
-        63.6
+        63.6,
+        64.1
       ]
     },
     "JSWSTEEL": {
       "first_seen": "2026-11-03",
-      "days": 18,
+      "days": 19,
       "prev_score": 59.3,
       "score_history": [
-        62.7,
         60.7,
         60.2,
         60.7,
@@ -217,15 +216,15 @@
         59.2,
         60.7,
         59.7,
-        57.1
+        57.1,
+        61.2
       ]
     },
     "BHARTIARTL": {
       "first_seen": "2026-11-03",
-      "days": 18,
+      "days": 19,
       "prev_score": 63.9,
       "score_history": [
-        58.7,
         63.7,
         63.2,
         63.7,
@@ -234,15 +233,15 @@
         62.2,
         69.5,
         62.7,
-        63.7
+        63.7,
+        70.0
       ]
     },
     "LT": {
       "first_seen": "2026-11-05",
-      "days": 15,
+      "days": 16,
       "prev_score": 60.5,
       "score_history": [
-        63.1,
         64.1,
         63.6,
         61.7,
@@ -251,15 +250,15 @@
         59.2,
         60.7,
         59.7,
-        60.7
+        60.7,
+        61.2
       ]
     },
     "BAJFINANCE": {
       "first_seen": "2026-11-06",
-      "days": 13,
+      "days": 14,
       "prev_score": 59.8,
       "score_history": [
-        55.0,
         59.5,
         59.0,
         64.1,
@@ -268,15 +267,15 @@
         60.2,
         60.7,
         60.7,
-        60.7
+        60.7,
+        61.2
       ]
     },
     "DRREDDY": {
       "first_seen": "2026-11-09",
-      "days": 11,
+      "days": 12,
       "prev_score": 59.1,
       "score_history": [
-        59.1,
         61.1,
         60.6,
         61.1,
@@ -285,12 +284,13 @@
         59.6,
         61.1,
         60.1,
-        58.7
+        58.7,
+        61.6
       ]
     },
     "AXISBANK": {
       "first_seen": "2026-11-11",
-      "days": 9,
+      "days": 10,
       "prev_score": 64.5,
       "score_history": [
         64.5,
@@ -301,12 +301,13 @@
         55.0,
         60.1,
         55.5,
-        64.9
+        64.9,
+        60.6
       ]
     },
     "ULTRACEMCO": {
       "first_seen": "2026-11-11",
-      "days": 9,
+      "days": 10,
       "prev_score": 60.7,
       "score_history": [
         60.7,
@@ -317,159 +318,174 @@
         56.7,
         60.7,
         57.2,
-        60.7
+        60.7,
+        61.2
       ]
     },
     "KOTAKBANK": {
       "first_seen": "2026-11-13",
-      "days": 5,
+      "days": 6,
       "prev_score": 67.1,
       "score_history": [
         67.1,
         66.6,
         64.1,
         63.1,
-        64.1
+        64.1,
+        64.6
       ]
     },
     "TITAN": {
       "first_seen": "2026-11-16",
-      "days": 3,
+      "days": 4,
       "prev_score": 56.4,
       "score_history": [
         56.4,
         55.4,
-        56.4
+        56.4,
+        56.9
       ]
     },
     "ADANIPORTS": {
       "first_seen": "2026-11-16",
-      "days": 3,
+      "days": 4,
       "prev_score": 65.5,
       "score_history": [
         65.5,
         68.1,
-        69.1
+        69.1,
+        66.0
       ]
     },
     "VIJAYA": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 58.2,
       "score_history": [
-        58.2
+        58.2,
+        65.0
       ]
     },
     "DELTACORP": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 65.5,
       "score_history": [
-        65.5
+        65.5,
+        61.2
       ]
     },
     "PHOENIXLTD": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 68.1,
       "score_history": [
-        68.1
+        68.1,
+        66.6
       ]
     },
     "BECTORFOOD": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 62.0,
       "score_history": [
-        62.0
-      ]
-    },
-    "DEEPAKFERT": {
-      "first_seen": "2026-11-17",
-      "days": 1,
-      "prev_score": 57.2,
-      "score_history": [
-        57.2
+        62.0,
+        58.0
       ]
     },
     "RADICO": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 63.7,
       "score_history": [
-        63.7
+        63.7,
+        66.6
       ]
     },
     "WELCORP": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 57.0,
       "score_history": [
-        57.0
+        57.0,
+        57.5
       ]
     },
     "PRESTIGE": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 63.7,
       "score_history": [
-        63.7
+        63.7,
+        61.2
       ]
     },
     "ASKAUTOLTD": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 59.4,
       "score_history": [
-        59.4
-      ]
-    },
-    "EICHERMOT": {
-      "first_seen": "2026-11-17",
-      "days": 1,
-      "prev_score": 57.2,
-      "score_history": [
-        57.2
+        59.4,
+        59.9
       ]
     },
     "ZYDUSLIFE": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 59.5,
       "score_history": [
-        59.5
+        59.5,
+        61.8
       ]
     },
     "PERSISTENT": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 58.3,
       "score_history": [
-        58.3
-      ]
-    },
-    "ASIANPAINT": {
-      "first_seen": "2026-11-17",
-      "days": 1,
-      "prev_score": 58.3,
-      "score_history": [
-        58.3
-      ]
-    },
-    "UNIONBANK": {
-      "first_seen": "2026-11-17",
-      "days": 1,
-      "prev_score": 69.1,
-      "score_history": [
-        69.1
+        58.3,
+        58.8
       ]
     },
     "TANLA": {
       "first_seen": "2026-11-17",
-      "days": 1,
+      "days": 2,
       "prev_score": 66.1,
       "score_history": [
-        66.1
+        66.1,
+        66.6
+      ]
+    },
+    "BALRAMCHIN": {
+      "first_seen": "2026-11-17",
+      "days": 1,
+      "prev_score": 59.9,
+      "score_history": [
+        59.9
+      ]
+    },
+    "APOLLOHOSP": {
+      "first_seen": "2026-11-17",
+      "days": 1,
+      "prev_score": 61.1,
+      "score_history": [
+        61.1
+      ]
+    },
+    "TATACOMM": {
+      "first_seen": "2026-11-17",
+      "days": 1,
+      "prev_score": 68.6,
+      "score_history": [
+        68.6
+      ]
+    },
+    "HCLTECH": {
+      "first_seen": "2026-11-17",
+      "days": 1,
+      "prev_score": 58.8,
+      "score_history": [
+        58.8
       ]
     }
   },
