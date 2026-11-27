@@ -1,14 +1,14 @@
 AlphaAgent Daily Report [PAPER | AngelOne]
-27 Nov 2026, 12:33 PM IST
+27 Nov 2026, 07:26 PM IST
 
 MARKET REGIME: A -- Risk On (Bull Market)
-Nifty is above both 50 DMA (+8.2%) and 200 DMA (+6.7%) -- confirmed bull market. Institutional money flowing in (FII: Rs+196 Cr). VIX at 16.7 shows low fear. Ideal environment for momentum trading.
+Nifty is above both 50 DMA (+9.6%) and 200 DMA (+7.8%) -- confirmed bull market. Institutional money flowing in (FII: Rs+196 Cr). VIX at 16.7 shows low fear. Ideal environment for momentum trading.
 Bot action: Full deployment. Score threshold 68. Up to 14 positions. All modes active.
 
 MACRO INDICATORS
   VIX              : 16.7  [Moderate -- normal healthy volatility]  (Normal: 12-20)
-  Nifty vs 50 DMA  : +8.2%  [+8.2% above -- strong uptrend confirmed]
-  Nifty vs 200 DMA : +6.7%  [+6.7% above -- strong uptrend confirmed]
+  Nifty vs 50 DMA  : +9.6%  [+9.6% above -- strong uptrend confirmed]
+  Nifty vs 200 DMA : +7.8%  [+7.8% above -- strong uptrend confirmed]
   FII Net Flow     : Rs+196 Cr  [Marginal buying -- neutral]
 
 PORTFOLIO
@@ -18,28 +18,27 @@ PORTFOLIO
   Drawdown    : 0.00%  (Limit: 10%)
   Positions   : 14/14
 
-BUY SIGNALS (2)
-  UNIONBANK      Score 74/100 | Entry Rs211.10 | Stop Rs196.32 | Qty 1289 | Capital Rs272,108
-  PERSISTENT     Score 72/100 | Entry Rs6320.00 | Stop Rs5877.60 | Qty 43 | Capital Rs271,760
+BUY SIGNALS (1)
+  PRESTIGE       Score 72/100 | Entry Rs1832.10 | Stop Rs1703.85 | Qty 7 | Capital Rs12,825
 
 WATCHLIST (20)
-  ICICIBANK      Score 71 | Rs1593.40 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  KOTAKBANK      Score 71 | Rs500.00 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  PRESTIGE       Score 71 | Rs1796.70 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  PHOENIXLTD     Score 70 | Rs2229.70 | Score 70 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  SONACOMS       Score 69 | Rs879.00 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  TANLA          Score 69 | Rs617.05 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  ASKAUTOLTD     Score 68 | Rs625.55 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  AXISBANK       Score 67 | Rs1380.10 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  TATACONSUM     Score 67 | Rs1155.00 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  BHARTIARTL     Score 65 | Rs2067.90 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
-  SBIN           Score 64 | Rs1123.90 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  ULTRACEMCO     Score 64 | Rs12578.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  APOLLOHOSP     Score 64 | Rs9128.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  RADICO         Score 64 | Rs4646.60 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  VIJAYA         Score 64 | Rs1552.50 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  HDFCBANK       Score 64 | Rs857.25 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  AEGISLOG       Score 64 | Rs1297.90 | Score 64 -- Price below 100/200 DMA -- wait for MA alignment, RSI outside 50-70 zone
-  MM             Score 61 | Rs3450.00 | Score 61 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
-  PNBHOUSING     Score 60 | Rs1162.00 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
-  BALRAMCHIN     Score 60 | Rs675.45 | Score 60 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ICICIBANK      Score 71 | Rs1611.00 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PERSISTENT     Score 71 | Rs6200.00 | Score 71 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  PHOENIXLTD     Score 69 | Rs2291.00 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  AXISBANK       Score 69 | Rs1408.00 | Score 69 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  VIJAYA         Score 68 | Rs1587.10 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  KOTAKBANK      Score 68 | Rs509.95 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ULTRACEMCO     Score 68 | Rs12737.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TATACONSUM     Score 68 | Rs1164.00 | Score 68 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  SONACOMS       Score 67 | Rs881.50 | Score 67 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  SBIN           Score 65 | Rs1136.65 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  APOLLOHOSP     Score 65 | Rs9222.50 | Score 65 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  RADICO         Score 64 | Rs4671.00 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  ASKAUTOLTD     Score 64 | Rs634.85 | Score 64 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions)
+  BHARTIARTL     Score 62 | Rs2102.50 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  BAJFINANCE     Score 62 | Rs1097.85 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  EICHERMOT      Score 62 | Rs8180.00 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  MM             Score 62 | Rs3487.50 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  TANLA          Score 62 | Rs624.70 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), MACD bearish -- wait for bullish crossover
+  ASTERDM        Score 62 | Rs768.30 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
+  SUNPHARMA      Score 62 | Rs1915.70 | Score 62 -- VCP incomplete -- price range still wide, wait for tighter base (3 contractions), Price below 100/200 DMA -- wait for MA alignment
